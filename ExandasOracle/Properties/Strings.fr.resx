@@ -117,58 +117,136 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="B16x16_Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B16x16_Cut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
   </data>
-  <data name="B16x16_Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B16x16_Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Apply" xml:space="preserve">
+    <value>A&amp;ppliquer</value>
   </data>
-  <data name="B16x16_Folder_Inbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B16x16_Folder_Inbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>&amp;Annuler</value>
   </data>
-  <data name="catchuprelease_rls" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\catchuprelease_rls.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Checks" xml:space="preserve">
+    <value>contraintes de vérification</value>
   </data>
-  <data name="f6016_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\f6016_001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ComparisonSetID" xml:space="preserve">
+    <value>ID jeu de comparaison</value>
   </data>
-  <data name="IDIOMATIC" xml:space="preserve">
-    <value>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</value>
+  <data name="ComparisonSetList" xml:space="preserve">
+    <value>Liste des jeux de comparaison</value>
   </data>
-  <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ComparisonSetName" xml:space="preserve">
+    <value>Nom du jeu de comparaison</value>
   </data>
-  <data name="sextant" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sextant.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ConnectionID" xml:space="preserve">
+    <value>ID connexion</value>
+  </data>
+  <data name="ConnectionName" xml:space="preserve">
+    <value>Nom de la connexion</value>
+  </data>
+  <data name="Constraints" xml:space="preserve">
+    <value>contraintes</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>&amp;Fichier</value>
+  </data>
+  <data name="ForeignKeys" xml:space="preserve">
+    <value>clés étrangères</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>&amp;Aide</value>
+  </data>
+  <data name="Host" xml:space="preserve">
+    <value>Hôte</value>
+  </data>
+  <data name="IndexPartitions" xml:space="preserve">
+    <value>partitions d'index</value>
+  </data>
+  <data name="LastReportTime" xml:space="preserve">
+    <value>Dernier rapport</value>
+  </data>
+  <data name="LoadingObjects" xml:space="preserve">
+    <value>Chargement des {0} {1}</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="ObjectInSource" xml:space="preserve">
+    <value>Objet dans source absent en cible</value>
+  </data>
+  <data name="ObjectInTarget" xml:space="preserve">
+    <value>Objet dans cible absent en source</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="PrimaryKeys" xml:space="preserve">
+    <value>clés primaires</value>
+  </data>
+  <data name="PropertyDifference" xml:space="preserve">
+    <value>Différence de propriété</value>
+  </data>
+  <data name="Sequences" xml:space="preserve">
+    <value>séquences</value>
+  </data>
+  <data name="ServerConnections" xml:space="preserve">
+    <value>Connexions serveur</value>
+  </data>
+  <data name="ServerConnectionsList" xml:space="preserve">
+    <value>Liste des connexions serveur</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>source</value>
+  </data>
+  <data name="SourceConnection" xml:space="preserve">
+    <value>Connexion source</value>
+  </data>
+  <data name="Sources" xml:space="preserve">
+    <value>sources</value>
+  </data>
+  <data name="SourceSchema" xml:space="preserve">
+    <value>Schéma source</value>
+  </data>
+  <data name="SourceServerConnection" xml:space="preserve">
+    <value>Connexion serveur source</value>
+  </data>
+  <data name="TableColumns" xml:space="preserve">
+    <value>colonnes de table</value>
+  </data>
+  <data name="TableIndexes" xml:space="preserve">
+    <value>index de table</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>tables</value>
+  </data>
+  <data name="Target" xml:space="preserve">
+    <value>cible</value>
+  </data>
+  <data name="TargetConnection" xml:space="preserve">
+    <value>Connexion cible</value>
+  </data>
+  <data name="TargetSchema" xml:space="preserve">
+    <value>Schéma cible</value>
+  </data>
+  <data name="TargetServerConnection" xml:space="preserve">
+    <value>Connexion serveur cible</value>
+  </data>
+  <data name="Uniques" xml:space="preserve">
+    <value>uniques</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Nom utilisateur</value>
+  </data>
+  <data name="Views" xml:space="preserve">
+    <value>vues</value>
   </data>
 </root>

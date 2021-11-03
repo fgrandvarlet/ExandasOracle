@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ExandasOracle
+namespace ExandasOracle.Components
 {
-    public partial class Form1 : Form
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial class TitlePanel : UserControl
     {
-        public Form1()
+        /// <summary>
+        /// 
+        /// </summary>
+        public TitlePanel()
         {
             InitializeComponent();
         }

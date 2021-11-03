@@ -8,9 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace ExandasOracle.Properties
-{
+namespace ExandasOracle.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
     /// </summary>
@@ -18,52 +19,129 @@ namespace ExandasOracle.Properties
     // à l'aide d'un outil, tel que ResGen ou Visual Studio.
     // Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
     // avec l'option /str ou régénérez votre projet VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExandasOracle.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Remplace la propriété CurrentUICulture du thread actuel pour toutes
         ///   les recherches de ressources à l'aide de cette classe de ressource fortement typée.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap B16x16_Cut {
+            get {
+                object obj = ResourceManager.GetObject("B16x16_Cut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap B16x16_Edit {
+            get {
+                object obj = ResourceManager.GetObject("B16x16_Edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap B16x16_Folder_Inbox {
+            get {
+                object obj = ResourceManager.GetObject("B16x16_Folder_Inbox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap catchuprelease_rls {
+            get {
+                object obj = ResourceManager.GetObject("catchuprelease_rls", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f6016_001 {
+            get {
+                object obj = ResourceManager.GetObject("f6016_001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à fXukP4DdnUYVYp2eaD9nIszssEOl4l62peJMMI2H9C07BOsNB128X059FEoM4XfsWxUmqQiv3PIyGYkB
+        ///782fYYKUcpbDyMLAel1kZfeHA1VFPA0oQXSdXwZkOfrEwiS2uK58KIpIbYyLR8UwB0Rmu4iAsdycwJtw
+        ///9ooijigl4qT3YP5Jw0DVf7c5sBLc3750ADOtL1M5JbmA36HbtfnGFLpvcdUDv8flLpRiy49HZroBoOI5
+        ///tSVrDGnoRXScQgM6zvaVsPUqu5wuafLbYRG22AJQCDmO5vQpfPGBdsZgsupZZYjS0DXtnKkV1dYkst9V
+        ///1X1dWKfkUrVL5SfWyag6bOUHFMYsQErV4Y7j2Qx7WhFxKBcRPc7tJVPxBGFj0vGCmnbKO5mHxDWorpL2
+        ///CZlTSyhUKH1xUC07iJEZixLN2lluijjznSumz47i9CCg6ebs6OlTwaq839svT4Z0M5wARIuJBdaGQBGz
+        ///kPfZKJNxIrF9YgkjCjot [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        internal static string IDIOMATIC {
+            get {
+                return ResourceManager.GetString("IDIOMATIC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh {
+            get {
+                object obj = ResourceManager.GetObject("refresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Icon semblable à (Icône).
+        /// </summary>
+        internal static System.Drawing.Icon sextant {
+            get {
+                object obj = ResourceManager.GetObject("sextant", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }
