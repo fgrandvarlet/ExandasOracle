@@ -47,7 +47,7 @@ namespace ExandasOracle.Forms
             this.fillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fillPanel.Location = new System.Drawing.Point(0, 0);
             this.fillPanel.Name = "fillPanel";
-            this.fillPanel.Padding = new System.Windows.Forms.Padding(16);
+            this.fillPanel.Padding = new System.Windows.Forms.Padding(16, 16, 16, 16);
             this.fillPanel.Size = new System.Drawing.Size(537, 335);
             this.fillPanel.TabIndex = 0;
             // 
@@ -66,7 +66,7 @@ namespace ExandasOracle.Forms
             // versionLabel
             // 
             this.versionLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.versionLabel.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.versionLabel.Font = new System.Drawing.Font("Trebuchet MS", 12F);
             this.versionLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.versionLabel.Location = new System.Drawing.Point(254, 273);
             this.versionLabel.Name = "versionLabel";
@@ -78,7 +78,7 @@ namespace ExandasOracle.Forms
             // titleLabel2
             // 
             this.titleLabel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleLabel2.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.titleLabel2.Font = new System.Drawing.Font("Trebuchet MS", 18F);
             this.titleLabel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.titleLabel2.Location = new System.Drawing.Point(254, 88);
             this.titleLabel2.Name = "titleLabel2";
@@ -90,7 +90,7 @@ namespace ExandasOracle.Forms
             // titleLabel1
             // 
             this.titleLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleLabel1.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.titleLabel1.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Bold);
             this.titleLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.titleLabel1.Location = new System.Drawing.Point(254, 0);
             this.titleLabel1.Name = "titleLabel1";
@@ -116,6 +116,7 @@ namespace ExandasOracle.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 335);
             this.Controls.Add(this.fillPanel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SplashForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

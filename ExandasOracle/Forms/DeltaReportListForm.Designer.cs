@@ -93,7 +93,7 @@ namespace ExandasOracle.Forms
             this.fillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fillPanel.Location = new System.Drawing.Point(0, 52);
             this.fillPanel.Name = "fillPanel";
-            this.fillPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.fillPanel.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.fillPanel.Size = new System.Drawing.Size(800, 325);
             this.fillPanel.TabIndex = 2;
             // 
@@ -105,6 +105,7 @@ namespace ExandasOracle.Forms
             this.Controls.Add(this.fillPanel);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topPanel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "DeltaReportListForm";
             this.Text = "DeltaReportListForm";
             this.Load += new System.EventHandler(this.DeltaReportListForm_Load);

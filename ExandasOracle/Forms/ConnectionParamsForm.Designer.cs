@@ -99,7 +99,7 @@ namespace ExandasOracle.Forms
             this.checkConnectionButton.Location = new System.Drawing.Point(152, 302);
             this.checkConnectionButton.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.checkConnectionButton.Name = "checkConnectionButton";
-            this.checkConnectionButton.Size = new System.Drawing.Size(452, 23);
+            this.checkConnectionButton.Size = new System.Drawing.Size(451, 23);
             this.checkConnectionButton.TabIndex = 18;
             this.checkConnectionButton.Text = "Vérification de la connexion";
             this.checkConnectionButton.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@ namespace ExandasOracle.Forms
             // 
             // portLabel
             // 
-            this.portLabel.Location = new System.Drawing.Point(12, 161);
+            this.portLabel.Location = new System.Drawing.Point(12, 162);
             this.portLabel.Name = "portLabel";
             this.portLabel.Size = new System.Drawing.Size(134, 23);
             this.portLabel.TabIndex = 9;
@@ -217,7 +217,7 @@ namespace ExandasOracle.Forms
             // 
             this.userTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.userTextBox.Location = new System.Drawing.Point(152, 71);
+            this.userTextBox.Location = new System.Drawing.Point(152, 72);
             this.userTextBox.Name = "userTextBox";
             this.userTextBox.Size = new System.Drawing.Size(452, 23);
             this.userTextBox.TabIndex = 3;
@@ -232,7 +232,7 @@ namespace ExandasOracle.Forms
             // 
             // nameLabel
             // 
-            this.nameLabel.Location = new System.Drawing.Point(11, 30);
+            this.nameLabel.Location = new System.Drawing.Point(10, 30);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(135, 23);
             this.nameLabel.TabIndex = 1;
@@ -256,6 +256,7 @@ namespace ExandasOracle.Forms
             this.Controls.Add(this.fillPanel);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topPanel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ConnectionParamsForm";
             this.Text = "ConnectionParamsForm";
             this.Load += new System.EventHandler(this.ConnectionParamsForm_Load);

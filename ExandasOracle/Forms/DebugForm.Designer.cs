@@ -51,7 +51,7 @@ namespace ExandasOracle.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(12, 116);
+            this.listBox1.Location = new System.Drawing.Point(12, 117);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(776, 469);
             this.listBox1.TabIndex = 1;
@@ -74,6 +74,7 @@ namespace ExandasOracle.Forms
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "DebugForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DebugForm";

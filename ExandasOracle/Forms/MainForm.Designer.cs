@@ -131,7 +131,7 @@ namespace ExandasOracle.Forms
             this.fillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fillPanel.Location = new System.Drawing.Point(0, 49);
             this.fillPanel.Name = "fillPanel";
-            this.fillPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.fillPanel.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.fillPanel.Size = new System.Drawing.Size(800, 379);
             this.fillPanel.TabIndex = 3;
             // 
@@ -151,7 +151,7 @@ namespace ExandasOracle.Forms
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.Location = new System.Drawing.Point(8, 8);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Padding = new System.Windows.Forms.Padding(8);
+            this.leftPanel.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.leftPanel.Size = new System.Drawing.Size(195, 363);
             this.leftPanel.TabIndex = 0;
             // 
@@ -161,7 +161,7 @@ namespace ExandasOracle.Forms
             this.flowLayoutPanel1.Controls.Add(this.comparisonSetsLinkLabel);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 8);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(175, 222);
@@ -198,6 +198,7 @@ namespace ExandasOracle.Forms
             this.Controls.Add(this.mainStatusStrip);
             this.Controls.Add(this.mainToolStrip);
             this.Controls.Add(this.mainMenuStrip);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";

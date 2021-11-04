@@ -368,6 +368,42 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<ConstraintColumn> GetConstraintColumnList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<ConstraintColumn>();
+
+            const string root = "SELECT cc.constraint_name, cc.table_name, substr(column_name, 1, 128) column_name, cc.position" +
+                " FROM {0}_cons_columns cc" +
+                " JOIN {0}_constraints c ON cc.owner = c.owner AND cc.table_name = c.table_name AND cc.constraint_name = c.constraint_name" +
+                " WHERE cc.owner = :owner AND c.generated = 'USER NAME'" +
+                " ORDER BY table_name, constraint_name, column_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var cc = new ConstraintColumn();
+                    cc.ConstraintName = (string)dr["constraint_name"];
+                    cc.TableName = (string)dr["table_name"];
+                    cc.ColumnName = (string)dr["column_name"];
+                    cc.Position = dr["position"] is DBNull ? null : (decimal?)dr["position"];
+                    list.Add(cc);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<View> GetViewList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<View>();

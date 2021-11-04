@@ -34,11 +34,11 @@ namespace ExandasOracle.Forms
             this.bottomFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.noButton = new System.Windows.Forms.Button();
             this.yesButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.fillPanel = new System.Windows.Forms.Panel();
             this.progressLabel = new System.Windows.Forms.Label();
             this.mainProgressBar = new System.Windows.Forms.ProgressBar();
             this.mainBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             this.bottomFlowLayoutPanel.SuspendLayout();
             this.fillPanel.SuspendLayout();
@@ -51,7 +51,7 @@ namespace ExandasOracle.Forms
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Padding = new System.Windows.Forms.Padding(16);
+            this.topPanel.Padding = new System.Windows.Forms.Padding(16, 16, 16, 16);
             this.topPanel.Size = new System.Drawing.Size(632, 66);
             this.topPanel.TabIndex = 0;
             // 
@@ -72,7 +72,7 @@ namespace ExandasOracle.Forms
             this.bottomFlowLayoutPanel.Controls.Add(this.cancelButton);
             this.bottomFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.bottomFlowLayoutPanel.Location = new System.Drawing.Point(0, 204);
+            this.bottomFlowLayoutPanel.Location = new System.Drawing.Point(0, 203);
             this.bottomFlowLayoutPanel.Name = "bottomFlowLayoutPanel";
             this.bottomFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 8, 8, 0);
             this.bottomFlowLayoutPanel.Size = new System.Drawing.Size(632, 55);
@@ -98,6 +98,16 @@ namespace ExandasOracle.Forms
             this.yesButton.UseVisualStyleBackColor = true;
             this.yesButton.Click += new System.EventHandler(this.YesButton_Click);
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(369, 11);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(80, 23);
+            this.cancelButton.TabIndex = 2;
+            this.cancelButton.Text = "Annuler";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
             // fillPanel
             // 
             this.fillPanel.BackColor = System.Drawing.SystemColors.Window;
@@ -106,8 +116,8 @@ namespace ExandasOracle.Forms
             this.fillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fillPanel.Location = new System.Drawing.Point(0, 66);
             this.fillPanel.Name = "fillPanel";
-            this.fillPanel.Padding = new System.Windows.Forms.Padding(16);
-            this.fillPanel.Size = new System.Drawing.Size(632, 138);
+            this.fillPanel.Padding = new System.Windows.Forms.Padding(16, 16, 16, 16);
+            this.fillPanel.Size = new System.Drawing.Size(632, 137);
             this.fillPanel.TabIndex = 2;
             // 
             // progressLabel
@@ -136,24 +146,15 @@ namespace ExandasOracle.Forms
             this.mainBackgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.MainBackgroundWorker_ProgressChanged);
             this.mainBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.MainBackgroundWorker_RunWorkerCompleted);
             // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(369, 11);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(80, 23);
-            this.cancelButton.TabIndex = 2;
-            this.cancelButton.Text = "Annuler";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
             // ProgressForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 259);
+            this.ClientSize = new System.Drawing.Size(632, 258);
             this.Controls.Add(this.fillPanel);
             this.Controls.Add(this.bottomFlowLayoutPanel);
             this.Controls.Add(this.topPanel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ProgressForm";
             this.Text = "ProgressForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProgressForm_FormClosing);

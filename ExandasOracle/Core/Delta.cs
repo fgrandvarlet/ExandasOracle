@@ -42,12 +42,12 @@ namespace ExandasOracle.Core
             {
                 { Strings.Tables, DeltaTable },
                 { Strings.TableColumns, DeltaTableColumn },
+                
                 { Strings.PrimaryKeys, DeltaPrimaryKey },
-
                 { Strings.Uniques, DeltaUnique },
                 { Strings.ForeignKeys, DeltaForeignKey },
                 { Strings.Checks, DeltaCheck },
-                //{ Strings.Constraints, LoadConstraints },
+                { Strings.Constraints, DeltaConstraint },
 
                 { Strings.Sequences, DeltaSequence },
                 { Strings.TableIndexes, DeltaTableIndex },

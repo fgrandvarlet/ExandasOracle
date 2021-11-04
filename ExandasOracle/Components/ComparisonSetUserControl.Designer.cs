@@ -48,23 +48,23 @@ namespace ExandasOracle.Components
             // 
             // connectionLabel
             // 
-            this.connectionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.connectionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.connectionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.connectionLabel.Location = new System.Drawing.Point(11, 16);
+            this.connectionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.connectionLabel.Location = new System.Drawing.Point(10, 16);
             this.connectionLabel.Name = "connectionLabel";
-            this.connectionLabel.Size = new System.Drawing.Size(284, 23);
+            this.connectionLabel.Size = new System.Drawing.Size(283, 23);
             this.connectionLabel.TabIndex = 0;
             this.connectionLabel.Text = "connectionLabel";
             // 
             // connectionComboBox
             // 
-            this.connectionComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.connectionComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.connectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.connectionComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.connectionComboBox.FormattingEnabled = true;
-            this.connectionComboBox.Location = new System.Drawing.Point(11, 42);
+            this.connectionComboBox.Location = new System.Drawing.Point(10, 42);
             this.connectionComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.connectionComboBox.Name = "connectionComboBox";
             this.connectionComboBox.Size = new System.Drawing.Size(284, 23);
@@ -72,7 +72,7 @@ namespace ExandasOracle.Components
             // 
             // userTextBox
             // 
-            this.userTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.userTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userTextBox.Location = new System.Drawing.Point(127, 88);
             this.userTextBox.Name = "userTextBox";
@@ -82,7 +82,7 @@ namespace ExandasOracle.Components
             // 
             // userLabel
             // 
-            this.userLabel.Location = new System.Drawing.Point(11, 91);
+            this.userLabel.Location = new System.Drawing.Point(10, 91);
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(110, 23);
             this.userLabel.TabIndex = 3;
@@ -90,7 +90,7 @@ namespace ExandasOracle.Components
             // 
             // hostLabel
             // 
-            this.hostLabel.Location = new System.Drawing.Point(11, 120);
+            this.hostLabel.Location = new System.Drawing.Point(10, 120);
             this.hostLabel.Name = "hostLabel";
             this.hostLabel.Size = new System.Drawing.Size(110, 23);
             this.hostLabel.TabIndex = 4;
@@ -98,7 +98,7 @@ namespace ExandasOracle.Components
             // 
             // hostTextBox
             // 
-            this.hostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.hostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hostTextBox.Location = new System.Drawing.Point(127, 117);
             this.hostTextBox.Name = "hostTextBox";
@@ -108,7 +108,7 @@ namespace ExandasOracle.Components
             // 
             // portLabel
             // 
-            this.portLabel.Location = new System.Drawing.Point(11, 149);
+            this.portLabel.Location = new System.Drawing.Point(10, 149);
             this.portLabel.Name = "portLabel";
             this.portLabel.Size = new System.Drawing.Size(110, 23);
             this.portLabel.TabIndex = 6;
@@ -116,9 +116,9 @@ namespace ExandasOracle.Components
             // 
             // portTextBox
             // 
-            this.portTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.portTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.portTextBox.Location = new System.Drawing.Point(127, 146);
+            this.portTextBox.Location = new System.Drawing.Point(127, 147);
             this.portTextBox.Name = "portTextBox";
             this.portTextBox.ReadOnly = true;
             this.portTextBox.Size = new System.Drawing.Size(168, 23);
@@ -126,7 +126,7 @@ namespace ExandasOracle.Components
             // 
             // SIDTextBox
             // 
-            this.SIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.SIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SIDTextBox.Location = new System.Drawing.Point(127, 175);
             this.SIDTextBox.Name = "SIDTextBox";
@@ -138,7 +138,7 @@ namespace ExandasOracle.Components
             // 
             this.SIDRadioButton.AutoSize = true;
             this.SIDRadioButton.Enabled = false;
-            this.SIDRadioButton.Location = new System.Drawing.Point(11, 176);
+            this.SIDRadioButton.Location = new System.Drawing.Point(10, 177);
             this.SIDRadioButton.Name = "SIDRadioButton";
             this.SIDRadioButton.Size = new System.Drawing.Size(42, 19);
             this.SIDRadioButton.TabIndex = 9;
@@ -150,7 +150,7 @@ namespace ExandasOracle.Components
             // 
             this.serviceRadioButton.AutoSize = true;
             this.serviceRadioButton.Enabled = false;
-            this.serviceRadioButton.Location = new System.Drawing.Point(11, 205);
+            this.serviceRadioButton.Location = new System.Drawing.Point(10, 205);
             this.serviceRadioButton.Name = "serviceRadioButton";
             this.serviceRadioButton.Size = new System.Drawing.Size(107, 19);
             this.serviceRadioButton.TabIndex = 10;
@@ -160,7 +160,7 @@ namespace ExandasOracle.Components
             // 
             // serviceTextBox
             // 
-            this.serviceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.serviceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.serviceTextBox.Location = new System.Drawing.Point(127, 204);
             this.serviceTextBox.Name = "serviceTextBox";
@@ -185,7 +185,7 @@ namespace ExandasOracle.Components
             // 
             // schemaTextBox
             // 
-            this.schemaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.schemaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.schemaTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.schemaTextBox.Location = new System.Drawing.Point(127, 276);
@@ -196,7 +196,7 @@ namespace ExandasOracle.Components
             // 
             // schemaLabel
             // 
-            this.schemaLabel.Location = new System.Drawing.Point(11, 279);
+            this.schemaLabel.Location = new System.Drawing.Point(10, 279);
             this.schemaLabel.Name = "schemaLabel";
             this.schemaLabel.Size = new System.Drawing.Size(110, 23);
             this.schemaLabel.TabIndex = 14;
@@ -221,6 +221,7 @@ namespace ExandasOracle.Components
             this.Controls.Add(this.userTextBox);
             this.Controls.Add(this.connectionComboBox);
             this.Controls.Add(this.connectionLabel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ComparisonSetUserControl";
             this.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
             this.Size = new System.Drawing.Size(306, 313);

@@ -45,7 +45,7 @@ namespace ExandasOracle.Components
             // titleLabel
             // 
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.titleLabel.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.Cornsilk;
             this.titleLabel.Location = new System.Drawing.Point(0, 0);
             this.titleLabel.Name = "titleLabel";
@@ -63,6 +63,7 @@ namespace ExandasOracle.Components
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.bottomLineLabel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TitlePanel";
             this.Size = new System.Drawing.Size(225, 67);
             this.ResumeLayout(false);

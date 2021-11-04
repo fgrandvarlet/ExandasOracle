@@ -7,9 +7,6 @@ using ExandasOracle.Domain;
 
 namespace ExandasOracle.Dao
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public interface IRemoteDao
     {
         bool CheckConnection(bool DBAViews);
@@ -29,6 +26,8 @@ namespace ExandasOracle.Dao
         List<Check> GetCheckList(OracleConnection conn, string schema, bool DBAViews);
 
         List<Constraint> GetConstraintList(OracleConnection conn, string schema, bool DBAViews);
+
+        List<ConstraintColumn> GetConstraintColumnList(OracleConnection conn, string schema, bool DBAViews);
 
         List<View> GetViewList(OracleConnection conn, string schema, bool DBAViews);
 

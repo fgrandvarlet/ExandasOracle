@@ -86,6 +86,7 @@ namespace ExandasOracle.Components
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.commandFlowLayoutPanel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "BottomCommandPanel";
             this.Size = new System.Drawing.Size(456, 44);
             this.commandFlowLayoutPanel.ResumeLayout(false);

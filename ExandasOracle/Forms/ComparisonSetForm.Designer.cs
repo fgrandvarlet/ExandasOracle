@@ -60,9 +60,9 @@ namespace ExandasOracle.Forms
             // bottomPanel
             // 
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomPanel.Location = new System.Drawing.Point(0, 569);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 570);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(885, 49);
+            this.bottomPanel.Size = new System.Drawing.Size(885, 48);
             this.bottomPanel.TabIndex = 1;
             // 
             // fillPanel
@@ -74,7 +74,7 @@ namespace ExandasOracle.Forms
             this.fillPanel.Location = new System.Drawing.Point(0, 52);
             this.fillPanel.Name = "fillPanel";
             this.fillPanel.Padding = new System.Windows.Forms.Padding(8, 24, 16, 0);
-            this.fillPanel.Size = new System.Drawing.Size(885, 517);
+            this.fillPanel.Size = new System.Drawing.Size(885, 518);
             this.fillPanel.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -85,45 +85,47 @@ namespace ExandasOracle.Forms
             this.tableLayoutPanel1.Controls.Add(this.comparisonSetUserControl1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comparisonSetUserControl2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 88);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 87);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 339);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 341);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // comparisonSetUserControl1
             // 
             this.comparisonSetUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.comparisonSetUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comparisonSetUserControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comparisonSetUserControl1.Location = new System.Drawing.Point(3, 3);
             this.comparisonSetUserControl1.Name = "comparisonSetUserControl1";
             this.comparisonSetUserControl1.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
-            this.comparisonSetUserControl1.Size = new System.Drawing.Size(424, 333);
+            this.comparisonSetUserControl1.Size = new System.Drawing.Size(424, 335);
             this.comparisonSetUserControl1.TabIndex = 0;
             // 
             // comparisonSetUserControl2
             // 
             this.comparisonSetUserControl2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.comparisonSetUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comparisonSetUserControl2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comparisonSetUserControl2.Location = new System.Drawing.Point(433, 3);
             this.comparisonSetUserControl2.Name = "comparisonSetUserControl2";
             this.comparisonSetUserControl2.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
-            this.comparisonSetUserControl2.Size = new System.Drawing.Size(425, 333);
+            this.comparisonSetUserControl2.Size = new System.Drawing.Size(425, 335);
             this.comparisonSetUserControl2.TabIndex = 1;
             // 
             // innerBottomPanel
             // 
             this.innerBottomPanel.Controls.Add(this.generateReportButton);
             this.innerBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.innerBottomPanel.Location = new System.Drawing.Point(8, 427);
+            this.innerBottomPanel.Location = new System.Drawing.Point(8, 428);
             this.innerBottomPanel.Name = "innerBottomPanel";
             this.innerBottomPanel.Size = new System.Drawing.Size(861, 90);
             this.innerBottomPanel.TabIndex = 1;
             // 
             // generateReportButton
             // 
-            this.generateReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.generateReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.generateReportButton.Image = global::ExandasOracle.Properties.Resources.catchuprelease_rls;
             this.generateReportButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -147,16 +149,16 @@ namespace ExandasOracle.Forms
             this.innerTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.innerTopPanel.Location = new System.Drawing.Point(8, 24);
             this.innerTopPanel.Name = "innerTopPanel";
-            this.innerTopPanel.Size = new System.Drawing.Size(861, 64);
+            this.innerTopPanel.Size = new System.Drawing.Size(861, 63);
             this.innerTopPanel.TabIndex = 0;
             // 
             // lastReportTimeTextBox
             // 
-            this.lastReportTimeTextBox.Location = new System.Drawing.Point(186, 29);
+            this.lastReportTimeTextBox.Location = new System.Drawing.Point(185, 29);
             this.lastReportTimeTextBox.MaxLength = 64;
             this.lastReportTimeTextBox.Name = "lastReportTimeTextBox";
             this.lastReportTimeTextBox.ReadOnly = true;
-            this.lastReportTimeTextBox.Size = new System.Drawing.Size(200, 23);
+            this.lastReportTimeTextBox.Size = new System.Drawing.Size(240, 23);
             this.lastReportTimeTextBox.TabIndex = 4;
             // 
             // lastReportTimeLabel
@@ -170,7 +172,7 @@ namespace ExandasOracle.Forms
             // deltaReportButton
             // 
             this.deltaReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.deltaReportButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.deltaReportButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.deltaReportButton.Location = new System.Drawing.Point(618, 28);
             this.deltaReportButton.Name = "deltaReportButton";
             this.deltaReportButton.Size = new System.Drawing.Size(240, 23);
@@ -181,9 +183,9 @@ namespace ExandasOracle.Forms
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameTextBox.Location = new System.Drawing.Point(186, 0);
+            this.nameTextBox.Location = new System.Drawing.Point(185, 0);
             this.nameTextBox.MaxLength = 64;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(672, 23);
@@ -205,6 +207,7 @@ namespace ExandasOracle.Forms
             this.Controls.Add(this.fillPanel);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topPanel);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ComparisonSetForm";
             this.Text = "ComparisonSetForm";
             this.Load += new System.EventHandler(this.ComparisonSetForm_Load);
