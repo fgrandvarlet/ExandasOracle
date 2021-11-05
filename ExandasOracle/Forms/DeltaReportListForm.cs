@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using ExandasOracle.Components;
+using ExandasOracle.Core;
 using ExandasOracle.Domain;
+using ExandasOracle.Properties;
 
 namespace ExandasOracle.Forms
 {
@@ -17,7 +15,8 @@ namespace ExandasOracle.Forms
     public partial class DeltaReportListForm : Form
     {
         ComparisonSet _comparisonSet;
-        DeltaReportListPanel _deltaReportListPanel;
+        DeltaReportListPanel deltaReportListPanel;
+        TitlePanel titlePanel;
 
         /// <summary>
         /// 
@@ -27,7 +26,9 @@ namespace ExandasOracle.Forms
         {
             InitializeComponent();
 
-            this.Size = new Size(1280, 820);
+            Rectangle resolution = Screen.PrimaryScreen.Bounds;
+            this.Size = new Size(resolution.Width - 80, resolution.Height - 80);
+
             this.StartPosition = FormStartPosition.CenterParent;
             this.MinimizeBox = false;
             this.AcceptButton = this.doOkButton;
@@ -44,9 +45,24 @@ namespace ExandasOracle.Forms
         /// <param name="e"></param>
         private void DeltaReportListForm_Load(object sender, EventArgs e)
         {
-            this._deltaReportListPanel = new DeltaReportListPanel(this._comparisonSet);
-            fillPanel.Controls.Add(this._deltaReportListPanel);
-            this._deltaReportListPanel.Dock = DockStyle.Fill;
+            this.Text = Defs.APPLICATION_TITLE;
+
+            titlePanel = new TitlePanel();
+            titlePanel.Parent = topPanel;
+            titlePanel.Dock = DockStyle.Fill;
+            topPanel.Height = 48;
+            titlePanel.titleLabel.Text = Strings.ComparisonReport;
+            
+            deltaReportListPanel = new DeltaReportListPanel(this._comparisonSet);
+            fillPanel.Controls.Add(deltaReportListPanel);
+            deltaReportListPanel.Dock = DockStyle.Fill;
+
+            var lastReportTimeText = "";
+            if (_comparisonSet.LastReportTime.HasValue)
+            {
+                lastReportTimeText = string.Format("[{0}]", _comparisonSet.LastReportTime.Value.ToString("f"));
+            }
+            deltaReportListPanel.titleLabel.Text = string.Format("{0} {1}", _comparisonSet.Name, lastReportTimeText);
         }
     }
 }

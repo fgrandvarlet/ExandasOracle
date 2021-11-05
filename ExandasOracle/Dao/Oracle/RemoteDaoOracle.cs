@@ -41,6 +41,7 @@ namespace ExandasOracle.Dao.Oracle
                         }
                         catch (Exception)
                         {
+                            // TODO LOCALISER
                             throw new ApplicationException("Impossible d'accéder aux vues DBA");
                         }
                     }
@@ -68,7 +69,10 @@ namespace ExandasOracle.Dao.Oracle
         {
             var list = new List<Table>();
 
-            const string root = "SELECT table_name, tablespace_name FROM {0}_tables WHERE owner = :owner ORDER BY table_name";
+            const string root = "SELECT table_name, tablespace_name, cluster_name, iot_name, status, logging, degree, partitioned," +
+                " iot_type, temporary, nested, duration, cluster_owner, compression, compress_for, dropped, read_only, clustering," +
+                " has_identity, container_data, default_collation, external" +
+                " FROM {0}_tables WHERE owner = :owner ORDER BY table_name";
             string sql = string.Format(root, GetPrefix(DBAViews));
             
             var cmd = new OracleCommand(sql, conn);
@@ -81,6 +85,26 @@ namespace ExandasOracle.Dao.Oracle
                     var ta = new Table();
                     ta.TableName = (string)dr["table_name"];
                     ta.TablespaceName = dr["tablespace_name"] is DBNull ? null : (string)dr["tablespace_name"];
+                    ta.ClusterName = dr["cluster_name"] is DBNull ? null : (string)dr["cluster_name"];
+                    ta.IOTName = dr["iot_name"] is DBNull ? null : (string)dr["iot_name"];
+                    ta.Status = dr["status"] is DBNull ? null : (string)dr["status"];
+                    ta.Logging = dr["logging"] is DBNull ? null : (string)dr["logging"];
+                    ta.Degree = dr["degree"] is DBNull ? null : (string)dr["degree"];
+                    ta.Partitioned = dr["partitioned"] is DBNull ? null : (string)dr["partitioned"];
+                    ta.IOTType = dr["iot_type"] is DBNull ? null : (string)dr["iot_type"];
+                    ta.Temporary = dr["temporary"] is DBNull ? null : (string)dr["temporary"];
+                    ta.Nested = dr["nested"] is DBNull ? null : (string)dr["nested"];
+                    ta.Duration = dr["duration"] is DBNull ? null : (string)dr["duration"];
+                    ta.ClusterOwner = dr["cluster_owner"] is DBNull ? null : (string)dr["cluster_owner"];
+                    ta.Compression = dr["compression"] is DBNull ? null : (string)dr["compression"];
+                    ta.CompressFor = dr["compress_for"] is DBNull ? null : (string)dr["compress_for"];
+                    ta.Dropped = dr["dropped"] is DBNull ? null : (string)dr["dropped"];
+                    ta.ReadOnly = dr["read_only"] is DBNull ? null : (string)dr["read_only"];
+                    ta.Clustering = dr["clustering"] is DBNull ? null : (string)dr["clustering"];
+                    ta.HasIdentity = dr["has_identity"] is DBNull ? null : (string)dr["has_identity"];
+                    ta.ContainerData = dr["container_data"] is DBNull ? null : (string)dr["container_data"];
+                    ta.DefaultCollation = dr["default_collation"] is DBNull ? null : (string)dr["default_collation"];
+                    ta.External = dr["external"] is DBNull ? null : (string)dr["external"];
                     list.Add(ta);
                 }
             }

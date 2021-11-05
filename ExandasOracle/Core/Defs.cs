@@ -15,7 +15,7 @@ namespace ExandasOracle.Core
 		internal const string TEXT_VALIDATING_ERROR = "Erreur de validation des données du formulaire.";
 		internal const string CAPTION_ATTENTION = "Attention";
 		internal const string CAPTION_ERROR = "Erreur Exandas.Oracle";
-		internal const string FORM_TEXT_EXANDAS_ORACLE = "Exandas.Oracle";
+		internal const string APPLICATION_TITLE = "Exandas - Oracle";
 
 		// TODO ? internal const string REPORT_DIRECTORY = "Rapports";
 

@@ -32,7 +32,7 @@ namespace ExandasOracle.Components
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exportExcelButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.fillPanel = new System.Windows.Forms.Panel();
             this.mainDataGridView = new System.Windows.Forms.DataGridView();
@@ -52,24 +52,25 @@ namespace ExandasOracle.Components
             // 
             // topPanel
             // 
-            this.topPanel.Controls.Add(this.button1);
+            this.topPanel.Controls.Add(this.exportExcelButton);
             this.topPanel.Controls.Add(this.titleLabel);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(559, 75);
+            this.topPanel.Size = new System.Drawing.Size(559, 60);
             this.topPanel.TabIndex = 1;
             // 
-            // button1
+            // exportExcelButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(481, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.exportExcelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exportExcelButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportExcelButton.Location = new System.Drawing.Point(376, 26);
+            this.exportExcelButton.Name = "exportExcelButton";
+            this.exportExcelButton.Size = new System.Drawing.Size(180, 23);
+            this.exportExcelButton.TabIndex = 1;
+            this.exportExcelButton.Text = "Exporter au format Excel";
+            this.exportExcelButton.UseVisualStyleBackColor = true;
+            this.exportExcelButton.Click += new System.EventHandler(this.Button1_Click);
             // 
             // titleLabel
             // 
@@ -88,9 +89,9 @@ namespace ExandasOracle.Components
             this.fillPanel.Controls.Add(this.mainDataGridView);
             this.fillPanel.Controls.Add(this.actionToolStrip);
             this.fillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fillPanel.Location = new System.Drawing.Point(0, 75);
+            this.fillPanel.Location = new System.Drawing.Point(0, 60);
             this.fillPanel.Name = "fillPanel";
-            this.fillPanel.Size = new System.Drawing.Size(559, 212);
+            this.fillPanel.Size = new System.Drawing.Size(559, 227);
             this.fillPanel.TabIndex = 2;
             // 
             // mainDataGridView
@@ -115,7 +116,7 @@ namespace ExandasOracle.Components
             this.mainDataGridView.ReadOnly = true;
             this.mainDataGridView.RowTemplate.Height = 25;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(559, 187);
+            this.mainDataGridView.Size = new System.Drawing.Size(559, 202);
             this.mainDataGridView.TabIndex = 1;
             // 
             // actionToolStrip
@@ -218,7 +219,6 @@ namespace ExandasOracle.Components
         #endregion
 
         private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Panel fillPanel;
         private System.Windows.Forms.DataGridView mainDataGridView;
         private System.Windows.Forms.ToolStrip actionToolStrip;
@@ -229,6 +229,7 @@ namespace ExandasOracle.Components
         private System.Windows.Forms.ToolStripComboBox lookupToolStripComboBox;
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.Timer lookupTimer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exportExcelButton;
+        public System.Windows.Forms.Label titleLabel;
     }
 }

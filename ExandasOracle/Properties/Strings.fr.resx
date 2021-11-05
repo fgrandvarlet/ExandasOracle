@@ -129,6 +129,9 @@
   <data name="Checks" xml:space="preserve">
     <value>contraintes de vérification</value>
   </data>
+  <data name="ComparisonReport" xml:space="preserve">
+    <value>Rapport de comparaison</value>
+  </data>
   <data name="ComparisonSetID" xml:space="preserve">
     <value>ID jeu de comparaison</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="ComparisonSetName" xml:space="preserve">
     <value>Nom du jeu de comparaison</value>
+  </data>
+  <data name="ComparisonSets" xml:space="preserve">
+    <value>Jeux de comparaison</value>
   </data>
   <data name="ConnectionID" xml:space="preserve">
     <value>ID connexion</value>
@@ -194,6 +200,9 @@
   </data>
   <data name="Sequences" xml:space="preserve">
     <value>séquences</value>
+  </data>
+  <data name="ServerConnectionDetail" xml:space="preserve">
+    <value>Détail connexion serveur</value>
   </data>
   <data name="ServerConnections" xml:space="preserve">
     <value>Connexions serveur</value>

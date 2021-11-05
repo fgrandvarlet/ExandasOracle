@@ -67,6 +67,7 @@ namespace ExandasOracle.Forms
             fileToolStripMenuItem.Text = Strings.File;
             helpToolStripMenuItem.Text = Strings.Help;
             connectionsLinkLabel.Text = Strings.ServerConnections;
+            comparisonSetsLinkLabel.Text = Strings.ComparisonSets;
 
             Thread.Sleep(3000);
         }
@@ -108,7 +109,7 @@ namespace ExandasOracle.Forms
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Text = Defs.FORM_TEXT_EXANDAS_ORACLE;
+            Text = Defs.APPLICATION_TITLE;
             try
             {
                 DaoFactory.Instance.Initialization();

@@ -59,13 +59,13 @@ namespace ExandasOracle.Forms
         /// <param name="e"></param>
         private void ConnectionParamsForm_Load(object sender, EventArgs e)
         {
-            Text = Defs.TITLE_FORM_CONNECTION_PARAMS;
+            Text = Defs.APPLICATION_TITLE;
 
             titlePanel = new TitlePanel();
             titlePanel.Parent = topPanel;
             titlePanel.Dock = DockStyle.Fill;
             topPanel.Height = 62;
-            titlePanel.titleLabel.Text = Defs.TITLE_FORM_CONNECTION_PARAMS;
+            titlePanel.titleLabel.Text = Strings.ServerConnectionDetail;
 
             bottomCommandPanel = new BottomCommandPanel(this);
             bottomCommandPanel.Parent = bottomPanel;

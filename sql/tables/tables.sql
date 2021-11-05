@@ -52,3 +52,9 @@ CREATE TABLE tgt_tables
     external varchar(3),
     CONSTRAINT pk_tgt_tables PRIMARY KEY (table_name)
 );
+
+
+table_name, tablespace_name, cluster_name, iot_name, status, logging, degree, partitioned,
+iot_type, temporary, nested, duration, cluster_owner, compression, compress_for, dropped, read_only, clustering,
+has_identity, container_data, default_collation, external
+

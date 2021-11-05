@@ -392,12 +392,14 @@ namespace ExandasOracle.Forms
                     var dialogResult = frm.ShowDialog(this);
                     if (dialogResult == DialogResult.Yes)
                     {
+                        // mise à jour de la date du dernier rapport de comparaison dans le formulaire
+                        var cs = DaoFactory.Instance.GetComparisonSetDao().Get(this._comparisonSet.Uid);
+                        lastReportTimeTextBox.Text = cs.LastReportTime.Value.ToString("f");
+                        this._comparisonSet.LastReportTime = cs.LastReportTime;
+
                         using (var frmResult = new DeltaReportListForm(this._comparisonSet))
                         {
                             frmResult.ShowDialog(this);
-                            // mise à jour de la date du dernier rapport de comparaison dans le formulaire
-                            var cs = DaoFactory.Instance.GetComparisonSetDao().Get(this._comparisonSet.Uid);
-                            lastReportTimeTextBox.Text = cs.LastReportTime.Value.ToString("f");
                         }
                     }
                 }

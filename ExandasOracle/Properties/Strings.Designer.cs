@@ -97,6 +97,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Comparison report.
+        /// </summary>
+        internal static string ComparisonReport {
+            get {
+                return ResourceManager.GetString("ComparisonReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Comparison set ID.
         /// </summary>
         internal static string ComparisonSetID {
@@ -120,6 +129,15 @@ namespace ExandasOracle.Properties {
         internal static string ComparisonSetName {
             get {
                 return ResourceManager.GetString("ComparisonSetName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Comparison sets.
+        /// </summary>
+        internal static string ComparisonSets {
+            get {
+                return ResourceManager.GetString("ComparisonSets", resourceCulture);
             }
         }
         
@@ -291,6 +309,15 @@ namespace ExandasOracle.Properties {
         internal static string Sequences {
             get {
                 return ResourceManager.GetString("Sequences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Server connection detail.
+        /// </summary>
+        internal static string ServerConnectionDetail {
+            get {
+                return ResourceManager.GetString("ServerConnectionDetail", resourceCulture);
             }
         }
         
