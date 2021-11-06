@@ -13,9 +13,6 @@ namespace ExandasOracle.Core
     /// </summary>
     public partial class Delta
     {
-        // TODO EN COURS LE 15/10/2021
-        // Delta.Table, Delta.Index, Delta.ForeignKey, etc.
-
         private readonly ComparisonSet _comparisonSet;
         private readonly Dictionary<string, DeltaDelegate> _deltaDictionary;
         private readonly int _totalOperationCount;
@@ -42,7 +39,9 @@ namespace ExandasOracle.Core
             {
                 { Strings.Tables, DeltaTable },
                 { Strings.TableColumns, DeltaTableColumn },
-                
+
+                { Strings.ColumnComments, DeltaColumnComment },
+
                 { Strings.PrimaryKeys, DeltaPrimaryKey },
                 { Strings.Uniques, DeltaUnique },
                 { Strings.ForeignKeys, DeltaForeignKey },
@@ -53,6 +52,8 @@ namespace ExandasOracle.Core
                 { Strings.TableIndexes, DeltaTableIndex },
                 { Strings.IndexPartitions, DeltaIndexPartition },
                 { Strings.Sources, DeltaSourceSynthesis },
+
+                { Strings.Clusters, DeltaCluster },
             };
 
             return dict;
@@ -81,7 +82,7 @@ namespace ExandasOracle.Core
                     }
 
                     item.Value(conn, list);
-                    IncrementStep(worker, string.Format("Delta des {0}", item.Key));
+                    IncrementStep(worker, string.Format(Strings.DeltaOf, item.Key));
                 }
 
                 if (worker.CancellationPending == false)
@@ -105,8 +106,7 @@ namespace ExandasOracle.Core
             this._operationCounter++;
             int percentage = (int)((double)this._operationCounter / this._totalOperationCount * 50) + 50;
             worker.ReportProgress(percentage, step);
-            // TODO TEMP
-            System.Threading.Thread.Sleep(100);
+            // System.Threading.Thread.Sleep(100);
         }
 
     }

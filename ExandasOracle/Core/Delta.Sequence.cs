@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using FirebirdSql.Data.FirebirdClient;
 
 using ExandasOracle.Domain;
-
-// TODO localization
 using ExandasOracle.Properties;
 
 namespace ExandasOracle.Core
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class Delta
     {
 		/// <summary>
@@ -26,7 +21,7 @@ namespace ExandasOracle.Core
 
 			// phase 1 : source moins cible
 			sql = "SELECT s.sequence_name FROM src_sequences s" +
-				" LEFT JOIN tgt_sequences t USING (sequence_name)" +
+				" LEFT JOIN tgt_sequences t USING(sequence_name)" +
 				" WHERE t.sequence_name IS NULL" +
 				" ORDER BY sequence_name";
 			cmd = new FbCommand(sql, conn);
@@ -35,14 +30,14 @@ namespace ExandasOracle.Core
 			{
 				while (dr.Read())
 				{
-					var report = new DeltaReport(this._comparisonSet.Uid, "SEQUENCE", (string)dr["sequence_name"], "Séquence dans source absente en cible");
+					var report = new DeltaReport(this._comparisonSet.Uid, "SEQUENCE", (string)dr["sequence_name"], Strings.ObjectInSource);
 					list.Add(report);
 				}
 			}
 
 			// phase 2 : cible moins source
 			sql = "SELECT t.sequence_name FROM tgt_sequences t" +
-				" LEFT JOIN src_sequences s USING (sequence_name)" +
+				" LEFT JOIN src_sequences s USING(sequence_name)" +
 				" WHERE s.sequence_name IS NULL" +
 				" ORDER BY sequence_name";
 			cmd = new FbCommand(sql, conn);
@@ -51,7 +46,7 @@ namespace ExandasOracle.Core
 			{
 				while (dr.Read())
 				{
-					var report = new DeltaReport(this._comparisonSet.Uid, "SEQUENCE", (string)dr["sequence_name"], "Séquence dans cible absente en source");
+					var report = new DeltaReport(this._comparisonSet.Uid, "SEQUENCE", (string)dr["sequence_name"], Strings.ObjectInTarget);
 					list.Add(report);
 				}
 			}
@@ -62,18 +57,17 @@ namespace ExandasOracle.Core
 
 			using (FbDataReader dr = cmd.ExecuteReader())
 			{
-				// TODO SUPPRIMER CAST DECIMAL REDONDANT
 				while (dr.Read())
 				{
 					var sourceSequence = new Sequence
 					{
 						SequenceName = (string)dr["sequence_name"],
-						MinValue = dr["src_min_value"] is DBNull ? null : (decimal?)(long)dr["src_min_value"],
+						MinValue = dr["src_min_value"] is DBNull ? null : (long?)dr["src_min_value"],
 						MaxValue = dr["src_max_value"] is DBNull ? null : (decimal?)Convert.ToDecimal((string)dr["src_max_value"]),
-						IncrementBy = (decimal)(int)dr["src_increment_by"],
+						IncrementBy = (int)dr["src_increment_by"],
 						CycleFlag = dr["src_cycle_flag"] is DBNull ? null : (string)dr["src_cycle_flag"],
 						OrderFlag = dr["src_order_flag"] is DBNull ? null : (string)dr["src_order_flag"],
-						CacheSize = (decimal)(int)dr["src_cache_size"],
+						CacheSize = (int)dr["src_cache_size"],
 						ScaleFlag = dr["src_scale_flag"] is DBNull ? null : (string)dr["src_scale_flag"],
 						ExtendFlag = dr["src_extend_flag"] is DBNull ? null : (string)dr["src_extend_flag"],
 						ShardedFlag = dr["src_sharded_flag"] is DBNull ? null : (string)dr["src_sharded_flag"],
@@ -83,12 +77,12 @@ namespace ExandasOracle.Core
 					var targetSequence = new Sequence
 					{
 						SequenceName = (string)dr["sequence_name"],
-						MinValue = dr["tgt_min_value"] is DBNull ? null : (decimal?)(long)dr["tgt_min_value"],
+						MinValue = dr["tgt_min_value"] is DBNull ? null : (long?)dr["tgt_min_value"],
 						MaxValue = dr["tgt_max_value"] is DBNull ? null : (decimal?)Convert.ToDecimal((string)dr["tgt_max_value"]),
-						IncrementBy = (decimal)(int)dr["tgt_increment_by"],
+						IncrementBy = (int)dr["tgt_increment_by"],
 						CycleFlag = dr["tgt_cycle_flag"] is DBNull ? null : (string)dr["tgt_cycle_flag"],
 						OrderFlag = dr["tgt_order_flag"] is DBNull ? null : (string)dr["tgt_order_flag"],
-						CacheSize = (decimal)(int)dr["tgt_cache_size"],
+						CacheSize = (int)dr["tgt_cache_size"],
 						ScaleFlag = dr["tgt_scale_flag"] is DBNull ? null : (string)dr["tgt_scale_flag"],
 						ExtendFlag = dr["tgt_extend_flag"] is DBNull ? null : (string)dr["tgt_extend_flag"],
 						ShardedFlag = dr["tgt_sharded_flag"] is DBNull ? null : (string)dr["tgt_sharded_flag"],

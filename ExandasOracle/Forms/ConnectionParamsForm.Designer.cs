@@ -115,7 +115,6 @@ namespace ExandasOracle.Forms
             this.DBAViewsCheckBox.Size = new System.Drawing.Size(77, 19);
             this.DBAViewsCheckBox.TabIndex = 17;
             this.DBAViewsCheckBox.Text = "Vues DBA";
-            this.DBAViewsCheckBox.ThreeState = true;
             this.DBAViewsCheckBox.UseVisualStyleBackColor = true;
             // 
             // serviceRadioButton

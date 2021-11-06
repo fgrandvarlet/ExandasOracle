@@ -55,6 +55,8 @@ namespace ExandasOracle.Dao
             InitializeReportDirectory();
         }
 
+        // TODO chemin de la base de données en paramètre de configuration
+
         /// <summary>
         /// 
         /// </summary>

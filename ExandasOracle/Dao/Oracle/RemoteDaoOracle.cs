@@ -172,6 +172,40 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<ColumnComment> GetColumnCommentList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<ColumnComment>();
+
+            const string root = "SELECT table_name, column_name, comments" +
+                " FROM {0}_col_comments" +
+                " WHERE owner = :owner AND table_name NOT LIKE 'BIN$%'" +
+                " ORDER BY table_name, column_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var cc = new ColumnComment();
+                    cc.TableName = (string)dr["table_name"];
+                    cc.ColumnName = (string)dr["column_name"];
+                    cc.Comments = dr["comments"] is DBNull ? null : (string)dr["comments"];
+                    list.Add(cc);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<PrimaryKey> GetPrimaryKeyList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<PrimaryKey>();
@@ -627,6 +661,38 @@ namespace ExandasOracle.Dao.Oracle
                     so.Line = (decimal)dr["line"];
                     so.Text = dr["text"] is DBNull ? null : (string)dr["text"];
                     list.Add(so);
+                }
+            }
+            return list;
+        }
+
+        public List<Cluster> GetClusterList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<Cluster>();
+
+            const string root = "SELECT cluster_name, tablespace_name, cluster_type, function, hashkeys, degree, cache, single_table, dependencies" +
+                " FROM {0}_clusters" +
+                " WHERE owner = :owner ORDER BY cluster_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var cl = new Cluster();
+                    cl.ClusterName = (string)dr["cluster_name"];
+                    cl.TablespaceName = (string)dr["tablespace_name"];
+                    cl.ClusterType = dr["cluster_type"] is DBNull ? null : (string)dr["cluster_type"];
+                    cl.Function = dr["function"] is DBNull ? null : (string)dr["function"];
+                    cl.Hashkeys = dr["hashkeys"] is DBNull ? null : (decimal?)dr["hashkeys"];
+                    cl.Degree = dr["degree"] is DBNull ? null : (string)dr["degree"];
+                    cl.Cache = dr["cache"] is DBNull ? null : (string)dr["cache"];
+                    cl.SingleTable = dr["single_table"] is DBNull ? null : (string)dr["single_table"];
+                    cl.Dependencies = dr["dependencies"] is DBNull ? null : (string)dr["dependencies"];
+                    list.Add(cl);
                 }
             }
             return list;

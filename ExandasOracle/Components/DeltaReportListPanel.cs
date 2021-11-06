@@ -41,9 +41,6 @@ namespace ExandasOracle.Components
         {
             InitializeComponent();
 
-            // TODO CHANGER
-            //this.titleLabel.Text = Defs.TITLE_LIST_CONNECTION_PARAMS;
-
             this._comparisonSet = comparisonSet;
         }
 
@@ -55,6 +52,7 @@ namespace ExandasOracle.Components
             idColumn.HeaderText = "ID delta report";
             idColumn.Visible = false;
 
+            // TODO choisir une colonne du type DataGridViewLinkColumn
             /*
             nameColumn = new DataGridViewLinkColumn();
             nameColumn.Name = "name";

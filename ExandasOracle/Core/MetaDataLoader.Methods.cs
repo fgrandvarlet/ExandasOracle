@@ -17,6 +17,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadTableColumnList(tran, schemaType, dao.GetTableColumnList(conn, schema, DBAViews));
         }
 
+        private void LoadColumnComments(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadColumnCommentList(tran, schemaType, dao.GetColumnCommentList(conn, schema, DBAViews));
+        }
+
         private void LoadPrimaryKeys(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadPrimaryKeyList(tran, schemaType, dao.GetPrimaryKeyList(conn, schema, DBAViews));
@@ -66,6 +71,11 @@ namespace ExandasOracle.Core
         {
             this._localDao.LoadSourceList(tran, schemaType, dao.GetSourceList(conn, schema, DBAViews));
             this._localDao.LoadSourceSynthesis(tran, schemaType);
+        }
+
+        private void LoadClusters(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadClusterList(tran, schemaType, dao.GetClusterList(conn, schema, DBAViews));
         }
 
     }

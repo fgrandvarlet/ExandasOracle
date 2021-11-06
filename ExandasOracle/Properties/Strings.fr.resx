@@ -123,11 +123,20 @@
   <data name="Apply" xml:space="preserve">
     <value>A&amp;ppliquer</value>
   </data>
+  <data name="AreYouSureDelete" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer l'enregistrement suivant :</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>&amp;Annuler</value>
   </data>
   <data name="Checks" xml:space="preserve">
     <value>contraintes de vérification</value>
+  </data>
+  <data name="Clusters" xml:space="preserve">
+    <value>clusters</value>
+  </data>
+  <data name="ColumnComments" xml:space="preserve">
+    <value>commentaires de colonne</value>
   </data>
   <data name="ComparisonReport" xml:space="preserve">
     <value>Rapport de comparaison</value>
@@ -156,6 +165,12 @@
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
   </data>
+  <data name="DeleteRecord" xml:space="preserve">
+    <value>Suppression de l'enregistrement ?</value>
+  </data>
+  <data name="DeltaOf" xml:space="preserve">
+    <value>Delta des {0}</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>&amp;Fichier</value>
   </data>
@@ -182,6 +197,9 @@
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nom</value>
+  </data>
+  <data name="NotSpecified" xml:space="preserve">
+    <value>&lt;Non renseigné&gt;</value>
   </data>
   <data name="ObjectInSource" xml:space="preserve">
     <value>Objet dans source absent en cible</value>

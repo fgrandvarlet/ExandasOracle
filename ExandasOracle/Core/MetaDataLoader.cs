@@ -42,6 +42,9 @@ namespace ExandasOracle.Core
             {
                 { Strings.Tables, LoadTables },
                 { Strings.TableColumns, LoadTableColumns },
+                                
+                { Strings.ColumnComments, LoadColumnComments },
+
                 { Strings.PrimaryKeys, LoadPrimaryKeys },
                 { Strings.Uniques, LoadUniques },
                 { Strings.ForeignKeys, LoadForeignKeys },
@@ -52,6 +55,7 @@ namespace ExandasOracle.Core
                 { Strings.TableIndexes, LoadTableIndexes },
                 { Strings.IndexPartitions, LoadIndexPartitions },
                 { Strings.Sources, LoadSources },
+                { Strings.Clusters, LoadClusters },
             };
 
             return dict;
@@ -161,8 +165,7 @@ namespace ExandasOracle.Core
             this._operationCounter++;
             int percentage = (int)((double)this._operationCounter / this._totalOperationCount * 50);
             worker.ReportProgress(percentage, step);
-            // TODO TEMP
-            System.Threading.Thread.Sleep(100);
+            // System.Threading.Thread.Sleep(100);
         }
 
     }

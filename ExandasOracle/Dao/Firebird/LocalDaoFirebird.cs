@@ -8,29 +8,15 @@ namespace ExandasOracle.Dao.Firebird
 {
     public class LocalDaoFirebird : AbstractDaoFirebird, ILocalDao
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionString"></param>
         public LocalDaoFirebird(string connectionString) : base(connectionString)
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="criteria"></param>
-        /// <returns></returns>
         protected override FbCommand CreateCommand(Criteria criteria)
         {
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="schemaType"></param>
-        /// <returns></returns>
         private static string GetPrefix(SchemaType schemaType)
         {
             string result;
@@ -58,7 +44,9 @@ namespace ExandasOracle.Dao.Firebird
         {
             var tableName = string.Format("{0}_tables", GetPrefix(schemaType));
 
-            const string sql = "INSERT INTO {0} VALUES(@table_name, @tablespace_name)";
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @tablespace_name, @cluster_name, @iot_name, @status, @logging, @degree, @partitioned," +
+                " @iot_type, @tab_temporary, @nested, @duration, @cluster_owner, @compression, @compress_for, @dropped, @read_only, @clustering," +
+                " @has_identity, @container_data, @default_collation, @tab_external)";
 
             // preliminary purge of the table
             (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
@@ -72,6 +60,26 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("table_name", ta.TableName);
                 cmd.Parameters.AddWithValue("tablespace_name", ta.TablespaceName);
+                cmd.Parameters.AddWithValue("cluster_name", ta.ClusterName);
+                cmd.Parameters.AddWithValue("iot_name", ta.IOTName);
+                cmd.Parameters.AddWithValue("status", ta.Status);
+                cmd.Parameters.AddWithValue("logging", ta.Logging);
+                cmd.Parameters.AddWithValue("degree", ta.Degree);
+                cmd.Parameters.AddWithValue("partitioned", ta.Partitioned);
+                cmd.Parameters.AddWithValue("iot_type", ta.IOTType);
+                cmd.Parameters.AddWithValue("tab_temporary", ta.Temporary);
+                cmd.Parameters.AddWithValue("nested", ta.Nested);
+                cmd.Parameters.AddWithValue("duration", ta.Duration);
+                cmd.Parameters.AddWithValue("cluster_owner", ta.ClusterOwner);
+                cmd.Parameters.AddWithValue("compression", ta.Compression);
+                cmd.Parameters.AddWithValue("compress_for", ta.CompressFor);
+                cmd.Parameters.AddWithValue("dropped", ta.Dropped);
+                cmd.Parameters.AddWithValue("read_only", ta.ReadOnly);
+                cmd.Parameters.AddWithValue("clustering", ta.Clustering);
+                cmd.Parameters.AddWithValue("has_identity", ta.HasIdentity);
+                cmd.Parameters.AddWithValue("container_data", ta.ContainerData);
+                cmd.Parameters.AddWithValue("default_collation", ta.DefaultCollation);
+                cmd.Parameters.AddWithValue("tab_external", ta.External);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -119,6 +127,35 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.Parameters.AddWithValue("default_on_null", tc.DefaultOnNull);
                 cmd.Parameters.AddWithValue("identity_column", tc.IdentityColumn);
                 cmd.Parameters.AddWithValue("collation", tc.Collation);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadColumnCommentList(FbTransaction tran, SchemaType schemaType, List<ColumnComment> list)
+        {
+            var tableName = string.Format("{0}_col_comments", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @column_name, @comments)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var cc in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("table_name", cc.TableName);
+                cmd.Parameters.AddWithValue("column_name", cc.ColumnName);
+                cmd.Parameters.AddWithValue("comments", cc.Comments);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -560,6 +597,42 @@ namespace ExandasOracle.Dao.Firebird
                     cmdInsert.Parameters.AddWithValue("text", currentText);
                     cmdInsert.ExecuteNonQuery();
                 }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadClusterList(FbTransaction tran, SchemaType schemaType, List<Cluster> list)
+        {
+            var tableName = string.Format("{0}_clusters", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@cluster_name, @tablespace_name, @cluster_type, @clu_function," +
+                " @hashkeys, @degree, @cache, @single_table, @dependencies)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var cl in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("cluster_name", cl.ClusterName);
+                cmd.Parameters.AddWithValue("tablespace_name", cl.TablespaceName);
+                cmd.Parameters.AddWithValue("cluster_type", cl.ClusterType);
+                cmd.Parameters.AddWithValue("clu_function", cl.Function);
+                cmd.Parameters.AddWithValue("hashkeys", cl.Hashkeys);
+                cmd.Parameters.AddWithValue("degree", cl.Degree);
+                cmd.Parameters.AddWithValue("cache", cl.Cache);
+                cmd.Parameters.AddWithValue("single_table", cl.SingleTable);
+                cmd.Parameters.AddWithValue("dependencies", cl.Dependencies);
+                cmd.ExecuteNonQuery();
             }
         }
 

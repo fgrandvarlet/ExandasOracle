@@ -9,9 +9,6 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Components
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class ConnectionParamsListPanel : ListPanel
     {
         DataGridViewTextBoxColumn uidColumn;
@@ -22,9 +19,6 @@ namespace ExandasOracle.Components
         DataGridViewTextBoxColumn sidColumn;
         DataGridViewTextBoxColumn serviceColumn;
 
-        /// <summary>
-        /// 
-        /// </summary>
         public ConnectionParamsListPanel()
         {
             InitializeComponent();
@@ -32,9 +26,6 @@ namespace ExandasOracle.Components
             this.titleLabel.Text = Strings.ServerConnectionsList;
         }
 
-		/// <summary>
-		/// 
-		/// </summary>
 		protected override void InitMainDataGridView()
 		{
 			uidColumn = new DataGridViewTextBoxColumn();
@@ -86,20 +77,11 @@ namespace ExandasOracle.Components
 			mainDataGridView.Columns.AddRange(cols);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="criteria"></param>
 		protected override void LoadData(Criteria criteria)
 		{
 			mainDataGridView.DataSource = DaoFactory.Instance.GetConnectionParamsDao().GetDataTable(criteria);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		protected override void AddToolStripButton_Click(object sender, EventArgs e)
 		{
 			using (var frm = new ConnectionParamsForm(null))
@@ -109,11 +91,6 @@ namespace ExandasOracle.Components
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		protected override void ModifyToolStripButton_Click(object sender, EventArgs e)
 		{
 			if (mainDataGridView.SelectedRows.Count == 0) return;
@@ -130,11 +107,6 @@ namespace ExandasOracle.Components
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		protected override void DeleteToolStripButton_Click(object sender, EventArgs e)
 		{
 			if (mainDataGridView.SelectedRows.Count == 0) return;
@@ -143,11 +115,11 @@ namespace ExandasOracle.Components
 			{
 				try
 				{
-					Guid uid = (Guid)row.Cells[uidColumn.Name].Value;
+					Guid uid = Guid.Parse(row.Cells[uidColumn.Name].Value.ToString());
 					ConnectionParams cp = DaoFactory.Instance.GetConnectionParamsDao().Get(uid);
 
-					string enregistrement = string.Format("[ {0} ]", cp.Name);
-					if (Defs.ConfirmDeleteDialog(enregistrement))
+					string record = string.Format("[ {0} ]", cp.Name);
+					if (Defs.ConfirmDeleteDialog(record))
 					{
 						DaoFactory.Instance.GetConnectionParamsDao().Delete(cp);
 						RunLookup();

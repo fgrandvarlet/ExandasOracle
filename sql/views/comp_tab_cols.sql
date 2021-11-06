@@ -39,6 +39,5 @@ SELECT
 ,   t.collation         AS tgt_collation
 FROM src_tab_cols s
 JOIN tgt_tab_cols t USING(table_name, column_name)
-JOIN common_tables USING(table_name)
 ORDER BY table_name, column_name
 ;

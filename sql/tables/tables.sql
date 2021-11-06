@@ -10,7 +10,7 @@ CREATE TABLE src_tables
     degree varchar(10),
     partitioned varchar(3),
     iot_type varchar(12),
-    temporary varchar(1),
+    tab_temporary varchar(1),
     nested varchar(3),
     duration varchar(15),
     cluster_owner varchar(128), 
@@ -22,7 +22,7 @@ CREATE TABLE src_tables
     has_identity varchar(3),
     container_data varchar(3),
     default_collation varchar(100),
-    external varchar(3),
+    tab_external varchar(3),
     CONSTRAINT pk_src_tables PRIMARY KEY (table_name)
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE tgt_tables
     degree varchar(10),
     partitioned varchar(3),
     iot_type varchar(12),
-    temporary varchar(1),
+    tab_temporary varchar(1),
     nested varchar(3),
     duration varchar(15),
     cluster_owner varchar(128), 
@@ -49,12 +49,6 @@ CREATE TABLE tgt_tables
     has_identity varchar(3),
     container_data varchar(3),
     default_collation varchar(100),
-    external varchar(3),
+    tab_external varchar(3),
     CONSTRAINT pk_tgt_tables PRIMARY KEY (table_name)
 );
-
-
-table_name, tablespace_name, cluster_name, iot_name, status, logging, degree, partitioned,
-iot_type, temporary, nested, duration, cluster_owner, compression, compress_for, dropped, read_only, clustering,
-has_identity, container_data, default_collation, external
-

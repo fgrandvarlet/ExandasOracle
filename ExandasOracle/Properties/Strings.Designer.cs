@@ -79,6 +79,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Are you sure you want to delete the following record :.
+        /// </summary>
+        internal static string AreYouSureDelete {
+            get {
+                return ResourceManager.GetString("AreYouSureDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à &amp;Cancel.
         /// </summary>
         internal static string Cancel {
@@ -93,6 +102,24 @@ namespace ExandasOracle.Properties {
         internal static string Checks {
             get {
                 return ResourceManager.GetString("Checks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à clusters.
+        /// </summary>
+        internal static string Clusters {
+            get {
+                return ResourceManager.GetString("Clusters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à column comments.
+        /// </summary>
+        internal static string ColumnComments {
+            get {
+                return ResourceManager.GetString("ColumnComments", resourceCulture);
             }
         }
         
@@ -178,6 +205,24 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete record ?.
+        /// </summary>
+        internal static string DeleteRecord {
+            get {
+                return ResourceManager.GetString("DeleteRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delta of {0}.
+        /// </summary>
+        internal static string DeltaOf {
+            get {
+                return ResourceManager.GetString("DeltaOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à &amp;File.
         /// </summary>
         internal static string File {
@@ -255,6 +300,15 @@ namespace ExandasOracle.Properties {
         internal static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à &lt;Not specified&gt;.
+        /// </summary>
+        internal static string NotSpecified {
+            get {
+                return ResourceManager.GetString("NotSpecified", resourceCulture);
             }
         }
         

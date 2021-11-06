@@ -123,11 +123,20 @@
   <data name="Apply" xml:space="preserve">
     <value>&amp;Apply</value>
   </data>
+  <data name="AreYouSureDelete" xml:space="preserve">
+    <value>Are you sure you want to delete the following record :</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
   <data name="Checks" xml:space="preserve">
     <value>check constraints</value>
+  </data>
+  <data name="Clusters" xml:space="preserve">
+    <value>clusters</value>
+  </data>
+  <data name="ColumnComments" xml:space="preserve">
+    <value>column comments</value>
   </data>
   <data name="ComparisonReport" xml:space="preserve">
     <value>Comparison report</value>
@@ -156,6 +165,12 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="DeleteRecord" xml:space="preserve">
+    <value>Delete record ?</value>
+  </data>
+  <data name="DeltaOf" xml:space="preserve">
+    <value>Delta of {0}</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>&amp;File</value>
   </data>
@@ -182,6 +197,9 @@
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="NotSpecified" xml:space="preserve">
+    <value>&lt;Not specified&gt;</value>
   </data>
   <data name="ObjectInSource" xml:space="preserve">
     <value>Object in source absent in target</value>

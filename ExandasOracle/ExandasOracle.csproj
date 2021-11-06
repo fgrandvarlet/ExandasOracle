@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <Deterministic>false</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -172,6 +172,8 @@
     <Compile Include="Core\Defs.cs" />
     <Compile Include="Core\Delegates.cs" />
     <Compile Include="Core\Delta.Check.cs" />
+    <Compile Include="Core\Delta.Cluster.cs" />
+    <Compile Include="Core\Delta.ColumnComment.cs" />
     <Compile Include="Core\Delta.Constraint.cs" />
     <Compile Include="Core\Delta.cs" />
     <Compile Include="Core\Delta.ForeignKey.cs" />
@@ -201,8 +203,10 @@
     <Compile Include="Domain\AbstractColumn.cs" />
     <Compile Include="Domain\AbstractConstraint.cs" />
     <Compile Include="Domain\Check.cs" />
+    <Compile Include="Domain\Cluster.cs" />
     <Compile Include="Domain\ClusterColumn.cs" />
     <Compile Include="Domain\ClusterIndex.cs" />
+    <Compile Include="Domain\ColumnComment.cs" />
     <Compile Include="Domain\ComparisonSet.cs" />
     <Compile Include="Domain\ConnectionParams.cs" />
     <Compile Include="Domain\Constraint.cs" />

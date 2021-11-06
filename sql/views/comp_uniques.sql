@@ -23,6 +23,5 @@ SELECT
 ,   t.view_related  AS tgt_view_related
 FROM src_uniques s
 JOIN tgt_uniques t USING(constraint_name, table_name)
-JOIN common_tables USING(table_name)
 ORDER BY table_name, constraint_name
 ;

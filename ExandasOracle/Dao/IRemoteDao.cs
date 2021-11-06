@@ -17,6 +17,8 @@ namespace ExandasOracle.Dao
 
         List<TableColumn> GetTableColumnList(OracleConnection conn, string schema, bool DBAViews);
 
+        List<ColumnComment> GetColumnCommentList(OracleConnection conn, string schema, bool DBAViews);
+
         List<PrimaryKey> GetPrimaryKeyList(OracleConnection conn, string schema, bool DBAViews);
 
         List<Unique> GetUniqueList(OracleConnection conn, string schema, bool DBAViews);
@@ -38,5 +40,7 @@ namespace ExandasOracle.Dao
         List<IndexPartition> GetIndexPartitionList(OracleConnection conn, string schema, bool DBAViews);
 
         List<Source> GetSourceList(OracleConnection conn, string schema, bool DBAViews);
+
+        List<Cluster> GetClusterList(OracleConnection conn, string schema, bool DBAViews);
     }
 }

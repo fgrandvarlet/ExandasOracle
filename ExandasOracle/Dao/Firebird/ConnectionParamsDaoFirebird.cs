@@ -1,30 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using FirebirdSql.Data.FirebirdClient;
 
 using ExandasOracle.Domain;
 
 namespace ExandasOracle.Dao.Firebird
 {
-	/// <summary>
-	/// 
-	/// </summary>
     public class ConnectionParamsDaoFirebird : AbstractDaoFirebird, IConnectionParamsDao
     {
-        /// <summary>
-		/// 
-		/// </summary>
-		/// <param name="connectionString"></param>
 		public ConnectionParamsDaoFirebird(string connectionString) : base(connectionString)
         {
         }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="criteria"></param>
-		/// <returns></returns>
 		protected override FbCommand CreateCommand(Criteria criteria)
 		{
 			string sql;
@@ -52,11 +39,6 @@ namespace ExandasOracle.Dao.Firebird
 			return cmd;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="uid"></param>
-		/// <returns></returns>
 		public ConnectionParams Get(Guid uid)
 		{
 			const string sql = "SELECT * FROM connection_params WHERE uid = @uid";
@@ -87,10 +69,6 @@ namespace ExandasOracle.Dao.Firebird
 			return cp;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="cp"></param>
 		public void Add(ConnectionParams cp)
 		{
 			const string sql = "INSERT INTO connection_params(uid, name, username, password, host, port, sid, service, dbaviews)" +
@@ -115,10 +93,6 @@ namespace ExandasOracle.Dao.Firebird
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="cp"></param>
 		public void Save(ConnectionParams cp)
 		{
 			const string sql = "UPDATE connection_params SET name = @name, username = @username, password = @password, host = @host, port = @port," +
@@ -143,13 +117,11 @@ namespace ExandasOracle.Dao.Firebird
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="cp"></param>
+		// TODO CHECK DEPENDANCES AVEC ComparisonSets avant de supprimer
+
 		public void Delete(ConnectionParams cp)
 		{
-			const string sql = "DELETE FROM connection_params WHERE uid = @id";
+			const string sql = "DELETE FROM connection_params WHERE uid = @uid";
 
 			using (FbConnection conn = GetFirebirdConnection())
 			{
@@ -160,10 +132,6 @@ namespace ExandasOracle.Dao.Firebird
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
 		public List<ConnectionParams> GetList()
 		{
 			var list = new List<ConnectionParams>();

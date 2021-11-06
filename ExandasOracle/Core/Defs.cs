@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
 
 using ExandasOracle.Dao;
+using ExandasOracle.Properties;
 
 namespace ExandasOracle.Core
 {
@@ -12,12 +12,11 @@ namespace ExandasOracle.Core
 	/// </summary>
     public static class Defs
     {
+		internal const string APPLICATION_TITLE = "Exandas - Oracle";
 		internal const string TEXT_VALIDATING_ERROR = "Erreur de validation des données du formulaire.";
 		internal const string CAPTION_ATTENTION = "Attention";
 		internal const string CAPTION_ERROR = "Erreur Exandas.Oracle";
-		internal const string APPLICATION_TITLE = "Exandas - Oracle";
 
-		// TODO ? internal const string REPORT_DIRECTORY = "Rapports";
 
 		internal const string TITLE_FORM_CONFIGURATION = "Configuration des informations de connexion";
 		internal const string TITLE_FORM_CONNECTION_PARAMS = "Détail connexion serveur";
@@ -34,7 +33,7 @@ namespace ExandasOracle.Core
 		internal const string MESSAGE_REPORT_GENERATOR_RUNNING = "Génération du rapport de comparaison en cours...";
 
 		internal static Guid EMPTY_ITEM_GUID = Guid.Empty;
-		internal const string EMPTY_ITEM_LABEL = "<Non renseigné>";
+		internal static string EMPTY_ITEM_LABEL = Strings.NotSpecified;
 
 		internal const string REPORTS_DIRECTORY = "reports";
 
@@ -74,22 +73,17 @@ namespace ExandasOracle.Core
 			);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="enregistrement"></param>
-		/// <returns></returns>
-		public static bool ConfirmDeleteDialog(string enregistrement)
+		public static bool ConfirmDeleteDialog(string record)
 		{
 			DialogResult dr = MessageBox.Show(
 				string.Format(
-					"Êtes-vous sûr de vouloir supprimer l'enregistrement suivant :" +
+					Strings.AreYouSureDelete +
 					Environment.NewLine +
 					Environment.NewLine +
 					"{0} ?",
-					enregistrement
+					record
 				),
-				"Suppression de l'enregistrement ?",
+				Strings.DeleteRecord,
 				MessageBoxButtons.YesNo,
 				MessageBoxIcon.Question,
 				MessageBoxDefaultButton.Button2
@@ -97,26 +91,21 @@ namespace ExandasOracle.Core
 			return (dr == DialogResult.Yes);
 		}
 
-		#region sources listes déroulantes
+		#region dropdown lists sources
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
 		public static List<KeyValuePair<Guid, string>> GetConnectionReferenceList()
 		{
 			var list = new List<KeyValuePair<Guid, string>>();
-			list.Add(new KeyValuePair<Guid, string>(Defs.EMPTY_ITEM_GUID, EMPTY_ITEM_LABEL));
+			list.Add(new KeyValuePair<Guid, string>(EMPTY_ITEM_GUID, EMPTY_ITEM_LABEL));
 
 			foreach (var cp in DaoFactory.Instance.GetConnectionParamsDao().GetList())
 			{
-			list.Add(new KeyValuePair<Guid, string>(cp.Uid, cp.FormattedString));
+				list.Add(new KeyValuePair<Guid, string>(cp.Uid, cp.FormattedString));
 			}
 			return list;
 		}
 
 		#endregion
-
 
 	}
 }

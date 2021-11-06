@@ -1,5 +1,6 @@
 
-CREATE TABLE src_clusters (
+CREATE TABLE src_clusters
+(
     cluster_name varchar(128) not null,
     tablespace_name varchar(30) not null,
     cluster_type varchar(5),
@@ -12,7 +13,8 @@ CREATE TABLE src_clusters (
     CONSTRAINT pk_src_clusters PRIMARY KEY (cluster_name)
 );
 
-CREATE TABLE tgt_clusters (
+CREATE TABLE tgt_clusters
+(
     cluster_name varchar(128) not null,
     tablespace_name varchar(30) not null,
     cluster_type varchar(5),
