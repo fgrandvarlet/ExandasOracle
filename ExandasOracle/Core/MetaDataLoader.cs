@@ -50,10 +50,14 @@ namespace ExandasOracle.Core
                 { Strings.ForeignKeys, LoadForeignKeys },
                 { Strings.Checks, LoadChecks },
                 { Strings.Constraints, LoadConstraints },
+
                 { Strings.Views, LoadViews },
+                
                 { Strings.Sequences, LoadSequences },
+                
                 { Strings.TableIndexes, LoadTableIndexes },
                 { Strings.IndexPartitions, LoadIndexPartitions },
+                
                 { Strings.Sources, LoadSources },
                 { Strings.Clusters, LoadClusters },
             };

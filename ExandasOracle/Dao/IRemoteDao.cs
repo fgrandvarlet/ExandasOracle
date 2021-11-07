@@ -31,6 +31,8 @@ namespace ExandasOracle.Dao
 
         List<ConstraintColumn> GetConstraintColumnList(OracleConnection conn, string schema, bool DBAViews);
 
+        List<PartitionedTable> GetPartitionedTableList(OracleConnection conn, string schema, bool DBAViews);
+
         List<View> GetViewList(OracleConnection conn, string schema, bool DBAViews);
 
         List<Sequence> GetSequenceList(OracleConnection conn, string schema, bool DBAViews);

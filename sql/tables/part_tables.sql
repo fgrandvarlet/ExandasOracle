@@ -1,6 +1,7 @@
 
-CREATE TABLE src_part_tables (
-    table_name varchar(128) not null,    
+CREATE TABLE src_part_tables
+(
+    table_name varchar(128) not null,
     partitioning_type varchar(9),
     subpartitioning_type varchar(9),
     partition_count integer not null,
@@ -23,8 +24,9 @@ CREATE TABLE src_part_tables (
     CONSTRAINT pk_src_part_tables PRIMARY KEY (table_name)
 );
 
-CREATE TABLE tgt_part_tables (
-    table_name varchar(128) not null,    
+CREATE TABLE tgt_part_tables
+(
+    table_name varchar(128) not null,
     partitioning_type varchar(9),
     subpartitioning_type varchar(9),
     partition_count integer not null,
@@ -46,3 +48,10 @@ CREATE TABLE tgt_part_tables (
     def_read_only varchar(3),
     CONSTRAINT pk_tgt_part_tables PRIMARY KEY (table_name)
 );
+
+table_name, partitioning_type, subpartitioning_type, partition_count, def_subpartition_count, partitioning_key_count, subpartitioning_key_count,
+status, def_tablespace_name, def_logging, def_compression, def_compress_for, ref_ptn_constraint_name, interval, autolist,
+interval_subpartition, autolist_subpartition, is_nested, def_indexing, def_read_only
+
+
+

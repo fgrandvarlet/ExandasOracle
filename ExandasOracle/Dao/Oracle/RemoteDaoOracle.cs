@@ -462,6 +462,59 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<PartitionedTable> GetPartitionedTableList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<PartitionedTable>();
+
+            const string root = "SELECT table_name, partitioning_type, subpartitioning_type, partition_count, def_subpartition_count, partitioning_key_count, subpartitioning_key_count," +
+                " status, def_tablespace_name, def_logging, def_compression, def_compress_for, ref_ptn_constraint_name, interval, autolist," +
+                " interval_subpartition, autolist_subpartition, is_nested, def_indexing, def_read_only" +
+                " FROM {0}_part_tables" +
+                " WHERE owner = :owner" +
+                " ORDER BY table_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var pt = new PartitionedTable();
+                    pt.TableName = (string)dr["table_name"];
+                    pt.PartitioningType = dr["partitioning_type"] is DBNull ? null : (string)dr["partitioning_type"];
+                    pt.SubpartitioningType = dr["subpartitioning_type"] is DBNull ? null : (string)dr["subpartitioning_type"];
+                    pt.PartitionCount = (decimal)dr["partition_count"];
+                    pt.DefSubpartitionCount = dr["def_subpartition_count"] is DBNull ? null : (decimal?)dr["def_subpartition_count"];
+                    pt.PartitioningKeyCount = (decimal)dr["partitioning_key_count"];
+                    pt.SubpartitioningKeyCount = dr["subpartitioning_key_count"] is DBNull ? null : (decimal?)dr["subpartitioning_key_count"];
+                    pt.Status = dr["status"] is DBNull ? null : (string)dr["status"];
+                    pt.DefTablespaceName = dr["def_tablespace_name"] is DBNull ? null : (string)dr["def_tablespace_name"];
+                    pt.DefLogging = dr["def_logging"] is DBNull ? null : (string)dr["def_logging"];
+                    pt.DefCompression = dr["def_compression"] is DBNull ? null : (string)dr["def_compression"];
+                    pt.DefCompressFor = dr["def_compress_for"] is DBNull ? null : (string)dr["def_compress_for"];
+                    pt.RefPtnConstraintName = dr["ref_ptn_constraint_name"] is DBNull ? null : (string)dr["ref_ptn_constraint_name"];
+                    pt.Interval = dr["interval"] is DBNull ? null : (string)dr["interval"];
+                    pt.Autolist = dr["autolist"] is DBNull ? null : (string)dr["autolist"];
+                    pt.IntervalSubpartition = dr["interval_subpartition"] is DBNull ? null : (string)dr["interval_subpartition"];
+                    pt.AutolistSubpartition = dr["autolist_subpartition"] is DBNull ? null : (string)dr["autolist_subpartition"];
+                    pt.IsNested = dr["is_nested"] is DBNull ? null : (string)dr["is_nested"];
+                    pt.DefIndexing = dr["def_indexing"] is DBNull ? null : (string)dr["def_indexing"];
+                    pt.DefReadOnly = dr["def_read_only"] is DBNull ? null : (string)dr["def_read_only"];
+                    list.Add(pt);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<View> GetViewList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<View>();

@@ -215,6 +215,7 @@
     <Compile Include="Domain\DeltaReport.cs" />
     <Compile Include="Domain\ForeignKey.cs" />
     <Compile Include="Domain\IndexPartition.cs" />
+    <Compile Include="Domain\PartitionedTable.cs" />
     <Compile Include="Domain\PrimaryKey.cs" />
     <Compile Include="Domain\Sequence.cs" />
     <Compile Include="Domain\Source.cs" />
