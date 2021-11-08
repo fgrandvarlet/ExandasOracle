@@ -87,8 +87,8 @@ namespace ExandasOracle.Core
                         break;
                     }
 
-                    item.Value(conn, list);
                     IncrementStep(worker, string.Format(Strings.DeltaOf, item.Key));
+                    item.Value(conn, list);
                 }
 
                 if (worker.CancellationPending == false)

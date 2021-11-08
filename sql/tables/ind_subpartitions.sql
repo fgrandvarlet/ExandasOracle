@@ -1,5 +1,6 @@
 
-CREATE TABLE src_ind_subpartitions (
+CREATE TABLE src_ind_subpartitions
+(
     index_name varchar(128) not null,
     partition_name varchar(128) not null,
     subpartition_name varchar(128) not null,
@@ -14,7 +15,8 @@ CREATE TABLE src_ind_subpartitions (
     CONSTRAINT pk_src_ind_subpartitions PRIMARY KEY (index_name, partition_name, subpartition_name)
 );
 
-CREATE TABLE tgt_ind_subpartitions (
+CREATE TABLE tgt_ind_subpartitions
+(
     index_name varchar(128) not null,
     partition_name varchar(128) not null,
     subpartition_name varchar(128) not null,

@@ -32,13 +32,39 @@ namespace ExandasOracle.Core
 		internal const string MESSAGE_REPORT_GENERATOR = "Confirmez-vous la génération du rapport de comparaison ?";
 		internal const string MESSAGE_REPORT_GENERATOR_RUNNING = "Génération du rapport de comparaison en cours...";
 
-		internal static Guid EMPTY_ITEM_GUID = Guid.Empty;
-		internal static string EMPTY_ITEM_LABEL = Strings.NotSpecified;
+		internal static readonly Guid EMPTY_ITEM_GUID = Guid.Empty;
+		internal static readonly string EMPTY_ITEM_LABEL = Strings.NotSpecified;
 
 		internal const string REPORTS_DIRECTORY = "reports";
 
+		internal static readonly int MAX_PROPERTY_SIZE = (int)Math.Pow(2, 15) - 20;	// 32768 - 20 = 32748
+
 		static Defs()
 		{
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="str"></param>
+		/// <returns></returns>
+		public static string TruncateTooLong(string str)
+		{
+			if (str != null)
+			{
+				if (str.Length > MAX_PROPERTY_SIZE)
+				{
+					return string.Format("[{0}] {1}", Strings.Truncated, str.Substring(0, MAX_PROPERTY_SIZE));
+				}
+				else
+				{
+					return str;
+				}
+			}
+			else
+			{
+				return str;
+			}
 		}
 
 		/// <summary>

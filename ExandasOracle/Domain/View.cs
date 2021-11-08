@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using ExandasOracle.Core;
 using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
@@ -44,7 +45,7 @@ namespace ExandasOracle.Domain
             else if (this.Text != target.Text)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT", this.Text, target.Text
+                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT", Defs.TruncateTooLong(this.Text), Defs.TruncateTooLong(target.Text)
                     ));
             }
             if (this.TypeText != target.TypeText)

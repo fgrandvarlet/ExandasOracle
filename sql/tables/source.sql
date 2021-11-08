@@ -1,5 +1,6 @@
 
-CREATE TABLE src_source (
+CREATE TABLE src_source
+(
     source_name varchar(128) not null,
     source_type varchar(12) not null,
     line integer not null,
@@ -7,7 +8,8 @@ CREATE TABLE src_source (
     CONSTRAINT pk_src_source PRIMARY KEY (source_name, source_type, line)
 );
 
-CREATE TABLE tgt_source (
+CREATE TABLE tgt_source
+(
     source_name varchar(128) not null,
     source_type varchar(12) not null,
     line integer not null,

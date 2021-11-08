@@ -144,7 +144,6 @@ namespace ExandasOracle.Core
                         break;
                     }
 
-                    item.Value(tran, schemaType, dao, conn, schema, DBAViews);
                     switch(schemaType)
                     {
                         case SchemaType.Source:
@@ -155,6 +154,7 @@ namespace ExandasOracle.Core
                             break;
                     }
                     IncrementStep(worker, step);
+                    item.Value(tran, schemaType, dao, conn, schema, DBAViews);
                 }
             }
             finally

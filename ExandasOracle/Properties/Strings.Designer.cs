@@ -619,6 +619,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à TRUNCATED.
+        /// </summary>
+        internal static string Truncated {
+            get {
+                return ResourceManager.GetString("Truncated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à uniques.
         /// </summary>
         internal static string Uniques {

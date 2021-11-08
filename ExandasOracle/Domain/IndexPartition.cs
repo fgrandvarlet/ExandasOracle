@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using ExandasOracle.Core;
 using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
@@ -37,7 +38,7 @@ namespace ExandasOracle.Domain
             if (this.HighValue != target.HighValue)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.PartitionName, this.IndexName, Strings.PropertyDifference, "HIGH_VALUE", this.HighValue, target.HighValue
+                    comparisonSetUid, ENTITY, this.PartitionName, this.IndexName, Strings.PropertyDifference, "HIGH_VALUE", Defs.TruncateTooLong(this.HighValue), Defs.TruncateTooLong(target.HighValue)
                     ));
             }
             if (this.HighValueLength != target.HighValueLength)

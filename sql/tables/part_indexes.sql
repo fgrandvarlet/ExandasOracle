@@ -1,5 +1,6 @@
 
-CREATE TABLE src_part_indexes (
+CREATE TABLE src_part_indexes
+(
     index_name varchar(128) not null,
     table_name varchar(128) not null,
     partitioning_type varchar(9),
@@ -19,7 +20,8 @@ CREATE TABLE src_part_indexes (
     CONSTRAINT pk_src_part_indexes PRIMARY KEY (index_name)
 );
 
-CREATE TABLE tgt_part_indexes (
+CREATE TABLE tgt_part_indexes
+(
     index_name varchar(128) not null,
     table_name varchar(128) not null,
     partitioning_type varchar(9),

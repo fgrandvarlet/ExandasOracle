@@ -1,5 +1,6 @@
 
-CREATE TABLE src_ind_partitions (
+CREATE TABLE src_ind_partitions
+(
     index_name varchar(128) not null,
     composite varchar(3),
     partition_name varchar(128) not null,
@@ -14,7 +15,8 @@ CREATE TABLE src_ind_partitions (
     CONSTRAINT pk_src_ind_partitions PRIMARY KEY (index_name, partition_name)
 );
 
-CREATE TABLE tgt_ind_partitions (
+CREATE TABLE tgt_ind_partitions
+(
     index_name varchar(128) not null,
     composite varchar(3),
     partition_name varchar(128) not null,

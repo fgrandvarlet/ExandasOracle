@@ -303,6 +303,9 @@
   <data name="TargetServerConnection" xml:space="preserve">
     <value>Connexion serveur cible</value>
   </data>
+  <data name="Truncated" xml:space="preserve">
+    <value>TRONQUÉ</value>
+  </data>
   <data name="Uniques" xml:space="preserve">
     <value>uniques</value>
   </data>

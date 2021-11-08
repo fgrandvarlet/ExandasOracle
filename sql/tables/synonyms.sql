@@ -1,5 +1,6 @@
 
-CREATE TABLE src_synonyms (
+CREATE TABLE src_synonyms
+(
     owner varchar(128) not null,
     synonym_name varchar(128) not null,
     table_owner varchar(128),
@@ -11,7 +12,8 @@ CREATE TABLE src_synonyms (
 -- exemple : select * from all_synonyms where owner = 'HR' or table_owner = 'HR';
 
 
-CREATE TABLE tgt_synonyms (
+CREATE TABLE tgt_synonyms
+(
     owner varchar(128) not null,
     synonym_name varchar(128) not null,
     table_owner varchar(128),

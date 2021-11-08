@@ -39,5 +39,11 @@ namespace ExandasOracle.Forms
             var s = Strings.Password;
             MessageBox.Show(s);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int a = 2 ^ 14;
+            MessageBox.Show("valeur de a = " + a.ToString());
+        }
     }
 }

@@ -1,5 +1,6 @@
 
-CREATE TABLE src_mviews (
+CREATE TABLE src_mviews
+(
     mview_name varchar(128) not null,
     container_name varchar(128) not null,
     query BLOB SUB_TYPE TEXT,
@@ -19,7 +20,8 @@ CREATE TABLE src_mviews (
     CONSTRAINT pk_src_mviews PRIMARY KEY (mview_name)
 );
 
-CREATE TABLE tgt_mviews (
+CREATE TABLE tgt_mviews
+(
     mview_name varchar(128) not null,
     container_name varchar(128) not null,
     query BLOB SUB_TYPE TEXT,

@@ -519,7 +519,7 @@ namespace ExandasOracle.Dao.Oracle
         {
             var list = new List<View>();
 
-            const string root = "SELECT view_name, text_length, text, text_vc, type_text, oid_text, view_type_owner, view_type," +
+            const string root = "SELECT view_name, text_length, text, text_vc, substr(type_text, 1, 128) type_text, substr(oid_text, 1, 128) oid_text, view_type_owner, view_type," +
                 " superview_name, read_only, bequeath, default_collation" +
                 " FROM {0}_views WHERE owner = :owner ORDER BY view_name";
             string sql = string.Format(root, GetPrefix(DBAViews));

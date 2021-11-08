@@ -1,5 +1,6 @@
 
-CREATE TABLE src_ind_columns (
+CREATE TABLE src_ind_columns
+(
     index_name varchar(128) not null,
     table_owner varchar(128) not null,
     table_name varchar(128) not null,
@@ -12,7 +13,8 @@ CREATE TABLE src_ind_columns (
     CONSTRAINT pk_src_ind_columns PRIMARY KEY (index_name, column_name)
 );
 
-CREATE TABLE tgt_ind_columns (
+CREATE TABLE tgt_ind_columns
+(
     index_name varchar(128) not null,
     table_owner varchar(128) not null,
     table_name varchar(128) not null,

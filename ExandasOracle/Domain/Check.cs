@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using ExandasOracle.Core;
 using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
@@ -24,7 +25,7 @@ namespace ExandasOracle.Domain
             if (this.SearchCondition != target.SearchCondition)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "SEARCH_CONDITION", this.SearchCondition, target.SearchCondition
+                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "SEARCH_CONDITION", Defs.TruncateTooLong(this.SearchCondition), Defs.TruncateTooLong(target.SearchCondition)
                     ));
             }
             else if (this.SearchConditionVC != target.SearchConditionVC)

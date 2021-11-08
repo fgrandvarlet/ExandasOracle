@@ -21,8 +21,6 @@ CREATE TABLE src_uniques
     CONSTRAINT pk_src_uniques PRIMARY KEY (table_name, constraint_name)
 );
 
--- filtrer sur constraint_type = 'U' et generated = 'USER NAME'
-
 CREATE TABLE tgt_uniques
 (
     constraint_name varchar(128) not null,

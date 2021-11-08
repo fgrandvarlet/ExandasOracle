@@ -1,5 +1,6 @@
 
-CREATE TABLE src_sequences (
+CREATE TABLE src_sequences
+(
     sequence_name varchar(128) not null,
     min_value bigint,
     max_value varchar(39),          -- stocker sous forme de varchar(39) id est valeur max d'un number + le signe
@@ -15,7 +16,8 @@ CREATE TABLE src_sequences (
     CONSTRAINT pk_src_sequences PRIMARY KEY (sequence_name)
 );
 
-CREATE TABLE tgt_sequences (
+CREATE TABLE tgt_sequences
+(
     sequence_name varchar(128) not null,
     min_value bigint,
     max_value varchar(39),          -- stocker sous forme de varchar(39) id est valeur max d'un number + le signe

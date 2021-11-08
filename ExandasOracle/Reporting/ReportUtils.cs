@@ -11,6 +11,8 @@ using ExandasOracle.Core;
 using ExandasOracle.Dao;
 using ExandasOracle.Domain;
 
+// TODO GERER ERREUR EXCEL QUAND CLASSEUR DEJA OUVERT PAR EXEMPLE
+
 namespace ExandasOracle.Reporting
 {
     /// <summary>
