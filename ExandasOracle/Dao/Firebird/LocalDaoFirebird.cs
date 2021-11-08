@@ -355,6 +355,84 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadConstraintColumnList(FbTransaction tran, SchemaType schemaType, List<ConstraintColumn> list)
+        {
+            var tableName = string.Format("{0}_cons_columns", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@constraint_name, @table_name, @column_name, @col_position)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var cc in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("constraint_name", cc.ConstraintName);
+                cmd.Parameters.AddWithValue("table_name", cc.TableName);
+                cmd.Parameters.AddWithValue("column_name", cc.ColumnName);
+                cmd.Parameters.AddWithValue("col_position", cc.Position);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadPartitionedTableList(FbTransaction tran, SchemaType schemaType, List<PartitionedTable> list)
+        {
+            var tableName = string.Format("{0}_part_tables", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @partitioning_type, @subpartitioning_type, @partition_count, @def_subpartition_count," +
+                " @partitioning_key_count, @subpartitioning_key_count, @status, @def_tablespace_name, @def_logging, @def_compression, @def_compress_for," +
+                " @ref_ptn_constraint_name, @interval, @autolist, @interval_subpartition, @autolist_subpartition, @is_nested, @def_indexing, @def_read_only)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var pt in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("table_name", pt.TableName);
+                cmd.Parameters.AddWithValue("partitioning_type", pt.PartitioningType);
+                cmd.Parameters.AddWithValue("subpartitioning_type", pt.SubpartitioningType);
+                cmd.Parameters.AddWithValue("partition_count", pt.PartitionCount);
+                cmd.Parameters.AddWithValue("def_subpartition_count", pt.DefSubpartitionCount);
+                cmd.Parameters.AddWithValue("partitioning_key_count", pt.PartitioningKeyCount);
+                cmd.Parameters.AddWithValue("subpartitioning_key_count", pt.SubpartitioningKeyCount);
+                cmd.Parameters.AddWithValue("status", pt.Status);
+                cmd.Parameters.AddWithValue("def_tablespace_name", pt.DefTablespaceName);
+                cmd.Parameters.AddWithValue("def_logging", pt.DefLogging);
+                cmd.Parameters.AddWithValue("def_compression", pt.DefCompression);
+                cmd.Parameters.AddWithValue("def_compress_for", pt.DefCompressFor);
+                cmd.Parameters.AddWithValue("ref_ptn_constraint_name", pt.RefPtnConstraintName);
+                cmd.Parameters.AddWithValue("interval", pt.Interval);
+                cmd.Parameters.AddWithValue("autolist", pt.Autolist);
+                cmd.Parameters.AddWithValue("interval_subpartition", pt.IntervalSubpartition);
+                cmd.Parameters.AddWithValue("autolist_subpartition", pt.AutolistSubpartition);
+                cmd.Parameters.AddWithValue("is_nested", pt.IsNested);
+                cmd.Parameters.AddWithValue("def_indexing", pt.DefIndexing);
+                cmd.Parameters.AddWithValue("def_read_only", pt.DefReadOnly);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadViewList(FbTransaction tran, SchemaType schemaType, List<View> list)
         {
             var tableName = string.Format("{0}_views", GetPrefix(schemaType));

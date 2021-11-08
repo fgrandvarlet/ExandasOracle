@@ -48,11 +48,17 @@ namespace ExandasOracle.Core
                 { Strings.Checks, DeltaCheck },
                 { Strings.Constraints, DeltaConstraint },
 
+                { Strings.ConstraintColumns, DeltaConstraintColumn },
+
+                { Strings.PartitionedTables, DeltaPartitionedTable },
+
+                { Strings.Views, DeltaView },
+
                 { Strings.Sequences, DeltaSequence },
                 { Strings.TableIndexes, DeltaTableIndex },
                 { Strings.IndexPartitions, DeltaIndexPartition },
-                { Strings.Sources, DeltaSourceSynthesis },
 
+                { Strings.Sources, DeltaSourceSynthesis },
                 { Strings.Clusters, DeltaCluster },
             };
 

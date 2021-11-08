@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using ExandasOracle.Components;
@@ -14,13 +10,8 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Forms
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class ConnectionParamsForm : Form, IDataFormManager
     {
-        // TODO REGLER TAB ORDER VIA PROPERTIES
-
         IDataFormManager _dataFormManager;
         ConnectionParams _connectionParams;
         bool _inserting;
@@ -29,10 +20,6 @@ namespace ExandasOracle.Forms
         TitlePanel titlePanel;
         BottomCommandPanel bottomCommandPanel;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionParams"></param>
         public ConnectionParamsForm(ConnectionParams connectionParams)
         {
             InitializeComponent();
@@ -50,6 +37,11 @@ namespace ExandasOracle.Forms
             // localization
             this.nameLabel.Text = Strings.ConnectionName;
             this.userLabel.Text = Strings.UserName;
+            this.passwordLabel.Text = Strings.Password;
+            this.hostLabel.Text = Strings.Hostname;
+            this.serviceRadioButton.Text = Strings.ServiceName;
+            this.DBAViewsCheckBox.Text = Strings.DBAViews;
+            this.checkConnectionButton.Text = Strings.CheckingTheConnection;
         }
 
         /// <summary>
@@ -84,7 +76,7 @@ namespace ExandasOracle.Forms
                 SIDRadioButton.Checked = true;
             }
 
-            // gestionnaires d'évènement
+            // event handlers
             nameTextBox.TextChanged += new EventHandler(this._dataFormManager.DataChanged);
             userTextBox.TextChanged += new EventHandler(this._dataFormManager.DataChanged);
             passwordTextBox.TextChanged += new EventHandler(this._dataFormManager.DataChanged);
@@ -95,44 +87,29 @@ namespace ExandasOracle.Forms
             DBAViewsCheckBox.CheckedChanged += new EventHandler(this._dataFormManager.DataChanged);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         Form IDataFormManager.Parent
         {
             get { return this; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public bool Inserting
         {
             get { return _inserting; }
             set { _inserting = value; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public bool Updating
         {
             get { return _updating; }
             set { _updating = value; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public bool Updated
         {
             get { return _updated; }
             set { _updated = value; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void DataToForm()
         {
             nameTextBox.Text = _connectionParams.Name;
@@ -151,7 +128,7 @@ namespace ExandasOracle.Forms
                 serviceRadioButton.Checked = true;
                 serviceTextBox.Text = _connectionParams.Service;
             }
-            
+
             if (_connectionParams.DBAViews)
             {
                 DBAViewsCheckBox.CheckState = CheckState.Checked;
@@ -160,12 +137,8 @@ namespace ExandasOracle.Forms
             {
                 DBAViewsCheckBox.CheckState = CheckState.Unchecked;
             }
-            
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void FormToData()
         {
             _connectionParams.Name = nameTextBox.Text.Trim();
@@ -192,10 +165,6 @@ namespace ExandasOracle.Forms
             _connectionParams.DBAViews = DBAViewsCheckBox.Checked;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public bool ValidateDataForm()
         {
             bool result = true;
@@ -204,37 +173,32 @@ namespace ExandasOracle.Forms
             if (nameTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- Nom de la connexion obligatoire" + Environment.NewLine;
+                message += "- " + Strings.ConnectionNameRequired + Environment.NewLine;
             }
             if (userTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- Nom utilisateur obligatoire" + Environment.NewLine;
+                message += "- " + Strings.UserNameRequired + Environment.NewLine;
             }
             if (passwordTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- Mot de passe obligatoire" + Environment.NewLine;
+                message += "- " + Strings.PasswordRequired + Environment.NewLine;
             }
             if (hostTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- Hôte obligatoire" + Environment.NewLine;
+                message += "- " + Strings.HostnameRequired + Environment.NewLine;
             }
             if (portTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- Port obligatoire" + Environment.NewLine;
+                message += "- " + Strings.PortRequired + Environment.NewLine;
             }
             if (SIDTextBox.Text.Trim().Length == 0 && serviceTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- SID ou nom de service obligatoire" + Environment.NewLine;
-            }
-            if (DBAViewsCheckBox.CheckState == CheckState.Indeterminate)
-            {
-                result = false;
-                message += "- Vues DBA doit être coché ou décoché" + Environment.NewLine;
+                message += "- " + Strings.SIDOrServiceNameRequired + Environment.NewLine;
             }
 
             if (!result)
@@ -244,10 +208,6 @@ namespace ExandasOracle.Forms
             return result;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public bool SaveData()
         {
             bool result = false;
@@ -282,22 +242,12 @@ namespace ExandasOracle.Forms
             return result;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         public void DataChanged(object sender, EventArgs e)
         {
             _dataFormManager.Updating = true;
             bottomCommandPanel.doApplyButton.Enabled = true;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SIDRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (SIDRadioButton.Checked)
@@ -307,11 +257,6 @@ namespace ExandasOracle.Forms
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ServiceRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (serviceRadioButton.Checked)
@@ -321,11 +266,6 @@ namespace ExandasOracle.Forms
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void CheckConnectionButton_Click(object sender, EventArgs e)
         {
             if (_dataFormManager.ValidateDataForm())
@@ -343,8 +283,8 @@ namespace ExandasOracle.Forms
                     }
                     checkConnectionButton.BackColor = Color.LightGreen;
                     MessageBox.Show(
-                        "Connexion réussie.",
-                        "Vérification de la connexion",
+                        Strings.SuccessfulConnection,
+                        Strings.CheckingTheConnection,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
@@ -353,14 +293,13 @@ namespace ExandasOracle.Forms
                 {
                     checkConnectionButton.BackColor = Color.Salmon;
                     MessageBox.Show(
-                        "Echec de la connexion." + Environment.NewLine + ex.Message,
-                        "Vérification de la connexion",
+                        Strings.ConnectionFailed + Environment.NewLine + ex.Message,
+                        Strings.CheckingTheConnection,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                     );
                 }
             }
-
         }
 
     }

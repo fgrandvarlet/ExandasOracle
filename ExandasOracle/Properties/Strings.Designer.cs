@@ -97,6 +97,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Checking the connection.
+        /// </summary>
+        internal static string CheckingTheConnection {
+            get {
+                return ResourceManager.GetString("CheckingTheConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à check constraints.
         /// </summary>
         internal static string Checks {
@@ -169,6 +178,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Connection failed..
+        /// </summary>
+        internal static string ConnectionFailed {
+            get {
+                return ResourceManager.GetString("ConnectionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Connection ID.
         /// </summary>
         internal static string ConnectionID {
@@ -187,11 +205,38 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Connection name required.
+        /// </summary>
+        internal static string ConnectionNameRequired {
+            get {
+                return ResourceManager.GetString("ConnectionNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à constraint columns.
+        /// </summary>
+        internal static string ConstraintColumns {
+            get {
+                return ResourceManager.GetString("ConstraintColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à constraints.
         /// </summary>
         internal static string Constraints {
             get {
                 return ResourceManager.GetString("Constraints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à DBA views.
+        /// </summary>
+        internal static string DBAViews {
+            get {
+                return ResourceManager.GetString("DBAViews", resourceCulture);
             }
         }
         
@@ -255,6 +300,24 @@ namespace ExandasOracle.Properties {
         internal static string Host {
             get {
                 return ResourceManager.GetString("Host", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Host name.
+        /// </summary>
+        internal static string Hostname {
+            get {
+                return ResourceManager.GetString("Hostname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Hostname required.
+        /// </summary>
+        internal static string HostnameRequired {
+            get {
+                return ResourceManager.GetString("HostnameRequired", resourceCulture);
             }
         }
         
@@ -331,11 +394,38 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à partitioned tables.
+        /// </summary>
+        internal static string PartitionedTables {
+            get {
+                return ResourceManager.GetString("PartitionedTables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Password.
         /// </summary>
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Password required.
+        /// </summary>
+        internal static string PasswordRequired {
+            get {
+                return ResourceManager.GetString("PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Port required.
+        /// </summary>
+        internal static string PortRequired {
+            get {
+                return ResourceManager.GetString("PortRequired", resourceCulture);
             }
         }
         
@@ -394,6 +484,24 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Service name.
+        /// </summary>
+        internal static string ServiceName {
+            get {
+                return ResourceManager.GetString("ServiceName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à SID or service name required.
+        /// </summary>
+        internal static string SIDOrServiceNameRequired {
+            get {
+                return ResourceManager.GetString("SIDOrServiceNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à source.
         /// </summary>
         internal static string Source {
@@ -435,6 +543,15 @@ namespace ExandasOracle.Properties {
         internal static string SourceServerConnection {
             get {
                 return ResourceManager.GetString("SourceServerConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Successful connection.
+        /// </summary>
+        internal static string SuccessfulConnection {
+            get {
+                return ResourceManager.GetString("SuccessfulConnection", resourceCulture);
             }
         }
         
@@ -525,6 +642,15 @@ namespace ExandasOracle.Properties {
         internal static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à User name required.
+        /// </summary>
+        internal static string UserNameRequired {
+            get {
+                return ResourceManager.GetString("UserNameRequired", resourceCulture);
             }
         }
         

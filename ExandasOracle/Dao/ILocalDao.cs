@@ -25,6 +25,10 @@ namespace ExandasOracle.Dao
 
         void LoadConstraintList(FbTransaction tran, SchemaType schemaType, List<Constraint> list);
 
+        void LoadConstraintColumnList(FbTransaction tran, SchemaType schemaType, List<ConstraintColumn> list);
+
+        void LoadPartitionedTableList(FbTransaction tran, SchemaType schemaType, List<PartitionedTable> list);
+
         void LoadViewList(FbTransaction tran, SchemaType schemaType, List<View> list);
 
         void LoadSequenceList(FbTransaction tran, SchemaType schemaType, List<Sequence> list);

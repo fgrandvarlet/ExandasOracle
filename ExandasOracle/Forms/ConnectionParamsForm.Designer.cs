@@ -65,7 +65,7 @@ namespace ExandasOracle.Forms
             this.bottomPanel.Location = new System.Drawing.Point(0, 449);
             this.bottomPanel.Name = "bottomPanel";
             this.bottomPanel.Size = new System.Drawing.Size(623, 83);
-            this.bottomPanel.TabIndex = 1;
+            this.bottomPanel.TabIndex = 10;
             // 
             // fillPanel
             // 
@@ -100,7 +100,7 @@ namespace ExandasOracle.Forms
             this.checkConnectionButton.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.checkConnectionButton.Name = "checkConnectionButton";
             this.checkConnectionButton.Size = new System.Drawing.Size(451, 23);
-            this.checkConnectionButton.TabIndex = 18;
+            this.checkConnectionButton.TabIndex = 15;
             this.checkConnectionButton.Text = "Vérification de la connexion";
             this.checkConnectionButton.UseVisualStyleBackColor = true;
             this.checkConnectionButton.Click += new System.EventHandler(this.CheckConnectionButton_Click);
@@ -108,12 +108,10 @@ namespace ExandasOracle.Forms
             // DBAViewsCheckBox
             // 
             this.DBAViewsCheckBox.AutoSize = true;
-            this.DBAViewsCheckBox.Checked = true;
-            this.DBAViewsCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.DBAViewsCheckBox.Location = new System.Drawing.Point(152, 260);
             this.DBAViewsCheckBox.Name = "DBAViewsCheckBox";
             this.DBAViewsCheckBox.Size = new System.Drawing.Size(77, 19);
-            this.DBAViewsCheckBox.TabIndex = 17;
+            this.DBAViewsCheckBox.TabIndex = 14;
             this.DBAViewsCheckBox.Text = "Vues DBA";
             this.DBAViewsCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -123,7 +121,7 @@ namespace ExandasOracle.Forms
             this.serviceRadioButton.Location = new System.Drawing.Point(12, 217);
             this.serviceRadioButton.Name = "serviceRadioButton";
             this.serviceRadioButton.Size = new System.Drawing.Size(107, 19);
-            this.serviceRadioButton.TabIndex = 14;
+            this.serviceRadioButton.TabIndex = 12;
             this.serviceRadioButton.TabStop = true;
             this.serviceRadioButton.Text = "Nom de service";
             this.serviceRadioButton.UseVisualStyleBackColor = true;
@@ -145,7 +143,7 @@ namespace ExandasOracle.Forms
             this.SIDRadioButton.Location = new System.Drawing.Point(12, 188);
             this.SIDRadioButton.Name = "SIDRadioButton";
             this.SIDRadioButton.Size = new System.Drawing.Size(42, 19);
-            this.SIDRadioButton.TabIndex = 12;
+            this.SIDRadioButton.TabIndex = 10;
             this.SIDRadioButton.TabStop = true;
             this.SIDRadioButton.Text = "SID";
             this.SIDRadioButton.UseVisualStyleBackColor = true;
@@ -158,14 +156,14 @@ namespace ExandasOracle.Forms
             this.SIDTextBox.Location = new System.Drawing.Point(152, 187);
             this.SIDTextBox.Name = "SIDTextBox";
             this.SIDTextBox.Size = new System.Drawing.Size(452, 23);
-            this.SIDTextBox.TabIndex = 10;
+            this.SIDTextBox.TabIndex = 11;
             // 
             // portLabel
             // 
             this.portLabel.Location = new System.Drawing.Point(12, 162);
             this.portLabel.Name = "portLabel";
             this.portLabel.Size = new System.Drawing.Size(134, 23);
-            this.portLabel.TabIndex = 9;
+            this.portLabel.TabIndex = 8;
             this.portLabel.Text = "Port";
             // 
             // portTextBox
@@ -175,14 +173,14 @@ namespace ExandasOracle.Forms
             this.portTextBox.Location = new System.Drawing.Point(152, 158);
             this.portTextBox.Name = "portTextBox";
             this.portTextBox.Size = new System.Drawing.Size(452, 23);
-            this.portTextBox.TabIndex = 8;
+            this.portTextBox.TabIndex = 9;
             // 
             // hostLabel
             // 
             this.hostLabel.Location = new System.Drawing.Point(12, 132);
             this.hostLabel.Name = "hostLabel";
             this.hostLabel.Size = new System.Drawing.Size(134, 23);
-            this.hostLabel.TabIndex = 7;
+            this.hostLabel.TabIndex = 6;
             this.hostLabel.Text = "Nom d\'hôte";
             // 
             // hostTextBox
@@ -192,14 +190,14 @@ namespace ExandasOracle.Forms
             this.hostTextBox.Location = new System.Drawing.Point(152, 129);
             this.hostTextBox.Name = "hostTextBox";
             this.hostTextBox.Size = new System.Drawing.Size(452, 23);
-            this.hostTextBox.TabIndex = 6;
+            this.hostTextBox.TabIndex = 7;
             // 
             // passwordLabel
             // 
             this.passwordLabel.Location = new System.Drawing.Point(12, 103);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(134, 23);
-            this.passwordLabel.TabIndex = 5;
+            this.passwordLabel.TabIndex = 4;
             this.passwordLabel.Text = "Mot de passe";
             // 
             // passwordTextBox
@@ -209,7 +207,7 @@ namespace ExandasOracle.Forms
             this.passwordTextBox.Location = new System.Drawing.Point(152, 100);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(452, 23);
-            this.passwordTextBox.TabIndex = 4;
+            this.passwordTextBox.TabIndex = 5;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // userTextBox
@@ -234,7 +232,7 @@ namespace ExandasOracle.Forms
             this.nameLabel.Location = new System.Drawing.Point(10, 30);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(135, 23);
-            this.nameLabel.TabIndex = 1;
+            this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Nom de la connexion";
             // 
             // nameTextBox
@@ -245,7 +243,7 @@ namespace ExandasOracle.Forms
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 18);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(452, 23);
-            this.nameTextBox.TabIndex = 0;
+            this.nameTextBox.TabIndex = 1;
             // 
             // ConnectionParamsForm
             // 

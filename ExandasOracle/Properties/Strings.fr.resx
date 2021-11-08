@@ -129,6 +129,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>&amp;Annuler</value>
   </data>
+  <data name="CheckingTheConnection" xml:space="preserve">
+    <value>Vérification de la connexion</value>
+  </data>
   <data name="Checks" xml:space="preserve">
     <value>contraintes de vérification</value>
   </data>
@@ -153,14 +156,26 @@
   <data name="ComparisonSets" xml:space="preserve">
     <value>Jeux de comparaison</value>
   </data>
+  <data name="ConnectionFailed" xml:space="preserve">
+    <value>Echec de la connexion.</value>
+  </data>
   <data name="ConnectionID" xml:space="preserve">
     <value>ID connexion</value>
   </data>
   <data name="ConnectionName" xml:space="preserve">
     <value>Nom de la connexion</value>
   </data>
+  <data name="ConnectionNameRequired" xml:space="preserve">
+    <value>Nom de la connexion obligatoire</value>
+  </data>
+  <data name="ConstraintColumns" xml:space="preserve">
+    <value>colonnes de contrainte</value>
+  </data>
   <data name="Constraints" xml:space="preserve">
     <value>contraintes</value>
+  </data>
+  <data name="DBAViews" xml:space="preserve">
+    <value>Vues DBA</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
@@ -182,6 +197,12 @@
   </data>
   <data name="Host" xml:space="preserve">
     <value>Hôte</value>
+  </data>
+  <data name="Hostname" xml:space="preserve">
+    <value>Nom d'hôte</value>
+  </data>
+  <data name="HostnameRequired" xml:space="preserve">
+    <value>Hôte obligatoire</value>
   </data>
   <data name="IndexPartitions" xml:space="preserve">
     <value>partitions d'index</value>
@@ -207,8 +228,17 @@
   <data name="ObjectInTarget" xml:space="preserve">
     <value>Objet dans cible absent en source</value>
   </data>
+  <data name="PartitionedTables" xml:space="preserve">
+    <value>tables partitionnées</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Mot de passe</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Mot de passe obligatoire</value>
+  </data>
+  <data name="PortRequired" xml:space="preserve">
+    <value>Port obligatoire</value>
   </data>
   <data name="PrimaryKeys" xml:space="preserve">
     <value>clés primaires</value>
@@ -228,6 +258,12 @@
   <data name="ServerConnectionsList" xml:space="preserve">
     <value>Liste des connexions serveur</value>
   </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>Nom de service</value>
+  </data>
+  <data name="SIDOrServiceNameRequired" xml:space="preserve">
+    <value>SID ou nom de service obligatoire</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>source</value>
   </data>
@@ -242,6 +278,9 @@
   </data>
   <data name="SourceServerConnection" xml:space="preserve">
     <value>Connexion serveur source</value>
+  </data>
+  <data name="SuccessfulConnection" xml:space="preserve">
+    <value>Connexion réussie</value>
   </data>
   <data name="TableColumns" xml:space="preserve">
     <value>colonnes de table</value>
@@ -272,6 +311,9 @@
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Nom utilisateur</value>
+  </data>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>Nom utilisateur obligatoire</value>
   </data>
   <data name="Views" xml:space="preserve">
     <value>vues</value>

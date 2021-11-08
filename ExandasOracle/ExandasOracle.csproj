@@ -175,9 +175,11 @@
     <Compile Include="Core\Delta.Cluster.cs" />
     <Compile Include="Core\Delta.ColumnComment.cs" />
     <Compile Include="Core\Delta.Constraint.cs" />
+    <Compile Include="Core\Delta.ConstraintColumn.cs" />
     <Compile Include="Core\Delta.cs" />
     <Compile Include="Core\Delta.ForeignKey.cs" />
     <Compile Include="Core\Delta.IndexPartition.cs" />
+    <Compile Include="Core\Delta.PartitionedTable.cs" />
     <Compile Include="Core\Delta.PrimaryKey.cs" />
     <Compile Include="Core\Delta.Sequence.cs" />
     <Compile Include="Core\Delta.SourceSynthesis.cs" />
@@ -185,6 +187,7 @@
     <Compile Include="Core\Delta.TableColumn.cs" />
     <Compile Include="Core\Delta.TableIndex.cs" />
     <Compile Include="Core\Delta.Unique.cs" />
+    <Compile Include="Core\Delta.View.cs" />
     <Compile Include="Core\MetaDataLoader.cs" />
     <Compile Include="Core\MetaDataLoader.Methods.cs" />
     <Compile Include="Dao\DaoFactory.cs" />

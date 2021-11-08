@@ -51,6 +51,10 @@ namespace ExandasOracle.Core
                 { Strings.Checks, LoadChecks },
                 { Strings.Constraints, LoadConstraints },
 
+                { Strings.ConstraintColumns, LoadConstraintColumns },
+
+                { Strings.PartitionedTables, LoadPartitionedTables },
+
                 { Strings.Views, LoadViews },
                 
                 { Strings.Sequences, LoadSequences },

@@ -171,8 +171,6 @@ namespace ExandasOracle.Components
             // DBAViewsCheckBox
             // 
             this.DBAViewsCheckBox.AutoSize = true;
-            this.DBAViewsCheckBox.Checked = true;
-            this.DBAViewsCheckBox.CheckState = System.Windows.Forms.CheckState.Indeterminate;
             this.DBAViewsCheckBox.Enabled = false;
             this.DBAViewsCheckBox.Location = new System.Drawing.Point(127, 238);
             this.DBAViewsCheckBox.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
@@ -180,7 +178,6 @@ namespace ExandasOracle.Components
             this.DBAViewsCheckBox.Size = new System.Drawing.Size(77, 19);
             this.DBAViewsCheckBox.TabIndex = 12;
             this.DBAViewsCheckBox.Text = "Vues DBA";
-            this.DBAViewsCheckBox.ThreeState = true;
             this.DBAViewsCheckBox.UseVisualStyleBackColor = true;
             // 
             // schemaTextBox

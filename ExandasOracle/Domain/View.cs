@@ -1,79 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class View
     {
-        /// <summary>
-        /// 
-        /// </summary>
         const string ENTITY = "VIEW";
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string ViewName { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public decimal? TextLength { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Text { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string TextVC { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string TypeText { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string OidText { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string ViewTypeOwner { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string ViewType { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string SuperviewName { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string ReadOnly { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Bequeath { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string DefaultCollation { get; set; }
 
         /// <summary>
@@ -90,18 +35,16 @@ namespace ExandasOracle.Domain
                     comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT_LENGTH", this.TextLength.ToString(), target.TextLength.ToString()
                     ));
             }
-
-            // TODO AFFINER : une seule valeur entre Text et TextVC
-            if (this.Text != target.Text)
-            {
-                list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT", this.Text, target.Text
-                    ));
-            }
             if (this.TextVC != target.TextVC)
             {
                 list.Add(new DeltaReport(
                     comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT_VC", this.TextVC, target.TextVC
+                    ));
+            }
+            else if (this.Text != target.Text)
+            {
+                list.Add(new DeltaReport(
+                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT", this.Text, target.Text
                     ));
             }
             if (this.TypeText != target.TypeText)

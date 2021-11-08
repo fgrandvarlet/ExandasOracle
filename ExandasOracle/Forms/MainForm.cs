@@ -23,6 +23,8 @@ using ExandasOracle.Properties;
 // TODO compléter les propriétés de l'objet de domaine Table
 // TODO contrainte de clé étrangère ON DELETE CASCADE entre delta_report et comparison_set
 // TODO utiliser un mot de passe différent du défaut (masterkey) pour SYSDBA ?? pertinent ??
+// TODO utilitaire de sauvegarde et de purge de la base de données locale
+// TODO REGLER TAB ORDER VIA PROPERTIES DANS TOUTES LES FORMS
 
 namespace ExandasOracle.Forms
 {
