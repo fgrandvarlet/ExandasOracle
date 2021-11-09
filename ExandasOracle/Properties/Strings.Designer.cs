@@ -322,6 +322,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à index columns.
+        /// </summary>
+        internal static string IndexColumns {
+            get {
+                return ResourceManager.GetString("IndexColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à index partitions.
         /// </summary>
         internal static string IndexPartitions {

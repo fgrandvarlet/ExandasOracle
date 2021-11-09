@@ -552,6 +552,42 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadIndexColumnList(FbTransaction tran, SchemaType schemaType, List<IndexColumn> list)
+        {
+            var tableName = string.Format("{0}_ind_columns", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@index_name, @table_owner, @table_name, @column_name, @column_position," +
+                " @column_length, @col_char_length, @descend, @collated_column_id)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var ic in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("index_name", ic.IndexName);
+                cmd.Parameters.AddWithValue("table_owner", ic.TableOwner);
+                cmd.Parameters.AddWithValue("table_name", ic.TableName);
+                cmd.Parameters.AddWithValue("column_name", ic.ColumnName);
+                cmd.Parameters.AddWithValue("column_position", ic.ColumnPosition);
+                cmd.Parameters.AddWithValue("column_length", ic.ColumnLength);
+                cmd.Parameters.AddWithValue("col_char_length", ic.CharLength);
+                cmd.Parameters.AddWithValue("descend", ic.Descend);
+                cmd.Parameters.AddWithValue("collated_column_id", ic.CollatedColumnId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadIndexPartitionList(FbTransaction tran, SchemaType schemaType, List<IndexPartition> list)
         {
             var tableName = string.Format("{0}_ind_partitions", GetPrefix(schemaType));

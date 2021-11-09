@@ -178,6 +178,7 @@
     <Compile Include="Core\Delta.ConstraintColumn.cs" />
     <Compile Include="Core\Delta.cs" />
     <Compile Include="Core\Delta.ForeignKey.cs" />
+    <Compile Include="Core\Delta.IndexColumn.cs" />
     <Compile Include="Core\Delta.IndexPartition.cs" />
     <Compile Include="Core\Delta.PartitionedTable.cs" />
     <Compile Include="Core\Delta.PrimaryKey.cs" />
@@ -217,7 +218,9 @@
     <Compile Include="Domain\Criteria.cs" />
     <Compile Include="Domain\DeltaReport.cs" />
     <Compile Include="Domain\ForeignKey.cs" />
+    <Compile Include="Domain\IndexColumn.cs" />
     <Compile Include="Domain\IndexPartition.cs" />
+    <Compile Include="Domain\MaterializedView.cs" />
     <Compile Include="Domain\PartitionedTable.cs" />
     <Compile Include="Domain\PrimaryKey.cs" />
     <Compile Include="Domain\Sequence.cs" />

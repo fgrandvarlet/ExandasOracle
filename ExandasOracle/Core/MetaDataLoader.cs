@@ -60,6 +60,7 @@ namespace ExandasOracle.Core
                 { Strings.Sequences, LoadSequences },
                 
                 { Strings.TableIndexes, LoadTableIndexes },
+                { Strings.IndexColumns, LoadIndexColumns },
                 { Strings.IndexPartitions, LoadIndexPartitions },
                 
                 { Strings.Sources, LoadSources },

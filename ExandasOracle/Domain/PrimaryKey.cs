@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using ExandasOracle.Properties;
 
@@ -16,28 +15,28 @@ namespace ExandasOracle.Domain
         /// 
         /// </summary>
         /// <param name="target"></param>
-        /// <param name="comparisonSetUid"></param>
+        /// <param name="comparisonSet"></param>
         /// <param name="list"></param>
-        public void Compare(PrimaryKey target, Guid comparisonSetUid, List<DeltaReport> list)
+        public void Compare(PrimaryKey target, ComparisonSet comparisonSet, List<DeltaReport> list)
         {
-            this.Compare(target, comparisonSetUid, list, ENTITY);
+            this.Compare(target, comparisonSet.Uid, list, ENTITY);
 
             if (this.Rely != target.Rely)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "RELY", this.Rely, target.Rely
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "RELY", this.Rely, target.Rely
                     ));
             }
-            if (this.IndexOwner != target.IndexOwner)
+            if (this.IndexOwner != target.IndexOwner && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "INDEX_OWNER", this.IndexOwner, target.IndexOwner
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "INDEX_OWNER", this.IndexOwner, target.IndexOwner
                     ));
             }
             if (this.IndexName != target.IndexName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "INDEX_NAME", this.IndexName, target.IndexName
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "INDEX_NAME", this.IndexName, target.IndexName
                     ));
             }
         }

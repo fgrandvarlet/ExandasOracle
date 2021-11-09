@@ -204,6 +204,9 @@
   <data name="HostnameRequired" xml:space="preserve">
     <value>Hostname required</value>
   </data>
+  <data name="IndexColumns" xml:space="preserve">
+    <value>index columns</value>
+  </data>
   <data name="IndexPartitions" xml:space="preserve">
     <value>index partitions</value>
   </data>

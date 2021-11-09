@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ExandasOracle.Domain
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class DeltaReport
     {
         /// <summary>
@@ -84,50 +79,14 @@ namespace ExandasOracle.Domain
             Label = label;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public long Id { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public Guid ComparisonSetUid { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Entity { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string ObjectValue { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string ParentObject { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Label { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Property { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Source { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Target { get; set; }
-
     }
 }

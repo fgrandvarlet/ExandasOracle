@@ -32,7 +32,7 @@ namespace ExandasOracle.Core
                 while (dr.Read())
                 {
                     var parentObject = string.Format("{0}.{1}", (string)dr["table_name"], (string)dr["constraint_name"]);
-                    var report = new DeltaReport(this._comparisonSet.Uid, "CONSTRAINT COLUMN", (string)dr["constraint_name"], parentObject, Strings.ObjectInSource);
+                    var report = new DeltaReport(this._comparisonSet.Uid, "CONSTRAINT COLUMN", (string)dr["column_name"], parentObject, Strings.ObjectInSource);
                     list.Add(report);
                 }
             }
@@ -50,7 +50,7 @@ namespace ExandasOracle.Core
                 while (dr.Read())
                 {
                     var parentObject = string.Format("{0}.{1}", (string)dr["table_name"], (string)dr["constraint_name"]);
-                    var report = new DeltaReport(this._comparisonSet.Uid, "CONSTRAINT COLUMN", (string)dr["constraint_name"], parentObject, Strings.ObjectInTarget);
+                    var report = new DeltaReport(this._comparisonSet.Uid, "CONSTRAINT COLUMN", (string)dr["column_name"], parentObject, Strings.ObjectInTarget);
                     list.Add(report);
                 }
             }

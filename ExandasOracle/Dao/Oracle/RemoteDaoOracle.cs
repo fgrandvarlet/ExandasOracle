@@ -559,6 +559,54 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<MaterializedView> GetMaterializedViewList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<MaterializedView>();
+
+            const string root = "SELECT mview_name, container_name, query, query_len, updatable, update_log, master_rollback_seg, master_link," +
+                " rewrite_enabled, rewrite_capability, refresh_mode, refresh_method, build_mode, fast_refreshable, use_no_index, default_collation" +
+                " FROM {0}_mviews WHERE owner = :owner ORDER BY mview_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            cmd.InitialLONGFetchSize = -1;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var mv = new MaterializedView();
+                    mv.MViewName = (string)dr["mview_name"];
+                    mv.ContainerName = (string)dr["container_name"];
+                    mv.Query = dr["query"] is DBNull ? null : (string)dr["query"];
+                    mv.QueryLen = dr["query_len"] is DBNull ? null : (decimal?)dr["query_len"];
+                    mv.Updatable = dr["updatable"] is DBNull ? null : (string)dr["updatable"];
+                    mv.UpdateLog = dr["update_log"] is DBNull ? null : (string)dr["update_log"];
+                    mv.MasterRollbackSeg = dr["master_rollback_seg"] is DBNull ? null : (string)dr["master_rollback_seg"];
+                    mv.MasterLink = dr["master_link"] is DBNull ? null : (string)dr["master_link"];
+                    mv.RewriteEnabled = dr["rewrite_enabled"] is DBNull ? null : (string)dr["rewrite_enabled"];
+                    mv.RewriteCapability = dr["rewrite_capability"] is DBNull ? null : (string)dr["rewrite_capability"];
+                    mv.RefreshMode = dr["refresh_mode"] is DBNull ? null : (string)dr["refresh_mode"];
+                    mv.RefreshMethod = dr["refresh_method"] is DBNull ? null : (string)dr["refresh_method"];
+                    mv.BuildMode = dr["build_mode"] is DBNull ? null : (string)dr["build_mode"];
+                    mv.FastRefreshable = dr["fast_refreshable"] is DBNull ? null : (string)dr["fast_refreshable"];
+                    mv.UseNoIndex = dr["use_no_index"] is DBNull ? null : (string)dr["use_no_index"];
+                    mv.DefaultCollation = dr["default_collation"] is DBNull ? null : (string)dr["default_collation"];
+                    list.Add(mv);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<Sequence> GetSequenceList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<Sequence>();
@@ -636,6 +684,46 @@ namespace ExandasOracle.Dao.Oracle
                     ti.Temporary = dr["temporary"] is DBNull ? null : (string)dr["temporary"];
                     ti.Duration = dr["duration"] is DBNull ? null : (string)dr["duration"];
                     list.Add(ti);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<IndexColumn> GetIndexColumnList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<IndexColumn>();
+
+            const string root = "SELECT index_name, table_owner, table_name, substr(column_name, 1, 128) column_name," +
+                " column_position, column_length, char_length, descend, collated_column_id" +
+                " FROM {0}_ind_columns" +
+                " WHERE index_owner = :owner ORDER BY index_name, column_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var ic = new IndexColumn();
+                    ic.IndexName = (string)dr["index_name"];
+                    ic.TableOwner = (string)dr["table_owner"];
+                    ic.TableName = (string)dr["table_name"];
+                    ic.ColumnName = (string)dr["column_name"];
+                    ic.ColumnPosition = (decimal)dr["column_position"];
+                    ic.ColumnLength = (decimal)dr["column_length"];
+                    ic.CharLength = dr["char_length"] is DBNull ? null : (decimal?)dr["char_length"];
+                    ic.Descend = dr["descend"] is DBNull ? null : (string)dr["descend"];
+                    ic.CollatedColumnId = dr["collated_column_id"] is DBNull ? null : (decimal?)dr["collated_column_id"];
+                    list.Add(ic);
                 }
             }
             return list;

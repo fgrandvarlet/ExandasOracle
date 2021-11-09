@@ -89,7 +89,7 @@ namespace ExandasOracle.Core
                         Invalid = dr["tgt_invalid"] is DBNull ? null : (string)dr["tgt_invalid"],
                         ViewRelated = dr["tgt_view_related"] is DBNull ? null : (string)dr["tgt_view_related"],
                     };
-                    sourcePrimaryKey.Compare(targetPrimaryKey, this._comparisonSet.Uid, list);
+                    sourcePrimaryKey.Compare(targetPrimaryKey, this._comparisonSet, list);
                 }
             }
         }

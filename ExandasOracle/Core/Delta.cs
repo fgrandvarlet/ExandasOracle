@@ -56,6 +56,7 @@ namespace ExandasOracle.Core
 
                 { Strings.Sequences, DeltaSequence },
                 { Strings.TableIndexes, DeltaTableIndex },
+                { Strings.IndexColumns, DeltaIndexColumn },
                 { Strings.IndexPartitions, DeltaIndexPartition },
 
                 { Strings.Sources, DeltaSourceSynthesis },
