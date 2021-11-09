@@ -5,7 +5,7 @@ CREATE TABLE src_tab_partitions
 (
     table_name varchar(128) not null,
     composite varchar(3),
-    partition_name varchar(128),
+    partition_name varchar(128) not null,
     subpartition_count integer,
     high_value BLOB SUB_TYPE TEXT,
     high_value_length integer,
@@ -26,7 +26,7 @@ CREATE TABLE tgt_tab_partitions
 (
     table_name varchar(128) not null,
     composite varchar(3),
-    partition_name varchar(128),
+    partition_name varchar(128) not null,
     subpartition_count integer,
     high_value BLOB SUB_TYPE TEXT,
     high_value_length integer,
