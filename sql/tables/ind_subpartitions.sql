@@ -12,6 +12,8 @@ CREATE TABLE src_ind_subpartitions
     tablespace_name varchar(30) not null,
     logging varchar(3),
     compression varchar(13),
+    parameters varchar(1000),
+    interval varchar(3),
     CONSTRAINT pk_src_ind_subpartitions PRIMARY KEY (index_name, partition_name, subpartition_name)
 );
 
@@ -28,5 +30,7 @@ CREATE TABLE tgt_ind_subpartitions
     tablespace_name varchar(30) not null,
     logging varchar(3),
     compression varchar(13),
+    parameters varchar(1000),
+    interval varchar(3),
     CONSTRAINT pk_tgt_ind_subpartitions PRIMARY KEY (index_name, partition_name, subpartition_name)
 );

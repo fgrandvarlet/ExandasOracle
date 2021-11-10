@@ -210,6 +210,9 @@
   <data name="IndexPartitions" xml:space="preserve">
     <value>partitions d'index</value>
   </data>
+  <data name="IndexSubpartitions" xml:space="preserve">
+    <value>sous-partitions d'index</value>
+  </data>
   <data name="LastReportTime" xml:space="preserve">
     <value>Dernier rapport</value>
   </data>

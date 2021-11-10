@@ -19,7 +19,7 @@ namespace ExandasOracle.Domain
         /// <param name="list"></param>
         public void Compare(PrimaryKey target, ComparisonSet comparisonSet, List<DeltaReport> list)
         {
-            this.Compare(target, comparisonSet.Uid, list, ENTITY);
+            base.Compare(target, comparisonSet.Uid, list, ENTITY);
 
             if (this.Rely != target.Rely)
             {

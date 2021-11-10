@@ -340,6 +340,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à index subpartitions.
+        /// </summary>
+        internal static string IndexSubpartitions {
+            get {
+                return ResourceManager.GetString("IndexSubpartitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Last report time.
         /// </summary>
         internal static string LastReportTime {

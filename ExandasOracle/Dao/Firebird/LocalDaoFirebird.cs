@@ -593,7 +593,7 @@ namespace ExandasOracle.Dao.Firebird
             var tableName = string.Format("{0}_ind_partitions", GetPrefix(schemaType));
 
             const string sql = "INSERT INTO {0} VALUES(@index_name, @composite, @partition_name, @subpartition_count," +
-                " @high_value, @high_value_length, @partition_position, @status, @tablespace_name, @logging, @compression)";
+                " @high_value, @high_value_length, @partition_position, @status, @tablespace_name, @logging, @compression, @parameters, @interval)";
 
             // preliminary purge of the table
             (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
@@ -616,6 +616,48 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.Parameters.AddWithValue("tablespace_name", ip.TablespaceName);
                 cmd.Parameters.AddWithValue("logging", ip.Logging);
                 cmd.Parameters.AddWithValue("compression", ip.Compression);
+                cmd.Parameters.AddWithValue("parameters", ip.Parameters);
+                cmd.Parameters.AddWithValue("interval", ip.Interval);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadIndexSubpartitionList(FbTransaction tran, SchemaType schemaType, List<IndexSubpartition> list)
+        {
+            var tableName = string.Format("{0}_ind_subpartitions", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@index_name, @partition_name, @subpartition_name, @high_value, @high_value_length, @partition_position," +
+                " @subpartition_position, @status, @tablespace_name, @logging, @compression, @parameters, @interval)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var ip in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("index_name", ip.IndexName);
+                cmd.Parameters.AddWithValue("partition_name", ip.PartitionName);
+                cmd.Parameters.AddWithValue("subpartition_name", ip.SubpartitionName);
+                cmd.Parameters.AddWithValue("high_value", ip.HighValue);
+                cmd.Parameters.AddWithValue("high_value_length", ip.HighValueLength);
+                cmd.Parameters.AddWithValue("partition_position", ip.PartitionPosition);
+                cmd.Parameters.AddWithValue("subpartition_position", ip.SubpartitionPosition);
+                cmd.Parameters.AddWithValue("status", ip.Status);
+                cmd.Parameters.AddWithValue("tablespace_name", ip.TablespaceName);
+                cmd.Parameters.AddWithValue("logging", ip.Logging);
+                cmd.Parameters.AddWithValue("compression", ip.Compression);
+                cmd.Parameters.AddWithValue("parameters", ip.Parameters);
+                cmd.Parameters.AddWithValue("interval", ip.Interval);
                 cmd.ExecuteNonQuery();
             }
         }

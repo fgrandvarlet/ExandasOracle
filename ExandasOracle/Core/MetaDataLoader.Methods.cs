@@ -82,6 +82,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadIndexPartitionList(tran, schemaType, dao.GetIndexPartitionList(conn, schema, DBAViews));
         }
 
+        private void LoadIndexSubpartitions(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadIndexSubpartitionList(tran, schemaType, dao.GetIndexSubpartitionList(conn, schema, DBAViews));
+        }
+
         private void LoadSources(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadSourceList(tran, schemaType, dao.GetSourceList(conn, schema, DBAViews));

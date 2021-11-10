@@ -39,6 +39,8 @@ namespace ExandasOracle.Dao
 
         void LoadIndexPartitionList(FbTransaction tran, SchemaType schemaType, List<IndexPartition> list);
 
+        void LoadIndexSubpartitionList(FbTransaction tran, SchemaType schemaType, List<IndexSubpartition> list);
+
         void LoadSourceList(FbTransaction tran, SchemaType schemaType, List<Source> list);
 
         void LoadSourceSynthesis(FbTransaction tran, SchemaType schemaType);

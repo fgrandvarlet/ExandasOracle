@@ -21,7 +21,7 @@ namespace ExandasOracle.Domain
         /// <param name="list"></param>
         public void Compare(ClusterColumn target, Guid comparisonSetUid, List<DeltaReport> list)
         {
-            this.Compare(target, comparisonSetUid, list, ENTITY);
+            base.Compare(target, comparisonSetUid, list, ENTITY);
         }
 
     }

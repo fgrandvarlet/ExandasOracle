@@ -741,7 +741,7 @@ namespace ExandasOracle.Dao.Oracle
             var list = new List<IndexPartition>();
 
             const string root = "SELECT index_name, composite, partition_name, subpartition_count, high_value, high_value_length," +
-                " partition_position, status, tablespace_name, logging, compression" +
+                " partition_position, status, tablespace_name, logging, compression, parameters, interval" +
                 " FROM {0}_ind_partitions" +
                 " WHERE index_owner = :index_owner ORDER BY index_name, partition_name";
             string sql = string.Format(root, GetPrefix(DBAViews));
@@ -767,6 +767,54 @@ namespace ExandasOracle.Dao.Oracle
                     ip.TablespaceName = dr["tablespace_name"] is DBNull ? null : (string)dr["tablespace_name"];
                     ip.Logging = dr["logging"] is DBNull ? null : (string)dr["logging"];
                     ip.Compression = dr["compression"] is DBNull ? null : (string)dr["compression"];
+                    ip.Parameters = dr["parameters"] is DBNull ? null : (string)dr["parameters"];
+                    ip.Interval = dr["interval"] is DBNull ? null : (string)dr["interval"];
+                    list.Add(ip);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<IndexSubpartition> GetIndexSubpartitionList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<IndexSubpartition>();
+
+            const string root = "SELECT index_name, partition_name, subpartition_name, high_value, high_value_length, partition_position," +
+                " subpartition_position, status, tablespace_name, logging, compression, parameters, interval" +
+                " FROM {0}_ind_subpartitions" +
+                " WHERE index_owner = :index_owner ORDER BY index_name, partition_name, subpartition_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("index_owner", OracleDbType.Varchar2).Value = schema;
+
+            cmd.InitialLONGFetchSize = -1;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var ip = new IndexSubpartition();
+                    ip.IndexName = (string)dr["index_name"];
+                    ip.PartitionName = (string)dr["partition_name"];
+                    ip.SubpartitionName = (string)dr["subpartition_name"];
+                    ip.HighValue = dr["high_value"] is DBNull ? null : (string)dr["high_value"];
+                    ip.HighValueLength = dr["high_value_length"] is DBNull ? null : (decimal?)dr["high_value_length"];
+                    ip.PartitionPosition = dr["partition_position"] is DBNull ? null : (decimal?)dr["partition_position"];
+                    ip.SubpartitionPosition = dr["subpartition_position"] is DBNull ? null : (decimal?)dr["subpartition_position"];
+                    ip.Status = dr["status"] is DBNull ? null : (string)dr["status"];
+                    ip.TablespaceName = dr["tablespace_name"] is DBNull ? null : (string)dr["tablespace_name"];
+                    ip.Logging = dr["logging"] is DBNull ? null : (string)dr["logging"];
+                    ip.Compression = dr["compression"] is DBNull ? null : (string)dr["compression"];
+                    ip.Parameters = dr["parameters"] is DBNull ? null : (string)dr["parameters"];
+                    ip.Interval = dr["interval"] is DBNull ? null : (string)dr["interval"];
                     list.Add(ip);
                 }
             }

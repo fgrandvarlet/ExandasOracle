@@ -74,6 +74,8 @@ namespace ExandasOracle.Core
                         TablespaceName = dr["src_tablespace_name"] is DBNull ? null : (string)dr["src_tablespace_name"],
                         Logging = dr["src_logging"] is DBNull ? null : (string)dr["src_logging"],
                         Compression = dr["src_compression"] is DBNull ? null : (string)dr["src_compression"],
+                        Parameters = dr["src_parameters"] is DBNull ? null : (string)dr["src_parameters"],
+                        Interval = dr["src_interval"] is DBNull ? null : (string)dr["src_interval"],
                     };
                     var targetIndexPartition = new IndexPartition
                     {
@@ -88,6 +90,8 @@ namespace ExandasOracle.Core
                         TablespaceName = dr["tgt_tablespace_name"] is DBNull ? null : (string)dr["tgt_tablespace_name"],
                         Logging = dr["tgt_logging"] is DBNull ? null : (string)dr["tgt_logging"],
                         Compression = dr["tgt_compression"] is DBNull ? null : (string)dr["tgt_compression"],
+                        Parameters = dr["tgt_parameters"] is DBNull ? null : (string)dr["tgt_parameters"],
+                        Interval = dr["tgt_interval"] is DBNull ? null : (string)dr["tgt_interval"],
                     };
                     sourceIndexPartition.Compare(targetIndexPartition, this._comparisonSet.Uid, list);
                 }

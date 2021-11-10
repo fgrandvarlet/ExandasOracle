@@ -1,6 +1,4 @@
 
--- ETUDE CLASSE ABSTRAITE Partition dont hériteraient IndexPartition et TablePartition
-
 CREATE TABLE src_tab_partitions
 (
     table_name varchar(128) not null,

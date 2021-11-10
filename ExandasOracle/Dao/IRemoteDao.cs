@@ -45,6 +45,8 @@ namespace ExandasOracle.Dao
 
         List<IndexPartition> GetIndexPartitionList(OracleConnection conn, string schema, bool DBAViews);
 
+        List<IndexSubpartition> GetIndexSubpartitionList(OracleConnection conn, string schema, bool DBAViews);
+
         List<Source> GetSourceList(OracleConnection conn, string schema, bool DBAViews);
 
         List<Cluster> GetClusterList(OracleConnection conn, string schema, bool DBAViews);

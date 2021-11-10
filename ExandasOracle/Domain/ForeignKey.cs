@@ -20,7 +20,7 @@ namespace ExandasOracle.Domain
         /// <param name="list"></param>
         public void Compare(ForeignKey target, Guid comparisonSetUid, List<DeltaReport> list)
         {
-            this.Compare(target, comparisonSetUid, list, ENTITY);
+            base.Compare(target, comparisonSetUid, list, ENTITY);
 
             if (this.ROwner != target.ROwner)
             {

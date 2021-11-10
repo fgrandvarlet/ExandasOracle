@@ -62,7 +62,8 @@ namespace ExandasOracle.Core
                 { Strings.TableIndexes, LoadTableIndexes },
                 { Strings.IndexColumns, LoadIndexColumns },
                 { Strings.IndexPartitions, LoadIndexPartitions },
-                
+                { Strings.IndexSubpartitions, LoadIndexSubpartitions },
+
                 { Strings.Sources, LoadSources },
                 { Strings.Clusters, LoadClusters },
             };

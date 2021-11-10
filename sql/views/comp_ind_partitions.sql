@@ -12,6 +12,8 @@ SELECT
 ,   s.tablespace_name       AS src_tablespace_name
 ,   s.logging               AS src_logging
 ,   s.compression           AS src_compression
+,   s.parameters            AS src_parameters
+,   s.interval              AS src_interval
 ,   t.composite             AS tgt_composite
 ,   t.subpartition_count    AS tgt_subpartition_count
 ,   t.high_value            AS tgt_high_value
@@ -21,6 +23,8 @@ SELECT
 ,   t.tablespace_name       AS tgt_tablespace_name
 ,   t.logging               AS tgt_logging
 ,   t.compression           AS tgt_compression
+,   t.parameters            AS tgt_parameters
+,   t.interval              AS tgt_interval
 FROM src_ind_partitions s
 JOIN tgt_ind_partitions t USING(index_name, partition_name)
 ORDER BY index_name, partition_name

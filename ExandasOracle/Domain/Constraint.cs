@@ -13,9 +13,15 @@ namespace ExandasOracle.Domain
         public string SearchCondition { get; set; }
         public string SearchConditionVC { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="comparisonSetUid"></param>
+        /// <param name="list"></param>
         public void Compare(Constraint target, Guid comparisonSetUid, List<DeltaReport> list)
         {
-            this.Compare(target, comparisonSetUid, list, ENTITY);
+            base.Compare(target, comparisonSetUid, list, ENTITY);
 
             if (this.ConstraintType != target.ConstraintType)
             {
