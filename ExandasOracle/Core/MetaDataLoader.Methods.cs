@@ -57,6 +57,16 @@ namespace ExandasOracle.Core
             this._localDao.LoadPartitionedTableList(tran, schemaType, dao.GetPartitionedTableList(conn, schema, DBAViews));
         }
 
+        private void LoadTablePartitions(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadTablePartitionList(tran, schemaType, dao.GetTablePartitionList(conn, schema, DBAViews));
+        }
+
+        private void LoadTableSubpartitions(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadTableSubpartitionList(tran, schemaType, dao.GetTableSubpartitionList(conn, schema, DBAViews));
+        }
+
         private void LoadViews(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadViewList(tran, schemaType, dao.GetViewList(conn, schema, DBAViews));

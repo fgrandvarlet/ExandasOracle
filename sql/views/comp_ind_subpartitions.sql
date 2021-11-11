@@ -1,6 +1,4 @@
 
--- TODO mise au point vue common_ind_partitions
-
 CREATE VIEW comp_ind_subpartitions AS
 SELECT
     index_name
@@ -14,6 +12,8 @@ SELECT
 ,   s.tablespace_name       AS src_tablespace_name
 ,   s.logging               AS src_logging
 ,   s.compression           AS src_compression
+,   s.parameters            AS src_parameters
+,   s.interval              AS src_interval
 ,   t.high_value            AS tgt_high_value
 ,   t.high_value_length     AS tgt_high_value_length
 ,   t.partition_position    AS tgt_partition_position
@@ -22,8 +22,9 @@ SELECT
 ,   t.tablespace_name       AS tgt_tablespace_name
 ,   t.logging               AS tgt_logging
 ,   t.compression           AS tgt_compression
+,   t.parameters            AS tgt_parameters
+,   t.interval              AS tgt_interval
 FROM src_ind_subpartitions s
 JOIN tgt_ind_subpartitions t USING (index_name, partition_name, subpartition_name)
-JOIN common_ind_partitions USING (index_name, partition_name)
 ORDER BY index_name, partition_name, subpartition_name
 ;

@@ -29,6 +29,10 @@ namespace ExandasOracle.Dao
 
         void LoadPartitionedTableList(FbTransaction tran, SchemaType schemaType, List<PartitionedTable> list);
 
+        void LoadTablePartitionList(FbTransaction tran, SchemaType schemaType, List<TablePartition> list);
+
+        void LoadTableSubpartitionList(FbTransaction tran, SchemaType schemaType, List<TableSubpartition> list);
+
         void LoadViewList(FbTransaction tran, SchemaType schemaType, List<View> list);
 
         void LoadSequenceList(FbTransaction tran, SchemaType schemaType, List<Sequence> list);

@@ -33,6 +33,10 @@ namespace ExandasOracle.Dao
 
         List<PartitionedTable> GetPartitionedTableList(OracleConnection conn, string schema, bool DBAViews);
 
+        List<TablePartition> GetTablePartitionList(OracleConnection conn, string schema, bool DBAViews);
+
+        List<TableSubpartition> GetTableSubpartitionList(OracleConnection conn, string schema, bool DBAViews);
+
         List<View> GetViewList(OracleConnection conn, string schema, bool DBAViews);
 
         List<MaterializedView> GetMaterializedViewList(OracleConnection conn, string schema, bool DBAViews);

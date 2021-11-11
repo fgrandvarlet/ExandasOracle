@@ -51,6 +51,8 @@ namespace ExandasOracle.Core
                 { Strings.ConstraintColumns, DeltaConstraintColumn },
 
                 { Strings.PartitionedTables, DeltaPartitionedTable },
+                { Strings.TablePartitions, DeltaTablePartition },
+                { Strings.TableSubpartitions, DeltaTableSubpartition },
 
                 { Strings.Views, DeltaView },
 
@@ -58,6 +60,7 @@ namespace ExandasOracle.Core
                 { Strings.TableIndexes, DeltaTableIndex },
                 { Strings.IndexColumns, DeltaIndexColumn },
                 { Strings.IndexPartitions, DeltaIndexPartition },
+                { Strings.IndexSubpartitions, DeltaIndexSubpartition },
 
                 { Strings.Sources, DeltaSourceSynthesis },
                 { Strings.Clusters, DeltaCluster },

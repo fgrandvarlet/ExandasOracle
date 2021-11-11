@@ -433,6 +433,90 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadTablePartitionList(FbTransaction tran, SchemaType schemaType, List<TablePartition> list)
+        {
+            var tableName = string.Format("{0}_tab_partitions", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @composite, @partition_name, @subpartition_count, @high_value, @high_value_length," +
+                " @partition_position, @tablespace_name, @logging, @compression, @compress_for, @is_nested, @parent_table_partition, @interval, @indexing, @read_only)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var tp in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("table_name", tp.TableName);
+                cmd.Parameters.AddWithValue("composite", tp.Composite);
+                cmd.Parameters.AddWithValue("partition_name", tp.PartitionName);
+                cmd.Parameters.AddWithValue("subpartition_count", tp.SubpartitionCount);
+                cmd.Parameters.AddWithValue("high_value", tp.HighValue);
+                cmd.Parameters.AddWithValue("high_value_length", tp.HighValueLength);
+                cmd.Parameters.AddWithValue("partition_position", tp.PartitionPosition);
+                cmd.Parameters.AddWithValue("tablespace_name", tp.TablespaceName);
+                cmd.Parameters.AddWithValue("logging", tp.Logging);
+                cmd.Parameters.AddWithValue("compression", tp.Compression);
+                cmd.Parameters.AddWithValue("compress_for", tp.CompressFor);
+                cmd.Parameters.AddWithValue("is_nested", tp.IsNested);
+                cmd.Parameters.AddWithValue("parent_table_partition", tp.ParentTablePartition);
+                cmd.Parameters.AddWithValue("interval", tp.Interval);
+                cmd.Parameters.AddWithValue("indexing", tp.Indexing);
+                cmd.Parameters.AddWithValue("read_only", tp.ReadOnly);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadTableSubpartitionList(FbTransaction tran, SchemaType schemaType, List<TableSubpartition> list)
+        {
+            var tableName = string.Format("{0}_tab_subpartitions", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @partition_name, @subpartition_name, @high_value, @high_value_length," +
+                " @partition_position, @subpartition_position, @tablespace_name, @logging, @compression, @compress_for, @interval, @indexing, @read_only)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var ts in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("table_name", ts.TableName);
+                cmd.Parameters.AddWithValue("partition_name", ts.PartitionName);
+                cmd.Parameters.AddWithValue("subpartition_name", ts.SubpartitionName);
+                cmd.Parameters.AddWithValue("high_value", ts.HighValue);
+                cmd.Parameters.AddWithValue("high_value_length", ts.HighValueLength);
+                cmd.Parameters.AddWithValue("partition_position", ts.PartitionPosition);
+                cmd.Parameters.AddWithValue("subpartition_position", ts.SubpartitionPosition);
+                cmd.Parameters.AddWithValue("tablespace_name", ts.TablespaceName);
+                cmd.Parameters.AddWithValue("logging", ts.Logging);
+                cmd.Parameters.AddWithValue("compression", ts.Compression);
+                cmd.Parameters.AddWithValue("compress_for", ts.CompressFor);
+                cmd.Parameters.AddWithValue("interval", ts.Interval);
+                cmd.Parameters.AddWithValue("indexing", ts.Indexing);
+                cmd.Parameters.AddWithValue("read_only", ts.ReadOnly);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadViewList(FbTransaction tran, SchemaType schemaType, List<View> list)
         {
             var tableName = string.Format("{0}_views", GetPrefix(schemaType));

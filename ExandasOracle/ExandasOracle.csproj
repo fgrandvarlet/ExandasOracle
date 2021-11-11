@@ -180,6 +180,7 @@
     <Compile Include="Core\Delta.ForeignKey.cs" />
     <Compile Include="Core\Delta.IndexColumn.cs" />
     <Compile Include="Core\Delta.IndexPartition.cs" />
+    <Compile Include="Core\Delta.IndexSubpartition.cs" />
     <Compile Include="Core\Delta.PartitionedTable.cs" />
     <Compile Include="Core\Delta.PrimaryKey.cs" />
     <Compile Include="Core\Delta.Sequence.cs" />
@@ -187,6 +188,8 @@
     <Compile Include="Core\Delta.Table.cs" />
     <Compile Include="Core\Delta.TableColumn.cs" />
     <Compile Include="Core\Delta.TableIndex.cs" />
+    <Compile Include="Core\Delta.TablePartition.cs" />
+    <Compile Include="Core\Delta.TableSubpartition.cs" />
     <Compile Include="Core\Delta.Unique.cs" />
     <Compile Include="Core\Delta.View.cs" />
     <Compile Include="Core\MetaDataLoader.cs" />

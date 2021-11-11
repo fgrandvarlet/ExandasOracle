@@ -294,8 +294,14 @@
   <data name="TableIndexes" xml:space="preserve">
     <value>table indexes</value>
   </data>
+  <data name="TablePartitions" xml:space="preserve">
+    <value>table partitions</value>
+  </data>
   <data name="Tables" xml:space="preserve">
     <value>tables</value>
+  </data>
+  <data name="TableSubpartitions" xml:space="preserve">
+    <value>table subpartitions</value>
   </data>
   <data name="Target" xml:space="preserve">
     <value>target</value>

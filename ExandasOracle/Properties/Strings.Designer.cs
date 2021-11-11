@@ -592,11 +592,29 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à table partitions.
+        /// </summary>
+        internal static string TablePartitions {
+            get {
+                return ResourceManager.GetString("TablePartitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à tables.
         /// </summary>
         internal static string Tables {
             get {
                 return ResourceManager.GetString("Tables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à table subpartitions.
+        /// </summary>
+        internal static string TableSubpartitions {
+            get {
+                return ResourceManager.GetString("TableSubpartitions", resourceCulture);
             }
         }
         

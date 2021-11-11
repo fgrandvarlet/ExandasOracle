@@ -515,6 +515,100 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<TablePartition> GetTablePartitionList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<TablePartition>();
+
+            const string root = "SELECT table_name, composite, partition_name, subpartition_count, high_value, high_value_length, partition_position," +
+                " tablespace_name, logging, compression, compress_for, is_nested, parent_table_partition, interval, indexing, read_only" +
+                " FROM {0}_tab_partitions" +
+                " WHERE table_owner = :table_owner" +
+                " ORDER BY table_name, partition_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("table_owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var tp = new TablePartition();
+                    tp.TableName = (string)dr["table_name"];
+                    tp.Composite = dr["composite"] is DBNull ? null : (string)dr["composite"];
+                    tp.PartitionName = (string)dr["partition_name"];
+                    tp.SubpartitionCount = dr["subpartition_count"] is DBNull ? null : (decimal?)dr["subpartition_count"];
+                    tp.HighValue = dr["high_value"] is DBNull ? null : (string)dr["high_value"];
+                    tp.HighValueLength = dr["high_value_length"] is DBNull ? null : (decimal?)dr["high_value_length"];
+                    tp.PartitionPosition = dr["partition_position"] is DBNull ? null : (decimal?)dr["partition_position"];
+                    tp.TablespaceName = dr["tablespace_name"] is DBNull ? null : (string)dr["tablespace_name"];
+                    tp.Logging = dr["logging"] is DBNull ? null : (string)dr["logging"];
+                    tp.Compression = dr["compression"] is DBNull ? null : (string)dr["compression"];
+                    tp.CompressFor = dr["compress_for"] is DBNull ? null : (string)dr["compress_for"];
+                    tp.IsNested = dr["is_nested"] is DBNull ? null : (string)dr["is_nested"];
+                    tp.ParentTablePartition = dr["parent_table_partition"] is DBNull ? null : (string)dr["parent_table_partition"];
+                    tp.Interval = dr["interval"] is DBNull ? null : (string)dr["interval"];
+                    tp.Indexing = dr["indexing"] is DBNull ? null : (string)dr["indexing"];
+                    tp.ReadOnly = dr["read_only"] is DBNull ? null : (string)dr["read_only"];
+                    list.Add(tp);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<TableSubpartition> GetTableSubpartitionList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<TableSubpartition>();
+
+            const string root = "SELECT table_name, partition_name, subpartition_name, high_value, high_value_length, partition_position, subpartition_position," +
+                " tablespace_name, logging, compression, compress_for, interval, indexing, read_only" +
+                " FROM {0}_tab_subpartitions" +
+                " WHERE table_owner = :table_owner" +
+                " ORDER BY table_name, partition_name, subpartition_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("table_owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var ts = new TableSubpartition();
+                    ts.TableName = (string)dr["table_name"];
+                    ts.PartitionName = (string)dr["partition_name"];
+                    ts.SubpartitionName = (string)dr["subpartition_name"];
+                    ts.HighValue = dr["high_value"] is DBNull ? null : (string)dr["high_value"];
+                    ts.HighValueLength = dr["high_value_length"] is DBNull ? null : (decimal?)dr["high_value_length"];
+                    ts.PartitionPosition = dr["partition_position"] is DBNull ? null : (decimal?)dr["partition_position"];
+                    ts.SubpartitionPosition = dr["subpartition_position"] is DBNull ? null : (decimal?)dr["subpartition_position"];
+                    ts.TablespaceName = dr["tablespace_name"] is DBNull ? null : (string)dr["tablespace_name"];
+                    ts.Logging = dr["logging"] is DBNull ? null : (string)dr["logging"];
+                    ts.Compression = dr["compression"] is DBNull ? null : (string)dr["compression"];
+                    ts.CompressFor = dr["compress_for"] is DBNull ? null : (string)dr["compress_for"];
+                    ts.Interval = dr["interval"] is DBNull ? null : (string)dr["interval"];
+                    ts.Indexing = dr["indexing"] is DBNull ? null : (string)dr["indexing"];
+                    ts.ReadOnly = dr["read_only"] is DBNull ? null : (string)dr["read_only"];
+                    list.Add(ts);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<View> GetViewList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<View>();
