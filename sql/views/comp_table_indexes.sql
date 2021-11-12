@@ -29,6 +29,5 @@ SELECT
 ,   t.duration          AS tgt_duration
 FROM src_table_indexes s
 JOIN tgt_table_indexes t USING (table_name, index_name)
-JOIN common_tables USING (table_name)
 ORDER BY table_name, index_name
 ;

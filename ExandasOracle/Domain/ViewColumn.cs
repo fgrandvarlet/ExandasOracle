@@ -6,7 +6,7 @@ namespace ExandasOracle.Domain
     /// <summary>
     /// 
     /// </summary>
-    public class ViewColumn : AbstractColumn
+    public class ViewColumn : Column
     {
         /// <summary>
         /// 

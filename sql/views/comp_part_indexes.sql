@@ -13,6 +13,7 @@ SELECT
 ,   s.alignment                 AS src_alignment
 ,   s.def_tablespace_name       AS src_def_tablespace_name
 ,   s.def_logging               AS src_logging
+,   s.def_parameters            AS src_def_parameters
 ,   s.interval                  AS src_interval
 ,   s.autolist                  AS src_autolist
 ,   s.interval_subpartition     AS src_interval_subpartition
@@ -27,12 +28,12 @@ SELECT
 ,   t.alignment                 AS tgt_alignment
 ,   t.def_tablespace_name       AS tgt_def_tablespace_name
 ,   t.def_logging               AS tgt_logging
+,   t.def_parameters            AS tgt_def_parameters
 ,   t.interval                  AS tgt_interval
 ,   t.autolist                  AS tgt_autolist
 ,   t.interval_subpartition     AS tgt_interval_subpartition
 ,   t.autolist_subpartition     AS tgt_autolist_subpartition
 FROM src_part_indexes s
 JOIN tgt_part_indexes t USING (table_name, index_name)
-JOIN common_tables USING (table_name)
 ORDER BY table_name, index_name
 ;

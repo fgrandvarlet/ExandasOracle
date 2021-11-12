@@ -219,6 +219,9 @@
   <data name="LoadingObjects" xml:space="preserve">
     <value>Chargement des {0} {1}</value>
   </data>
+  <data name="MaterializedViews" xml:space="preserve">
+    <value>vues matérialisées</value>
+  </data>
   <data name="Modify" xml:space="preserve">
     <value>Modifier</value>
   </data>
@@ -233,6 +236,9 @@
   </data>
   <data name="ObjectInTarget" xml:space="preserve">
     <value>Objet dans cible absent en source</value>
+  </data>
+  <data name="PartitionedIndexes" xml:space="preserve">
+    <value>index partitionnés</value>
   </data>
   <data name="PartitionedTables" xml:space="preserve">
     <value>tables partitionnées</value>

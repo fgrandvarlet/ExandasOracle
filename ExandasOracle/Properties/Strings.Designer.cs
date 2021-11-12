@@ -367,6 +367,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à materialized views.
+        /// </summary>
+        internal static string MaterializedViews {
+            get {
+                return ResourceManager.GetString("MaterializedViews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Modify.
         /// </summary>
         internal static string Modify {
@@ -408,6 +417,15 @@ namespace ExandasOracle.Properties {
         internal static string ObjectInTarget {
             get {
                 return ResourceManager.GetString("ObjectInTarget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à partitioned indexes.
+        /// </summary>
+        internal static string PartitionedIndexes {
+            get {
+                return ResourceManager.GetString("PartitionedIndexes", resourceCulture);
             }
         }
         

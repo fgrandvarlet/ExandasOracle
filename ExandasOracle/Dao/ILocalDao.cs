@@ -35,11 +35,15 @@ namespace ExandasOracle.Dao
 
         void LoadViewList(FbTransaction tran, SchemaType schemaType, List<View> list);
 
+        void LoadMaterializedViewList(FbTransaction tran, SchemaType schemaType, List<MaterializedView> list);
+
         void LoadSequenceList(FbTransaction tran, SchemaType schemaType, List<Sequence> list);
 
         void LoadTableIndexList(FbTransaction tran, SchemaType schemaType, List<TableIndex> list);
 
         void LoadIndexColumnList(FbTransaction tran, SchemaType schemaType, List<IndexColumn> list);
+
+        void LoadPartitionedIndexList(FbTransaction tran, SchemaType schemaType, List<PartitionedIndex> list);
 
         void LoadIndexPartitionList(FbTransaction tran, SchemaType schemaType, List<IndexPartition> list);
 

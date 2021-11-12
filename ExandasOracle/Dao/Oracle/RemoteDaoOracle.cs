@@ -830,6 +830,55 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<PartitionedIndex> GetPartitionedIndexList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<PartitionedIndex>();
+
+            const string root = "SELECT index_name, table_name, partitioning_type, subpartitioning_type, partition_count, def_subpartition_count," +
+                " partitioning_key_count, subpartitioning_key_count, locality, alignment, def_tablespace_name, def_logging, def_parameters," +
+                " interval, autolist, interval_subpartition, autolist_subpartition" +
+                " FROM {0}_part_indexes" +
+                " WHERE owner = :owner ORDER BY index_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var pi = new PartitionedIndex();
+                    pi.IndexName = (string)dr["index_name"];
+                    pi.TableName = (string)dr["table_name"];
+                    pi.PartitioningType = dr["partitioning_type"] is DBNull ? null : (string)dr["partitioning_type"];
+                    pi.SubpartitioningType = dr["subpartitioning_type"] is DBNull ? null : (string)dr["subpartitioning_type"];
+                    pi.PartitionCount = (decimal)dr["partition_count"];
+                    pi.DefSubpartitionCount = dr["def_subpartition_count"] is DBNull ? null : (decimal?)dr["def_subpartition_count"];
+                    pi.PartitioningKeyCount = (decimal)dr["partitioning_key_count"];
+                    pi.SubpartitioningKeyCount = dr["subpartitioning_key_count"] is DBNull ? null : (decimal?)dr["subpartitioning_key_count"];
+                    pi.Locality = dr["locality"] is DBNull ? null : (string)dr["locality"];
+                    pi.Alignment = dr["alignment"] is DBNull ? null : (string)dr["alignment"];
+                    pi.DefTablespaceName = dr["def_tablespace_name"] is DBNull ? null : (string)dr["def_tablespace_name"];
+                    pi.DefLogging = dr["def_logging"] is DBNull ? null : (string)dr["def_logging"];
+                    pi.DefParameters = dr["def_parameters"] is DBNull ? null : (string)dr["def_parameters"];
+                    pi.Interval = dr["interval"] is DBNull ? null : (string)dr["interval"];
+                    pi.Autolist = dr["autolist"] is DBNull ? null : (string)dr["autolist"];
+                    pi.IntervalSubpartition = dr["interval_subpartition"] is DBNull ? null : (string)dr["interval_subpartition"];
+                    pi.AutolistSubpartition = dr["autolist_subpartition"] is DBNull ? null : (string)dr["autolist_subpartition"];
+                    list.Add(pi);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<IndexPartition> GetIndexPartitionList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<IndexPartition>();

@@ -55,10 +55,13 @@ namespace ExandasOracle.Core
                 { Strings.TableSubpartitions, DeltaTableSubpartition },
 
                 { Strings.Views, DeltaView },
+                { Strings.MaterializedViews, DeltaMaterializedView },
 
                 { Strings.Sequences, DeltaSequence },
                 { Strings.TableIndexes, DeltaTableIndex },
                 { Strings.IndexColumns, DeltaIndexColumn },
+
+                { Strings.PartitionedIndexes, DeltaPartitionedIndex },
                 { Strings.IndexPartitions, DeltaIndexPartition },
                 { Strings.IndexSubpartitions, DeltaIndexSubpartition },
 

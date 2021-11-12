@@ -72,6 +72,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadViewList(tran, schemaType, dao.GetViewList(conn, schema, DBAViews));
         }
 
+        private void LoadMaterializedViews(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadMaterializedViewList(tran, schemaType, dao.GetMaterializedViewList(conn, schema, DBAViews));
+        }
+
         private void LoadSequences(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadSequenceList(tran, schemaType, dao.GetSequenceList(conn, schema, DBAViews));
@@ -85,6 +90,11 @@ namespace ExandasOracle.Core
         private void LoadIndexColumns(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadIndexColumnList(tran, schemaType, dao.GetIndexColumnList(conn, schema, DBAViews));
+        }
+
+        private void LoadPartitionedIndexes(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadPartitionedIndexList(tran, schemaType, dao.GetPartitionedIndexList(conn, schema, DBAViews));
         }
 
         private void LoadIndexPartitions(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)

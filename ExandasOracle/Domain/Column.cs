@@ -6,7 +6,7 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
 {
-    public abstract class AbstractColumn
+    public abstract class Column
     {
         public string TableName { get; set; }
         public string ColumnName { get; set; }
@@ -35,7 +35,7 @@ namespace ExandasOracle.Domain
         /// <param name="comparisonSetUid"></param>
         /// <param name="list"></param>
         /// <param name="entity"></param>
-        protected void Compare(AbstractColumn target, Guid comparisonSetUid, List<DeltaReport> list, string entity)
+        protected void Compare(Column target, Guid comparisonSetUid, List<DeltaReport> list, string entity)
         {
             if (this.DataType != target.DataType)
             {

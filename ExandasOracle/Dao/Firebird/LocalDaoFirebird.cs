@@ -556,6 +556,49 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadMaterializedViewList(FbTransaction tran, SchemaType schemaType, List<MaterializedView> list)
+        {
+            var tableName = string.Format("{0}_mviews", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@mview_name, @container_name, @query, @query_len, @updatable, @update_log, @master_rollback_seg, @master_link," +
+                " @rewrite_enabled, @rewrite_capability, @refresh_mode, @refresh_method, @build_mode, @fast_refreshable, @use_no_index, @default_collation)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var mv in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("mview_name", mv.MViewName);
+                cmd.Parameters.AddWithValue("container_name", mv.ContainerName);
+                cmd.Parameters.AddWithValue("query", mv.Query);
+                cmd.Parameters.AddWithValue("query_len", mv.QueryLen);
+                cmd.Parameters.AddWithValue("updatable", mv.Updatable);
+                cmd.Parameters.AddWithValue("update_log", mv.UpdateLog);
+                cmd.Parameters.AddWithValue("master_rollback_seg", mv.MasterRollbackSeg);
+                cmd.Parameters.AddWithValue("master_link", mv.MasterLink);
+                cmd.Parameters.AddWithValue("rewrite_enabled", mv.RewriteEnabled);
+                cmd.Parameters.AddWithValue("rewrite_capability", mv.RewriteCapability);
+                cmd.Parameters.AddWithValue("refresh_mode", mv.RefreshMode);
+                cmd.Parameters.AddWithValue("refresh_method", mv.RefreshMethod);
+                cmd.Parameters.AddWithValue("build_mode", mv.BuildMode);
+                cmd.Parameters.AddWithValue("fast_refreshable", mv.FastRefreshable);
+                cmd.Parameters.AddWithValue("use_no_index", mv.UseNoIndex);
+                cmd.Parameters.AddWithValue("default_collation", mv.DefaultCollation);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadSequenceList(FbTransaction tran, SchemaType schemaType, List<Sequence> list)
         {
             var tableName = string.Format("{0}_sequences", GetPrefix(schemaType));
@@ -662,6 +705,51 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.Parameters.AddWithValue("col_char_length", ic.CharLength);
                 cmd.Parameters.AddWithValue("descend", ic.Descend);
                 cmd.Parameters.AddWithValue("collated_column_id", ic.CollatedColumnId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadPartitionedIndexList(FbTransaction tran, SchemaType schemaType, List<PartitionedIndex> list)
+        {
+            var tableName = string.Format("{0}_part_indexes", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@index_name, @table_name, @partitioning_type, @subpartitioning_type," +
+                " @partition_count, @def_subpartition_count, @partitioning_key_count, @subpartitioning_key_count, @locality, @alignment," +
+                " @def_tablespace_name, @def_logging, @def_parameters, @interval, @autolist, @interval_subpartition, @autolist_subpartition)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var pi in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("index_name", pi.IndexName);
+                cmd.Parameters.AddWithValue("table_name", pi.TableName);
+                cmd.Parameters.AddWithValue("partitioning_type", pi.PartitioningType);
+                cmd.Parameters.AddWithValue("subpartitioning_type", pi.SubpartitioningType);
+                cmd.Parameters.AddWithValue("partition_count", pi.PartitionCount);
+                cmd.Parameters.AddWithValue("def_subpartition_count", pi.DefSubpartitionCount);
+                cmd.Parameters.AddWithValue("partitioning_key_count", pi.PartitioningKeyCount);
+                cmd.Parameters.AddWithValue("subpartitioning_key_count", pi.SubpartitioningKeyCount);
+                cmd.Parameters.AddWithValue("locality", pi.Locality);
+                cmd.Parameters.AddWithValue("alignment", pi.Alignment);
+                cmd.Parameters.AddWithValue("def_tablespace_name", pi.DefTablespaceName);
+                cmd.Parameters.AddWithValue("def_logging", pi.DefLogging);
+                cmd.Parameters.AddWithValue("def_parameters", pi.DefParameters);
+                cmd.Parameters.AddWithValue("interval", pi.Interval);
+                cmd.Parameters.AddWithValue("autolist", pi.Autolist);
+                cmd.Parameters.AddWithValue("interval_subpartition", pi.IntervalSubpartition);
+                cmd.Parameters.AddWithValue("autolist_subpartition", pi.AutolistSubpartition);
                 cmd.ExecuteNonQuery();
             }
         }

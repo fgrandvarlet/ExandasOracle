@@ -6,7 +6,7 @@ namespace ExandasOracle.Domain
     /// <summary>
     /// 
     /// </summary>
-    public class ClusterColumn : AbstractColumn
+    public class ClusterColumn : Column
     {
         /// <summary>
         /// 

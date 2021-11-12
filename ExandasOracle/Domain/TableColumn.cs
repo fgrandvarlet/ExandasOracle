@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ExandasOracle.Domain
 {
-    public class TableColumn : AbstractColumn
+    public class TableColumn : Column
     {
         const string ENTITY = "TABLE COLUMN";
 
