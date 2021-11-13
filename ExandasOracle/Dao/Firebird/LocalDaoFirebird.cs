@@ -934,6 +934,54 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadTriggerList(FbTransaction tran, SchemaType schemaType, List<Trigger> list)
+        {
+            var tableName = string.Format("{0}_triggers", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@trigger_name, @trigger_type, @triggering_event, @table_owner, @base_object_type, @table_name, @column_name," +
+                " @referencing_names, @when_clause, @status, @description, @action_type, @trigger_body, @before_statement," +
+                " @before_row, @after_row, @after_statement, @instead_of_row, @fire_once, @apply_server_only)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var tr in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("trigger_name", tr.TriggerName);
+                cmd.Parameters.AddWithValue("trigger_type", tr.TriggerType);
+                cmd.Parameters.AddWithValue("triggering_event", tr.TriggeringEvent);
+                cmd.Parameters.AddWithValue("table_owner", tr.TableOwner);
+                cmd.Parameters.AddWithValue("base_object_type", tr.BaseObjectType);
+                cmd.Parameters.AddWithValue("table_name", tr.TableName);
+                cmd.Parameters.AddWithValue("column_name", tr.ColumnName);
+                cmd.Parameters.AddWithValue("referencing_names", tr.ReferencingNames);
+                cmd.Parameters.AddWithValue("when_clause", tr.WhenClause);
+                cmd.Parameters.AddWithValue("status", tr.Status);
+                cmd.Parameters.AddWithValue("description", tr.Description);
+                cmd.Parameters.AddWithValue("action_type", tr.ActionType);
+                cmd.Parameters.AddWithValue("trigger_body", tr.TriggerBody);
+                cmd.Parameters.AddWithValue("before_statement", tr.BeforeStatement);
+                cmd.Parameters.AddWithValue("before_row", tr.BeforeRow);
+                cmd.Parameters.AddWithValue("after_row", tr.AfterRow);
+                cmd.Parameters.AddWithValue("after_statement", tr.AfterStatement);
+                cmd.Parameters.AddWithValue("instead_of_row", tr.InsteadOfRow);
+                cmd.Parameters.AddWithValue("fire_once", tr.FireOnce);
+                cmd.Parameters.AddWithValue("apply_server_only", tr.ApplyServerOnly);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadClusterList(FbTransaction tran, SchemaType schemaType, List<Cluster> list)
         {
             var tableName = string.Format("{0}_clusters", GetPrefix(schemaType));

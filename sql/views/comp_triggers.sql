@@ -42,5 +42,7 @@ SELECT
 ,   t.apply_server_only AS tgt_apply_server_only
 FROM src_triggers s
 JOIN tgt_triggers t USING (trigger_name)
+WHERE EXISTS (SELECT 1 FROM common_tables WHERE table_name = s.table_name OR table_name = t.table_name)
+OR s.table_name IS NULL OR t.table_name IS NULL
 ORDER BY trigger_name
 ;

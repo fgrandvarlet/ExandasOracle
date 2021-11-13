@@ -25,6 +25,7 @@ using ExandasOracle.Properties;
 // TODO utiliser un mot de passe différent du défaut (masterkey) pour SYSDBA ?? pertinent ??
 // TODO utilitaire de sauvegarde et de purge de la base de données locale
 // TODO REGLER TAB ORDER VIA PROPERTIES DANS TOUTES LES FORMS
+// TODO vérifier unicité trigger_name (essayer de créer un 2ème trigger du même nom dans un même schéma sur un table différente)
 
 namespace ExandasOracle.Forms
 {

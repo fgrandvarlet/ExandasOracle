@@ -53,6 +53,8 @@ namespace ExandasOracle.Dao
 
         void LoadSourceSynthesis(FbTransaction tran, SchemaType schemaType);
 
+        void LoadTriggerList(FbTransaction tran, SchemaType schemaType, List<Trigger> list);
+
         void LoadClusterList(FbTransaction tran, SchemaType schemaType, List<Cluster> list);
     }
 

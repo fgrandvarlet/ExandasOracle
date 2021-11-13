@@ -70,6 +70,7 @@ namespace ExandasOracle.Core
                 { Strings.IndexSubpartitions, LoadIndexSubpartitions },
 
                 { Strings.Sources, LoadSources },
+                { Strings.Triggers, LoadTriggers },
                 { Strings.Clusters, LoadClusters },
             };
 

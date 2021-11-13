@@ -1,6 +1,4 @@
 
--- VERIFIER UNICITE trigger_name
-
 CREATE TABLE src_triggers
 (
     trigger_name varchar(128) not null,
@@ -11,9 +9,9 @@ CREATE TABLE src_triggers
     table_name varchar(128),
     column_name varchar(128),           -- colonne origine varchar2(4000)
     referencing_names varchar(422),
-    when_clause varchar(4000),
+    when_clause BLOB SUB_TYPE TEXT,     -- colonne origine varchar2(4000)
     status varchar(8),
-    description varchar(4000),
+    description BLOB SUB_TYPE TEXT,     -- colonne origine varchar2(4000)
     action_type varchar(11),
     trigger_body BLOB SUB_TYPE TEXT,
     before_statement varchar(3),
@@ -36,9 +34,9 @@ CREATE TABLE tgt_triggers
     table_name varchar(128),
     column_name varchar(128),           -- colonne origine varchar2(4000)
     referencing_names varchar(422),
-    when_clause varchar(4000),
+    when_clause BLOB SUB_TYPE TEXT,     -- colonne origine varchar2(4000)
     status varchar(8),
-    description varchar(4000),
+    description BLOB SUB_TYPE TEXT,     -- colonne origine varchar2(4000)
     action_type varchar(11),
     trigger_body BLOB SUB_TYPE TEXT,
     before_statement varchar(3),

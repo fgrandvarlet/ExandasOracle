@@ -192,6 +192,7 @@
     <Compile Include="Core\Delta.TableIndex.cs" />
     <Compile Include="Core\Delta.TablePartition.cs" />
     <Compile Include="Core\Delta.TableSubpartition.cs" />
+    <Compile Include="Core\Delta.Trigger.cs" />
     <Compile Include="Core\Delta.Unique.cs" />
     <Compile Include="Core\Delta.View.cs" />
     <Compile Include="Core\MetaDataLoader.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="Domain\TableIndex.cs" />
     <Compile Include="Domain\TablePartition.cs" />
     <Compile Include="Domain\TableSubpartition.cs" />
+    <Compile Include="Domain\Trigger.cs" />
     <Compile Include="Domain\Unique.cs" />
     <Compile Include="Domain\View.cs" />
     <Compile Include="Domain\ViewColumn.cs" />

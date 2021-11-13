@@ -998,6 +998,65 @@ namespace ExandasOracle.Dao.Oracle
             return list;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<Trigger> GetTriggerList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<Trigger>();
+
+            const string root = "SELECT trigger_name, trigger_type, triggering_event, table_owner, base_object_type, table_name, column_name," +
+                " referencing_names, when_clause, status, description, action_type, trigger_body, before_statement," +
+                " before_row, after_row, after_statement, instead_of_row, fire_once, apply_server_only" +
+                " FROM {0}_triggers" +
+                " WHERE owner = :owner ORDER BY trigger_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var tr = new Trigger();
+                    tr.TriggerName = (string)dr["trigger_name"];
+                    tr.TriggerType = dr["trigger_type"] is DBNull ? null : (string)dr["trigger_type"];
+                    tr.TriggeringEvent = dr["triggering_event"] is DBNull ? null : (string)dr["triggering_event"];
+                    tr.TableOwner = dr["table_owner"] is DBNull ? null : (string)dr["table_owner"];
+                    tr.BaseObjectType = dr["base_object_type"] is DBNull ? null : (string)dr["base_object_type"];
+                    tr.TableName = dr["table_name"] is DBNull ? null : (string)dr["table_name"];
+                    tr.ColumnName = dr["column_name"] is DBNull ? null : (string)dr["column_name"];
+                    tr.ReferencingNames = dr["referencing_names"] is DBNull ? null : (string)dr["referencing_names"];
+                    tr.WhenClause = dr["when_clause"] is DBNull ? null : (string)dr["when_clause"];
+                    tr.Status = dr["status"] is DBNull ? null : (string)dr["status"];
+                    tr.Description = dr["description"] is DBNull ? null : (string)dr["description"];
+                    tr.ActionType = dr["action_type"] is DBNull ? null : (string)dr["action_type"];
+                    tr.TriggerBody = dr["trigger_body"] is DBNull ? null : (string)dr["trigger_body"];
+                    tr.BeforeStatement = dr["before_statement"] is DBNull ? null : (string)dr["before_statement"];
+                    tr.BeforeRow = dr["before_row"] is DBNull ? null : (string)dr["before_row"];
+                    tr.AfterRow = dr["after_row"] is DBNull ? null : (string)dr["after_row"];
+                    tr.AfterStatement = dr["after_statement"] is DBNull ? null : (string)dr["after_statement"];
+                    tr.InsteadOfRow = dr["instead_of_row"] is DBNull ? null : (string)dr["instead_of_row"];
+                    tr.FireOnce = dr["fire_once"] is DBNull ? null : (string)dr["fire_once"];
+                    tr.ApplyServerOnly = dr["apply_server_only"] is DBNull ? null : (string)dr["apply_server_only"];
+                    list.Add(tr);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<Cluster> GetClusterList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<Cluster>();

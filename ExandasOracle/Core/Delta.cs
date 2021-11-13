@@ -66,6 +66,8 @@ namespace ExandasOracle.Core
                 { Strings.IndexSubpartitions, DeltaIndexSubpartition },
 
                 { Strings.Sources, DeltaSourceSynthesis },
+                { Strings.Triggers, DeltaTrigger },
+
                 { Strings.Clusters, DeltaCluster },
             };
 

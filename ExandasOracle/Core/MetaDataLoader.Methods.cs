@@ -113,6 +113,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadSourceSynthesis(tran, schemaType);
         }
 
+        private void LoadTriggers(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadTriggerList(tran, schemaType, dao.GetTriggerList(conn, schema, DBAViews));
+        }
+
         private void LoadClusters(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadClusterList(tran, schemaType, dao.GetClusterList(conn, schema, DBAViews));

@@ -673,6 +673,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à triggers.
+        /// </summary>
+        internal static string Triggers {
+            get {
+                return ResourceManager.GetString("Triggers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à TRUNCATED.
         /// </summary>
         internal static string Truncated {
