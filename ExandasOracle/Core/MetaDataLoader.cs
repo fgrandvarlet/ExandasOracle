@@ -72,6 +72,8 @@ namespace ExandasOracle.Core
                 { Strings.Sources, LoadSources },
                 { Strings.Triggers, LoadTriggers },
                 { Strings.Clusters, LoadClusters },
+
+                { Strings.ObjectPrivileges, LoadObjectPrivileges },
             };
 
             return dict;

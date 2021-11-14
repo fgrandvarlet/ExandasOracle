@@ -237,6 +237,9 @@
   <data name="ObjectInTarget" xml:space="preserve">
     <value>Objet dans cible absent en source</value>
   </data>
+  <data name="ObjectPrivileges" xml:space="preserve">
+    <value>privilèges objet</value>
+  </data>
   <data name="PartitionedIndexes" xml:space="preserve">
     <value>index partitionnés</value>
   </data>

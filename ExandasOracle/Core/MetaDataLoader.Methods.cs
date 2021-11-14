@@ -123,5 +123,10 @@ namespace ExandasOracle.Core
             this._localDao.LoadClusterList(tran, schemaType, dao.GetClusterList(conn, schema, DBAViews));
         }
 
+        private void LoadObjectPrivileges(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadObjectPrivilegeList(tran, schemaType, dao.GetObjectPrivilegeList(conn, schema, DBAViews));
+        }
+
     }
 }

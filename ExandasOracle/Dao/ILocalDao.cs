@@ -56,6 +56,8 @@ namespace ExandasOracle.Dao
         void LoadTriggerList(FbTransaction tran, SchemaType schemaType, List<Trigger> list);
 
         void LoadClusterList(FbTransaction tran, SchemaType schemaType, List<Cluster> list);
+
+        void LoadObjectPrivilegeList(FbTransaction tran, SchemaType schemaType, List<ObjectPrivilege> list);
     }
 
 }

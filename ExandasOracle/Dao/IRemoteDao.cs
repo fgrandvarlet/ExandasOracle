@@ -58,5 +58,7 @@ namespace ExandasOracle.Dao
         List<Trigger> GetTriggerList(OracleConnection conn, string schema, bool DBAViews);
 
         List<Cluster> GetClusterList(OracleConnection conn, string schema, bool DBAViews);
+
+        List<ObjectPrivilege> GetObjectPrivilegeList(OracleConnection conn, string schema, bool DBAViews);
     }
 }

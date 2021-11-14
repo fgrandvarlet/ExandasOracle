@@ -182,6 +182,7 @@
     <Compile Include="Core\Delta.IndexPartition.cs" />
     <Compile Include="Core\Delta.IndexSubpartition.cs" />
     <Compile Include="Core\Delta.MaterializedView.cs" />
+    <Compile Include="Core\Delta.ObjectPrivilege.cs" />
     <Compile Include="Core\Delta.PartitionedIndex.cs" />
     <Compile Include="Core\Delta.PartitionedTable.cs" />
     <Compile Include="Core\Delta.PrimaryKey.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="Domain\IndexPartition.cs" />
     <Compile Include="Domain\IndexSubpartition.cs" />
     <Compile Include="Domain\MaterializedView.cs" />
+    <Compile Include="Domain\ObjectPrivilege.cs" />
     <Compile Include="Domain\Partition.cs" />
     <Compile Include="Domain\Partitioned.cs" />
     <Compile Include="Domain\PartitionedIndex.cs" />

@@ -1019,6 +1019,9 @@ namespace ExandasOracle.Dao.Oracle
             var cmd = new OracleCommand(sql, conn);
             cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
 
+            // TODO vérifier impact
+            cmd.InitialLONGFetchSize = -1;
+
             using (var dr = cmd.ExecuteReader())
             {
                 while (dr.Read())
@@ -1084,6 +1087,54 @@ namespace ExandasOracle.Dao.Oracle
                     cl.SingleTable = dr["single_table"] is DBNull ? null : (string)dr["single_table"];
                     cl.Dependencies = dr["dependencies"] is DBNull ? null : (string)dr["dependencies"];
                     list.Add(cl);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<ObjectPrivilege> GetObjectPrivilegeList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<ObjectPrivilege>();
+
+            string sql;
+            if (DBAViews)
+            {
+                sql = "SELECT grantee, owner table_schema, table_name, privilege, grantable, hierarchy, common, type, inherited" +
+                    " FROM dba_tab_privs" +
+                    " WHERE grantor = :grantor ORDER BY grantee, table_name, privilege, inherited";
+            }
+            else
+            {
+                sql = "SELECT grantee, table_schema, table_name, privilege, grantable, hierarchy, common, type, inherited" +
+                    " FROM all_tab_privs" +
+                    " WHERE grantor = :grantor ORDER BY grantee, table_name, privilege, inherited";
+            }
+            
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("grantor", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var op = new ObjectPrivilege();
+                    op.Grantee = (string)dr["grantee"];
+                    op.TableSchema = (string)dr["table_schema"];
+                    op.TableName = (string)dr["table_name"];
+                    op.Privilege = (string)dr["privilege"];
+                    op.Grantable = dr["grantable"] is DBNull ? null : (string)dr["grantable"];
+                    op.Hierarchy = dr["hierarchy"] is DBNull ? null : (string)dr["hierarchy"];
+                    op.Common = dr["common"] is DBNull ? null : (string)dr["common"];
+                    op.Type = dr["type"] is DBNull ? null : (string)dr["type"];
+                    op.Inherited = (string)dr["inherited"];
+                    list.Add(op);
                 }
             }
             return list;

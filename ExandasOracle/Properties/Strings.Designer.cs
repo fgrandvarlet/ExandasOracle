@@ -421,6 +421,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à object privileges.
+        /// </summary>
+        internal static string ObjectPrivileges {
+            get {
+                return ResourceManager.GetString("ObjectPrivileges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à partitioned indexes.
         /// </summary>
         internal static string PartitionedIndexes {

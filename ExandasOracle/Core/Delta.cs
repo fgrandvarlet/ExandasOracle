@@ -69,6 +69,8 @@ namespace ExandasOracle.Core
                 { Strings.Triggers, DeltaTrigger },
 
                 { Strings.Clusters, DeltaCluster },
+
+                { Strings.ObjectPrivileges, DeltaObjectPrivilege },
             };
 
             return dict;

@@ -1012,5 +1012,41 @@ namespace ExandasOracle.Dao.Firebird
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadObjectPrivilegeList(FbTransaction tran, SchemaType schemaType, List<ObjectPrivilege> list)
+        {
+            var tableName = string.Format("{0}_tab_privs", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@grantee, @table_schema, @table_name, @privilege," +
+                " @grantable, @hierarchy, @common, @type, @inherited)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var op in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("grantee", op.Grantee);
+                cmd.Parameters.AddWithValue("table_schema", op.TableSchema);
+                cmd.Parameters.AddWithValue("table_name", op.TableName);
+                cmd.Parameters.AddWithValue("privilege", op.Privilege);
+                cmd.Parameters.AddWithValue("grantable", op.Grantable);
+                cmd.Parameters.AddWithValue("hierarchy", op.Hierarchy);
+                cmd.Parameters.AddWithValue("common", op.Common);
+                cmd.Parameters.AddWithValue("type", op.Type);
+                cmd.Parameters.AddWithValue("inherited", op.Inherited);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }
