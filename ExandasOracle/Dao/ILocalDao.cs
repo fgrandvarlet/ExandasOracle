@@ -35,6 +35,8 @@ namespace ExandasOracle.Dao
 
         void LoadViewList(FbTransaction tran, SchemaType schemaType, List<View> list);
 
+        void LoadViewColumnList(FbTransaction tran, SchemaType schemaType, List<ViewColumn> list);
+
         void LoadMaterializedViewList(FbTransaction tran, SchemaType schemaType, List<MaterializedView> list);
 
         void LoadSequenceList(FbTransaction tran, SchemaType schemaType, List<Sequence> list);

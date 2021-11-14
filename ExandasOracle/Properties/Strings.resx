@@ -342,6 +342,9 @@
   <data name="UserNameRequired" xml:space="preserve">
     <value>User name required</value>
   </data>
+  <data name="ViewColumns" xml:space="preserve">
+    <value>view columns</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>views</value>
   </data>

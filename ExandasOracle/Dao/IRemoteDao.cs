@@ -39,6 +39,8 @@ namespace ExandasOracle.Dao
 
         List<View> GetViewList(OracleConnection conn, string schema, bool DBAViews);
 
+        List<ViewColumn> GetViewColumnList(OracleConnection conn, string schema, bool DBAViews);
+
         List<MaterializedView> GetMaterializedViewList(OracleConnection conn, string schema, bool DBAViews);
 
         List<Sequence> GetSequenceList(OracleConnection conn, string schema, bool DBAViews);

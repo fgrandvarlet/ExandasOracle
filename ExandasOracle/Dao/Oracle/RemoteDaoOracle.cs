@@ -653,6 +653,59 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<ViewColumn> GetViewColumnList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<ViewColumn>();
+
+            const string root = "SELECT tc.table_name, column_name, data_type, data_type_mod, data_type_owner, data_length, data_precision, data_scale, nullable, column_id," +
+                " default_length, data_default, char_length, char_used, hidden_column, virtual_column, default_on_null, identity_column, collation" +
+                " FROM {0}_tab_cols tc" +
+                " JOIN {0}_views v ON tc.owner = v.owner AND tc.table_name = v.view_name" +
+                " WHERE user_generated = 'YES' AND tc.owner = :owner ORDER BY tc.table_name, column_id";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            cmd.InitialLONGFetchSize = -1;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var vc = new ViewColumn();
+                    vc.TableName = (string)dr["table_name"];
+                    vc.ColumnName = (string)dr["column_name"];
+                    vc.DataType = dr["data_type"] is DBNull ? null : (string)dr["data_type"];
+                    vc.DataTypeMod = dr["data_type_mod"] is DBNull ? null : (string)dr["data_type_mod"];
+                    vc.DataTypeOwner = dr["data_type_owner"] is DBNull ? null : (string)dr["data_type_owner"];
+                    vc.DataLength = (decimal)dr["data_length"];
+                    vc.DataPrecision = dr["data_precision"] is DBNull ? null : (decimal?)dr["data_precision"];
+                    vc.DataScale = dr["data_scale"] is DBNull ? null : (decimal?)dr["data_scale"];
+                    vc.Nullable = dr["nullable"] is DBNull ? null : (string)dr["nullable"];
+                    vc.ColumnId = dr["column_id"] is DBNull ? null : (decimal?)dr["column_id"];
+                    vc.DefaultLength = dr["default_length"] is DBNull ? null : (decimal?)dr["default_length"];
+                    vc.DataDefault = dr["data_default"] is DBNull ? null : (string)dr["data_default"];
+                    vc.CharLength = dr["char_length"] is DBNull ? null : (decimal?)dr["char_length"];
+                    vc.CharUsed = dr["char_used"] is DBNull ? null : (string)dr["char_used"];
+                    vc.HiddenColumn = dr["hidden_column"] is DBNull ? null : (string)dr["hidden_column"];
+                    vc.VirtualColumn = dr["virtual_column"] is DBNull ? null : (string)dr["virtual_column"];
+                    vc.DefaultOnNull = dr["default_on_null"] is DBNull ? null : (string)dr["default_on_null"];
+                    vc.IdentityColumn = dr["identity_column"] is DBNull ? null : (string)dr["identity_column"];
+                    vc.Collation = dr["collation"] is DBNull ? null : (string)dr["collation"];
+                    list.Add(vc);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<MaterializedView> GetMaterializedViewList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<MaterializedView>();

@@ -736,6 +736,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à view columns.
+        /// </summary>
+        internal static string ViewColumns {
+            get {
+                return ResourceManager.GetString("ViewColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à views.
         /// </summary>
         internal static string Views {

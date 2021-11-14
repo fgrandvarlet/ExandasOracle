@@ -58,6 +58,7 @@ namespace ExandasOracle.Core
                 { Strings.TableSubpartitions, LoadTableSubpartitions },
 
                 { Strings.Views, LoadViews },
+                { Strings.ViewColumns, LoadViewColumns },
                 { Strings.MaterializedViews, LoadMaterializedViews },
 
                 { Strings.Sequences, LoadSequences },

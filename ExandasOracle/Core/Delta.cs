@@ -55,6 +55,7 @@ namespace ExandasOracle.Core
                 { Strings.TableSubpartitions, DeltaTableSubpartition },
 
                 { Strings.Views, DeltaView },
+                { Strings.ViewColumns, DeltaViewColumn },
                 { Strings.MaterializedViews, DeltaMaterializedView },
 
                 { Strings.Sequences, DeltaSequence },

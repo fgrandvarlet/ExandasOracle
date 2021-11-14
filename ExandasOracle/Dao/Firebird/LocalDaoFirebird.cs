@@ -556,6 +556,53 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadViewColumnList(FbTransaction tran, SchemaType schemaType, List<ViewColumn> list)
+        {
+            var tableName = string.Format("{0}_view_cols", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @column_name, @data_type, @data_type_mod, @data_type_owner, @data_length, @data_precision," +
+                " @data_scale, @nullable, @column_id, @default_length, @data_default, @col_char_length, @char_used, @hidden_column, @virtual_column," +
+                " @default_on_null, @identity_column, @collation)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var vc in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("table_name", vc.TableName);
+                cmd.Parameters.AddWithValue("column_name", vc.ColumnName);
+                cmd.Parameters.AddWithValue("data_type", vc.DataType);
+                cmd.Parameters.AddWithValue("data_type_mod", vc.DataTypeMod);
+                cmd.Parameters.AddWithValue("data_type_owner", vc.DataTypeOwner);
+                cmd.Parameters.AddWithValue("data_length", vc.DataLength);
+                cmd.Parameters.AddWithValue("data_precision", vc.DataPrecision);
+                cmd.Parameters.AddWithValue("data_scale", vc.DataScale);
+                cmd.Parameters.AddWithValue("nullable", vc.Nullable);
+                cmd.Parameters.AddWithValue("column_id", vc.ColumnId);
+                cmd.Parameters.AddWithValue("default_length", vc.DefaultLength);
+                cmd.Parameters.AddWithValue("data_default", vc.DataDefault);
+                cmd.Parameters.AddWithValue("col_char_length", vc.CharLength);
+                cmd.Parameters.AddWithValue("char_used", vc.CharUsed);
+                cmd.Parameters.AddWithValue("hidden_column", vc.HiddenColumn);
+                cmd.Parameters.AddWithValue("virtual_column", vc.VirtualColumn);
+                cmd.Parameters.AddWithValue("default_on_null", vc.DefaultOnNull);
+                cmd.Parameters.AddWithValue("identity_column", vc.IdentityColumn);
+                cmd.Parameters.AddWithValue("collation", vc.Collation);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadMaterializedViewList(FbTransaction tran, SchemaType schemaType, List<MaterializedView> list)
         {
             var tableName = string.Format("{0}_mviews", GetPrefix(schemaType));

@@ -72,6 +72,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadViewList(tran, schemaType, dao.GetViewList(conn, schema, DBAViews));
         }
 
+        private void LoadViewColumns(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadViewColumnList(tran, schemaType, dao.GetViewColumnList(conn, schema, DBAViews));
+        }
+
         private void LoadMaterializedViews(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadMaterializedViewList(tran, schemaType, dao.GetMaterializedViewList(conn, schema, DBAViews));

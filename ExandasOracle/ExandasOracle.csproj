@@ -196,6 +196,7 @@
     <Compile Include="Core\Delta.Trigger.cs" />
     <Compile Include="Core\Delta.Unique.cs" />
     <Compile Include="Core\Delta.View.cs" />
+    <Compile Include="Core\Delta.ViewColumn.cs" />
     <Compile Include="Core\MetaDataLoader.cs" />
     <Compile Include="Core\MetaDataLoader.Methods.cs" />
     <Compile Include="Dao\DaoFactory.cs" />
