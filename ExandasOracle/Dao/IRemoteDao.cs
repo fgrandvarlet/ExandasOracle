@@ -61,6 +61,12 @@ namespace ExandasOracle.Dao
 
         List<Cluster> GetClusterList(OracleConnection conn, string schema, bool DBAViews);
 
+        List<ClusterColumn> GetClusterColumnList(OracleConnection conn, string schema, bool DBAViews);
+
+        List<ClusterColumnMapping> GetClusterColumnMappingList(OracleConnection conn, string schema, bool DBAViews);
+
+        List<ClusterIndex> GetClusterIndexList(OracleConnection conn, string schema, bool DBAViews);
+
         List<ObjectPrivilege> GetObjectPrivilegeList(OracleConnection conn, string schema, bool DBAViews);
     }
 }

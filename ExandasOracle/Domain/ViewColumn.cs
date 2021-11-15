@@ -3,14 +3,8 @@ using System.Collections.Generic;
 
 namespace ExandasOracle.Domain
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class ViewColumn : Column
     {
-        /// <summary>
-        /// 
-        /// </summary>
         const string ENTITY = "VIEW COLUMN";
 
         /// <summary>
@@ -21,7 +15,7 @@ namespace ExandasOracle.Domain
         /// <param name="list"></param>
         public void Compare(ViewColumn target, Guid comparisonSetUid, List<DeltaReport> list)
         {
-            this.Compare(target, comparisonSetUid, list, ENTITY);
+            base.Compare(target, comparisonSetUid, list, ENTITY);
         }
 
     }

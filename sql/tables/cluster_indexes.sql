@@ -1,5 +1,5 @@
 
-CREATE TABLE src_table_indexes
+CREATE TABLE src_cluster_indexes
 (
     index_name varchar(128) not null,
     index_type varchar(27),
@@ -15,10 +15,10 @@ CREATE TABLE src_table_indexes
     partitioned varchar(3),
     temporary varchar(1),
     duration varchar(15),
-    CONSTRAINT pk_src_table_indexes PRIMARY KEY (index_name)
+    CONSTRAINT pk_src_cluster_indexes PRIMARY KEY (index_name)
 );
 
-CREATE TABLE tgt_table_indexes
+CREATE TABLE tgt_cluster_indexes
 (
     index_name varchar(128) not null,
     index_type varchar(27),
@@ -34,5 +34,5 @@ CREATE TABLE tgt_table_indexes
     partitioned varchar(3),
     temporary varchar(1),
     duration varchar(15),
-    CONSTRAINT pk_tgt_table_indexes PRIMARY KEY (index_name)
+    CONSTRAINT pk_tgt_cluster_indexes PRIMARY KEY (index_name)
 );

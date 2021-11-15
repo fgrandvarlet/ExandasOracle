@@ -115,6 +115,33 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à cluster column mappings.
+        /// </summary>
+        internal static string ClusterColumnMappings {
+            get {
+                return ResourceManager.GetString("ClusterColumnMappings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à cluster columns.
+        /// </summary>
+        internal static string ClusterColumns {
+            get {
+                return ResourceManager.GetString("ClusterColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à cluster indexes.
+        /// </summary>
+        internal static string ClusterIndexes {
+            get {
+                return ResourceManager.GetString("ClusterIndexes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à clusters.
         /// </summary>
         internal static string Clusters {

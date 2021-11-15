@@ -1065,6 +1065,124 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadClusterColumnList(FbTransaction tran, SchemaType schemaType, List<ClusterColumn> list)
+        {
+            var tableName = string.Format("{0}_cluster_cols", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @column_name, @data_type, @data_type_mod, @data_type_owner, @data_length, @data_precision," +
+                " @data_scale, @nullable, @column_id, @default_length, @data_default, @col_char_length, @char_used, @hidden_column, @virtual_column," +
+                " @default_on_null, @identity_column, @collation)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var cc in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("table_name", cc.TableName);
+                cmd.Parameters.AddWithValue("column_name", cc.ColumnName);
+                cmd.Parameters.AddWithValue("data_type", cc.DataType);
+                cmd.Parameters.AddWithValue("data_type_mod", cc.DataTypeMod);
+                cmd.Parameters.AddWithValue("data_type_owner", cc.DataTypeOwner);
+                cmd.Parameters.AddWithValue("data_length", cc.DataLength);
+                cmd.Parameters.AddWithValue("data_precision", cc.DataPrecision);
+                cmd.Parameters.AddWithValue("data_scale", cc.DataScale);
+                cmd.Parameters.AddWithValue("nullable", cc.Nullable);
+                cmd.Parameters.AddWithValue("column_id", cc.ColumnId);
+                cmd.Parameters.AddWithValue("default_length", cc.DefaultLength);
+                cmd.Parameters.AddWithValue("data_default", cc.DataDefault);
+                cmd.Parameters.AddWithValue("col_char_length", cc.CharLength);
+                cmd.Parameters.AddWithValue("char_used", cc.CharUsed);
+                cmd.Parameters.AddWithValue("hidden_column", cc.HiddenColumn);
+                cmd.Parameters.AddWithValue("virtual_column", cc.VirtualColumn);
+                cmd.Parameters.AddWithValue("default_on_null", cc.DefaultOnNull);
+                cmd.Parameters.AddWithValue("identity_column", cc.IdentityColumn);
+                cmd.Parameters.AddWithValue("collation", cc.Collation);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadClusterColumnMappingList(FbTransaction tran, SchemaType schemaType, List<ClusterColumnMapping> list)
+        {
+            var tableName = string.Format("{0}_clu_columns", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@cluster_name, @clu_column_name, @table_name, @tab_column_name)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var ccm in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("cluster_name", ccm.ClusterName);
+                cmd.Parameters.AddWithValue("clu_column_name", ccm.CluColumnName);
+                cmd.Parameters.AddWithValue("table_name", ccm.TableName);
+                cmd.Parameters.AddWithValue("tab_column_name", ccm.TabColumnName);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadClusterIndexList(FbTransaction tran, SchemaType schemaType, List<ClusterIndex> list)
+        {
+            var tableName = string.Format("{0}_cluster_indexes", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@index_name, @index_type, @table_name, @uniqueness, @compression, @prefix_length, @tablespace_name," +
+                " @include_column, @logging, @status, @degree, @partitioned, @temporary, @duration)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var ci in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("index_name", ci.IndexName);
+                cmd.Parameters.AddWithValue("index_type", ci.IndexType);
+                cmd.Parameters.AddWithValue("table_name", ci.TableName);
+                cmd.Parameters.AddWithValue("uniqueness", ci.Uniqueness);
+                cmd.Parameters.AddWithValue("compression", ci.Compression);
+                cmd.Parameters.AddWithValue("prefix_length", ci.PrefixLength);
+                cmd.Parameters.AddWithValue("tablespace_name", ci.TablespaceName);
+                cmd.Parameters.AddWithValue("include_column", ci.IncludeColumn);
+                cmd.Parameters.AddWithValue("logging", ci.Logging);
+                cmd.Parameters.AddWithValue("status", ci.Status);
+                cmd.Parameters.AddWithValue("degree", ci.Degree);
+                cmd.Parameters.AddWithValue("partitioned", ci.Partitioned);
+                cmd.Parameters.AddWithValue("temporary", ci.Temporary);
+                cmd.Parameters.AddWithValue("duration", ci.Duration);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadObjectPrivilegeList(FbTransaction tran, SchemaType schemaType, List<ObjectPrivilege> list)
         {
             var tableName = string.Format("{0}_tab_privs", GetPrefix(schemaType));

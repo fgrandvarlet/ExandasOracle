@@ -3,14 +3,8 @@ using System.Collections.Generic;
 
 namespace ExandasOracle.Domain
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class ClusterColumn : Column
     {
-        /// <summary>
-        /// 
-        /// </summary>
         const string ENTITY = "CLUSTER COLUMN";
 
         /// <summary>

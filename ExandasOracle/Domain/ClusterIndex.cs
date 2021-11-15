@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ExandasOracle.Domain
 {
-    // TODO ClusterIndex
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public class ClusterIndex
+    public class ClusterIndex : Index
     {
+        const string ENTITY = "CLUSTER INDEX";
+
         /// <summary>
         /// 
         /// </summary>
-        const string ENTITY = "CLUSTER INDEX";
+        /// <param name="target"></param>
+        /// <param name="comparisonSetUid"></param>
+        /// <param name="list"></param>
+        public void Compare(ClusterIndex target, Guid comparisonSetUid, List<DeltaReport> list)
+        {
+            base.Compare(target, comparisonSetUid, list, ENTITY);
+        }
+
     }
 }

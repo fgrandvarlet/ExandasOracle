@@ -70,6 +70,9 @@ namespace ExandasOracle.Core
                 { Strings.Triggers, DeltaTrigger },
 
                 { Strings.Clusters, DeltaCluster },
+                { Strings.ClusterColumns, DeltaClusterColumn },
+                { Strings.ClusterColumnMappings, DeltaClusterColumnMapping },
+                { Strings.ClusterIndexes, DeltaClusterIndex },
 
                 { Strings.ObjectPrivileges, DeltaObjectPrivilege },
             };

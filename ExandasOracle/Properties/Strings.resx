@@ -135,6 +135,15 @@
   <data name="Checks" xml:space="preserve">
     <value>check constraints</value>
   </data>
+  <data name="ClusterColumnMappings" xml:space="preserve">
+    <value>cluster column mappings</value>
+  </data>
+  <data name="ClusterColumns" xml:space="preserve">
+    <value>cluster columns</value>
+  </data>
+  <data name="ClusterIndexes" xml:space="preserve">
+    <value>cluster indexes</value>
+  </data>
   <data name="Clusters" xml:space="preserve">
     <value>clusters</value>
   </data>

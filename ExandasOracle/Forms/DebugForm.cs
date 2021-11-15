@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using Oracle.ManagedDataAccess.Client;
 
-using ExandasOracle.Core;
 using ExandasOracle.Dao;
 using ExandasOracle.Domain;
 
 namespace ExandasOracle.Forms
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    // TODO SUPPRIMER A LA FIN
     public partial class DebugForm : Form
     {
         ComparisonSet _comparisonSet;

@@ -135,6 +135,15 @@
   <data name="Checks" xml:space="preserve">
     <value>contraintes de vérification</value>
   </data>
+  <data name="ClusterColumnMappings" xml:space="preserve">
+    <value>correspondances de colonne de cluster</value>
+  </data>
+  <data name="ClusterColumns" xml:space="preserve">
+    <value>colonnes de cluster</value>
+  </data>
+  <data name="ClusterIndexes" xml:space="preserve">
+    <value>index de cluster</value>
+  </data>
   <data name="Clusters" xml:space="preserve">
     <value>clusters</value>
   </data>

@@ -173,6 +173,9 @@
     <Compile Include="Core\Delegates.cs" />
     <Compile Include="Core\Delta.Check.cs" />
     <Compile Include="Core\Delta.Cluster.cs" />
+    <Compile Include="Core\Delta.ClusterColumn.cs" />
+    <Compile Include="Core\Delta.ClusterColumnMapping.cs" />
+    <Compile Include="Core\Delta.ClusterIndex.cs" />
     <Compile Include="Core\Delta.ColumnComment.cs" />
     <Compile Include="Core\Delta.Constraint.cs" />
     <Compile Include="Core\Delta.ConstraintColumn.cs" />
@@ -212,6 +215,7 @@
     <Compile Include="Dao\IRemoteDao.cs" />
     <Compile Include="Dao\Oracle\AbstractDaoOracle.cs" />
     <Compile Include="Dao\Oracle\RemoteDaoOracle.cs" />
+    <Compile Include="Domain\ClusterColumnMapping.cs" />
     <Compile Include="Domain\Column.cs" />
     <Compile Include="Domain\AbstractConstraint.cs" />
     <Compile Include="Domain\AbstractPartition.cs" />
@@ -227,6 +231,7 @@
     <Compile Include="Domain\Criteria.cs" />
     <Compile Include="Domain\DeltaReport.cs" />
     <Compile Include="Domain\ForeignKey.cs" />
+    <Compile Include="Domain\Index.cs" />
     <Compile Include="Domain\IndexColumn.cs" />
     <Compile Include="Domain\IndexPartition.cs" />
     <Compile Include="Domain\IndexSubpartition.cs" />

@@ -1152,6 +1152,168 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<ClusterColumn> GetClusterColumnList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<ClusterColumn>();
+
+            const string root = "SELECT tc.table_name, column_name, data_type, data_type_mod, data_type_owner, data_length, data_precision, data_scale, nullable, column_id," +
+                " default_length, data_default, char_length, char_used, hidden_column, virtual_column, default_on_null, identity_column, collation" +
+                " FROM {0}_tab_cols tc" +
+                " JOIN {0}_clusters c ON tc.owner = c.owner AND tc.table_name = c.cluster_name" +
+                " WHERE user_generated = 'YES' AND tc.owner = :owner ORDER BY tc.table_name, column_id";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            cmd.InitialLONGFetchSize = -1;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var cc = new ClusterColumn();
+                    cc.TableName = (string)dr["table_name"];
+                    cc.ColumnName = (string)dr["column_name"];
+                    cc.DataType = dr["data_type"] is DBNull ? null : (string)dr["data_type"];
+                    cc.DataTypeMod = dr["data_type_mod"] is DBNull ? null : (string)dr["data_type_mod"];
+                    cc.DataTypeOwner = dr["data_type_owner"] is DBNull ? null : (string)dr["data_type_owner"];
+                    cc.DataLength = (decimal)dr["data_length"];
+                    cc.DataPrecision = dr["data_precision"] is DBNull ? null : (decimal?)dr["data_precision"];
+                    cc.DataScale = dr["data_scale"] is DBNull ? null : (decimal?)dr["data_scale"];
+                    cc.Nullable = dr["nullable"] is DBNull ? null : (string)dr["nullable"];
+                    cc.ColumnId = dr["column_id"] is DBNull ? null : (decimal?)dr["column_id"];
+                    cc.DefaultLength = dr["default_length"] is DBNull ? null : (decimal?)dr["default_length"];
+                    cc.DataDefault = dr["data_default"] is DBNull ? null : (string)dr["data_default"];
+                    cc.CharLength = dr["char_length"] is DBNull ? null : (decimal?)dr["char_length"];
+                    cc.CharUsed = dr["char_used"] is DBNull ? null : (string)dr["char_used"];
+                    cc.HiddenColumn = dr["hidden_column"] is DBNull ? null : (string)dr["hidden_column"];
+                    cc.VirtualColumn = dr["virtual_column"] is DBNull ? null : (string)dr["virtual_column"];
+                    cc.DefaultOnNull = dr["default_on_null"] is DBNull ? null : (string)dr["default_on_null"];
+                    cc.IdentityColumn = dr["identity_column"] is DBNull ? null : (string)dr["identity_column"];
+                    cc.Collation = dr["collation"] is DBNull ? null : (string)dr["collation"];
+                    list.Add(cc);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<ClusterColumnMapping> GetClusterColumnMappingList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<ClusterColumnMapping>();
+
+            string sql;
+            OracleCommand cmd;
+
+            // this test is needed because all_clu_columns view does not exist
+            if (DBAViews)
+            {
+                sql = "SELECT cluster_name, clu_column_name, table_name, tab_column_name" +
+                    " FROM dba_clu_columns" +
+                    " WHERE owner = :owner" +
+                    " ORDER BY cluster_name, clu_column_name, table_name";
+
+                cmd = new OracleCommand(sql, conn);
+                cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+            }
+            else
+            {
+                sql = "SELECT cluster_name, clu_column_name, table_name, tab_column_name" +
+                    " FROM user_clu_columns" +
+                    " ORDER BY cluster_name, clu_column_name, table_name";
+                
+                cmd = new OracleCommand(sql, conn);
+            }
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var ccm = new ClusterColumnMapping();
+                    ccm.ClusterName = (string)dr["cluster_name"];
+                    ccm.CluColumnName = (string)dr["clu_column_name"];
+                    ccm.TableName = (string)dr["table_name"];
+                    ccm.TabColumnName = dr["tab_column_name"] is DBNull ? null : (string)dr["tab_column_name"];
+                    list.Add(ccm);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<ClusterIndex> GetClusterIndexList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<ClusterIndex>();
+
+            string sql;
+            OracleCommand cmd;
+
+            // this switch is necessary because the all_indexes view does not display cluster type indexes
+            // and we are therefore obliged to use the user_indexes view
+            // this is probably an Oracle bug
+            if (DBAViews)
+            {
+                sql = "SELECT index_name, index_type, table_name, uniqueness, compression, prefix_length, tablespace_name," +
+                    " include_column, logging, status, degree, partitioned, temporary, duration" +
+                    " FROM dba_indexes" +
+                    " WHERE owner = :owner AND table_type = 'CLUSTER' AND generated = 'N' ORDER BY index_name";
+                cmd = new OracleCommand(sql, conn);
+                cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+            }
+            else
+            {
+                sql = "SELECT index_name, index_type, table_name, uniqueness, compression, prefix_length, tablespace_name," +
+                    " include_column, logging, status, degree, partitioned, temporary, duration" +
+                    " FROM user_indexes" +
+                    " WHERE table_type = 'CLUSTER' AND generated = 'N' ORDER BY index_name";
+                cmd = new OracleCommand(sql, conn);
+            }
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var ci = new ClusterIndex();
+                    ci.IndexName = (string)dr["index_name"];
+                    ci.IndexType = dr["index_type"] is DBNull ? null : (string)dr["index_type"];
+                    ci.TableName = (string)dr["table_name"];
+                    ci.Uniqueness = dr["uniqueness"] is DBNull ? null : (string)dr["uniqueness"];
+                    ci.Compression = dr["compression"] is DBNull ? null : (string)dr["compression"];
+                    ci.PrefixLength = dr["prefix_length"] is DBNull ? null : (decimal?)dr["prefix_length"];
+                    ci.TablespaceName = dr["tablespace_name"] is DBNull ? null : (string)dr["tablespace_name"];
+                    ci.IncludeColumn = dr["include_column"] is DBNull ? null : (decimal?)dr["include_column"];
+                    ci.Logging = dr["logging"] is DBNull ? null : (string)dr["logging"];
+                    ci.Status = dr["status"] is DBNull ? null : (string)dr["status"];
+                    ci.Degree = dr["degree"] is DBNull ? null : (string)dr["degree"];
+                    ci.Partitioned = dr["partitioned"] is DBNull ? null : (string)dr["partitioned"];
+                    ci.Temporary = dr["temporary"] is DBNull ? null : (string)dr["temporary"];
+                    ci.Duration = dr["duration"] is DBNull ? null : (string)dr["duration"];
+                    list.Add(ci);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<ObjectPrivilege> GetObjectPrivilegeList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<ObjectPrivilege>();

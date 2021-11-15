@@ -85,11 +85,11 @@ namespace ExandasOracle.Forms
             this.tableLayoutPanel1.Controls.Add(this.comparisonSetUserControl1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comparisonSetUserControl2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 87);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 104);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 341);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 324);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // comparisonSetUserControl1
@@ -100,7 +100,7 @@ namespace ExandasOracle.Forms
             this.comparisonSetUserControl1.Location = new System.Drawing.Point(3, 3);
             this.comparisonSetUserControl1.Name = "comparisonSetUserControl1";
             this.comparisonSetUserControl1.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
-            this.comparisonSetUserControl1.Size = new System.Drawing.Size(424, 335);
+            this.comparisonSetUserControl1.Size = new System.Drawing.Size(424, 318);
             this.comparisonSetUserControl1.TabIndex = 0;
             // 
             // comparisonSetUserControl2
@@ -111,7 +111,7 @@ namespace ExandasOracle.Forms
             this.comparisonSetUserControl2.Location = new System.Drawing.Point(433, 3);
             this.comparisonSetUserControl2.Name = "comparisonSetUserControl2";
             this.comparisonSetUserControl2.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
-            this.comparisonSetUserControl2.Size = new System.Drawing.Size(425, 335);
+            this.comparisonSetUserControl2.Size = new System.Drawing.Size(425, 318);
             this.comparisonSetUserControl2.TabIndex = 1;
             // 
             // innerBottomPanel
@@ -149,12 +149,13 @@ namespace ExandasOracle.Forms
             this.innerTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.innerTopPanel.Location = new System.Drawing.Point(8, 24);
             this.innerTopPanel.Name = "innerTopPanel";
-            this.innerTopPanel.Size = new System.Drawing.Size(861, 63);
+            this.innerTopPanel.Size = new System.Drawing.Size(861, 80);
             this.innerTopPanel.TabIndex = 0;
             // 
             // lastReportTimeTextBox
             // 
-            this.lastReportTimeTextBox.Location = new System.Drawing.Point(185, 29);
+            this.lastReportTimeTextBox.Location = new System.Drawing.Point(185, 38);
+            this.lastReportTimeTextBox.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
             this.lastReportTimeTextBox.MaxLength = 64;
             this.lastReportTimeTextBox.Name = "lastReportTimeTextBox";
             this.lastReportTimeTextBox.ReadOnly = true;
@@ -163,7 +164,7 @@ namespace ExandasOracle.Forms
             // 
             // lastReportTimeLabel
             // 
-            this.lastReportTimeLabel.Location = new System.Drawing.Point(0, 32);
+            this.lastReportTimeLabel.Location = new System.Drawing.Point(0, 41);
             this.lastReportTimeLabel.Name = "lastReportTimeLabel";
             this.lastReportTimeLabel.Size = new System.Drawing.Size(180, 23);
             this.lastReportTimeLabel.TabIndex = 3;
@@ -173,7 +174,7 @@ namespace ExandasOracle.Forms
             // 
             this.deltaReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deltaReportButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.deltaReportButton.Location = new System.Drawing.Point(618, 28);
+            this.deltaReportButton.Location = new System.Drawing.Point(617, 37);
             this.deltaReportButton.Name = "deltaReportButton";
             this.deltaReportButton.Size = new System.Drawing.Size(240, 23);
             this.deltaReportButton.TabIndex = 2;
