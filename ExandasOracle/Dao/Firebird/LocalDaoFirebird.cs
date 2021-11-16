@@ -1183,6 +1183,46 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadTypeList(FbTransaction tran, SchemaType schemaType, List<Type> list)
+        {
+            var tableName = string.Format("{0}_types", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@type_name, @typecode, @attributes, @methods, @predefined, @incomplete, @final," +
+                " @instantiable, @persistable, @supertype_owner, @supertype_name, @local_attributes, @local_methods)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var ty in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("type_name", ty.TypeName);
+                cmd.Parameters.AddWithValue("typecode", ty.Typecode);
+                cmd.Parameters.AddWithValue("attributes", ty.Attributes);
+                cmd.Parameters.AddWithValue("methods", ty.Methods);
+                cmd.Parameters.AddWithValue("predefined", ty.Predefined);
+                cmd.Parameters.AddWithValue("incomplete", ty.Incomplete);
+                cmd.Parameters.AddWithValue("final", ty.Final);
+                cmd.Parameters.AddWithValue("instantiable", ty.Instantiable);
+                cmd.Parameters.AddWithValue("persistable", ty.Persistable);
+                cmd.Parameters.AddWithValue("supertype_owner", ty.SupertypeOwner);
+                cmd.Parameters.AddWithValue("supertype_name", ty.SupertypeName);
+                cmd.Parameters.AddWithValue("local_attributes", ty.LocalAttributes);
+                cmd.Parameters.AddWithValue("local_methods", ty.LocalMethods);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadObjectPrivilegeList(FbTransaction tran, SchemaType schemaType, List<ObjectPrivilege> list)
         {
             var tableName = string.Format("{0}_tab_privs", GetPrefix(schemaType));
