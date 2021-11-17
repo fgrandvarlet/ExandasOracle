@@ -1314,9 +1314,9 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
-        public List<Type> GetTypeList(OracleConnection conn, string schema, bool DBAViews)
+        public List<OracleType> GetOracleTypeList(OracleConnection conn, string schema, bool DBAViews)
         {
-            var list = new List<Type>();
+            var list = new List<OracleType>();
 
             const string root = "SELECT type_name, typecode, attributes, methods, predefined, incomplete, final," +
                 " instantiable, persistable, supertype_owner, supertype_name, local_attributes, local_methods" +
@@ -1331,21 +1331,21 @@ namespace ExandasOracle.Dao.Oracle
             {
                 while (dr.Read())
                 {
-                    var ty = new Type();
-                    ty.TypeName = (string)dr["type_name"];
-                    ty.TypeCode = dr["type_code"] is DBNull ? null : (string)dr["type_code"];
-                    ty.Attributes = dr["attributes"] is DBNull ? null : (decimal?)dr["attributes"];
-                    ty.Methods = dr["methods"] is DBNull ? null : (decimal?)dr["methods"];
-                    ty.Predefined = dr["predefined"] is DBNull ? null : (string)dr["predefined"];
-                    ty.Incomplete = dr["incomplete"] is DBNull ? null : (string)dr["incomplete"];
-                    ty.Final = dr["final"] is DBNull ? null : (string)dr["final"];
-                    ty.Instantiable = dr["instantiable"] is DBNull ? null : (string)dr["instantiable"];
-                    ty.Persistable = dr["persistable"] is DBNull ? null : (string)dr["persistable"];
-                    ty.SupertypeOwner = dr["supertype_owner"] is DBNull ? null : (string)dr["supertype_owner"];
-                    ty.SupertypeName = dr["supertype_name"] is DBNull ? null : (string)dr["supertype_name"];
-                    ty.LocalAttributes = dr["local_attributes"] is DBNull ? null : (decimal?)dr["local_attributes"];
-                    ty.LocalMethods = dr["local_methods"] is DBNull ? null : (decimal?)dr["local_methods"];
-                    list.Add(ty);
+                    var ot = new OracleType();
+                    ot.TypeName = (string)dr["type_name"];
+                    ot.Typecode = dr["type_code"] is DBNull ? null : (string)dr["type_code"];
+                    ot.Attributes = dr["attributes"] is DBNull ? null : (decimal?)dr["attributes"];
+                    ot.Methods = dr["methods"] is DBNull ? null : (decimal?)dr["methods"];
+                    ot.Predefined = dr["predefined"] is DBNull ? null : (string)dr["predefined"];
+                    ot.Incomplete = dr["incomplete"] is DBNull ? null : (string)dr["incomplete"];
+                    ot.Final = dr["final"] is DBNull ? null : (string)dr["final"];
+                    ot.Instantiable = dr["instantiable"] is DBNull ? null : (string)dr["instantiable"];
+                    ot.Persistable = dr["persistable"] is DBNull ? null : (string)dr["persistable"];
+                    ot.SupertypeOwner = dr["supertype_owner"] is DBNull ? null : (string)dr["supertype_owner"];
+                    ot.SupertypeName = dr["supertype_name"] is DBNull ? null : (string)dr["supertype_name"];
+                    ot.LocalAttributes = dr["local_attributes"] is DBNull ? null : (decimal?)dr["local_attributes"];
+                    ot.LocalMethods = dr["local_methods"] is DBNull ? null : (decimal?)dr["local_methods"];
+                    list.Add(ot);
                 }
             }
             return list;

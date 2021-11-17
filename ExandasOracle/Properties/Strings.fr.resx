@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>À propos de {0}</value>
+  </data>
+  <data name="AboutMenu" xml:space="preserve">
+    <value>&amp;A propos...</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
   </data>
@@ -195,11 +201,20 @@
   <data name="DeltaOf" xml:space="preserve">
     <value>Delta des {0}</value>
   </data>
+  <data name="ExandasOracleError" xml:space="preserve">
+    <value>Erreur ExandasOracle</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>&amp;Fichier</value>
   </data>
+  <data name="FileSizeColon" xml:space="preserve">
+    <value>Taille du fichier : </value>
+  </data>
   <data name="ForeignKeys" xml:space="preserve">
     <value>clés étrangères</value>
+  </data>
+  <data name="ForOracle" xml:space="preserve">
+    <value>pour Oracle®</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>&amp;Aide</value>
@@ -227,6 +242,9 @@
   </data>
   <data name="LoadingObjects" xml:space="preserve">
     <value>Chargement des {0} {1}</value>
+  </data>
+  <data name="LocalDatabaseColon" xml:space="preserve">
+    <value>Base de données locale :</value>
   </data>
   <data name="MaterializedViews" xml:space="preserve">
     <value>vues matérialisées</value>
@@ -269,6 +287,9 @@
   </data>
   <data name="PropertyDifference" xml:space="preserve">
     <value>Différence de propriété</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>&amp;Quitter</value>
   </data>
   <data name="Sequences" xml:space="preserve">
     <value>séquences</value>
@@ -338,6 +359,9 @@
   </data>
   <data name="Truncated" xml:space="preserve">
     <value>TRONQUÉ</value>
+  </data>
+  <data name="Types" xml:space="preserve">
+    <value>types</value>
   </data>
   <data name="Uniques" xml:space="preserve">
     <value>uniques</value>

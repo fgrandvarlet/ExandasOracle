@@ -65,9 +65,13 @@ namespace ExandasOracle.Dao
 
         void LoadClusterIndexList(FbTransaction tran, SchemaType schemaType, List<ClusterIndex> list);
         
-        void LoadTypeList(FbTransaction tran, SchemaType schemaType, List<Type> list);
+        void LoadOracleTypeList(FbTransaction tran, SchemaType schemaType, List<OracleType> list);
 
         void LoadObjectPrivilegeList(FbTransaction tran, SchemaType schemaType, List<ObjectPrivilege> list);
+
+        void PurgeMetaDataTables();
+
+        void PurgeDeltaReport();
     }
 
 }

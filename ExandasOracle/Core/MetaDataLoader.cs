@@ -77,6 +77,8 @@ namespace ExandasOracle.Core
                 { Strings.ClusterColumnMappings, LoadClusterColumnMappings },
                 { Strings.ClusterIndexes, LoadClusterIndexes },
 
+                { Strings.Types, LoadOracleTypes },
+
                 { Strings.ObjectPrivileges, LoadObjectPrivileges },
             };
 

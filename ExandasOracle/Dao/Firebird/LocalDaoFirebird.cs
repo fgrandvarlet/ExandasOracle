@@ -1183,7 +1183,7 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
-        public void LoadTypeList(FbTransaction tran, SchemaType schemaType, List<Type> list)
+        public void LoadOracleTypeList(FbTransaction tran, SchemaType schemaType, List<OracleType> list)
         {
             var tableName = string.Format("{0}_types", GetPrefix(schemaType));
 
@@ -1197,22 +1197,22 @@ namespace ExandasOracle.Dao.Firebird
             var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
             cmd.Prepare();
 
-            foreach (var ty in list)
+            foreach (var ot in list)
             {
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("type_name", ty.TypeName);
-                cmd.Parameters.AddWithValue("typecode", ty.Typecode);
-                cmd.Parameters.AddWithValue("attributes", ty.Attributes);
-                cmd.Parameters.AddWithValue("methods", ty.Methods);
-                cmd.Parameters.AddWithValue("predefined", ty.Predefined);
-                cmd.Parameters.AddWithValue("incomplete", ty.Incomplete);
-                cmd.Parameters.AddWithValue("final", ty.Final);
-                cmd.Parameters.AddWithValue("instantiable", ty.Instantiable);
-                cmd.Parameters.AddWithValue("persistable", ty.Persistable);
-                cmd.Parameters.AddWithValue("supertype_owner", ty.SupertypeOwner);
-                cmd.Parameters.AddWithValue("supertype_name", ty.SupertypeName);
-                cmd.Parameters.AddWithValue("local_attributes", ty.LocalAttributes);
-                cmd.Parameters.AddWithValue("local_methods", ty.LocalMethods);
+                cmd.Parameters.AddWithValue("type_name", ot.TypeName);
+                cmd.Parameters.AddWithValue("typecode", ot.Typecode);
+                cmd.Parameters.AddWithValue("attributes", ot.Attributes);
+                cmd.Parameters.AddWithValue("methods", ot.Methods);
+                cmd.Parameters.AddWithValue("predefined", ot.Predefined);
+                cmd.Parameters.AddWithValue("incomplete", ot.Incomplete);
+                cmd.Parameters.AddWithValue("final", ot.Final);
+                cmd.Parameters.AddWithValue("instantiable", ot.Instantiable);
+                cmd.Parameters.AddWithValue("persistable", ot.Persistable);
+                cmd.Parameters.AddWithValue("supertype_owner", ot.SupertypeOwner);
+                cmd.Parameters.AddWithValue("supertype_name", ot.SupertypeName);
+                cmd.Parameters.AddWithValue("local_attributes", ot.LocalAttributes);
+                cmd.Parameters.AddWithValue("local_methods", ot.LocalMethods);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -1252,6 +1252,19 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.ExecuteNonQuery();
             }
         }
+        
+        public void PurgeMetaDataTables()
+        {
+            // TODO use query :
+            // select rdb$relation_name from RDB$RELATIONS where rdb$relation_name like 'SRC%';
+        }
 
+        public void PurgeDeltaReport()
+        {
+            // TODO
+            // mettre à jour la colonne lastreporttime de comparison_set
+            // puis vider la table delta_report
+            // option dans CompactLocalDatabaseForm
+        }
     }
 }

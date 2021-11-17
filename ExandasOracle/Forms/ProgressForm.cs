@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using ExandasOracle.Core;
 using ExandasOracle.Domain;
+using ExandasOracle.Properties;
 
 namespace ExandasOracle.Forms
 {
@@ -88,7 +89,7 @@ namespace ExandasOracle.Forms
             else if (e.Error != null)
             {
                 mainProgressBar.Visible = false;
-                MessageBox.Show(e.Error.Message, Defs.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Error.Message, Strings.ExandasOracleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
             else

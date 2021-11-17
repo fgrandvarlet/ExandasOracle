@@ -36,7 +36,6 @@ namespace ExandasOracle.Forms
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.delegateFormsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.fillPanel = new System.Windows.Forms.Panel();
@@ -45,6 +44,8 @@ namespace ExandasOracle.Forms
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.connectionsLinkLabel = new System.Windows.Forms.LinkLabel();
             this.comparisonSetsLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.localDatabaseSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compactLocalDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.fillPanel.SuspendLayout();
             this.leftPanel.SuspendLayout();
@@ -56,8 +57,7 @@ namespace ExandasOracle.Forms
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.delegateFormsToolStripMenuItem});
+            this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(800, 24);
@@ -75,12 +75,15 @@ namespace ExandasOracle.Forms
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitToolStripMenuItem.Text = "&Quitter";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
             // 
             // toolsToolStripMenuItem
             // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.localDatabaseSizeToolStripMenuItem,
+            this.compactLocalDatabaseToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.toolsToolStripMenuItem.Text = "&Outils";
@@ -96,16 +99,9 @@ namespace ExandasOracle.Forms
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&A propos...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
-            // 
-            // delegateFormsToolStripMenuItem
-            // 
-            this.delegateFormsToolStripMenuItem.Name = "delegateFormsToolStripMenuItem";
-            this.delegateFormsToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.delegateFormsToolStripMenuItem.Text = "DelegateForm";
-            this.delegateFormsToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
             // 
             // mainToolStrip
             // 
@@ -131,7 +127,7 @@ namespace ExandasOracle.Forms
             this.fillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fillPanel.Location = new System.Drawing.Point(0, 49);
             this.fillPanel.Name = "fillPanel";
-            this.fillPanel.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.fillPanel.Padding = new System.Windows.Forms.Padding(8);
             this.fillPanel.Size = new System.Drawing.Size(800, 379);
             this.fillPanel.TabIndex = 3;
             // 
@@ -151,7 +147,7 @@ namespace ExandasOracle.Forms
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.Location = new System.Drawing.Point(8, 8);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.leftPanel.Padding = new System.Windows.Forms.Padding(8);
             this.leftPanel.Size = new System.Drawing.Size(195, 363);
             this.leftPanel.TabIndex = 0;
             // 
@@ -188,6 +184,20 @@ namespace ExandasOracle.Forms
             this.comparisonSetsLinkLabel.TabStop = true;
             this.comparisonSetsLinkLabel.Text = "Jeux de comparaison";
             this.comparisonSetsLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
+            // 
+            // localDatabaseSizeToolStripMenuItem
+            // 
+            this.localDatabaseSizeToolStripMenuItem.Name = "localDatabaseSizeToolStripMenuItem";
+            this.localDatabaseSizeToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
+            this.localDatabaseSizeToolStripMenuItem.Text = "&Taille de la base de données locale";
+            this.localDatabaseSizeToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
+            // 
+            // compactLocalDatabaseToolStripMenuItem
+            // 
+            this.compactLocalDatabaseToolStripMenuItem.Name = "compactLocalDatabaseToolStripMenuItem";
+            this.compactLocalDatabaseToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
+            this.compactLocalDatabaseToolStripMenuItem.Text = "&Compacter la base de données locale";
+            this.compactLocalDatabaseToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
             // 
             // MainForm
             // 
@@ -231,6 +241,7 @@ namespace ExandasOracle.Forms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.LinkLabel connectionsLinkLabel;
         private System.Windows.Forms.LinkLabel comparisonSetsLinkLabel;
-        private System.Windows.Forms.ToolStripMenuItem delegateFormsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem localDatabaseSizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compactLocalDatabaseToolStripMenuItem;
     }
 }

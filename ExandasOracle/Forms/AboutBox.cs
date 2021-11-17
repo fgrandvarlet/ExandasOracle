@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
-// TODO FINALISER MISE EN FORME
+using ExandasOracle.Properties;
 
 namespace ExandasOracle.Forms
 {
@@ -19,17 +17,15 @@ namespace ExandasOracle.Forms
             int height = 360;
             this.Size = new Size(width, height);
 
-            this.Text = String.Format("À propos de {0}", "AssemblyTitle");
-            this.labelProductName.Text = "AssemblyProduct";
-            this.labelVersion.Text = String.Format("Version {0}", "AssemblyVersion");
-            this.labelCopyright.Text = "AssemblyCopyright";
-            this.labelCompanyName.Text = "AssemblyCompany";
-            this.textBoxDescription.Text = "AssemblyDescription";
+            this.Text = String.Format(Strings.About, AssemblyTitle);
+            this.labelProductName.Text = AssemblyProduct;
+            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            this.labelCopyright.Text = AssemblyCopyright;
+            this.labelCompanyName.Text = AssemblyCompany;
+            this.textBoxDescription.Text = AssemblyDescription;
         }
 
         #region Accesseurs d'attribut de l'assembly
-
-		/*
         public string AssemblyTitle
         {
             get
@@ -106,8 +102,8 @@ namespace ExandasOracle.Forms
                 return ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
         }
-		*/
-		
+
         #endregion
+
     }
 }

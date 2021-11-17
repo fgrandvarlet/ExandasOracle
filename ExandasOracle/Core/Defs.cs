@@ -15,18 +15,11 @@ namespace ExandasOracle.Core
 		internal const string APPLICATION_TITLE = "Exandas - Oracle";
 		internal const string TEXT_VALIDATING_ERROR = "Erreur de validation des données du formulaire.";
 		internal const string CAPTION_ATTENTION = "Attention";
-		internal const string CAPTION_ERROR = "Erreur Exandas.Oracle";
-
 
 		internal const string TITLE_FORM_CONFIGURATION = "Configuration des informations de connexion";
 		internal const string TITLE_FORM_CONNECTION_PARAMS = "Détail connexion serveur";
 		internal const string TITLE_FORM_COMPARISON_SET = "Détail jeu de comparaison";
 		internal const string TITLE_FORM_COMPARISON_RESULT = "Rapport de comparaison";
-
-		// TODO ? internal const string TITLE_FORM_APROPOS = "A propos d'Exandas.Oracle";
-
-		//internal const string TITLE_LIST_CONNECTION_PARAMS = "Liste des connexions serveur";
-		//internal const string TITLE_LIST_COMPARISON_SET = "Liste des jeux de comparaison";
 
 		internal const string TITLE_FORM_PROGRESS = "Lancement du rapport de comparaison ?";
 		internal const string MESSAGE_REPORT_GENERATOR = "Confirmez-vous la génération du rapport de comparaison ?";
@@ -74,8 +67,8 @@ namespace ExandasOracle.Core
 		public static void ErrorDialog(string message)
 		{
 			MessageBox.Show(
-				message,
-				CAPTION_ERROR,
+                message,
+				Strings.ExandasOracleError,
 				MessageBoxButtons.OK,
 				MessageBoxIcon.Error
 			);

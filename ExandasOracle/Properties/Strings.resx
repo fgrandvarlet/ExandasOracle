@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="AboutMenu" xml:space="preserve">
+    <value>&amp;About...</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -195,11 +201,20 @@
   <data name="DeltaOf" xml:space="preserve">
     <value>Delta of {0}</value>
   </data>
+  <data name="ExandasOracleError" xml:space="preserve">
+    <value>ExandasOracle Error</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>&amp;File</value>
   </data>
+  <data name="FileSizeColon" xml:space="preserve">
+    <value>File size : </value>
+  </data>
   <data name="ForeignKeys" xml:space="preserve">
     <value>foreign keys</value>
+  </data>
+  <data name="ForOracle" xml:space="preserve">
+    <value>for Oracle®</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>&amp;Help</value>
@@ -227,6 +242,9 @@
   </data>
   <data name="LoadingObjects" xml:space="preserve">
     <value>Loading {1} {0}</value>
+  </data>
+  <data name="LocalDatabaseColon" xml:space="preserve">
+    <value>Local database :</value>
   </data>
   <data name="MaterializedViews" xml:space="preserve">
     <value>materialized views</value>
@@ -269,6 +287,9 @@
   </data>
   <data name="PropertyDifference" xml:space="preserve">
     <value>Property difference</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>&amp;Quit</value>
   </data>
   <data name="Sequences" xml:space="preserve">
     <value>sequences</value>
@@ -338,6 +359,9 @@
   </data>
   <data name="Truncated" xml:space="preserve">
     <value>TRUNCATED</value>
+  </data>
+  <data name="Types" xml:space="preserve">
+    <value>types</value>
   </data>
   <data name="Uniques" xml:space="preserve">
     <value>uniques</value>

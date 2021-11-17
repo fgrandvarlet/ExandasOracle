@@ -23,16 +23,21 @@ namespace ExandasOracle.Dao
 
     public sealed class DaoFactory
     {
-        static DaoFactory instance = new DaoFactory();
-        string _localConnectionString;
+        static readonly DaoFactory instance = new DaoFactory();
+        
+        const string _LOCAL_DATABASE_FILE_NAME = "EXANDAS_ORACLE.FDB";
+        const string _BACKUP_FILE_NAME = "backup_EXANDAS_ORACLE.FBK";
         const string _LOCAL_DATABASE_CONTEXT_SETTING_NAME = "LocalDatabaseContext";
+        const string _LOCAL_DATABASE_DIRECTORY_SETTING_NAME = "LocalDatabaseDirectory";
         const string _DATABASE_CONTEXT_SERVER = "server";
         const string _DATABASE_CONTEXT_EMBEDDED = "embedded";
-        LocalDatabaseContext _localDatabaseContext = LocalDatabaseContext.Undefined;
+        const string _LOCAL_DATABASE_USERID = "SYSDBA";
+        const string _LOCAL_DATABASE_PASSWORD = "masterkey";
 
-        /// <summary>
-        /// 
-        /// </summary>
+        LocalDatabaseContext _localDatabaseContext = LocalDatabaseContext.Undefined;
+        string _localDatabaseDirectory;
+        string _localConnectionString;
+
         public static DaoFactory Instance
         {
             get
@@ -45,21 +50,14 @@ namespace ExandasOracle.Dao
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void Initialization()
         {
             ReadConfiguration();
-            //InitializeSQLiteLocalDatabase();
             InitializeReportDirectory();
         }
 
         // TODO chemin de la base de données en paramètre de configuration
 
-        /// <summary>
-        /// 
-        /// </summary>
         private void ReadConfiguration()
         {
             var appSettings = ConfigurationManager.AppSettings;
@@ -75,11 +73,13 @@ namespace ExandasOracle.Dao
                 default:
                     throw new ConfigurationErrorsException("Invalid Application Setting : " + result);
             }
+            _localDatabaseDirectory = appSettings[_LOCAL_DATABASE_DIRECTORY_SETTING_NAME];
+            if (_localDatabaseDirectory == null)
+            {
+                throw new ConfigurationErrorsException(_LOCAL_DATABASE_DIRECTORY_SETTING_NAME + " Setting Missing");
+            }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         private void InitializeReportDirectory()
         {
             if (! Directory.Exists(Defs.REPORTS_DIRECTORY))
@@ -88,9 +88,32 @@ namespace ExandasOracle.Dao
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        public string LocalDatabasePath
+        {
+            get
+            {
+                return Path.Combine(_localDatabaseDirectory, _LOCAL_DATABASE_FILE_NAME);
+            }
+        }
+
+        public string LocalDatabaseSize
+        {
+            get
+            {
+                FileInfo fi = new FileInfo(LocalDatabasePath);
+                decimal mo = (decimal)fi.Length / 1024 / 1024;
+                return string.Format("{0:F1} Mo", mo);
+            }
+        }
+
+        public string BackupFilePath
+        {
+            get
+            {
+                return Path.Combine(_localDatabaseDirectory, _BACKUP_FILE_NAME);
+            }
+        }
+
         public string LocalConnectionString
         {
             get
@@ -101,22 +124,23 @@ namespace ExandasOracle.Dao
                     switch (_localDatabaseContext)
                     {
                         case LocalDatabaseContext.Embedded:
-                            csb.Database = @"data\EXANDAS_ORACLE.FDB";
-                            csb.UserID = "SYSDBA";
-                            csb.Password = "masterkey";
+                            csb.Database = LocalDatabasePath;
+                            csb.UserID = _LOCAL_DATABASE_USERID;
+                            csb.Password = _LOCAL_DATABASE_PASSWORD;
                             csb.Charset = "UTF8";
                             csb.Dialect = 3;
                             csb.ServerType = FbServerType.Embedded;
+                            csb.Pooling = false;
                             break;
                         case LocalDatabaseContext.Server:
                             csb.DataSource = "localhost";
-                            csb.Database = @"C:\FIREBIRD\EXANDAS_ORACLE\EXANDAS_ORACLE.FDB";
-                            csb.UserID = "SYSDBA";
-                            csb.Password = "masterkey";
+                            csb.Database = LocalDatabasePath;
+                            csb.UserID = _LOCAL_DATABASE_USERID;
+                            csb.Password = _LOCAL_DATABASE_PASSWORD;
                             csb.Charset = "UTF8";
                             csb.Dialect = 3;
                             csb.ServerType = FbServerType.Default;
-                            //TODO csb.Pooling QUELLE VALEUR PAR DEFAUT QUELLES CONSEQUENCES ?
+                            csb.Pooling = false;
                             break;
                         default:
                             break;
@@ -127,47 +151,26 @@ namespace ExandasOracle.Dao
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public IConnectionParamsDao GetConnectionParamsDao()
         {
             return new ConnectionParamsDaoFirebird(LocalConnectionString);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public IComparisonSetDao GetComparisonSetDao()
         {
             return new ComparisonSetDaoFirebird(LocalConnectionString);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionString"></param>
-        /// <returns></returns>
         public static IRemoteDao GetRemoteDao(string connectionString)
         {
             return new RemoteDaoOracle(connectionString);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public ILocalDao GetLocalDao()
         {
             return new LocalDaoFirebird(LocalConnectionString);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public IDeltaReportDao GetDeltaReportDao()
         {
             return new DeltaReportDaoFirebird(LocalConnectionString);

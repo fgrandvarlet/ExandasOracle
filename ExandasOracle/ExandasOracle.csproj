@@ -197,6 +197,7 @@
     <Compile Include="Core\Delta.TablePartition.cs" />
     <Compile Include="Core\Delta.TableSubpartition.cs" />
     <Compile Include="Core\Delta.Trigger.cs" />
+    <Compile Include="Core\Delta.OracleType.cs" />
     <Compile Include="Core\Delta.Unique.cs" />
     <Compile Include="Core\Delta.View.cs" />
     <Compile Include="Core\Delta.ViewColumn.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Domain\TablePartition.cs" />
     <Compile Include="Domain\TableSubpartition.cs" />
     <Compile Include="Domain\Trigger.cs" />
+    <Compile Include="Domain\OracleType.cs" />
     <Compile Include="Domain\Unique.cs" />
     <Compile Include="Domain\View.cs" />
     <Compile Include="Domain\ViewColumn.cs" />
@@ -260,6 +262,12 @@
     </Compile>
     <Compile Include="Forms\AboutBox.designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CompactLocalDatabaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompactLocalDatabaseForm.Designer.cs">
+      <DependentUpon>CompactLocalDatabaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ComparisonSetForm.cs">
       <SubType>Form</SubType>
@@ -272,18 +280,6 @@
     </Compile>
     <Compile Include="Forms\ConnectionParamsForm.designer.cs">
       <DependentUpon>ConnectionParamsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\DebugForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DebugForm.designer.cs">
-      <DependentUpon>DebugForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\DelegateForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DelegateForm.designer.cs">
-      <DependentUpon>DelegateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DeltaReportListForm.cs">
       <SubType>Form</SubType>
@@ -345,17 +341,14 @@
     <EmbeddedResource Include="Forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CompactLocalDatabaseForm.resx">
+      <DependentUpon>CompactLocalDatabaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ComparisonSetForm.resx">
       <DependentUpon>ComparisonSetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConnectionParamsForm.resx">
       <DependentUpon>ConnectionParamsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DebugForm.resx">
-      <DependentUpon>DebugForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DelegateForm.resx">
-      <DependentUpon>DelegateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeltaReportListForm.resx">
       <DependentUpon>DeltaReportListForm.cs</DependentUpon>

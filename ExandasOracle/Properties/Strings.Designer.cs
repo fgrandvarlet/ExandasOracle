@@ -61,6 +61,24 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à About {0}.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à &amp;About....
+        /// </summary>
+        internal static string AboutMenu {
+            get {
+                return ResourceManager.GetString("AboutMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Add.
         /// </summary>
         internal static string Add {
@@ -295,6 +313,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à ExandasOracle Error.
+        /// </summary>
+        internal static string ExandasOracleError {
+            get {
+                return ResourceManager.GetString("ExandasOracleError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à &amp;File.
         /// </summary>
         internal static string File {
@@ -304,11 +331,29 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à File size : .
+        /// </summary>
+        internal static string FileSizeColon {
+            get {
+                return ResourceManager.GetString("FileSizeColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à foreign keys.
         /// </summary>
         internal static string ForeignKeys {
             get {
                 return ResourceManager.GetString("ForeignKeys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à for Oracle®.
+        /// </summary>
+        internal static string ForOracle {
+            get {
+                return ResourceManager.GetString("ForOracle", resourceCulture);
             }
         }
         
@@ -390,6 +435,15 @@ namespace ExandasOracle.Properties {
         internal static string LoadingObjects {
             get {
                 return ResourceManager.GetString("LoadingObjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Local database :.
+        /// </summary>
+        internal static string LocalDatabaseColon {
+            get {
+                return ResourceManager.GetString("LocalDatabaseColon", resourceCulture);
             }
         }
         
@@ -516,6 +570,15 @@ namespace ExandasOracle.Properties {
         internal static string PropertyDifference {
             get {
                 return ResourceManager.GetString("PropertyDifference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à &amp;Quit.
+        /// </summary>
+        internal static string Quit {
+            get {
+                return ResourceManager.GetString("Quit", resourceCulture);
             }
         }
         
@@ -723,6 +786,15 @@ namespace ExandasOracle.Properties {
         internal static string Truncated {
             get {
                 return ResourceManager.GetString("Truncated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à types.
+        /// </summary>
+        internal static string Types {
+            get {
+                return ResourceManager.GetString("Types", resourceCulture);
             }
         }
         
