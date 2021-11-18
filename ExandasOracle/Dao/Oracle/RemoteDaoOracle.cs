@@ -172,6 +172,41 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<IdentityColumn> GetIdentityColumnList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<IdentityColumn>();
+
+            const string root = "SELECT table_name, column_name, generation_type, sequence_name, identity_options" +
+                " FROM {0}_tab_identity_cols" +
+                " WHERE owner = :owner ORDER BY table_name, column_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var ic = new IdentityColumn();
+                    ic.TableName = (string)dr["table_name"];
+                    ic.ColumnName = (string)dr["column_name"];
+                    ic.GenerationType = dr["generation_type"] is DBNull ? null : (string)dr["generation_type"];
+                    ic.SequenceName = (string)dr["sequence_name"];
+                    ic.IdentityOptions = dr["identity_options"] is DBNull ? null : (string)dr["identity_options"];
+                    list.Add(ic);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<ColumnComment> GetColumnCommentList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<ColumnComment>();
