@@ -74,5 +74,7 @@ namespace ExandasOracle.Dao
         List<OracleType> GetOracleTypeList(OracleConnection conn, string schema, bool DBAViews);
 
         List<ObjectPrivilege> GetObjectPrivilegeList(OracleConnection conn, string schema, bool DBAViews);
+        
+        List<Synonym> GetSynonymList(OracleConnection conn, string schema, bool DBAViews);
     }
 }
