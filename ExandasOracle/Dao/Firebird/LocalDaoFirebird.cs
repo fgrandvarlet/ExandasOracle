@@ -1314,7 +1314,38 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.ExecuteNonQuery();
             }
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadSynonymList(FbTransaction tran, SchemaType schemaType, List<Synonym> list)
+        {
+            var tableName = string.Format("{0}_synonyms", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@owner, @synonym_name, @table_owner, @table_name, @db_link)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var sy in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("owner", sy.Owner);
+                cmd.Parameters.AddWithValue("synonym_name", sy.SynonymName);
+                cmd.Parameters.AddWithValue("table_owner", sy.TableOwner);
+                cmd.Parameters.AddWithValue("table_name", sy.TableName);
+                cmd.Parameters.AddWithValue("db_link", sy.DbLink);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public void PurgeMetaDataTables()
         {
             // TODO use query :
