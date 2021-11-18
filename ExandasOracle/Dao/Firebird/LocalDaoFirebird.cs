@@ -137,6 +137,37 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadIdentityColumnList(FbTransaction tran, SchemaType schemaType, List<IdentityColumn> list)
+        {
+            var tableName = string.Format("{0}_tab_identity_cols", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @column_name, @generation_type, @sequence_name, @identity_options)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var ic in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("table_name", ic.TableName);
+                cmd.Parameters.AddWithValue("column_name", ic.ColumnName);
+                cmd.Parameters.AddWithValue("generation_type", ic.GenerationType);
+                cmd.Parameters.AddWithValue("sequence_name", ic.SequenceName);
+                cmd.Parameters.AddWithValue("identity_options", ic.IdentityOptions);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadColumnCommentList(FbTransaction tran, SchemaType schemaType, List<ColumnComment> list)
         {
             var tableName = string.Format("{0}_col_comments", GetPrefix(schemaType));
