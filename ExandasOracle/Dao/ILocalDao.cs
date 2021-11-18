@@ -13,6 +13,8 @@ namespace ExandasOracle.Dao
 
         void LoadTableColumnList(FbTransaction tran, SchemaType schemaType, List<TableColumn> list);
         
+        void LoadIdentityColumnList(FbTransaction tran, SchemaType schemaType, List<IdentityColumn> list);
+        
         void LoadColumnCommentList(FbTransaction tran, SchemaType schemaType, List<ColumnComment> list);
 
         void LoadPrimaryKeyList(FbTransaction tran, SchemaType schemaType, List<PrimaryKey> list);
