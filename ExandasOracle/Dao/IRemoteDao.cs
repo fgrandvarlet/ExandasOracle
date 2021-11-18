@@ -50,6 +50,8 @@ namespace ExandasOracle.Dao
         List<TableIndex> GetTableIndexList(OracleConnection conn, string schema, bool DBAViews);
 
         List<IndexColumn> GetIndexColumnList(OracleConnection conn, string schema, bool DBAViews);
+        
+        List<IndexExpression> GetIndexExpressionList(OracleConnection conn, string schema, bool DBAViews);
 
         List<PartitionedIndex> GetPartitionedIndexList(OracleConnection conn, string schema, bool DBAViews);
 
