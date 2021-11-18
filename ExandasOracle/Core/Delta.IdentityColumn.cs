@@ -31,7 +31,7 @@ namespace ExandasOracle.Core
             {
                 while (dr.Read())
                 {
-                    var report = new DeltaReport(this._comparisonSet.Uid, "IDENTITY_COLUMN", (string)dr["column_name"], (string)dr["table_name"], Strings.ObjectInSource);
+                    var report = new DeltaReport(this._comparisonSet.Uid, "IDENTITY COLUMN", (string)dr["column_name"], (string)dr["table_name"], Strings.ObjectInSource);
                     list.Add(report);
                 }
             }
@@ -48,7 +48,7 @@ namespace ExandasOracle.Core
             {
                 while (dr.Read())
                 {
-                    var report = new DeltaReport(this._comparisonSet.Uid, "IDENTITY_COLUMN", (string)dr["column_name"], (string)dr["table_name"], Strings.ObjectInTarget);
+                    var report = new DeltaReport(this._comparisonSet.Uid, "IDENTITY COLUMN", (string)dr["column_name"], (string)dr["table_name"], Strings.ObjectInTarget);
                     list.Add(report);
                 }
             }
