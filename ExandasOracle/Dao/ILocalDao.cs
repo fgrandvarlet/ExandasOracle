@@ -72,6 +72,8 @@ namespace ExandasOracle.Dao
         void LoadOracleTypeList(FbTransaction tran, SchemaType schemaType, List<OracleType> list);
 
         void LoadObjectPrivilegeList(FbTransaction tran, SchemaType schemaType, List<ObjectPrivilege> list);
+        
+        void LoadSynonymList(FbTransaction tran, SchemaType schemaType, List<Synonym> list);
 
         void PurgeMetaDataTables();
 
