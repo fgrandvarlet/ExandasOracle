@@ -918,6 +918,43 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<IndexExpression> GetIndexExpressionList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<IndexExpression>();
+
+            const string root = "SELECT index_name, table_owner, table_name, column_expression, column_position" +
+                " FROM {0}_ind_expressions" +
+                " WHERE index_owner = :index_owner ORDER BY index_name, column_position";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("index_owner", OracleDbType.Varchar2).Value = schema;
+
+            cmd.InitialLONGFetchSize = -1;
+            
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var ie = new IndexExpression();
+                    ie.IndexName = (string)dr["index_name"];
+                    ie.TableOwner = (string)dr["table_owner"];
+                    ie.TableName = (string)dr["table_name"];
+                    ie.ColumnExpression = dr["column_expression"] is DBNull ? null : (string)dr["column_expression"];
+                    ie.ColumnPosition = (decimal)dr["column_position"];
+                    list.Add(ie);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<PartitionedIndex> GetPartitionedIndexList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<PartitionedIndex>();
