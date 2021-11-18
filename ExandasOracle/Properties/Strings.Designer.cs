@@ -115,6 +115,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Cancel.
+        /// </summary>
+        internal static string CancelButton {
+            get {
+                return ResourceManager.GetString("CancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Checking the connection.
         /// </summary>
         internal static string CheckingTheConnection {
@@ -129,6 +138,15 @@ namespace ExandasOracle.Properties {
         internal static string Checks {
             get {
                 return ResourceManager.GetString("Checks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Close.
+        /// </summary>
+        internal static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         
@@ -183,6 +201,15 @@ namespace ExandasOracle.Properties {
         internal static string ComparisonReport {
             get {
                 return ResourceManager.GetString("ComparisonReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Comparison set detail.
+        /// </summary>
+        internal static string ComparisonSetDetail {
+            get {
+                return ResourceManager.GetString("ComparisonSetDetail", resourceCulture);
             }
         }
         
@@ -313,6 +340,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Do you confirm the generation of the comparison report ?.
+        /// </summary>
+        internal static string DoYouConfirmGeneration {
+            get {
+                return ResourceManager.GetString("DoYouConfirmGeneration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à ExandasOracle Error.
         /// </summary>
         internal static string ExandasOracleError {
@@ -349,11 +385,38 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Form data validation error..
+        /// </summary>
+        internal static string FormError {
+            get {
+                return ResourceManager.GetString("FormError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à for Oracle®.
         /// </summary>
         internal static string ForOracle {
             get {
                 return ResourceManager.GetString("ForOracle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Generate the comparison report.
+        /// </summary>
+        internal static string GenerateComparisonReport {
+            get {
+                return ResourceManager.GetString("GenerateComparisonReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Comparison report generation in progress....
+        /// </summary>
+        internal static string GenerationInProgress {
+            get {
+                return ResourceManager.GetString("GenerationInProgress", resourceCulture);
             }
         }
         
@@ -421,11 +484,29 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Last comparison report.
+        /// </summary>
+        internal static string LastComparisonReport {
+            get {
+                return ResourceManager.GetString("LastComparisonReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Last report time.
         /// </summary>
         internal static string LastReportTime {
             get {
                 return ResourceManager.GetString("LastReportTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Launch of the comparison report ?.
+        /// </summary>
+        internal static string LaunchComparisonReport {
+            get {
+                return ResourceManager.GetString("LaunchComparisonReport", resourceCulture);
             }
         }
         
@@ -475,6 +556,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à No.
+        /// </summary>
+        internal static string NoButton {
+            get {
+                return ResourceManager.GetString("NoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à &lt;Not specified&gt;.
         /// </summary>
         internal static string NotSpecified {
@@ -507,6 +597,15 @@ namespace ExandasOracle.Properties {
         internal static string ObjectPrivileges {
             get {
                 return ResourceManager.GetString("ObjectPrivileges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Operation canceled..
+        /// </summary>
+        internal static string OperationCanceled {
+            get {
+                return ResourceManager.GetString("OperationCanceled", resourceCulture);
             }
         }
         
@@ -579,6 +678,24 @@ namespace ExandasOracle.Properties {
         internal static string Quit {
             get {
                 return ResourceManager.GetString("Quit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Refresh.
+        /// </summary>
+        internal static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Schema.
+        /// </summary>
+        internal static string Schema {
+            get {
+                return ResourceManager.GetString("Schema", resourceCulture);
             }
         }
         
@@ -844,11 +961,38 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à View the comparison report.
+        /// </summary>
+        internal static string ViewComparisonReport {
+            get {
+                return ResourceManager.GetString("ViewComparisonReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à views.
         /// </summary>
         internal static string Views {
             get {
                 return ResourceManager.GetString("Views", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Warning.
+        /// </summary>
+        internal static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Yes.
+        /// </summary>
+        internal static string YesButton {
+            get {
+                return ResourceManager.GetString("YesButton", resourceCulture);
             }
         }
     }

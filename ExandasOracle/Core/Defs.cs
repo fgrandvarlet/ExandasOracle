@@ -7,23 +7,9 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Core
 {
-	/// <summary>
-	/// 
-	/// </summary>
     public static class Defs
     {
 		internal const string APPLICATION_TITLE = "Exandas - Oracle";
-		internal const string TEXT_VALIDATING_ERROR = "Erreur de validation des données du formulaire.";
-		internal const string CAPTION_ATTENTION = "Attention";
-
-		internal const string TITLE_FORM_CONFIGURATION = "Configuration des informations de connexion";
-		internal const string TITLE_FORM_CONNECTION_PARAMS = "Détail connexion serveur";
-		internal const string TITLE_FORM_COMPARISON_SET = "Détail jeu de comparaison";
-		internal const string TITLE_FORM_COMPARISON_RESULT = "Rapport de comparaison";
-
-		internal const string TITLE_FORM_PROGRESS = "Lancement du rapport de comparaison ?";
-		internal const string MESSAGE_REPORT_GENERATOR = "Confirmez-vous la génération du rapport de comparaison ?";
-		internal const string MESSAGE_REPORT_GENERATOR_RUNNING = "Génération du rapport de comparaison en cours...";
 
 		internal static readonly Guid EMPTY_ITEM_GUID = Guid.Empty;
 		internal static readonly string EMPTY_ITEM_LABEL = Strings.NotSpecified;
@@ -36,11 +22,6 @@ namespace ExandasOracle.Core
 		{
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="str"></param>
-		/// <returns></returns>
 		public static string TruncateTooLong(string str)
 		{
 			if (str != null)
@@ -60,10 +41,6 @@ namespace ExandasOracle.Core
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="message"></param>
 		public static void ErrorDialog(string message)
 		{
 			MessageBox.Show(
@@ -74,19 +51,15 @@ namespace ExandasOracle.Core
 			);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="message"></param>
 		public static void ValidatingErrorDialog(string message)
 		{
 			MessageBox.Show(
 				string.Format(
 					"{0}" + System.Environment.NewLine + System.Environment.NewLine + "{1}",
-					TEXT_VALIDATING_ERROR,
+					Strings.FormError,
 					message
 				),
-				CAPTION_ATTENTION,
+				Strings.Warning,
 				MessageBoxButtons.OK,
 				MessageBoxIcon.Error
 			);

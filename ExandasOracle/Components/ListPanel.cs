@@ -6,14 +6,8 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Components
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class ListPanel : UserControl
     {
-        /// <summary>
-        /// 
-        /// </summary>
         public ListPanel()
         {
             InitializeComponent();
@@ -22,94 +16,50 @@ namespace ExandasOracle.Components
             addToolStripButton.ToolTipText = Strings.Add;
             modifyToolStripButton.ToolTipText = Strings.Modify;
             deleteToolStripButton.ToolTipText = Strings.Delete;
+            refreshToolStripButton.ToolTipText = Strings.Refresh;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ListPanel_Load(object sender, EventArgs e)
         {
             InitMainDataGridView();
             LoadData();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         protected virtual void InitMainDataGridView()
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         protected virtual void LoadData()
         {
             LoadData(new Criteria());
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="criteria"></param>
         protected virtual void LoadData(Criteria criteria)
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected virtual void AddToolStripButton_Click(object sender, EventArgs e)
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected virtual void ModifyToolStripButton_Click(object sender, EventArgs e)
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected virtual void DeleteToolStripButton_Click(object sender, EventArgs e)
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void MainDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (IsANonHeaderLinkCell(e)) ModifyToolStripButton_Click(sender, e);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mainDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void MainDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1) ModifyToolStripButton_Click(sender, e);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="cellEvent"></param>
-        /// <returns></returns>
         protected bool IsANonHeaderLinkCell(DataGridViewCellEventArgs cellEvent)
         {
             if (mainDataGridView.Columns[cellEvent.ColumnIndex] is DataGridViewLinkColumn &&
@@ -118,9 +68,6 @@ namespace ExandasOracle.Components
             return false;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         protected virtual void RunLookup()
         {
             var criteria = new Criteria();
@@ -132,22 +79,12 @@ namespace ExandasOracle.Components
             LoadData(criteria);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LookupToolStripComboBox_TextChanged(object sender, EventArgs e)
         {
             lookupTimer.Enabled = false;
             lookupTimer.Enabled = true;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LookupToolStripComboBox_Leave(object sender, EventArgs e)
         {
             string current = lookupToolStripComboBox.Text.Trim();
@@ -160,22 +97,12 @@ namespace ExandasOracle.Components
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LookupTimer_Tick(object sender, EventArgs e)
         {
             lookupTimer.Enabled = false;
             RunLookup();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void RefreshToolStripButton_Click(object sender, EventArgs e)
         {
             string current = lookupToolStripComboBox.Text.Trim();

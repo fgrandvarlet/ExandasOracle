@@ -74,6 +74,8 @@ namespace ExandasOracle.Core
                 { Strings.ClusterColumnMappings, DeltaClusterColumnMapping },
                 { Strings.ClusterIndexes, DeltaClusterIndex },
 
+                { Strings.Types, DeltaOracleType },
+
                 { Strings.ObjectPrivileges, DeltaObjectPrivilege },
             };
 

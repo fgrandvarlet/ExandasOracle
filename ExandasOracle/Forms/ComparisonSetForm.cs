@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using ExandasOracle.Components;
@@ -14,9 +10,6 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Forms
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class ComparisonSetForm : Form, IDataFormManager
     {
         IDataFormManager _dataFormManager;
@@ -27,10 +20,6 @@ namespace ExandasOracle.Forms
         TitlePanel titlePanel;
         BottomCommandPanel bottomCommandPanel;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="comparisonSet"></param>
         public ComparisonSetForm(ComparisonSet comparisonSet)
         {
             InitializeComponent();
@@ -52,22 +41,20 @@ namespace ExandasOracle.Forms
 
             // localization
             this.nameLabel.Text = Strings.ComparisonSetName;
+            this.lastReportTimeLabel.Text = Strings.LastComparisonReport;
+            this.deltaReportButton.Text = Strings.ViewComparisonReport;
+            this.generateReportButton.Text = Strings.GenerateComparisonReport;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ComparisonSetForm_Load(object sender, EventArgs e)
         {
-            Text = Defs.TITLE_FORM_COMPARISON_SET;
+            Text = Defs.APPLICATION_TITLE;
 
             titlePanel = new TitlePanel();
             titlePanel.Parent = topPanel;
             titlePanel.Dock = DockStyle.Fill;
             topPanel.Height = 62;
-            titlePanel.titleLabel.Text = Defs.TITLE_FORM_COMPARISON_SET;
+            titlePanel.titleLabel.Text = Strings.ComparisonSetDetail;
 
             bottomCommandPanel = new BottomCommandPanel(this);
             bottomCommandPanel.Parent = bottomPanel;
@@ -104,44 +91,29 @@ namespace ExandasOracle.Forms
             comparisonSetUserControl2.schemaTextBox.TextChanged += new EventHandler(this._dataFormManager.DataChanged);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         Form IDataFormManager.Parent
         {
             get { return this; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public bool Inserting
         {
             get { return _inserting; }
             set { _inserting = value; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public bool Updating
         {
             get { return _updating; }
             set { _updating = value; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public bool Updated
         {
             get { return _updated; }
             set { _updated = value; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void DataToForm()
         {
             nameTextBox.Text = _comparisonSet.Name;
@@ -162,9 +134,6 @@ namespace ExandasOracle.Forms
             deltaReportButton.Enabled = _comparisonSet.LastReportTime != null;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void FormToData()
         {
             _comparisonSet.Name = nameTextBox.Text.Trim();
@@ -176,10 +145,6 @@ namespace ExandasOracle.Forms
             _comparisonSet.Schema2 = comparisonSetUserControl2.schemaTextBox.Text.Trim();
          }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public bool ValidateDataForm()
         {
             bool result = true;
@@ -224,10 +189,6 @@ namespace ExandasOracle.Forms
             return result;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public bool SaveData()
         {
             bool result = false;
@@ -262,22 +223,12 @@ namespace ExandasOracle.Forms
             return result;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         public void DataChanged(object sender, EventArgs e)
         {
             _dataFormManager.Updating = true;
             bottomCommandPanel.doApplyButton.Enabled = true;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         void ConnectionComboBoxDataChanged(object sender, EventArgs e)
         {
             if (sender == comparisonSetUserControl1.connectionComboBox)
@@ -370,11 +321,6 @@ namespace ExandasOracle.Forms
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void GenerateReportButton_Click(object sender, EventArgs e)
         {
             if (_dataFormManager != null)
@@ -406,11 +352,6 @@ namespace ExandasOracle.Forms
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void DeltaReportButton_Click(object sender, EventArgs e)
         {
             using (var frm = new DeltaReportListForm(this._comparisonSet))
@@ -418,5 +359,6 @@ namespace ExandasOracle.Forms
                 frm.ShowDialog(this);
             }
         }
+
     }
 }

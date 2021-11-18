@@ -34,24 +34,19 @@ namespace ExandasOracle.Forms
             this.cancelButton.Visible = false;
 
             this._comparisonSet = comparisonSet;
+
+            // localization
+            this.cancelButton.Text = Strings.CancelButton;
+            this.yesButton.Text = Strings.YesButton;
+            this.noButton.Text = Strings.NoButton;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ProgressForm_Load(object sender, EventArgs e)
         {
-            Text = Defs.TITLE_FORM_PROGRESS;
-            messageLabel.Text = Defs.MESSAGE_REPORT_GENERATOR;
+            Text = Strings.LaunchComparisonReport;
+            messageLabel.Text = Strings.DoYouConfirmGeneration;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void MainBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
@@ -61,30 +56,20 @@ namespace ExandasOracle.Forms
             (new Delta(comparisonSet)).Execute(worker, e);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void MainBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             mainProgressBar.Value = e.ProgressPercentage;
             progressLabel.Text = string.Format("{0} : {1} %", e.UserState.ToString(), e.ProgressPercentage);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void MainBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Cancelled == true)
             {
-                progressLabel.Text = "Opération annulée.";
+                progressLabel.Text = Strings.OperationCanceled;
                 mainProgressBar.Visible = false;
                 this._cancellationDone = true;
-                cancelButton.Text = "Fermer";
+                cancelButton.Text = Strings.Close;
             }
             else if (e.Error != null)
             {
@@ -98,11 +83,6 @@ namespace ExandasOracle.Forms
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void YesButton_Click(object sender, EventArgs e)
         {
             mainProgressBar.Visible = true;
@@ -111,7 +91,7 @@ namespace ExandasOracle.Forms
             cancelButton.Visible = true;
             yesButton.Visible = false;
             noButton.Visible = false;
-            messageLabel.Text = Defs.MESSAGE_REPORT_GENERATOR_RUNNING;
+            messageLabel.Text = Strings.GenerationInProgress;
             mainBackgroundWorker.RunWorkerAsync(_comparisonSet);
         }
 
@@ -130,11 +110,6 @@ namespace ExandasOracle.Forms
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ProgressForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (mainBackgroundWorker.IsBusy)

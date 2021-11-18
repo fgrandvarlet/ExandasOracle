@@ -135,11 +135,17 @@
   <data name="Cancel" xml:space="preserve">
     <value>&amp;Annuler</value>
   </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
   <data name="CheckingTheConnection" xml:space="preserve">
     <value>Vérification de la connexion</value>
   </data>
   <data name="Checks" xml:space="preserve">
     <value>contraintes de vérification</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fermer</value>
   </data>
   <data name="ClusterColumnMappings" xml:space="preserve">
     <value>correspondances de colonne de cluster</value>
@@ -158,6 +164,9 @@
   </data>
   <data name="ComparisonReport" xml:space="preserve">
     <value>Rapport de comparaison</value>
+  </data>
+  <data name="ComparisonSetDetail" xml:space="preserve">
+    <value>Détail jeu de comparaison</value>
   </data>
   <data name="ComparisonSetID" xml:space="preserve">
     <value>ID jeu de comparaison</value>
@@ -201,6 +210,9 @@
   <data name="DeltaOf" xml:space="preserve">
     <value>Delta des {0}</value>
   </data>
+  <data name="DoYouConfirmGeneration" xml:space="preserve">
+    <value>Confirmez-vous la génération du rapport de comparaison ?</value>
+  </data>
   <data name="ExandasOracleError" xml:space="preserve">
     <value>Erreur ExandasOracle</value>
   </data>
@@ -213,8 +225,17 @@
   <data name="ForeignKeys" xml:space="preserve">
     <value>clés étrangères</value>
   </data>
+  <data name="FormError" xml:space="preserve">
+    <value>Erreur de validation des données du formulaire.</value>
+  </data>
   <data name="ForOracle" xml:space="preserve">
     <value>pour Oracle®</value>
+  </data>
+  <data name="GenerateComparisonReport" xml:space="preserve">
+    <value>Générer le rapport de comparaison</value>
+  </data>
+  <data name="GenerationInProgress" xml:space="preserve">
+    <value>Génération du rapport de comparaison en cours...</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>&amp;Aide</value>
@@ -237,8 +258,14 @@
   <data name="IndexSubpartitions" xml:space="preserve">
     <value>sous-partitions d'index</value>
   </data>
+  <data name="LastComparisonReport" xml:space="preserve">
+    <value>Dernier rapport de comparaison</value>
+  </data>
   <data name="LastReportTime" xml:space="preserve">
     <value>Dernier rapport</value>
+  </data>
+  <data name="LaunchComparisonReport" xml:space="preserve">
+    <value>Lancement du rapport de comparaison ?</value>
   </data>
   <data name="LoadingObjects" xml:space="preserve">
     <value>Chargement des {0} {1}</value>
@@ -255,6 +282,9 @@
   <data name="Name" xml:space="preserve">
     <value>Nom</value>
   </data>
+  <data name="NoButton" xml:space="preserve">
+    <value>Non</value>
+  </data>
   <data name="NotSpecified" xml:space="preserve">
     <value>&lt;Non renseigné&gt;</value>
   </data>
@@ -266,6 +296,9 @@
   </data>
   <data name="ObjectPrivileges" xml:space="preserve">
     <value>privilèges objet</value>
+  </data>
+  <data name="OperationCanceled" xml:space="preserve">
+    <value>Opération annulée.</value>
   </data>
   <data name="PartitionedIndexes" xml:space="preserve">
     <value>index partitionnés</value>
@@ -290,6 +323,12 @@
   </data>
   <data name="Quit" xml:space="preserve">
     <value>&amp;Quitter</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Rafraîchir</value>
+  </data>
+  <data name="Schema" xml:space="preserve">
+    <value>Schéma</value>
   </data>
   <data name="Sequences" xml:space="preserve">
     <value>séquences</value>
@@ -378,7 +417,16 @@
   <data name="ViewColumns" xml:space="preserve">
     <value>colonnes de vue</value>
   </data>
+  <data name="ViewComparisonReport" xml:space="preserve">
+    <value>Consulter le rapport de comparaison</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>vues</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>Oui</value>
   </data>
 </root>

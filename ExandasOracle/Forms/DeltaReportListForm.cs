@@ -9,19 +9,12 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Forms
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class DeltaReportListForm : Form
     {
         ComparisonSet _comparisonSet;
         DeltaReportListPanel deltaReportListPanel;
         TitlePanel titlePanel;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="comparisonSet"></param>
         public DeltaReportListForm(ComparisonSet comparisonSet)
         {
             InitializeComponent();
@@ -38,11 +31,6 @@ namespace ExandasOracle.Forms
             this._comparisonSet = comparisonSet;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void DeltaReportListForm_Load(object sender, EventArgs e)
         {
             this.Text = Defs.APPLICATION_TITLE;
@@ -64,5 +52,6 @@ namespace ExandasOracle.Forms
             }
             deltaReportListPanel.titleLabel.Text = string.Format("{0} {1}", _comparisonSet.Name, lastReportTimeText);
         }
+
     }
 }

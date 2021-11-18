@@ -105,7 +105,7 @@ namespace ExandasOracle.Components
             this.mainDataGridView.Size = new System.Drawing.Size(544, 141);
             this.mainDataGridView.TabIndex = 1;
             this.mainDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDataGridView_CellContentClick);
-            this.mainDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mainDataGridView_CellDoubleClick);
+            this.mainDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDataGridView_CellDoubleClick);
             // 
             // actionToolStrip
             // 

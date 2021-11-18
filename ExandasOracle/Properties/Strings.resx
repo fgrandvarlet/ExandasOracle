@@ -135,11 +135,17 @@
   <data name="Cancel" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="CheckingTheConnection" xml:space="preserve">
     <value>Checking the connection</value>
   </data>
   <data name="Checks" xml:space="preserve">
     <value>check constraints</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
   </data>
   <data name="ClusterColumnMappings" xml:space="preserve">
     <value>cluster column mappings</value>
@@ -158,6 +164,9 @@
   </data>
   <data name="ComparisonReport" xml:space="preserve">
     <value>Comparison report</value>
+  </data>
+  <data name="ComparisonSetDetail" xml:space="preserve">
+    <value>Comparison set detail</value>
   </data>
   <data name="ComparisonSetID" xml:space="preserve">
     <value>Comparison set ID</value>
@@ -201,6 +210,9 @@
   <data name="DeltaOf" xml:space="preserve">
     <value>Delta of {0}</value>
   </data>
+  <data name="DoYouConfirmGeneration" xml:space="preserve">
+    <value>Do you confirm the generation of the comparison report ?</value>
+  </data>
   <data name="ExandasOracleError" xml:space="preserve">
     <value>ExandasOracle Error</value>
   </data>
@@ -213,8 +225,17 @@
   <data name="ForeignKeys" xml:space="preserve">
     <value>foreign keys</value>
   </data>
+  <data name="FormError" xml:space="preserve">
+    <value>Form data validation error.</value>
+  </data>
   <data name="ForOracle" xml:space="preserve">
     <value>for Oracle®</value>
+  </data>
+  <data name="GenerateComparisonReport" xml:space="preserve">
+    <value>Generate the comparison report</value>
+  </data>
+  <data name="GenerationInProgress" xml:space="preserve">
+    <value>Comparison report generation in progress...</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>&amp;Help</value>
@@ -237,8 +258,14 @@
   <data name="IndexSubpartitions" xml:space="preserve">
     <value>index subpartitions</value>
   </data>
+  <data name="LastComparisonReport" xml:space="preserve">
+    <value>Last comparison report</value>
+  </data>
   <data name="LastReportTime" xml:space="preserve">
     <value>Last report time</value>
+  </data>
+  <data name="LaunchComparisonReport" xml:space="preserve">
+    <value>Launch of the comparison report ?</value>
   </data>
   <data name="LoadingObjects" xml:space="preserve">
     <value>Loading {1} {0}</value>
@@ -255,6 +282,9 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="NoButton" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="NotSpecified" xml:space="preserve">
     <value>&lt;Not specified&gt;</value>
   </data>
@@ -266,6 +296,9 @@
   </data>
   <data name="ObjectPrivileges" xml:space="preserve">
     <value>object privileges</value>
+  </data>
+  <data name="OperationCanceled" xml:space="preserve">
+    <value>Operation canceled.</value>
   </data>
   <data name="PartitionedIndexes" xml:space="preserve">
     <value>partitioned indexes</value>
@@ -290,6 +323,12 @@
   </data>
   <data name="Quit" xml:space="preserve">
     <value>&amp;Quit</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Schema" xml:space="preserve">
+    <value>Schema</value>
   </data>
   <data name="Sequences" xml:space="preserve">
     <value>sequences</value>
@@ -378,7 +417,16 @@
   <data name="ViewColumns" xml:space="preserve">
     <value>view columns</value>
   </data>
+  <data name="ViewComparisonReport" xml:space="preserve">
+    <value>View the comparison report</value>
+  </data>
   <data name="Views" xml:space="preserve">
     <value>views</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>
