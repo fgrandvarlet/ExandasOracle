@@ -786,6 +786,37 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.ExecuteNonQuery();
             }
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadIndexExpressionList(FbTransaction tran, SchemaType schemaType, List<IndexExpression> list)
+        {
+            var tableName = string.Format("{0}_ind_expressions", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@index_name, @table_owner, @table_name, @column_expression, @column_position)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var ie in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("index_name", ie.IndexName);
+                cmd.Parameters.AddWithValue("table_owner", ie.TableOwner);
+                cmd.Parameters.AddWithValue("table_name", ie.TableName);
+                cmd.Parameters.AddWithValue("column_expression", ie.ColumnExpression);
+                cmd.Parameters.AddWithValue("column_position", ie.ColumnPosition);
+                cmd.ExecuteNonQuery();
+            }
+        }
 
         /// <summary>
         /// 
