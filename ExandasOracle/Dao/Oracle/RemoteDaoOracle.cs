@@ -1470,6 +1470,42 @@ namespace ExandasOracle.Dao.Oracle
             }
             return list;
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<Synonym> GetSynonymList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<Synonym>();
+
+            const string root = "SELECT owner, synonym_name, table_owner, table_name, db_link" +
+                " FROM {0}_synonyms" +
+                " WHERE owner IN ('PUBLIC', :owner) AND table_owner = :owner" +
+                " ORDER BY owner, synonym_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var sy = new Synonym();
+                    sy.Owner = (string)dr["owner"];
+                    sy.SynonymName = (string)dr["synonym_name"];
+                    sy.TableOwner = dr["table_owner"] is DBNull ? null : (string)dr["table_owner"];
+                    sy.TableName = dr["table_name"] is DBNull ? null : (string)dr["table_name"];
+                    sy.DbLink = dr["db_link"] is DBNull ? null : (string)dr["db_link"];
+                    list.Add(sy);
+                }
+            }
+            return list;
+        }
 
     }
 }
