@@ -16,6 +16,8 @@ namespace ExandasOracle.Dao
         List<Table> GetTableList(OracleConnection conn, string schema, bool DBAViews);
 
         List<TableColumn> GetTableColumnList(OracleConnection conn, string schema, bool DBAViews);
+        
+        List<IdentityColumn> GetIdentityColumnList(OracleConnection conn, string schema, bool DBAViews);
 
         List<ColumnComment> GetColumnCommentList(OracleConnection conn, string schema, bool DBAViews);
 
