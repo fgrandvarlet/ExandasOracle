@@ -162,6 +162,18 @@
   <data name="ColumnComments" xml:space="preserve">
     <value>commentaires de colonne</value>
   </data>
+  <data name="Compact" xml:space="preserve">
+    <value>Compacter</value>
+  </data>
+  <data name="CompactionCompleted" xml:space="preserve">
+    <value>Compactage terminé</value>
+  </data>
+  <data name="CompactLocalDatabase" xml:space="preserve">
+    <value>Compacter la base de données locale</value>
+  </data>
+  <data name="CompactLocalDatabaseMenu" xml:space="preserve">
+    <value>&amp;Compacter la base de données locale</value>
+  </data>
   <data name="ComparisonReport" xml:space="preserve">
     <value>Rapport de comparaison</value>
   </data>
@@ -216,6 +228,9 @@
   <data name="ExandasOracleError" xml:space="preserve">
     <value>Erreur ExandasOracle</value>
   </data>
+  <data name="ExportExcel" xml:space="preserve">
+    <value>Exporter au format Excel</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>&amp;Fichier</value>
   </data>
@@ -249,8 +264,14 @@
   <data name="HostnameRequired" xml:space="preserve">
     <value>Hôte obligatoire</value>
   </data>
+  <data name="IdentityColumns" xml:space="preserve">
+    <value>colonnes d'identité</value>
+  </data>
   <data name="IndexColumns" xml:space="preserve">
     <value>colonnes d'index</value>
+  </data>
+  <data name="IndexExpressions" xml:space="preserve">
+    <value>expressions d'index</value>
   </data>
   <data name="IndexPartitions" xml:space="preserve">
     <value>partitions d'index</value>
@@ -270,8 +291,17 @@
   <data name="LoadingObjects" xml:space="preserve">
     <value>Chargement des {0} {1}</value>
   </data>
+  <data name="LocalDatabase" xml:space="preserve">
+    <value>Base de données locale</value>
+  </data>
+  <data name="LocalDatabaseBackup" xml:space="preserve">
+    <value>Sauvegarde de la base de données locale</value>
+  </data>
   <data name="LocalDatabaseColon" xml:space="preserve">
     <value>Base de données locale :</value>
+  </data>
+  <data name="LocalDatabaseSize" xml:space="preserve">
+    <value>&amp;Taille de la base de données locale</value>
   </data>
   <data name="MaterializedViews" xml:space="preserve">
     <value>vues matérialisées</value>
@@ -321,11 +351,23 @@
   <data name="PropertyDifference" xml:space="preserve">
     <value>Différence de propriété</value>
   </data>
+  <data name="PurgeComparisonReports" xml:space="preserve">
+    <value>Purger les rapports de comparaison</value>
+  </data>
+  <data name="PurgingComparisonReports" xml:space="preserve">
+    <value>Purge des rapports de comparaison</value>
+  </data>
+  <data name="PurgingMetadata" xml:space="preserve">
+    <value>Purge des tables des métadonnées</value>
+  </data>
   <data name="Quit" xml:space="preserve">
     <value>&amp;Quitter</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Rafraîchir</value>
+  </data>
+  <data name="RestoringLocalDatabase" xml:space="preserve">
+    <value>Restauration de la base de données locale</value>
   </data>
   <data name="Schema" xml:space="preserve">
     <value>Schéma</value>
@@ -366,6 +408,9 @@
   <data name="SuccessfulConnection" xml:space="preserve">
     <value>Connexion réussie</value>
   </data>
+  <data name="Synonyms" xml:space="preserve">
+    <value>synonymes</value>
+  </data>
   <data name="TableColumns" xml:space="preserve">
     <value>colonnes de table</value>
   </data>
@@ -393,6 +438,9 @@
   <data name="TargetServerConnection" xml:space="preserve">
     <value>Connexion serveur cible</value>
   </data>
+  <data name="Tools" xml:space="preserve">
+    <value>&amp;Outils</value>
+  </data>
   <data name="Triggers" xml:space="preserve">
     <value>déclencheurs</value>
   </data>
@@ -401,6 +449,9 @@
   </data>
   <data name="Types" xml:space="preserve">
     <value>types</value>
+  </data>
+  <data name="UnableToAccess" xml:space="preserve">
+    <value>Impossible d'accéder aux vues DBA</value>
   </data>
   <data name="Uniques" xml:space="preserve">
     <value>uniques</value>

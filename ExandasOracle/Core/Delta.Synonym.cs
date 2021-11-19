@@ -14,7 +14,7 @@ namespace ExandasOracle.Core
         /// </summary>
         /// <param name="conn"></param>
         /// <param name="list"></param>
-        private void DeltaSynonym(FbConnection conn, List<Synonym> list)
+        private void DeltaSynonym(FbConnection conn, List<DeltaReport> list)
         {
             string sql;
             FbCommand cmd;

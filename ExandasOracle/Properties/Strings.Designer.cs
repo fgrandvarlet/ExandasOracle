@@ -196,6 +196,42 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Compact.
+        /// </summary>
+        internal static string Compact {
+            get {
+                return ResourceManager.GetString("Compact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Compaction completed.
+        /// </summary>
+        internal static string CompactionCompleted {
+            get {
+                return ResourceManager.GetString("CompactionCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Compact the local database.
+        /// </summary>
+        internal static string CompactLocalDatabase {
+            get {
+                return ResourceManager.GetString("CompactLocalDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à &amp;Compact the local database.
+        /// </summary>
+        internal static string CompactLocalDatabaseMenu {
+            get {
+                return ResourceManager.GetString("CompactLocalDatabaseMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Comparison report.
         /// </summary>
         internal static string ComparisonReport {
@@ -358,6 +394,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Export in Excel format.
+        /// </summary>
+        internal static string ExportExcel {
+            get {
+                return ResourceManager.GetString("ExportExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à &amp;File.
         /// </summary>
         internal static string File {
@@ -457,11 +502,29 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à identity columns.
+        /// </summary>
+        internal static string IdentityColumns {
+            get {
+                return ResourceManager.GetString("IdentityColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à index columns.
         /// </summary>
         internal static string IndexColumns {
             get {
                 return ResourceManager.GetString("IndexColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à index expressions.
+        /// </summary>
+        internal static string IndexExpressions {
+            get {
+                return ResourceManager.GetString("IndexExpressions", resourceCulture);
             }
         }
         
@@ -520,11 +583,38 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Local database.
+        /// </summary>
+        internal static string LocalDatabase {
+            get {
+                return ResourceManager.GetString("LocalDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Local database backup.
+        /// </summary>
+        internal static string LocalDatabaseBackup {
+            get {
+                return ResourceManager.GetString("LocalDatabaseBackup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Local database :.
         /// </summary>
         internal static string LocalDatabaseColon {
             get {
                 return ResourceManager.GetString("LocalDatabaseColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à &amp;Local database size.
+        /// </summary>
+        internal static string LocalDatabaseSize {
+            get {
+                return ResourceManager.GetString("LocalDatabaseSize", resourceCulture);
             }
         }
         
@@ -673,6 +763,33 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Purge comparison reports.
+        /// </summary>
+        internal static string PurgeComparisonReports {
+            get {
+                return ResourceManager.GetString("PurgeComparisonReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Purging comparison reports.
+        /// </summary>
+        internal static string PurgingComparisonReports {
+            get {
+                return ResourceManager.GetString("PurgingComparisonReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Purging metadata tables.
+        /// </summary>
+        internal static string PurgingMetadata {
+            get {
+                return ResourceManager.GetString("PurgingMetadata", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à &amp;Quit.
         /// </summary>
         internal static string Quit {
@@ -687,6 +804,15 @@ namespace ExandasOracle.Properties {
         internal static string Refresh {
             get {
                 return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Restoring the local database.
+        /// </summary>
+        internal static string RestoringLocalDatabase {
+            get {
+                return ResourceManager.GetString("RestoringLocalDatabase", resourceCulture);
             }
         }
         
@@ -808,6 +934,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à synonyms.
+        /// </summary>
+        internal static string Synonyms {
+            get {
+                return ResourceManager.GetString("Synonyms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à table columns.
         /// </summary>
         internal static string TableColumns {
@@ -889,6 +1024,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à &amp;Tools.
+        /// </summary>
+        internal static string Tools {
+            get {
+                return ResourceManager.GetString("Tools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à triggers.
         /// </summary>
         internal static string Triggers {
@@ -912,6 +1056,15 @@ namespace ExandasOracle.Properties {
         internal static string Types {
             get {
                 return ResourceManager.GetString("Types", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Unable to access DBA views.
+        /// </summary>
+        internal static string UnableToAccess {
+            get {
+                return ResourceManager.GetString("UnableToAccess", resourceCulture);
             }
         }
         

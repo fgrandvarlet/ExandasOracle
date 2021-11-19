@@ -70,7 +70,7 @@ namespace ExandasOracle.Components
             this.exportExcelButton.TabIndex = 1;
             this.exportExcelButton.Text = "Exporter au format Excel";
             this.exportExcelButton.UseVisualStyleBackColor = true;
-            this.exportExcelButton.Click += new System.EventHandler(this.Button1_Click);
+            this.exportExcelButton.Click += new System.EventHandler(this.ExportExcelButton_Click);
             // 
             // titleLabel
             // 
@@ -155,6 +155,7 @@ namespace ExandasOracle.Components
             this.modifyToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.modifyToolStripButton.Text = "modifyToolStripButton";
             this.modifyToolStripButton.ToolTipText = "Modifier";
+            this.modifyToolStripButton.Click += new System.EventHandler(this.ModifyToolStripButton_Click);
             // 
             // deleteToolStripButton
             // 
@@ -190,6 +191,7 @@ namespace ExandasOracle.Components
             this.refreshToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.refreshToolStripButton.Text = "refreshToolStripButton";
             this.refreshToolStripButton.ToolTipText = "Rafraîchir";
+            this.refreshToolStripButton.Click += new System.EventHandler(this.RefreshToolStripButton_Click);
             // 
             // lookupTimer
             // 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
 
 using ExandasOracle.Domain;
+using ExandasOracle.Properties;
 
 namespace ExandasOracle.Dao.Oracle
 {
@@ -41,8 +42,7 @@ namespace ExandasOracle.Dao.Oracle
                         }
                         catch (Exception)
                         {
-                            // TODO LOCALISER
-                            throw new ApplicationException("Impossible d'accéder aux vues DBA");
+                            throw new ApplicationException(Strings.UnableToAccess);
                         }
                     }
                     else

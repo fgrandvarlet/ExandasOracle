@@ -1,25 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
-using System.IO;
-
-using OfficeOpenXml;
-
-using ExandasOracle.Core;
 using ExandasOracle.Dao;
 using ExandasOracle.Domain;
+using ExandasOracle.Properties;
 using ExandasOracle.Reporting;
 
 namespace ExandasOracle.Components
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class DeltaReportListPanel : UserControl
     {
         ComparisonSet _comparisonSet;
@@ -33,15 +21,17 @@ namespace ExandasOracle.Components
         DataGridViewTextBoxColumn sourceColumn;
         DataGridViewTextBoxColumn targetColumn;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="comparisonSet"></param>
         public DeltaReportListPanel(ComparisonSet comparisonSet)
         {
             InitializeComponent();
 
             this._comparisonSet = comparisonSet;
+
+            this.addToolStripButton.Visible = false;
+            this.deleteToolStripButton.Visible = false;
+
+            // localization
+            this.exportExcelButton.Text = Strings.ExportExcel;
         }
 
         private void InitMainDataGridView()
@@ -110,10 +100,6 @@ namespace ExandasOracle.Components
             mainDataGridView.Columns.AddRange(cols);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="criteria"></param>
         private void LoadData(Criteria criteria)
         {
             mainDataGridView.DataSource = DaoFactory.Instance.GetDeltaReportDao().GetDataTable(criteria);
@@ -128,20 +114,12 @@ namespace ExandasOracle.Components
             LoadData(criteria);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void DeltaReportListPanel_Load(object sender, EventArgs e)
         {
             InitMainDataGridView();
             LoadData();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         private void RunLookup()
         {
             var criteria = new Criteria
@@ -156,22 +134,12 @@ namespace ExandasOracle.Components
             LoadData(criteria);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LookupToolStripComboBox_TextChanged(object sender, EventArgs e)
         {
             lookupTimer.Enabled = false;
             lookupTimer.Enabled = true;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LookupToolStripComboBox_Leave(object sender, EventArgs e)
         {
             string current = lookupToolStripComboBox.Text.Trim();
@@ -184,35 +152,33 @@ namespace ExandasOracle.Components
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LookupTimer_Tick(object sender, EventArgs e)
         {
             lookupTimer.Enabled = false;
             RunLookup();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            // TODO
-            // https://github.com/EPPlusSoftware/EPPlus/wiki/Getting-Started
-            // https://github.com/EPPlusSoftware/EPPlus/wiki/LoadFromDataReader
 
-            /*
-            //Creates a blank workbook. Use the using statment, so the package is disposed when we are done.
-            using (var p = new ExcelPackage())
+        private void ModifyToolStripButton_Click(object sender, EventArgs e)
+        {
+            // TODO IMPLEMENTER ? ouvrir formulaire detail ?
+        }
+
+        private void RefreshToolStripButton_Click(object sender, EventArgs e)
+        {
+            string current = lookupToolStripComboBox.Text.Trim();
+            if (current.Length > 0)
             {
-                //A workbook must have at least on cell, so lets add one... 
-                var ws = p.Workbook.Worksheets.Add("MySheet");
-                //To set values in the spreadsheet use the Cells indexer.
-                ws.Cells["A1"].Value = "This is cell A1";
-                //Save the new workbook. We haven't specified the filename so use the Save as method.
-                p.SaveAs(new FileInfo(@"myworkbook.xlsx"));
+                if (!lookupToolStripComboBox.Items.Contains(current))
+                {
+                    lookupToolStripComboBox.Items.Insert(0, current);
+                }
             }
-            */
+            lookupToolStripComboBox.Text = null;
+        }
+
+        private void ExportExcelButton_Click(object sender, EventArgs e)
+        {
             ReportUtils.ExportToExcel(this._comparisonSet);
         }
     }

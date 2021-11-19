@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using FirebirdSql.Data.FirebirdClient;
 
 using ExandasOracle.Components;
 using ExandasOracle.Core;
 using ExandasOracle.Dao;
-using ExandasOracle.Domain;
 using ExandasOracle.Native;
 using ExandasOracle.Properties;
 
@@ -21,18 +16,14 @@ using ExandasOracle.Properties;
 //      cf. https://stackoverflow.com/questions/882223/does-firebird-need-manual-reindexing
 // TODO internationalisation traduction IHM en anglais i18n
 // TODO Exandas.Oracle.Admin pour purger la base de données locale ?
-// TODO compléter les propriétés de l'objet de domaine Table
 // TODO contrainte de clé étrangère ON DELETE CASCADE entre delta_report et comparison_set
-// TODO utiliser un mot de passe différent du défaut (masterkey) pour SYSDBA ?? pertinent ??
 // TODO utilitaire de sauvegarde et de purge de la base de données locale
 // TODO REGLER TAB ORDER VIA PROPERTIES DANS TOUTES LES FORMS
 // TODO vérifier unicité trigger_name (essayer de créer un 2ème trigger du même nom dans un même schéma sur un table différente)
+// TODO formulaire détail DeltaReportForm
 
 namespace ExandasOracle.Forms
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class MainForm : Form
     {
         Dictionary<int, Action> _menuActionDict;
@@ -66,6 +57,9 @@ namespace ExandasOracle.Forms
             // localization
             fileToolStripMenuItem.Text = Strings.File;
             quitToolStripMenuItem.Text = Strings.Quit;
+            toolsToolStripMenuItem.Text = Strings.Tools;
+            localDatabaseSizeToolStripMenuItem.Text = Strings.LocalDatabaseSize;
+            compactLocalDatabaseToolStripMenuItem.Text = Strings.CompactLocalDatabaseMenu;
             helpToolStripMenuItem.Text = Strings.Help;
             aboutToolStripMenuItem.Text = Strings.AboutMenu;
             connectionsLinkLabel.Text = Strings.ServerConnections;
@@ -212,5 +206,6 @@ namespace ExandasOracle.Forms
                 }
             }
         }
+
     }
 }

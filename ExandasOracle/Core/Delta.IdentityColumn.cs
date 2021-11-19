@@ -54,7 +54,7 @@ namespace ExandasOracle.Core
             }
 
             // phase 3 : property differences between source and target
-            sql = "SELECT * FROM comp_types";
+            sql = "SELECT * FROM comp_tab_identity_cols";
             cmd = new FbCommand(sql, conn);
 
             using (FbDataReader dr = cmd.ExecuteReader())

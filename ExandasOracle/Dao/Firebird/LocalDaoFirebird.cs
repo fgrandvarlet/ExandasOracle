@@ -1346,18 +1346,72 @@ namespace ExandasOracle.Dao.Firebird
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void PurgeMetaDataTables()
         {
-            // TODO use query :
-            // select rdb$relation_name from RDB$RELATIONS where rdb$relation_name like 'SRC%';
+            using (FbConnection conn = GetFirebirdConnection())
+            {
+                conn.Open();
+                FbTransaction tran = conn.BeginTransaction();
+                try
+                {
+                    const string sql = "SELECT rdb$relation_name AS table_name FROM rdb$relations" +
+                        " WHERE rdb$relation_name LIKE 'SRC%' OR rdb$relation_name LIKE 'TGT%'" +
+                        " ORDER BY rdb$relation_name";
+                    var cmd = new FbCommand(sql, conn, tran);
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            var tableName = (string)dr["table_name"];
+                            (new FbCommand(string.Format("DELETE FROM {0}", tableName), conn, tran)).ExecuteNonQuery();
+                        }
+                    }
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void PurgeDeltaReport()
         {
-            // TODO
-            // mettre à jour la colonne lastreporttime de comparison_set
-            // puis vider la table delta_report
-            // option dans CompactLocalDatabaseForm
+            string sql;
+            FbCommand cmd;
+
+            using (FbConnection conn = GetFirebirdConnection())
+            {
+                conn.Open();
+                FbTransaction tran = conn.BeginTransaction();
+                try
+                {
+                    sql = "UPDATE comparison_set SET last_report_time = NULL";
+                    cmd = new FbCommand(sql, conn, tran);
+                    cmd.ExecuteNonQuery();
+
+                    sql = "DELETE FROM delta_report";
+                    cmd = new FbCommand(sql, conn, tran);
+                    cmd.ExecuteNonQuery();
+
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                    throw;
+                }
+            }
         }
+
     }
 }

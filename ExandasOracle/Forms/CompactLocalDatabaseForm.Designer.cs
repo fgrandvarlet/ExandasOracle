@@ -50,16 +50,16 @@ namespace ExandasOracle.Forms
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(750, 59);
+            this.topPanel.Size = new System.Drawing.Size(710, 59);
             this.topPanel.TabIndex = 0;
             // 
             // bottomPanel
             // 
             this.bottomPanel.Controls.Add(this.bottomFlowLayoutPanel);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomPanel.Location = new System.Drawing.Point(0, 454);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 358);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(750, 65);
+            this.bottomPanel.Size = new System.Drawing.Size(710, 65);
             this.bottomPanel.TabIndex = 1;
             // 
             // bottomFlowLayoutPanel
@@ -71,13 +71,13 @@ namespace ExandasOracle.Forms
             this.bottomFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.bottomFlowLayoutPanel.Name = "bottomFlowLayoutPanel";
             this.bottomFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.bottomFlowLayoutPanel.Size = new System.Drawing.Size(750, 65);
+            this.bottomFlowLayoutPanel.Size = new System.Drawing.Size(710, 65);
             this.bottomFlowLayoutPanel.TabIndex = 1;
             // 
             // doCancelButton
             // 
             this.doCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.doCancelButton.Location = new System.Drawing.Point(659, 3);
+            this.doCancelButton.Location = new System.Drawing.Point(619, 3);
             this.doCancelButton.Name = "doCancelButton";
             this.doCancelButton.Size = new System.Drawing.Size(80, 23);
             this.doCancelButton.TabIndex = 1;
@@ -87,7 +87,7 @@ namespace ExandasOracle.Forms
             // doOkButton
             // 
             this.doOkButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.doOkButton.Location = new System.Drawing.Point(573, 3);
+            this.doOkButton.Location = new System.Drawing.Point(533, 3);
             this.doOkButton.Name = "doOkButton";
             this.doOkButton.Size = new System.Drawing.Size(80, 23);
             this.doOkButton.TabIndex = 0;
@@ -104,7 +104,7 @@ namespace ExandasOracle.Forms
             this.fillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fillPanel.Location = new System.Drawing.Point(0, 59);
             this.fillPanel.Name = "fillPanel";
-            this.fillPanel.Size = new System.Drawing.Size(750, 395);
+            this.fillPanel.Size = new System.Drawing.Size(710, 299);
             this.fillPanel.TabIndex = 2;
             // 
             // reportTextBox
@@ -112,13 +112,15 @@ namespace ExandasOracle.Forms
             this.reportTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.reportTextBox.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportTextBox.Location = new System.Drawing.Point(158, 113);
             this.reportTextBox.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
             this.reportTextBox.Multiline = true;
             this.reportTextBox.Name = "reportTextBox";
+            this.reportTextBox.ReadOnly = true;
             this.reportTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.reportTextBox.Size = new System.Drawing.Size(580, 264);
+            this.reportTextBox.Size = new System.Drawing.Size(540, 168);
             this.reportTextBox.TabIndex = 6;
             // 
             // compactLocalDatabaseButton
@@ -149,7 +151,7 @@ namespace ExandasOracle.Forms
             this.localDatabaseTextBox.Margin = new System.Windows.Forms.Padding(3, 18, 3, 3);
             this.localDatabaseTextBox.Name = "localDatabaseTextBox";
             this.localDatabaseTextBox.ReadOnly = true;
-            this.localDatabaseTextBox.Size = new System.Drawing.Size(580, 23);
+            this.localDatabaseTextBox.Size = new System.Drawing.Size(540, 23);
             this.localDatabaseTextBox.TabIndex = 3;
             // 
             // localDatabaseLabel
@@ -164,7 +166,7 @@ namespace ExandasOracle.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 519);
+            this.ClientSize = new System.Drawing.Size(710, 423);
             this.Controls.Add(this.fillPanel);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topPanel);

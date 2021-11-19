@@ -17,6 +17,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadTableColumnList(tran, schemaType, dao.GetTableColumnList(conn, schema, DBAViews));
         }
 
+        private void LoadIdentityColumns(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadIdentityColumnList(tran, schemaType, dao.GetIdentityColumnList(conn, schema, DBAViews));
+        }
+
         private void LoadColumnComments(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadColumnCommentList(tran, schemaType, dao.GetColumnCommentList(conn, schema, DBAViews));
@@ -97,6 +102,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadIndexColumnList(tran, schemaType, dao.GetIndexColumnList(conn, schema, DBAViews));
         }
 
+        private void LoadIndexExpressions(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadIndexExpressionList(tran, schemaType, dao.GetIndexExpressionList(conn, schema, DBAViews));
+        }
+
         private void LoadPartitionedIndexes(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadPartitionedIndexList(tran, schemaType, dao.GetPartitionedIndexList(conn, schema, DBAViews));
@@ -151,6 +161,11 @@ namespace ExandasOracle.Core
         private void LoadObjectPrivileges(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadObjectPrivilegeList(tran, schemaType, dao.GetObjectPrivilegeList(conn, schema, DBAViews));
+        }
+
+        private void LoadSynonyms(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadSynonymList(tran, schemaType, dao.GetSynonymList(conn, schema, DBAViews));
         }
 
     }

@@ -1,30 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using FirebirdSql.Data.FirebirdClient;
 
 using ExandasOracle.Domain;
 
 namespace ExandasOracle.Dao.Firebird
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class DeltaReportDaoFirebird : AbstractDaoFirebird, IDeltaReportDao
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="connectionString"></param>
         public DeltaReportDaoFirebird(string connectionString) : base(connectionString)
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="criteria"></param>
-        /// <returns></returns>
         protected override FbCommand CreateCommand(Criteria criteria)
         {
             var comparisonSet = (ComparisonSet)criteria.Entity;
@@ -57,12 +44,6 @@ namespace ExandasOracle.Dao.Firebird
 
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="conn"></param>
-        /// <param name="comparisonSetUid"></param>
-        /// <param name="list"></param>
         public void LoadDeltaReportList(FbConnection conn, Guid comparisonSetUid, List<DeltaReport> list)
         {
             FbTransaction tran = conn.BeginTransaction();

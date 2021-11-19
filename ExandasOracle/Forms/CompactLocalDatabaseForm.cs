@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FirebirdSql.Data.FirebirdClient;
 using FirebirdSql.Data.Services;
 
 using ExandasOracle.Components;
@@ -25,12 +18,20 @@ namespace ExandasOracle.Forms
         {
             InitializeComponent();
 
-            this.Size = new Size(620, 560);
+            this.Size = new Size(620, 380);
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
 
             this.AcceptButton = this.doOkButton;
             this.CancelButton = this.doCancelButton;
             this.bottomPanel.Height = 38;
+
+            // localization
+            this.localDatabaseLabel.Text = Strings.LocalDatabase;
+            this.purgeComparisonReportCheckBox.Text = Strings.PurgeComparisonReports;
+            this.compactLocalDatabaseButton.Text = Strings.Compact;
+            this.doCancelButton.Text = Strings.CancelButton;
         }
 
         private void CompactLocalDatabaseForm_Load(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace ExandasOracle.Forms
             titlePanel.Parent = topPanel;
             titlePanel.Dock = DockStyle.Fill;
             topPanel.Height = 48;
-            titlePanel.titleLabel.Text = "Compacter la base de données locale"; // TODO Strings.ComparisonReport;
+            titlePanel.titleLabel.Text = Strings.CompactLocalDatabase;
             
             this.localDatabaseTextBox.Text = DaoFactory.Instance.LocalDatabasePath;
         }
@@ -69,19 +70,23 @@ namespace ExandasOracle.Forms
         {
             this.reportTextBox.Clear();
 
-            if (this.purgeComparisonReportCheckBox.Checked)
-            {
-                // appel méthode de purge
-            }
-            // appel méthode de purge metadata
-
             try
             {
-                this.reportTextBox.AppendText("Sauvegarde de la base de données locale");
+                var dao = DaoFactory.Instance.GetLocalDao();
+
+                if (this.purgeComparisonReportCheckBox.Checked)
+                {
+                    this.reportTextBox.AppendText(Strings.PurgingComparisonReports + Environment.NewLine);
+                    dao.PurgeDeltaReport();
+                }
+                this.reportTextBox.AppendText(Strings.PurgingMetadata + Environment.NewLine);
+                dao.PurgeMetaDataTables();
+                
+                this.reportTextBox.AppendText(Strings.LocalDatabaseBackup + Environment.NewLine);
                 this.BackupLocalDatabase();
-                this.reportTextBox.AppendText("Restauration de la base de données locale");
+                this.reportTextBox.AppendText(Strings.RestoringLocalDatabase + Environment.NewLine);
                 this.RestoreLocalDatabase();
-                this.reportTextBox.AppendText("Compactage terminé");
+                this.reportTextBox.AppendText(Strings.CompactionCompleted);
             }
             catch (Exception ex)
             {

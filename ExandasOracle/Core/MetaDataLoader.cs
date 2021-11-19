@@ -9,9 +9,6 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Core
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class MetaDataLoader
     {
         private readonly ComparisonSet _comparisonSet;
@@ -20,10 +17,6 @@ namespace ExandasOracle.Core
         private readonly int _totalOperationCount;
         private int _operationCounter;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="comparisonSet"></param>
         public MetaDataLoader(ComparisonSet comparisonSet)
         {
             this._comparisonSet = comparisonSet ?? throw new ArgumentNullException(nameof(comparisonSet));
@@ -32,17 +25,14 @@ namespace ExandasOracle.Core
             this._totalOperationCount = this._loaderDictionary.Count * 2;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         private Dictionary<string, LoaderDelegate> BuildLoaderDictionary()
         {
             var dict = new Dictionary<string, LoaderDelegate>
             {
                 { Strings.Tables, LoadTables },
                 { Strings.TableColumns, LoadTableColumns },
-                                
+                { Strings.IdentityColumns, LoadIdentityColumns },
+
                 { Strings.ColumnComments, LoadColumnComments },
 
                 { Strings.PrimaryKeys, LoadPrimaryKeys },
@@ -65,6 +55,7 @@ namespace ExandasOracle.Core
                 
                 { Strings.TableIndexes, LoadTableIndexes },
                 { Strings.IndexColumns, LoadIndexColumns },
+                { Strings.IndexExpressions, LoadIndexExpressions },
 
                 { Strings.PartitionedIndexes, LoadPartitionedIndexes },
                 { Strings.IndexPartitions, LoadIndexPartitions },
@@ -80,14 +71,12 @@ namespace ExandasOracle.Core
                 { Strings.Types, LoadOracleTypes },
 
                 { Strings.ObjectPrivileges, LoadObjectPrivileges },
+                { Strings.Synonyms, LoadSynonyms },
             };
 
             return dict;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void Execute(BackgroundWorker worker, DoWorkEventArgs e)
         {
             this._operationCounter = 0;
@@ -96,8 +85,6 @@ namespace ExandasOracle.Core
             this._comparisonSet.Connection1 = DaoFactory.Instance.GetConnectionParamsDao().Get(this._comparisonSet.Connection1Uid);
             this._comparisonSet.Connection2 = DaoFactory.Instance.GetConnectionParamsDao().Get(this._comparisonSet.Connection2Uid);
             
-            // TODO tester Vues DBA quand non habilité
-
             using (FbConnection conn = this._localDao.GetFirebirdConnection())
             {
                 conn.Open();
@@ -118,13 +105,6 @@ namespace ExandasOracle.Core
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="tran"></param>
-        /// <param name="schemaType"></param>
-        /// <param name="worker"></param>
-        /// <param name="e"></param>
         private void LoadMetaData(FbTransaction tran, SchemaType schemaType, BackgroundWorker worker, DoWorkEventArgs e)
         {
             IRemoteDao dao = null;
@@ -150,6 +130,7 @@ namespace ExandasOracle.Core
 
             try
             {
+                dao.CheckConnection(DBAViews);
                 conn.Open();
 
                 foreach (KeyValuePair<string, LoaderDelegate> item in this._loaderDictionary)
@@ -179,17 +160,11 @@ namespace ExandasOracle.Core
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="worker"></param>
-        /// <param name="step"></param>
         private void IncrementStep(BackgroundWorker worker, string step)
         {
             this._operationCounter++;
             int percentage = (int)((double)this._operationCounter / this._totalOperationCount * 50);
             worker.ReportProgress(percentage, step);
-            // System.Threading.Thread.Sleep(100);
         }
 
     }

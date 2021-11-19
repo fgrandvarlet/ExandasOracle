@@ -9,9 +9,6 @@ CREATE TABLE src_synonyms
     CONSTRAINT pk_src_synonyms PRIMARY KEY (owner, synonym_name)
 );
 
--- exemple : select * from all_synonyms where owner = 'HR' or table_owner = 'HR';
-
-
 CREATE TABLE tgt_synonyms
 (
     owner varchar(128) not null,

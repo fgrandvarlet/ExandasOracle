@@ -34,6 +34,8 @@ namespace ExandasOracle.Forms
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.localDatabaseSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compactLocalDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
@@ -44,8 +46,7 @@ namespace ExandasOracle.Forms
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.connectionsLinkLabel = new System.Windows.Forms.LinkLabel();
             this.comparisonSetsLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.localDatabaseSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compactLocalDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mainMenuStrip.SuspendLayout();
             this.fillPanel.SuspendLayout();
             this.leftPanel.SuspendLayout();
@@ -83,10 +84,25 @@ namespace ExandasOracle.Forms
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.localDatabaseSizeToolStripMenuItem,
+            this.toolStripSeparator1,
             this.compactLocalDatabaseToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.toolsToolStripMenuItem.Text = "&Outils";
+            // 
+            // localDatabaseSizeToolStripMenuItem
+            // 
+            this.localDatabaseSizeToolStripMenuItem.Name = "localDatabaseSizeToolStripMenuItem";
+            this.localDatabaseSizeToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
+            this.localDatabaseSizeToolStripMenuItem.Text = "&Taille de la base de données locale";
+            this.localDatabaseSizeToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
+            // 
+            // compactLocalDatabaseToolStripMenuItem
+            // 
+            this.compactLocalDatabaseToolStripMenuItem.Name = "compactLocalDatabaseToolStripMenuItem";
+            this.compactLocalDatabaseToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
+            this.compactLocalDatabaseToolStripMenuItem.Text = "&Compacter la base de données locale";
+            this.compactLocalDatabaseToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -185,19 +201,10 @@ namespace ExandasOracle.Forms
             this.comparisonSetsLinkLabel.Text = "Jeux de comparaison";
             this.comparisonSetsLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
             // 
-            // localDatabaseSizeToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.localDatabaseSizeToolStripMenuItem.Name = "localDatabaseSizeToolStripMenuItem";
-            this.localDatabaseSizeToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
-            this.localDatabaseSizeToolStripMenuItem.Text = "&Taille de la base de données locale";
-            this.localDatabaseSizeToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
-            // 
-            // compactLocalDatabaseToolStripMenuItem
-            // 
-            this.compactLocalDatabaseToolStripMenuItem.Name = "compactLocalDatabaseToolStripMenuItem";
-            this.compactLocalDatabaseToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
-            this.compactLocalDatabaseToolStripMenuItem.Text = "&Compacter la base de données locale";
-            this.compactLocalDatabaseToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
             // 
             // MainForm
             // 
@@ -243,5 +250,6 @@ namespace ExandasOracle.Forms
         private System.Windows.Forms.LinkLabel comparisonSetsLinkLabel;
         private System.Windows.Forms.ToolStripMenuItem localDatabaseSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compactLocalDatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

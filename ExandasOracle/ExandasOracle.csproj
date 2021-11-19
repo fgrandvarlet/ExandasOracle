@@ -181,7 +181,9 @@
     <Compile Include="Core\Delta.ConstraintColumn.cs" />
     <Compile Include="Core\Delta.cs" />
     <Compile Include="Core\Delta.ForeignKey.cs" />
+    <Compile Include="Core\Delta.IdentityColumn.cs" />
     <Compile Include="Core\Delta.IndexColumn.cs" />
+    <Compile Include="Core\Delta.IndexExpression.cs" />
     <Compile Include="Core\Delta.IndexPartition.cs" />
     <Compile Include="Core\Delta.IndexSubpartition.cs" />
     <Compile Include="Core\Delta.MaterializedView.cs" />
@@ -191,6 +193,7 @@
     <Compile Include="Core\Delta.PrimaryKey.cs" />
     <Compile Include="Core\Delta.Sequence.cs" />
     <Compile Include="Core\Delta.SourceSynthesis.cs" />
+    <Compile Include="Core\Delta.Synonym.cs" />
     <Compile Include="Core\Delta.Table.cs" />
     <Compile Include="Core\Delta.TableColumn.cs" />
     <Compile Include="Core\Delta.TableIndex.cs" />
@@ -232,8 +235,10 @@
     <Compile Include="Domain\Criteria.cs" />
     <Compile Include="Domain\DeltaReport.cs" />
     <Compile Include="Domain\ForeignKey.cs" />
+    <Compile Include="Domain\IdentityColumn.cs" />
     <Compile Include="Domain\Index.cs" />
     <Compile Include="Domain\IndexColumn.cs" />
+    <Compile Include="Domain\IndexExpression.cs" />
     <Compile Include="Domain\IndexPartition.cs" />
     <Compile Include="Domain\IndexSubpartition.cs" />
     <Compile Include="Domain\MaterializedView.cs" />
@@ -247,6 +252,7 @@
     <Compile Include="Domain\Source.cs" />
     <Compile Include="Domain\SourceSynthesis.cs" />
     <Compile Include="Domain\Subpartition.cs" />
+    <Compile Include="Domain\Synonym.cs" />
     <Compile Include="Domain\Table.cs" />
     <Compile Include="Domain\TableColumn.cs" />
     <Compile Include="Domain\TableIndex.cs" />
