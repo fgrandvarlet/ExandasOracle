@@ -118,6 +118,13 @@ namespace ExandasOracle.Components
 					Guid uid = Guid.Parse(row.Cells[uidColumn.Name].Value.ToString());
 					ConnectionParams cp = DaoFactory.Instance.GetConnectionParamsDao().Get(uid);
 
+					int dependencyCount = DaoFactory.Instance.GetConnectionParamsDao().GetDependencyCount(cp);
+					if (dependencyCount > 0)
+                    {
+						MessageBox.Show(Strings.CannotDelete, Strings.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						return;
+                    }
+
 					string record = string.Format("[ {0} ]", cp.Name);
 					if (Defs.ConfirmDeleteDialog(record))
 					{

@@ -76,6 +76,7 @@ namespace ExandasOracle.Forms
             this.fillPanel.Padding = new System.Windows.Forms.Padding(8, 24, 16, 0);
             this.fillPanel.Size = new System.Drawing.Size(885, 518);
             this.fillPanel.TabIndex = 2;
+            this.fillPanel.TabStop = true;
             // 
             // tableLayoutPanel1
             // 
@@ -90,7 +91,8 @@ namespace ExandasOracle.Forms
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 324);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel1.TabStop = true;
             // 
             // comparisonSetUserControl1
             // 
@@ -101,7 +103,7 @@ namespace ExandasOracle.Forms
             this.comparisonSetUserControl1.Name = "comparisonSetUserControl1";
             this.comparisonSetUserControl1.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
             this.comparisonSetUserControl1.Size = new System.Drawing.Size(424, 318);
-            this.comparisonSetUserControl1.TabIndex = 0;
+            this.comparisonSetUserControl1.TabIndex = 2;
             // 
             // comparisonSetUserControl2
             // 
@@ -112,7 +114,7 @@ namespace ExandasOracle.Forms
             this.comparisonSetUserControl2.Name = "comparisonSetUserControl2";
             this.comparisonSetUserControl2.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
             this.comparisonSetUserControl2.Size = new System.Drawing.Size(425, 318);
-            this.comparisonSetUserControl2.TabIndex = 1;
+            this.comparisonSetUserControl2.TabIndex = 3;
             // 
             // innerBottomPanel
             // 
@@ -133,7 +135,7 @@ namespace ExandasOracle.Forms
             this.generateReportButton.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.generateReportButton.Name = "generateReportButton";
             this.generateReportButton.Size = new System.Drawing.Size(855, 42);
-            this.generateReportButton.TabIndex = 0;
+            this.generateReportButton.TabIndex = 10;
             this.generateReportButton.Text = "Générer le rapport de comparaison";
             this.generateReportButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.generateReportButton.UseVisualStyleBackColor = true;
@@ -160,7 +162,8 @@ namespace ExandasOracle.Forms
             this.lastReportTimeTextBox.Name = "lastReportTimeTextBox";
             this.lastReportTimeTextBox.ReadOnly = true;
             this.lastReportTimeTextBox.Size = new System.Drawing.Size(240, 23);
-            this.lastReportTimeTextBox.TabIndex = 4;
+            this.lastReportTimeTextBox.TabIndex = 2;
+            this.lastReportTimeTextBox.TabStop = false;
             // 
             // lastReportTimeLabel
             // 
@@ -177,7 +180,7 @@ namespace ExandasOracle.Forms
             this.deltaReportButton.Location = new System.Drawing.Point(617, 37);
             this.deltaReportButton.Name = "deltaReportButton";
             this.deltaReportButton.Size = new System.Drawing.Size(240, 23);
-            this.deltaReportButton.TabIndex = 2;
+            this.deltaReportButton.TabIndex = 3;
             this.deltaReportButton.Text = "Consulter le rapport de comparaison";
             this.deltaReportButton.UseVisualStyleBackColor = true;
             this.deltaReportButton.Click += new System.EventHandler(this.DeltaReportButton_Click);

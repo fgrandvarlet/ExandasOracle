@@ -138,6 +138,9 @@
   <data name="CancelButton" xml:space="preserve">
     <value>Annuler</value>
   </data>
+  <data name="CannotDelete" xml:space="preserve">
+    <value>Impossible de supprimer cet enregistrement car il intervient dans au moins un jeu de comparaison.</value>
+  </data>
   <data name="CheckingTheConnection" xml:space="preserve">
     <value>Vérification de la connexion</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="ComparisonSetName" xml:space="preserve">
     <value>Nom du jeu de comparaison</value>
   </data>
+  <data name="ComparisonSetNameRequired" xml:space="preserve">
+    <value>Nom du jeu de comparaison obligatoire</value>
+  </data>
   <data name="ComparisonSets" xml:space="preserve">
     <value>Jeux de comparaison</value>
   </data>
@@ -224,6 +230,9 @@
   </data>
   <data name="DoYouConfirmGeneration" xml:space="preserve">
     <value>Confirmez-vous la génération du rapport de comparaison ?</value>
+  </data>
+  <data name="Entity" xml:space="preserve">
+    <value>Entité</value>
   </data>
   <data name="ExandasOracleError" xml:space="preserve">
     <value>Erreur ExandasOracle</value>
@@ -279,6 +288,9 @@
   <data name="IndexSubpartitions" xml:space="preserve">
     <value>sous-partitions d'index</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>Libellé</value>
+  </data>
   <data name="LastComparisonReport" xml:space="preserve">
     <value>Dernier rapport de comparaison</value>
   </data>
@@ -324,11 +336,17 @@
   <data name="ObjectInTarget" xml:space="preserve">
     <value>Objet dans cible absent en source</value>
   </data>
+  <data name="ObjectName" xml:space="preserve">
+    <value>Nom d'objet</value>
+  </data>
   <data name="ObjectPrivileges" xml:space="preserve">
     <value>privilèges objet</value>
   </data>
   <data name="OperationCanceled" xml:space="preserve">
     <value>Opération annulée.</value>
+  </data>
+  <data name="ParentObject" xml:space="preserve">
+    <value>Objet parent</value>
   </data>
   <data name="PartitionedIndexes" xml:space="preserve">
     <value>index partitionnés</value>
@@ -342,11 +360,17 @@
   <data name="PasswordRequired" xml:space="preserve">
     <value>Mot de passe obligatoire</value>
   </data>
+  <data name="PleaseCheckExcel" xml:space="preserve">
+    <value>Veuillez vérifier que le document n'est pas déjà ouvert dans Excel.</value>
+  </data>
   <data name="PortRequired" xml:space="preserve">
     <value>Port obligatoire</value>
   </data>
   <data name="PrimaryKeys" xml:space="preserve">
     <value>clés primaires</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Propriété</value>
   </data>
   <data name="PropertyDifference" xml:space="preserve">
     <value>Différence de propriété</value>
@@ -402,8 +426,17 @@
   <data name="SourceSchema" xml:space="preserve">
     <value>Schéma source</value>
   </data>
+  <data name="SourceSchemaRequired" xml:space="preserve">
+    <value>Schéma source obligatoire</value>
+  </data>
   <data name="SourceServerConnection" xml:space="preserve">
     <value>Connexion serveur source</value>
+  </data>
+  <data name="SourceServerConnectionRequired" xml:space="preserve">
+    <value>Connexion serveur source obligatoire</value>
+  </data>
+  <data name="SourceValue" xml:space="preserve">
+    <value>Valeur source</value>
   </data>
   <data name="SuccessfulConnection" xml:space="preserve">
     <value>Connexion réussie</value>
@@ -435,8 +468,17 @@
   <data name="TargetSchema" xml:space="preserve">
     <value>Schéma cible</value>
   </data>
+  <data name="TargetSchemaRequired" xml:space="preserve">
+    <value>Schéma cible obligatoire</value>
+  </data>
   <data name="TargetServerConnection" xml:space="preserve">
     <value>Connexion serveur cible</value>
+  </data>
+  <data name="TargetServerConnectionRequired" xml:space="preserve">
+    <value>Connexion serveur cible obligatoire</value>
+  </data>
+  <data name="TargetValue" xml:space="preserve">
+    <value>Valeur cible</value>
   </data>
   <data name="Tools" xml:space="preserve">
     <value>&amp;Outils</value>

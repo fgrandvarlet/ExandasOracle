@@ -79,6 +79,7 @@ namespace ExandasOracle.Components
             this.userTextBox.ReadOnly = true;
             this.userTextBox.Size = new System.Drawing.Size(168, 23);
             this.userTextBox.TabIndex = 2;
+            this.userTextBox.TabStop = false;
             // 
             // userLabel
             // 
@@ -105,6 +106,7 @@ namespace ExandasOracle.Components
             this.hostTextBox.ReadOnly = true;
             this.hostTextBox.Size = new System.Drawing.Size(168, 23);
             this.hostTextBox.TabIndex = 5;
+            this.hostTextBox.TabStop = false;
             // 
             // portLabel
             // 
@@ -123,6 +125,7 @@ namespace ExandasOracle.Components
             this.portTextBox.ReadOnly = true;
             this.portTextBox.Size = new System.Drawing.Size(168, 23);
             this.portTextBox.TabIndex = 7;
+            this.portTextBox.TabStop = false;
             // 
             // SIDTextBox
             // 
@@ -133,6 +136,7 @@ namespace ExandasOracle.Components
             this.SIDTextBox.ReadOnly = true;
             this.SIDTextBox.Size = new System.Drawing.Size(168, 23);
             this.SIDTextBox.TabIndex = 8;
+            this.SIDTextBox.TabStop = false;
             // 
             // SIDRadioButton
             // 
@@ -167,6 +171,7 @@ namespace ExandasOracle.Components
             this.serviceTextBox.ReadOnly = true;
             this.serviceTextBox.Size = new System.Drawing.Size(168, 23);
             this.serviceTextBox.TabIndex = 11;
+            this.serviceTextBox.TabStop = false;
             // 
             // DBAViewsCheckBox
             // 
@@ -177,6 +182,7 @@ namespace ExandasOracle.Components
             this.DBAViewsCheckBox.Name = "DBAViewsCheckBox";
             this.DBAViewsCheckBox.Size = new System.Drawing.Size(77, 19);
             this.DBAViewsCheckBox.TabIndex = 12;
+            this.DBAViewsCheckBox.TabStop = false;
             this.DBAViewsCheckBox.Text = "Vues DBA";
             this.DBAViewsCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -187,6 +193,7 @@ namespace ExandasOracle.Components
             this.schemaTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.schemaTextBox.Location = new System.Drawing.Point(127, 276);
             this.schemaTextBox.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.schemaTextBox.MaxLength = 128;
             this.schemaTextBox.Name = "schemaTextBox";
             this.schemaTextBox.Size = new System.Drawing.Size(168, 23);
             this.schemaTextBox.TabIndex = 13;

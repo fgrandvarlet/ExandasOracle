@@ -133,6 +133,7 @@ namespace ExandasOracle.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.serviceTextBox.Location = new System.Drawing.Point(152, 216);
             this.serviceTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 18);
+            this.serviceTextBox.MaxLength = 128;
             this.serviceTextBox.Name = "serviceTextBox";
             this.serviceTextBox.Size = new System.Drawing.Size(452, 23);
             this.serviceTextBox.TabIndex = 13;
@@ -154,6 +155,7 @@ namespace ExandasOracle.Forms
             this.SIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SIDTextBox.Location = new System.Drawing.Point(152, 187);
+            this.SIDTextBox.MaxLength = 16;
             this.SIDTextBox.Name = "SIDTextBox";
             this.SIDTextBox.Size = new System.Drawing.Size(452, 23);
             this.SIDTextBox.TabIndex = 11;
@@ -171,6 +173,7 @@ namespace ExandasOracle.Forms
             this.portTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.portTextBox.Location = new System.Drawing.Point(152, 158);
+            this.portTextBox.MaxLength = 128;
             this.portTextBox.Name = "portTextBox";
             this.portTextBox.Size = new System.Drawing.Size(452, 23);
             this.portTextBox.TabIndex = 9;
@@ -188,6 +191,7 @@ namespace ExandasOracle.Forms
             this.hostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hostTextBox.Location = new System.Drawing.Point(152, 129);
+            this.hostTextBox.MaxLength = 255;
             this.hostTextBox.Name = "hostTextBox";
             this.hostTextBox.Size = new System.Drawing.Size(452, 23);
             this.hostTextBox.TabIndex = 7;
@@ -205,6 +209,7 @@ namespace ExandasOracle.Forms
             this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextBox.Location = new System.Drawing.Point(152, 100);
+            this.passwordTextBox.MaxLength = 512;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(452, 23);
             this.passwordTextBox.TabIndex = 5;
@@ -215,6 +220,7 @@ namespace ExandasOracle.Forms
             this.userTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userTextBox.Location = new System.Drawing.Point(152, 72);
+            this.userTextBox.MaxLength = 128;
             this.userTextBox.Name = "userTextBox";
             this.userTextBox.Size = new System.Drawing.Size(452, 23);
             this.userTextBox.TabIndex = 3;
@@ -241,6 +247,7 @@ namespace ExandasOracle.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameTextBox.Location = new System.Drawing.Point(152, 27);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 18);
+            this.nameTextBox.MaxLength = 64;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(452, 23);
             this.nameTextBox.TabIndex = 1;

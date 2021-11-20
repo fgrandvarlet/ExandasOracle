@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Oracle.ManagedDataAccess.Client;
 
 using ExandasOracle.Core;
@@ -8,37 +6,14 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class ConnectionParams
     {
-        /// <summary>
-        /// 
-        /// </summary>
         public Guid Uid { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string User { get; set; }
-        
-        /// <summary>
-        /// 
-        /// </summary>
         public string Password { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string DecryptedPassword
         {
-            // TODO Chronométrer via log4net ?
             get
             {
                 return CryptoUtil.DecryptIdentifier(Password, Resources.IDIOMATIC);
@@ -48,35 +23,12 @@ namespace ExandasOracle.Domain
                 Password = CryptoUtil.EncryptIdentifier(value, Resources.IDIOMATIC);
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Host { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public int Port { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string SID { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Service { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public bool DBAViews { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public string ConnectionString
         {
             // cf. https://www.connectionstrings.com/oracle/
@@ -103,22 +55,14 @@ namespace ExandasOracle.Domain
                 }
                 var csb = new OracleConnectionStringBuilder();
                 csb.DataSource = dataSource;
-
                 csb.UserID = User;
                 csb.Password = DecryptedPassword;
-
-                // TODO ETUDIER csb.IsReadOnly ET EVENTUELLEMENT AUTRES PROPRIETES
                 csb.Pooling = false;
 
-                // TODO SUPPRIMER
-                // System.Windows.Forms.MessageBox.Show(csb.ConnectionString);
                 return csb.ConnectionString;
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public string FormattedString
         {
             get

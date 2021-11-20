@@ -124,6 +124,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Cannot delete this record because it occurs in at least one comparison set..
+        /// </summary>
+        internal static string CannotDelete {
+            get {
+                return ResourceManager.GetString("CannotDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Checking the connection.
         /// </summary>
         internal static string CheckingTheConnection {
@@ -277,6 +286,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Comparison set name required.
+        /// </summary>
+        internal static string ComparisonSetNameRequired {
+            get {
+                return ResourceManager.GetString("ComparisonSetNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Comparison sets.
         /// </summary>
         internal static string ComparisonSets {
@@ -381,6 +399,15 @@ namespace ExandasOracle.Properties {
         internal static string DoYouConfirmGeneration {
             get {
                 return ResourceManager.GetString("DoYouConfirmGeneration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Entity.
+        /// </summary>
+        internal static string Entity {
+            get {
+                return ResourceManager.GetString("Entity", resourceCulture);
             }
         }
         
@@ -547,6 +574,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Label.
+        /// </summary>
+        internal static string Label {
+            get {
+                return ResourceManager.GetString("Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Last comparison report.
         /// </summary>
         internal static string LastComparisonReport {
@@ -682,6 +718,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Object name.
+        /// </summary>
+        internal static string ObjectName {
+            get {
+                return ResourceManager.GetString("ObjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à object privileges.
         /// </summary>
         internal static string ObjectPrivileges {
@@ -696,6 +741,15 @@ namespace ExandasOracle.Properties {
         internal static string OperationCanceled {
             get {
                 return ResourceManager.GetString("OperationCanceled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Parent object.
+        /// </summary>
+        internal static string ParentObject {
+            get {
+                return ResourceManager.GetString("ParentObject", resourceCulture);
             }
         }
         
@@ -736,6 +790,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please check that the document is not already open in Excel..
+        /// </summary>
+        internal static string PleaseCheckExcel {
+            get {
+                return ResourceManager.GetString("PleaseCheckExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Port required.
         /// </summary>
         internal static string PortRequired {
@@ -750,6 +813,15 @@ namespace ExandasOracle.Properties {
         internal static string PrimaryKeys {
             get {
                 return ResourceManager.GetString("PrimaryKeys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Property.
+        /// </summary>
+        internal static string Property {
+            get {
+                return ResourceManager.GetString("Property", resourceCulture);
             }
         }
         
@@ -916,11 +988,38 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Source schema required.
+        /// </summary>
+        internal static string SourceSchemaRequired {
+            get {
+                return ResourceManager.GetString("SourceSchemaRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Source server connection.
         /// </summary>
         internal static string SourceServerConnection {
             get {
                 return ResourceManager.GetString("SourceServerConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Source server connection required.
+        /// </summary>
+        internal static string SourceServerConnectionRequired {
+            get {
+                return ResourceManager.GetString("SourceServerConnectionRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Source value.
+        /// </summary>
+        internal static string SourceValue {
+            get {
+                return ResourceManager.GetString("SourceValue", resourceCulture);
             }
         }
         
@@ -1015,11 +1114,38 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Target schema required.
+        /// </summary>
+        internal static string TargetSchemaRequired {
+            get {
+                return ResourceManager.GetString("TargetSchemaRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Target server connection.
         /// </summary>
         internal static string TargetServerConnection {
             get {
                 return ResourceManager.GetString("TargetServerConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Target server connection required.
+        /// </summary>
+        internal static string TargetServerConnectionRequired {
+            get {
+                return ResourceManager.GetString("TargetServerConnectionRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Target value.
+        /// </summary>
+        internal static string TargetValue {
+            get {
+                return ResourceManager.GetString("TargetValue", resourceCulture);
             }
         }
         

@@ -11,17 +11,6 @@ using ExandasOracle.Dao;
 using ExandasOracle.Native;
 using ExandasOracle.Properties;
 
-// TODO quid ExecuteReaderAsync (méthodes asynchrones)
-// TODO quid procédure de maintenance des statistiques
-//      cf. https://stackoverflow.com/questions/882223/does-firebird-need-manual-reindexing
-// TODO internationalisation traduction IHM en anglais i18n
-// TODO Exandas.Oracle.Admin pour purger la base de données locale ?
-// TODO contrainte de clé étrangère ON DELETE CASCADE entre delta_report et comparison_set
-// TODO utilitaire de sauvegarde et de purge de la base de données locale
-// TODO REGLER TAB ORDER VIA PROPERTIES DANS TOUTES LES FORMS
-// TODO vérifier unicité trigger_name (essayer de créer un 2ème trigger du même nom dans un même schéma sur un table différente)
-// TODO formulaire détail DeltaReportForm
-
 namespace ExandasOracle.Forms
 {
     public partial class MainForm : Form

@@ -19,5 +19,7 @@ namespace ExandasOracle.Dao
         void Delete(ConnectionParams cp);
 
         List<ConnectionParams> GetList();
+
+        int GetDependencyCount(ConnectionParams cp);
     }
 }

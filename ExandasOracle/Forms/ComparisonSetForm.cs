@@ -153,33 +153,33 @@ namespace ExandasOracle.Forms
             if (nameTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- Nom du jeu de comparaison obligatoire" + Environment.NewLine;
+                message += "- " + Strings.ComparisonSetNameRequired + Environment.NewLine;
             }
 
             var v = (Guid)comparisonSetUserControl1.connectionComboBox.SelectedValue;
             if (v == Defs.EMPTY_ITEM_GUID)
             {
                 result = false;
-                message += "- Connexion serveur source obligatoire" + Environment.NewLine;
+                message += "- " + Strings.SourceServerConnectionRequired + Environment.NewLine;
             }
 
             v = (Guid)comparisonSetUserControl2.connectionComboBox.SelectedValue;
             if (v == Defs.EMPTY_ITEM_GUID)
             {
                 result = false;
-                message += "- Connexion serveur cible obligatoire" + Environment.NewLine;
+                message += "- " + Strings.TargetServerConnectionRequired + Environment.NewLine;
             }
 
             if (comparisonSetUserControl1.schemaTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- Schéma source obligatoire" + Environment.NewLine;
+                message += "- " + Strings.SourceSchemaRequired + Environment.NewLine;
             }
 
             if (comparisonSetUserControl2.schemaTextBox.Text.Trim().Length == 0)
             {
                 result = false;
-                message += "- Schéma cible obligatoire" + Environment.NewLine;
+                message += "- " + Strings.TargetSchemaRequired + Environment.NewLine;
             }
 
             if (!result)

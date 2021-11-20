@@ -16,6 +16,5 @@ namespace ExandasOracle.Dao
         void Save(ComparisonSet cs);
 
         void Delete(ComparisonSet cs);
-
     }
 }

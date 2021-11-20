@@ -117,8 +117,6 @@ namespace ExandasOracle.Dao.Firebird
 			}
 		}
 
-		// TODO CHECK DEPENDANCES AVEC ComparisonSets avant de supprimer
-
 		public void Delete(ConnectionParams cp)
 		{
 			const string sql = "DELETE FROM connection_params WHERE uid = @uid";
@@ -163,6 +161,22 @@ namespace ExandasOracle.Dao.Firebird
 				}
 			}
 			return list;
+		}
+
+		public int GetDependencyCount(ConnectionParams cp)
+        {
+			int count;
+
+			const string sql = "SELECT count(*) FROM comparison_set WHERE connection1_uid = @uid OR connection2_uid = @uid";
+
+			using (FbConnection conn = GetFirebirdConnection())
+			{
+				conn.Open();
+				var cmd = new FbCommand(sql, conn);
+				cmd.Parameters.AddWithValue("uid", cp.Uid);
+				count = (int)cmd.ExecuteScalar();
+			}
+			return count;
 		}
 
 	}

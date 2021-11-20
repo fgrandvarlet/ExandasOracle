@@ -57,43 +57,43 @@ namespace ExandasOracle.Components
             entityColumn = new DataGridViewTextBoxColumn();
             entityColumn.Name = "entity";
             entityColumn.DataPropertyName = "entity";
-            entityColumn.HeaderText = "Entité";
+            entityColumn.HeaderText = Strings.Entity;
             entityColumn.Width = 150;
 
             objectColumn = new DataGridViewTextBoxColumn();
             objectColumn.Name = "object";
             objectColumn.DataPropertyName = "object";
-            objectColumn.HeaderText = "Nom d'objet";
-            objectColumn.Width = 150;
+            objectColumn.HeaderText = Strings.ObjectName;
+            objectColumn.Width = 200;
 
             parentObjectColumn = new DataGridViewTextBoxColumn();
             parentObjectColumn.Name = "parent_object";
             parentObjectColumn.DataPropertyName = "parent_object";
-            parentObjectColumn.HeaderText = "Objet parent";
+            parentObjectColumn.HeaderText = Strings.ParentObject;
             parentObjectColumn.Width = 150;
 
             labelColumn = new DataGridViewTextBoxColumn();
             labelColumn.Name = "label";
             labelColumn.DataPropertyName = "label";
-            labelColumn.HeaderText = "Libellé";
-            labelColumn.Width = 150;
+            labelColumn.HeaderText = Strings.Label;
+            labelColumn.Width = 180;
 
             propertyColumn = new DataGridViewTextBoxColumn();
             propertyColumn.Name = "property";
             propertyColumn.DataPropertyName = "property";
-            propertyColumn.HeaderText = "Propriété";
+            propertyColumn.HeaderText = Strings.Property;
             propertyColumn.Width = 150;
 
             sourceColumn = new DataGridViewTextBoxColumn();
             sourceColumn.Name = "source";
             sourceColumn.DataPropertyName = "source";
-            sourceColumn.HeaderText = "Valeur source";
+            sourceColumn.HeaderText = Strings.SourceValue;
             sourceColumn.Width = 150;
 
             targetColumn = new DataGridViewTextBoxColumn();
             targetColumn.Name = "target";
             targetColumn.DataPropertyName = "target";
-            targetColumn.HeaderText = "Valeur cible";
+            targetColumn.HeaderText = Strings.TargetValue;
             targetColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             DataGridViewColumn[] cols = { idColumn, entityColumn, objectColumn, parentObjectColumn, labelColumn, propertyColumn, sourceColumn, targetColumn };
@@ -161,7 +161,6 @@ namespace ExandasOracle.Components
 
         private void ModifyToolStripButton_Click(object sender, EventArgs e)
         {
-            // TODO IMPLEMENTER ? ouvrir formulaire detail ?
         }
 
         private void RefreshToolStripButton_Click(object sender, EventArgs e)

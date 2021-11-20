@@ -39,7 +39,6 @@ namespace ExandasOracle
                     Environment.Exit(0);
                 }
 
-                // TODO SUPPRIMER Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 // show splash
