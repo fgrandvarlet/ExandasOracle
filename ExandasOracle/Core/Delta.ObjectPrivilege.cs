@@ -19,11 +19,10 @@ namespace ExandasOracle.Core
             string sql;
             FbCommand cmd;
 
-            // TODO ? vue common_objects ? union sur autres common_*
-
             // phase 1 : source minus target
             sql = "SELECT s.grantee, s.table_name, s.privilege, s.inherited FROM src_tab_privs s" +
                 " LEFT JOIN tgt_tab_privs t USING(grantee, table_name, privilege, inherited)" +
+                " JOIN common_objects USING(table_name)" +
                 " WHERE t.grantee IS NULL" +
                 " ORDER BY grantee, table_name, privilege, inherited";
             cmd = new FbCommand(sql, conn);
@@ -41,6 +40,7 @@ namespace ExandasOracle.Core
             // phase 2 : target minus source
             sql = "SELECT t.grantee, t.table_name, t.privilege, t.inherited FROM tgt_tab_privs t" +
                 " LEFT JOIN src_tab_privs s USING(grantee, table_name, privilege, inherited)" +
+                " JOIN common_objects USING(table_name)" +
                 " WHERE s.grantee IS NULL" +
                 " ORDER BY grantee, table_name, privilege, inherited";
             cmd = new FbCommand(sql, conn);
@@ -87,7 +87,7 @@ namespace ExandasOracle.Core
                         Type = dr["tgt_type"] is DBNull ? null : (string)dr["tgt_type"],
                         Inherited = (string)dr["inherited"],
                     };
-                    sourceObjectPrivilege.Compare(targetObjectPrivilege, this._comparisonSet.Uid, list);
+                    sourceObjectPrivilege.Compare(targetObjectPrivilege, this._comparisonSet, list);
                 }
             }
         }

@@ -109,7 +109,7 @@ namespace ExandasOracle.Core
                         DefaultCollation = dr["tgt_default_collation"] is DBNull ? null : (string)dr["tgt_default_collation"],
                         External = dr["tgt_tab_external"] is DBNull ? null : (string)dr["tgt_tab_external"],
                     };
-                    sourceTable.Compare(targetTable, this._comparisonSet.Uid, list);
+                    sourceTable.Compare(targetTable, this._comparisonSet, list);
                 }
             }
         }

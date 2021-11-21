@@ -1004,7 +1004,7 @@ namespace ExandasOracle.Dao.Firebird
                     so.Name = (string)dr["source_name"];
                     so.Type = (string)dr["source_type"];
                     so.Line = (int)dr["line"];
-                    so.Text = dr["text"] is DBNull ? null : (string)dr["text"];
+                    so.Text = dr["text"] is DBNull ? null : ((string)dr["text"]).TrimEnd();
 
                     if (so.Name != currentName || so.Type != currentType)
                     {

@@ -16,28 +16,28 @@ namespace ExandasOracle.Domain
         /// 
         /// </summary>
         /// <param name="target"></param>
-        /// <param name="comparisonSetUid"></param>
+        /// <param name="comparisonSet"></param>
         /// <param name="list"></param>
-        public void Compare(ForeignKey target, Guid comparisonSetUid, List<DeltaReport> list)
+        public void Compare(ForeignKey target, ComparisonSet comparisonSet, List<DeltaReport> list)
         {
-            base.Compare(target, comparisonSetUid, list, ENTITY);
+            base.Compare(target, comparisonSet.Uid, list, ENTITY);
 
-            if (this.ROwner != target.ROwner)
+            if (this.ROwner != target.ROwner && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "R_OWNER", this.ROwner, target.ROwner
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "R_OWNER", this.ROwner, target.ROwner
                     ));
             }
             if (this.RConstraintName != target.RConstraintName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "R_CONSTRAINT_NAME", this.RConstraintName, target.RConstraintName
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "R_CONSTRAINT_NAME", this.RConstraintName, target.RConstraintName
                     ));
             }
             if (this.DeleteRule != target.DeleteRule)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "DELETE_RULE", this.DeleteRule, target.DeleteRule
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "DELETE_RULE", this.DeleteRule, target.DeleteRule
                     ));
             }
         }

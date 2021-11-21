@@ -21,7 +21,7 @@ namespace ExandasOracle.Domain
         /// <param name="list"></param>
         public void Compare(SourceSynthesis target, Guid comparisonSetUid, List<DeltaReport> list)
         {
-            if (this.Text != target.Text)
+            if (this.Text.TrimEnd() != target.Text.TrimEnd())
             {
                 list.Add(new DeltaReport(
                     comparisonSetUid, ENTITY, this.Name, this.Type, Strings.PropertyDifference, "TEXT", Defs.TruncateTooLong(this.Text), Defs.TruncateTooLong(target.Text)

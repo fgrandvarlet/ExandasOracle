@@ -62,7 +62,7 @@ namespace ExandasOracle.Core
                     var sourceView = new View
                     {
                         ViewName = (string)dr["view_name"],
-                        TextLength = dr["src_text_length"] is DBNull ? null : (decimal?)dr["src_text_length"],
+                        TextLength = dr["src_text_length"] is DBNull ? null : (int?)dr["src_text_length"],
                         Text = dr["src_text"] is DBNull ? null : (string)dr["src_text"],
                         TextVC = dr["src_text_vc"] is DBNull ? null : (string)dr["src_text_vc"],
                         TypeText = dr["src_type_text"] is DBNull ? null : (string)dr["src_type_text"],
@@ -77,7 +77,7 @@ namespace ExandasOracle.Core
                     var targetView = new View
                     {
                         ViewName = (string)dr["view_name"],
-                        TextLength = dr["tgt_text_length"] is DBNull ? null : (decimal?)dr["tgt_text_length"],
+                        TextLength = dr["tgt_text_length"] is DBNull ? null : (int?)dr["tgt_text_length"],
                         Text = dr["tgt_text"] is DBNull ? null : (string)dr["tgt_text"],
                         TextVC = dr["tgt_text_vc"] is DBNull ? null : (string)dr["tgt_text_vc"],
                         TypeText = dr["tgt_type_text"] is DBNull ? null : (string)dr["tgt_type_text"],

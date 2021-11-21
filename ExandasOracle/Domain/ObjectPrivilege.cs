@@ -22,40 +22,40 @@ namespace ExandasOracle.Domain
         /// 
         /// </summary>
         /// <param name="target"></param>
-        /// <param name="comparisonSetUid"></param>
+        /// <param name="comparisonSet"></param>
         /// <param name="list"></param>
-        public void Compare(ObjectPrivilege target, Guid comparisonSetUid, List<DeltaReport> list)
+        public void Compare(ObjectPrivilege target, ComparisonSet comparisonSet, List<DeltaReport> list)
         {
             var objectValue = string.Format("{0}/{1}@{2}", this.Privilege, this.TableName, this.Grantee);
 
-            if (this.TableSchema != target.TableSchema)
+            if (this.TableSchema != target.TableSchema && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, objectValue, null, Strings.PropertyDifference, "TABLE_SCHEMA", this.TableSchema, target.TableSchema
+                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "TABLE_SCHEMA", this.TableSchema, target.TableSchema
                     ));
             }
             if (this.Grantable != target.Grantable)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, objectValue, null, Strings.PropertyDifference, "GRANTABLE", this.Grantable, target.Grantable
+                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "GRANTABLE", this.Grantable, target.Grantable
                     ));
             }
             if (this.Hierarchy != target.Hierarchy)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, objectValue, null, Strings.PropertyDifference, "HIERARCHY", this.Hierarchy, target.Hierarchy
+                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "HIERARCHY", this.Hierarchy, target.Hierarchy
                     ));
             }
             if (this.Common != target.Common)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, objectValue, null, Strings.PropertyDifference, "COMMON", this.Common, target.Common
+                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "COMMON", this.Common, target.Common
                     ));
             }
             if (this.Type != target.Type)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, objectValue, null, Strings.PropertyDifference, "TYPE", this.Type, target.Type
+                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "TYPE", this.Type, target.Type
                     ));
             }
         }
