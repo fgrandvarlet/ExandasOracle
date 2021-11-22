@@ -54,7 +54,7 @@ namespace ExandasOracle.Forms
             connectionsLinkLabel.Text = Strings.ServerConnections;
             comparisonSetsLinkLabel.Text = Strings.ComparisonSets;
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
         }
 
         protected override void WndProc(ref Message m)

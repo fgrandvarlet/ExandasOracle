@@ -42,7 +42,6 @@ namespace ExandasOracle.Components
             idColumn.HeaderText = "ID delta report";
             idColumn.Visible = false;
 
-            // TODO choisir une colonne du type DataGridViewLinkColumn
             /*
             nameColumn = new DataGridViewLinkColumn();
             nameColumn.Name = "name";
@@ -58,37 +57,37 @@ namespace ExandasOracle.Components
             entityColumn.Name = "entity";
             entityColumn.DataPropertyName = "entity";
             entityColumn.HeaderText = Strings.Entity;
-            entityColumn.Width = 150;
+            entityColumn.Width = 200;
 
             objectColumn = new DataGridViewTextBoxColumn();
             objectColumn.Name = "object";
             objectColumn.DataPropertyName = "object";
             objectColumn.HeaderText = Strings.ObjectName;
-            objectColumn.Width = 200;
+            objectColumn.Width = 250;
 
             parentObjectColumn = new DataGridViewTextBoxColumn();
             parentObjectColumn.Name = "parent_object";
             parentObjectColumn.DataPropertyName = "parent_object";
             parentObjectColumn.HeaderText = Strings.ParentObject;
-            parentObjectColumn.Width = 150;
+            parentObjectColumn.Width = 180;
 
             labelColumn = new DataGridViewTextBoxColumn();
             labelColumn.Name = "label";
             labelColumn.DataPropertyName = "label";
             labelColumn.HeaderText = Strings.Label;
-            labelColumn.Width = 180;
+            labelColumn.Width = 200;
 
             propertyColumn = new DataGridViewTextBoxColumn();
             propertyColumn.Name = "property";
             propertyColumn.DataPropertyName = "property";
             propertyColumn.HeaderText = Strings.Property;
-            propertyColumn.Width = 150;
+            propertyColumn.Width = 200;
 
             sourceColumn = new DataGridViewTextBoxColumn();
             sourceColumn.Name = "source";
             sourceColumn.DataPropertyName = "source";
             sourceColumn.HeaderText = Strings.SourceValue;
-            sourceColumn.Width = 150;
+            sourceColumn.Width = 200;
 
             targetColumn = new DataGridViewTextBoxColumn();
             targetColumn.Name = "target";

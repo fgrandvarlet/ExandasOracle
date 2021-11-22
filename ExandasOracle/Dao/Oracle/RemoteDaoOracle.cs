@@ -1237,7 +1237,6 @@ namespace ExandasOracle.Dao.Oracle
             var cmd = new OracleCommand(sql, conn);
             cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
 
-            // TODO vérifier impact
             cmd.InitialLONGFetchSize = -1;
 
             using (var dr = cmd.ExecuteReader())
