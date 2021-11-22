@@ -31,7 +31,7 @@ namespace ExandasOracle.Core
             {
                 while (dr.Read())
                 {
-                    var objectValue = string.Format("{0}#{1}", (string)dr["index_name"], (decimal)dr["column_position"]);
+                    var objectValue = string.Format("{0}#{1}", (string)dr["index_name"], (int)dr["column_position"]);
                     var report = new DeltaReport(this._comparisonSet.Uid, "INDEX EXPRESSION", objectValue, (string)dr["table_name"], Strings.ObjectInSource);
                     list.Add(report);
                 }
@@ -49,7 +49,7 @@ namespace ExandasOracle.Core
             {
                 while (dr.Read())
                 {
-                    var objectValue = string.Format("{0}#{1}", (string)dr["index_name"], (decimal)dr["column_position"]);
+                    var objectValue = string.Format("{0}#{1}", (string)dr["index_name"], (int)dr["column_position"]);
                     var report = new DeltaReport(this._comparisonSet.Uid, "INDEX EXPRESSION", objectValue, (string)dr["table_name"], Strings.ObjectInTarget);
                     list.Add(report);
                 }
