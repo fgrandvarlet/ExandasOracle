@@ -12,7 +12,7 @@ SELECT
 ,   s.locality                  AS src_locality
 ,   s.alignment                 AS src_alignment
 ,   s.def_tablespace_name       AS src_def_tablespace_name
-,   s.def_logging               AS src_logging
+,   s.def_logging               AS src_def_logging
 ,   s.def_parameters            AS src_def_parameters
 ,   s.interval                  AS src_interval
 ,   s.autolist                  AS src_autolist
@@ -27,7 +27,7 @@ SELECT
 ,   t.locality                  AS tgt_locality
 ,   t.alignment                 AS tgt_alignment
 ,   t.def_tablespace_name       AS tgt_def_tablespace_name
-,   t.def_logging               AS tgt_logging
+,   t.def_logging               AS tgt_def_logging
 ,   t.def_parameters            AS tgt_def_parameters
 ,   t.interval                  AS tgt_interval
 ,   t.autolist                  AS tgt_autolist
