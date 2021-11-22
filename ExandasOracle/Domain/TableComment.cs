@@ -5,11 +5,10 @@ using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
 {
-    public class ColumnComment
+    public class TableComment
     {
-        const string ENTITY = "COLUMN COMMENT";
+        const string ENTITY = "TABLE COMMENT";
         public string TableName { get; set; }
-        public string ColumnName { get; set; }
         public string Comments { get; set; }
 
         /// <summary>
@@ -17,13 +16,13 @@ namespace ExandasOracle.Domain
         /// </summary>
         /// <param name="target"></param>
         /// <param name="comparisonSetUid"></param>
-        /// <param name="list"></param>        
-        public void Compare(ColumnComment target, Guid comparisonSetUid, List<DeltaReport> list)
+        /// <param name="list"></param>
+        public void Compare(TableComment target, Guid comparisonSetUid, List<DeltaReport> list)
         {
             if (this.Comments != target.Comments)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ColumnName, this.TableName, Strings.PropertyDifference, "COMMENTS", this.Comments, target.Comments
+                    comparisonSetUid, ENTITY, this.TableName, null, Strings.PropertyDifference, "COMMENTS", this.Comments, target.Comments
                     ));
             }
         }

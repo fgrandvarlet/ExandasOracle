@@ -30,6 +30,7 @@ namespace ExandasOracle.Core
             var dict = new Dictionary<string, LoaderDelegate>
             {
                 { Strings.Tables, LoadTables },
+                { Strings.TableComments, LoadTableComments },
                 { Strings.TableColumns, LoadTableColumns },
                 { Strings.IdentityColumns, LoadIdentityColumns },
 
@@ -48,8 +49,10 @@ namespace ExandasOracle.Core
                 { Strings.TableSubpartitions, LoadTableSubpartitions },
 
                 { Strings.Views, LoadViews },
+                { Strings.ViewComments, LoadViewComments },
                 { Strings.ViewColumns, LoadViewColumns },
                 { Strings.MaterializedViews, LoadMaterializedViews },
+                { Strings.MaterializedViewComments, LoadMaterializedViewComments },
 
                 { Strings.Sequences, LoadSequences },
                 
@@ -69,6 +72,7 @@ namespace ExandasOracle.Core
                 { Strings.ClusterIndexes, LoadClusterIndexes },
 
                 { Strings.Types, LoadOracleTypes },
+                { Strings.DatabaseLinks, LoadDatabaseLinks },
 
                 { Strings.ObjectPrivileges, LoadObjectPrivileges },
                 { Strings.Synonyms, LoadSynonyms },

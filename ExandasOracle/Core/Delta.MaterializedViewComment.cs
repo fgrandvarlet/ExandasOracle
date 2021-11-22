@@ -13,32 +13,30 @@ namespace ExandasOracle.Core
 		/// </summary>
 		/// <param name="conn"></param>
 		/// <param name="list"></param>
-		private void DeltaColumnComment(FbConnection conn, List<DeltaReport> list)
+		private void DeltaMaterializedViewComment(FbConnection conn, List<DeltaReport> list)
 		{
 			string sql;
 			FbCommand cmd;
 
 			// property differences between source and target
-			sql = "SELECT * FROM comp_col_comments";
+			sql = "SELECT * FROM comp_mview_comments";
 			cmd = new FbCommand(sql, conn);
 
 			using (FbDataReader dr = cmd.ExecuteReader())
 			{
 				while (dr.Read())
 				{
-					var sourceColumnComment = new ColumnComment
+					var sourceMaterializedViewComment = new MaterializedViewComment
 					{
-						TableName = (string)dr["table_name"],
-						ColumnName = (string)dr["column_name"],
+						MViewName = (string)dr["mview_name"],
 						Comments = dr["src_comments"] is DBNull ? null : (string)dr["src_comments"],
 					};
-					var targetColumnComment = new ColumnComment
+					var targetMaterializedViewComment = new MaterializedViewComment
 					{
-						TableName = (string)dr["table_name"],
-						ColumnName = (string)dr["column_name"],
+						MViewName = (string)dr["mview_name"],
 						Comments = dr["tgt_comments"] is DBNull ? null : (string)dr["tgt_comments"],
 					};
-					sourceColumnComment.Compare(targetColumnComment, this._comparisonSet.Uid, list);
+					sourceMaterializedViewComment.Compare(targetMaterializedViewComment, this._comparisonSet.Uid, list);
 				}
 			}
 		}

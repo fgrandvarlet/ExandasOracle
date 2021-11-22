@@ -63,8 +63,8 @@ namespace ExandasOracle.Core
                     {
                         TypeName = (string)dr["type_name"],
                         Typecode = dr["src_type_code"] is DBNull ? null : (string)dr["src_type_code"],
-                        Attributes = dr["src_attributes"] is DBNull ? null : (decimal?)dr["src_attributes"],
-                        Methods = dr["src_methods"] is DBNull ? null : (decimal?)dr["src_methods"],
+                        Attributes = dr["src_attributes"] is DBNull ? null : (int?)dr["src_attributes"],
+                        Methods = dr["src_methods"] is DBNull ? null : (int?)dr["src_methods"],
                         Predefined = dr["src_predefined"] is DBNull ? null : (string)dr["src_predefined"],
                         Incomplete = dr["src_incomplete"] is DBNull ? null : (string)dr["src_incomplete"],
                         Final = dr["src_final"] is DBNull ? null : (string)dr["src_final"],
@@ -72,15 +72,15 @@ namespace ExandasOracle.Core
                         Persistable = dr["src_persistable"] is DBNull ? null : (string)dr["src_persistable"],
                         SupertypeOwner = dr["src_supertype_owner"] is DBNull ? null : (string)dr["src_supertype_owner"],
                         SupertypeName = dr["src_supertype_name"] is DBNull ? null : (string)dr["src_supertype_name"],
-                        LocalAttributes = dr["src_local_attributes"] is DBNull ? null : (decimal?)dr["src_local_attributes"],
-                        LocalMethods = dr["src_local_methods"] is DBNull ? null : (decimal?)dr["src_local_methods"],
+                        LocalAttributes = dr["src_local_attributes"] is DBNull ? null : (int?)dr["src_local_attributes"],
+                        LocalMethods = dr["src_local_methods"] is DBNull ? null : (int?)dr["src_local_methods"],
                     };
                     var targetOracleType = new OracleType
                     {
                         TypeName = (string)dr["type_name"],
                         Typecode = dr["tgt_type_code"] is DBNull ? null : (string)dr["tgt_type_code"],
-                        Attributes = dr["tgt_attributes"] is DBNull ? null : (decimal?)dr["tgt_attributes"],
-                        Methods = dr["tgt_methods"] is DBNull ? null : (decimal?)dr["tgt_methods"],
+                        Attributes = dr["tgt_attributes"] is DBNull ? null : (int?)dr["tgt_attributes"],
+                        Methods = dr["tgt_methods"] is DBNull ? null : (int?)dr["tgt_methods"],
                         Predefined = dr["tgt_predefined"] is DBNull ? null : (string)dr["tgt_predefined"],
                         Incomplete = dr["tgt_incomplete"] is DBNull ? null : (string)dr["tgt_incomplete"],
                         Final = dr["tgt_final"] is DBNull ? null : (string)dr["tgt_final"],
@@ -88,8 +88,8 @@ namespace ExandasOracle.Core
                         Persistable = dr["tgt_persistable"] is DBNull ? null : (string)dr["tgt_persistable"],
                         SupertypeOwner = dr["tgt_supertype_owner"] is DBNull ? null : (string)dr["tgt_supertype_owner"],
                         SupertypeName = dr["tgt_supertype_name"] is DBNull ? null : (string)dr["tgt_supertype_name"],
-                        LocalAttributes = dr["tgt_local_attributes"] is DBNull ? null : (decimal?)dr["tgt_local_attributes"],
-                        LocalMethods = dr["tgt_local_methods"] is DBNull ? null : (decimal?)dr["tgt_local_methods"],
+                        LocalAttributes = dr["tgt_local_attributes"] is DBNull ? null : (int?)dr["tgt_local_attributes"],
+                        LocalMethods = dr["tgt_local_methods"] is DBNull ? null : (int?)dr["tgt_local_methods"],
                     };
                     sourceOracleType.Compare(targetOracleType, this._comparisonSet, list);
                 }

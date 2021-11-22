@@ -11,6 +11,8 @@ namespace ExandasOracle.Dao
 
         void LoadTableList(FbTransaction tran, SchemaType schemaType, List<Table> list);
 
+        void LoadTableCommentList(FbTransaction tran, SchemaType schemaType, List<TableComment> list);
+
         void LoadTableColumnList(FbTransaction tran, SchemaType schemaType, List<TableColumn> list);
         
         void LoadIdentityColumnList(FbTransaction tran, SchemaType schemaType, List<IdentityColumn> list);
@@ -37,9 +39,13 @@ namespace ExandasOracle.Dao
 
         void LoadViewList(FbTransaction tran, SchemaType schemaType, List<View> list);
 
+        void LoadViewCommentList(FbTransaction tran, SchemaType schemaType, List<ViewComment> list);
+
         void LoadViewColumnList(FbTransaction tran, SchemaType schemaType, List<ViewColumn> list);
 
         void LoadMaterializedViewList(FbTransaction tran, SchemaType schemaType, List<MaterializedView> list);
+
+        void LoadMaterializedViewCommentList(FbTransaction tran, SchemaType schemaType, List<MaterializedViewComment> list);
 
         void LoadSequenceList(FbTransaction tran, SchemaType schemaType, List<Sequence> list);
 
@@ -70,6 +76,8 @@ namespace ExandasOracle.Dao
         void LoadClusterIndexList(FbTransaction tran, SchemaType schemaType, List<ClusterIndex> list);
         
         void LoadOracleTypeList(FbTransaction tran, SchemaType schemaType, List<OracleType> list);
+
+        void LoadDatabaseLinkList(FbTransaction tran, SchemaType schemaType, List<DatabaseLink> list);
 
         void LoadObjectPrivilegeList(FbTransaction tran, SchemaType schemaType, List<ObjectPrivilege> list);
         

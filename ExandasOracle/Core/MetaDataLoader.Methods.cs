@@ -12,6 +12,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadTableList(tran, schemaType, dao.GetTableList(conn, schema, DBAViews));
         }
 
+        private void LoadTableComments(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadTableCommentList(tran, schemaType, dao.GetTableCommentList(conn, schema, DBAViews));
+        }
+
         private void LoadTableColumns(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadTableColumnList(tran, schemaType, dao.GetTableColumnList(conn, schema, DBAViews));
@@ -77,6 +82,11 @@ namespace ExandasOracle.Core
             this._localDao.LoadViewList(tran, schemaType, dao.GetViewList(conn, schema, DBAViews));
         }
 
+        private void LoadViewComments(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadViewCommentList(tran, schemaType, dao.GetViewCommentList(conn, schema, DBAViews));
+        }
+
         private void LoadViewColumns(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadViewColumnList(tran, schemaType, dao.GetViewColumnList(conn, schema, DBAViews));
@@ -85,6 +95,11 @@ namespace ExandasOracle.Core
         private void LoadMaterializedViews(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadMaterializedViewList(tran, schemaType, dao.GetMaterializedViewList(conn, schema, DBAViews));
+        }
+
+        private void LoadMaterializedViewComments(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadMaterializedViewCommentList(tran, schemaType, dao.GetMaterializedViewCommentList(conn, schema, DBAViews));
         }
 
         private void LoadSequences(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
@@ -156,6 +171,11 @@ namespace ExandasOracle.Core
         private void LoadOracleTypes(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
         {
             this._localDao.LoadOracleTypeList(tran, schemaType, dao.GetOracleTypeList(conn, schema, DBAViews));
+        }
+
+        private void LoadDatabaseLinks(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)
+        {
+            this._localDao.LoadDatabaseLinkList(tran, schemaType, dao.GetDatabaseLinkList(conn, schema, DBAViews));
         }
 
         private void LoadObjectPrivileges(FbTransaction tran, SchemaType schemaType, IRemoteDao dao, OracleConnection conn, string schema, bool DBAViews)

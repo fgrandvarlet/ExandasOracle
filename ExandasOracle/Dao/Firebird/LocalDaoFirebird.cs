@@ -90,6 +90,34 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadTableCommentList(FbTransaction tran, SchemaType schemaType, List<TableComment> list)
+        {
+            var tableName = string.Format("{0}_tab_comments", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@table_name, @comments)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var tc in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("table_name", tc.TableName);
+                cmd.Parameters.AddWithValue("comments", tc.Comments);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadTableColumnList(FbTransaction tran, SchemaType schemaType, List<TableColumn> list)
         {
             var tableName = string.Format("{0}_tab_cols", GetPrefix(schemaType));
@@ -587,6 +615,34 @@ namespace ExandasOracle.Dao.Firebird
         /// <param name="tran"></param>
         /// <param name="schemaType"></param>
         /// <param name="list"></param>
+        public void LoadViewCommentList(FbTransaction tran, SchemaType schemaType, List<ViewComment> list)
+        {
+            var tableName = string.Format("{0}_view_comments", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@view_name, @comments)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var vc in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("view_name", vc.ViewName);
+                cmd.Parameters.AddWithValue("comments", vc.Comments);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
         public void LoadViewColumnList(FbTransaction tran, SchemaType schemaType, List<ViewColumn> list)
         {
             var tableName = string.Format("{0}_view_cols", GetPrefix(schemaType));
@@ -667,6 +723,34 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.Parameters.AddWithValue("fast_refreshable", mv.FastRefreshable);
                 cmd.Parameters.AddWithValue("use_no_index", mv.UseNoIndex);
                 cmd.Parameters.AddWithValue("default_collation", mv.DefaultCollation);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadMaterializedViewCommentList(FbTransaction tran, SchemaType schemaType, List<MaterializedViewComment> list)
+        {
+            var tableName = string.Format("{0}_mview_comments", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@mview_name, @comments)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var mc in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("mview_name", mc.MViewName);
+                cmd.Parameters.AddWithValue("comments", mc.Comments);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -1275,6 +1359,37 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.Parameters.AddWithValue("supertype_name", ot.SupertypeName);
                 cmd.Parameters.AddWithValue("local_attributes", ot.LocalAttributes);
                 cmd.Parameters.AddWithValue("local_methods", ot.LocalMethods);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tran"></param>
+        /// <param name="schemaType"></param>
+        /// <param name="list"></param>
+        public void LoadDatabaseLinkList(FbTransaction tran, SchemaType schemaType, List<DatabaseLink> list)
+        {
+            var tableName = string.Format("{0}_db_links", GetPrefix(schemaType));
+
+            const string sql = "INSERT INTO {0} VALUES(@db_link, @username, @host, @shard_internal, @valid)";
+
+            // preliminary purge of the table
+            (new FbCommand(string.Format("DELETE FROM {0}", tableName), tran.Connection, tran)).ExecuteNonQuery();
+
+            // data insertion
+            var cmd = new FbCommand(string.Format(sql, tableName), tran.Connection, tran);
+            cmd.Prepare();
+
+            foreach (var dl in list)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("db_link", dl.DbLink);
+                cmd.Parameters.AddWithValue("username", dl.Username);
+                cmd.Parameters.AddWithValue("host", dl.Host);
+                cmd.Parameters.AddWithValue("shard_internal", dl.ShardInternal);
+                cmd.Parameters.AddWithValue("valid", dl.Valid);
                 cmd.ExecuteNonQuery();
             }
         }

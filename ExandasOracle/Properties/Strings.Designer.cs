@@ -358,6 +358,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à database links.
+        /// </summary>
+        internal static string DatabaseLinks {
+            get {
+                return ResourceManager.GetString("DatabaseLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à DBA views.
         /// </summary>
         internal static string DBAViews {
@@ -651,6 +660,15 @@ namespace ExandasOracle.Properties {
         internal static string LocalDatabaseSize {
             get {
                 return ResourceManager.GetString("LocalDatabaseSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à materialized view comments.
+        /// </summary>
+        internal static string MaterializedViewComments {
+            get {
+                return ResourceManager.GetString("MaterializedViewComments", resourceCulture);
             }
         }
         
@@ -1051,6 +1069,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à table comments.
+        /// </summary>
+        internal static string TableComments {
+            get {
+                return ResourceManager.GetString("TableComments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à table indexes.
         /// </summary>
         internal static string TableIndexes {
@@ -1236,6 +1263,15 @@ namespace ExandasOracle.Properties {
         internal static string ViewColumns {
             get {
                 return ResourceManager.GetString("ViewColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à view comments.
+        /// </summary>
+        internal static string ViewComments {
+            get {
+                return ResourceManager.GetString("ViewComments", resourceCulture);
             }
         }
         

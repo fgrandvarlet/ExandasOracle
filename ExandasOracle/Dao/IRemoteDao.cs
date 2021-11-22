@@ -15,6 +15,8 @@ namespace ExandasOracle.Dao
 
         List<Table> GetTableList(OracleConnection conn, string schema, bool DBAViews);
 
+        List<TableComment> GetTableCommentList(OracleConnection conn, string schema, bool DBAViews);
+
         List<TableColumn> GetTableColumnList(OracleConnection conn, string schema, bool DBAViews);
         
         List<IdentityColumn> GetIdentityColumnList(OracleConnection conn, string schema, bool DBAViews);
@@ -41,9 +43,13 @@ namespace ExandasOracle.Dao
 
         List<View> GetViewList(OracleConnection conn, string schema, bool DBAViews);
 
+        List<ViewComment> GetViewCommentList(OracleConnection conn, string schema, bool DBAViews);
+
         List<ViewColumn> GetViewColumnList(OracleConnection conn, string schema, bool DBAViews);
 
         List<MaterializedView> GetMaterializedViewList(OracleConnection conn, string schema, bool DBAViews);
+
+        List<MaterializedViewComment> GetMaterializedViewCommentList(OracleConnection conn, string schema, bool DBAViews);
 
         List<Sequence> GetSequenceList(OracleConnection conn, string schema, bool DBAViews);
 
@@ -72,6 +78,8 @@ namespace ExandasOracle.Dao
         List<ClusterIndex> GetClusterIndexList(OracleConnection conn, string schema, bool DBAViews);
         
         List<OracleType> GetOracleTypeList(OracleConnection conn, string schema, bool DBAViews);
+
+        List<DatabaseLink> GetDatabaseLinkList(OracleConnection conn, string schema, bool DBAViews);
 
         List<ObjectPrivilege> GetObjectPrivilegeList(OracleConnection conn, string schema, bool DBAViews);
         

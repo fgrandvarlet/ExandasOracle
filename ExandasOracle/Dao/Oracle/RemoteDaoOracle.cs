@@ -118,6 +118,37 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<TableComment> GetTableCommentList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<TableComment>();
+
+            const string root = "SELECT table_name, comments" +
+                " FROM {0}_tab_comments WHERE owner = :owner AND table_type = 'TABLE' ORDER BY table_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var tc = new TableComment();
+                    tc.TableName = (string)dr["table_name"];
+                    tc.Comments = dr["comments"] is DBNull ? null : (string)dr["comments"];
+                    list.Add(tc);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<TableColumn> GetTableColumnList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<TableColumn>();
@@ -688,6 +719,37 @@ namespace ExandasOracle.Dao.Oracle
         /// <param name="schema"></param>
         /// <param name="DBAViews"></param>
         /// <returns></returns>
+        public List<ViewComment> GetViewCommentList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<ViewComment>();
+
+            const string root = "SELECT table_name view_name, comments" +
+                " FROM {0}_tab_comments WHERE owner = :owner AND table_type = 'VIEW' ORDER BY table_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var vc = new ViewComment();
+                    vc.ViewName = (string)dr["view_name"];
+                    vc.Comments = dr["comments"] is DBNull ? null : (string)dr["comments"];
+                    list.Add(vc);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
         public List<ViewColumn> GetViewColumnList(OracleConnection conn, string schema, bool DBAViews)
         {
             var list = new List<ViewColumn>();
@@ -777,6 +839,37 @@ namespace ExandasOracle.Dao.Oracle
                     mv.UseNoIndex = dr["use_no_index"] is DBNull ? null : (string)dr["use_no_index"];
                     mv.DefaultCollation = dr["default_collation"] is DBNull ? null : (string)dr["default_collation"];
                     list.Add(mv);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<MaterializedViewComment> GetMaterializedViewCommentList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<MaterializedViewComment>();
+
+            const string root = "SELECT mview_name, comments" +
+                " FROM {0}_mview_comments WHERE owner = :owner ORDER BY mview_name";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var mc = new MaterializedViewComment();
+                    mc.MViewName = (string)dr["mview_name"];
+                    mc.Comments = dr["comments"] is DBNull ? null : (string)dr["comments"];
+                    list.Add(mc);
                 }
             }
             return list;
@@ -1418,6 +1511,41 @@ namespace ExandasOracle.Dao.Oracle
                     ot.LocalAttributes = dr["local_attributes"] is DBNull ? null : (decimal?)dr["local_attributes"];
                     ot.LocalMethods = dr["local_methods"] is DBNull ? null : (decimal?)dr["local_methods"];
                     list.Add(ot);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="schema"></param>
+        /// <param name="DBAViews"></param>
+        /// <returns></returns>
+        public List<DatabaseLink> GetDatabaseLinkList(OracleConnection conn, string schema, bool DBAViews)
+        {
+            var list = new List<DatabaseLink>();
+
+            const string root = "SELECT db_link, username, host, shard_internal, valid" +
+                " FROM {0}_db_links" +
+                " WHERE owner = :owner ORDER BY db_link";
+            string sql = string.Format(root, GetPrefix(DBAViews));
+
+            var cmd = new OracleCommand(sql, conn);
+            cmd.Parameters.Add("owner", OracleDbType.Varchar2).Value = schema;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    var dl = new DatabaseLink();
+                    dl.DbLink = (string)dr["db_link"];
+                    dl.Username = dr["username"] is DBNull ? null : (string)dr["username"];
+                    dl.Host = dr["host"] is DBNull ? null : (string)dr["host"];
+                    dl.ShardInternal = dr["shard_internal"] is DBNull ? null : (string)dr["shard_internal"];
+                    dl.Valid = dr["valid"] is DBNull ? null : (string)dr["valid"];
+                    list.Add(dl);
                 }
             }
             return list;

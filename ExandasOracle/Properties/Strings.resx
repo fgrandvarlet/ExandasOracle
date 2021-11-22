@@ -216,6 +216,9 @@
   <data name="Constraints" xml:space="preserve">
     <value>constraints</value>
   </data>
+  <data name="DatabaseLinks" xml:space="preserve">
+    <value>database links</value>
+  </data>
   <data name="DBAViews" xml:space="preserve">
     <value>DBA views</value>
   </data>
@@ -314,6 +317,9 @@
   </data>
   <data name="LocalDatabaseSize" xml:space="preserve">
     <value>&amp;Local database size</value>
+  </data>
+  <data name="MaterializedViewComments" xml:space="preserve">
+    <value>materialized view comments</value>
   </data>
   <data name="MaterializedViews" xml:space="preserve">
     <value>materialized views</value>
@@ -447,6 +453,9 @@
   <data name="TableColumns" xml:space="preserve">
     <value>table columns</value>
   </data>
+  <data name="TableComments" xml:space="preserve">
+    <value>table comments</value>
+  </data>
   <data name="TableIndexes" xml:space="preserve">
     <value>table indexes</value>
   </data>
@@ -509,6 +518,9 @@
   </data>
   <data name="ViewColumns" xml:space="preserve">
     <value>view columns</value>
+  </data>
+  <data name="ViewComments" xml:space="preserve">
+    <value>view comments</value>
   </data>
   <data name="ViewComparisonReport" xml:space="preserve">
     <value>View the comparison report</value>

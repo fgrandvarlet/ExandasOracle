@@ -69,7 +69,7 @@ namespace ExandasOracle.Core
                         TableOwner = (string)dr["src_table_owner"],
                         TableName = (string)dr["src_table_name"],
                         ColumnExpression = dr["src_column_expression"] is DBNull ? null : (string)dr["src_column_expression"],
-                        ColumnPosition = (decimal)dr["column_position"],
+                        ColumnPosition = (int)dr["column_position"],
                     };
                     var targetIndexExpression = new IndexExpression
                     {
@@ -77,7 +77,7 @@ namespace ExandasOracle.Core
                         TableOwner = (string)dr["tgt_table_owner"],
                         TableName = (string)dr["tgt_table_name"],
                         ColumnExpression = dr["tgt_column_expression"] is DBNull ? null : (string)dr["tgt_column_expression"],
-                        ColumnPosition = (decimal)dr["column_position"],
+                        ColumnPosition = (int)dr["column_position"],
                     };
                     sourceIndexExpression.Compare(targetIndexExpression, this._comparisonSet, list);
                 }

@@ -180,6 +180,7 @@
     <Compile Include="Core\Delta.Constraint.cs" />
     <Compile Include="Core\Delta.ConstraintColumn.cs" />
     <Compile Include="Core\Delta.cs" />
+    <Compile Include="Core\Delta.DatabaseLink.cs" />
     <Compile Include="Core\Delta.ForeignKey.cs" />
     <Compile Include="Core\Delta.IdentityColumn.cs" />
     <Compile Include="Core\Delta.IndexColumn.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="Core\Delta.IndexPartition.cs" />
     <Compile Include="Core\Delta.IndexSubpartition.cs" />
     <Compile Include="Core\Delta.MaterializedView.cs" />
+    <Compile Include="Core\Delta.MaterializedViewComment.cs" />
     <Compile Include="Core\Delta.ObjectPrivilege.cs" />
     <Compile Include="Core\Delta.PartitionedIndex.cs" />
     <Compile Include="Core\Delta.PartitionedTable.cs" />
@@ -196,6 +198,7 @@
     <Compile Include="Core\Delta.Synonym.cs" />
     <Compile Include="Core\Delta.Table.cs" />
     <Compile Include="Core\Delta.TableColumn.cs" />
+    <Compile Include="Core\Delta.TableComment.cs" />
     <Compile Include="Core\Delta.TableIndex.cs" />
     <Compile Include="Core\Delta.TablePartition.cs" />
     <Compile Include="Core\Delta.TableSubpartition.cs" />
@@ -204,6 +207,7 @@
     <Compile Include="Core\Delta.Unique.cs" />
     <Compile Include="Core\Delta.View.cs" />
     <Compile Include="Core\Delta.ViewColumn.cs" />
+    <Compile Include="Core\Delta.ViewComment.cs" />
     <Compile Include="Core\MetaDataLoader.cs" />
     <Compile Include="Core\MetaDataLoader.Methods.cs" />
     <Compile Include="Dao\DaoFactory.cs" />
@@ -233,6 +237,7 @@
     <Compile Include="Domain\Constraint.cs" />
     <Compile Include="Domain\ConstraintColumn.cs" />
     <Compile Include="Domain\Criteria.cs" />
+    <Compile Include="Domain\DatabaseLink.cs" />
     <Compile Include="Domain\DeltaReport.cs" />
     <Compile Include="Domain\ForeignKey.cs" />
     <Compile Include="Domain\IdentityColumn.cs" />
@@ -242,6 +247,7 @@
     <Compile Include="Domain\IndexPartition.cs" />
     <Compile Include="Domain\IndexSubpartition.cs" />
     <Compile Include="Domain\MaterializedView.cs" />
+    <Compile Include="Domain\MaterializedViewComment.cs" />
     <Compile Include="Domain\ObjectPrivilege.cs" />
     <Compile Include="Domain\Partition.cs" />
     <Compile Include="Domain\Partitioned.cs" />
@@ -255,6 +261,7 @@
     <Compile Include="Domain\Synonym.cs" />
     <Compile Include="Domain\Table.cs" />
     <Compile Include="Domain\TableColumn.cs" />
+    <Compile Include="Domain\TableComment.cs" />
     <Compile Include="Domain\TableIndex.cs" />
     <Compile Include="Domain\TablePartition.cs" />
     <Compile Include="Domain\TableSubpartition.cs" />
@@ -263,6 +270,7 @@
     <Compile Include="Domain\Unique.cs" />
     <Compile Include="Domain\View.cs" />
     <Compile Include="Domain\ViewColumn.cs" />
+    <Compile Include="Domain\ViewComment.cs" />
     <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

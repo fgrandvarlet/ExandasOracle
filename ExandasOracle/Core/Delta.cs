@@ -27,6 +27,7 @@ namespace ExandasOracle.Core
             var dict = new Dictionary<string, DeltaDelegate>
             {
                 { Strings.Tables, DeltaTable },
+                { Strings.TableComments, DeltaTableComment },
                 { Strings.TableColumns, DeltaTableColumn },
                 { Strings.IdentityColumns, DeltaIdentityColumn },
 
@@ -45,8 +46,10 @@ namespace ExandasOracle.Core
                 { Strings.TableSubpartitions, DeltaTableSubpartition },
 
                 { Strings.Views, DeltaView },
+                { Strings.ViewComments, DeltaViewComment },
                 { Strings.ViewColumns, DeltaViewColumn },
                 { Strings.MaterializedViews, DeltaMaterializedView },
+                { Strings.MaterializedViewComments, DeltaMaterializedViewComment },
 
                 { Strings.Sequences, DeltaSequence },
                 { Strings.TableIndexes, DeltaTableIndex },
@@ -66,6 +69,7 @@ namespace ExandasOracle.Core
                 { Strings.ClusterIndexes, DeltaClusterIndex },
 
                 { Strings.Types, DeltaOracleType },
+                { Strings.DatabaseLinks, DeltaDatabaseLink },
 
                 { Strings.ObjectPrivileges, DeltaObjectPrivilege },
                 { Strings.Synonyms, DeltaSynonym },
