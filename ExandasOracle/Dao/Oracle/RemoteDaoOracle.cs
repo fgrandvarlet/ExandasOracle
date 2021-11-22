@@ -978,7 +978,7 @@ namespace ExandasOracle.Dao.Oracle
             const string root = "SELECT index_name, table_owner, table_name, substr(column_name, 1, 128) column_name," +
                 " column_position, column_length, char_length, descend, collated_column_id" +
                 " FROM {0}_ind_columns" +
-                " WHERE index_owner = :owner ORDER BY index_name, column_name";
+                " WHERE index_owner = :owner AND column_name NOT LIKE 'SYS_NC%$' ORDER BY index_name, column_name";
             string sql = string.Format(root, GetPrefix(DBAViews));
 
             var cmd = new OracleCommand(sql, conn);

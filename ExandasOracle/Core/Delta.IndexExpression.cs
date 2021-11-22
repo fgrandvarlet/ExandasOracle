@@ -20,7 +20,7 @@ namespace ExandasOracle.Core
             FbCommand cmd;
 
             // phase 1 : source minus target
-            sql = "SELECT s.index_name, s.column_position FROM src_ind_expressions s" +
+            sql = "SELECT s.index_name, s.column_position, s.table_name FROM src_ind_expressions s" +
                 " LEFT JOIN tgt_ind_expressions t USING(index_name, column_position)" +
                 " JOIN common_indexes ci ON s.table_name = ci.table_name AND s.index_name = ci.index_name" +
                 " WHERE t.index_name IS NULL" +
@@ -38,7 +38,7 @@ namespace ExandasOracle.Core
             }
 
             // phase 2 : target minus source
-            sql = "SELECT t.index_name, t.column_position FROM tgt_ind_expressions t" +
+            sql = "SELECT t.index_name, t.column_position, t.table_name FROM tgt_ind_expressions t" +
                 " LEFT JOIN src_ind_expressions s USING(index_name, column_position)" +
                 " JOIN common_indexes ci ON t.table_name = ci.table_name AND t.index_name = ci.index_name" +
                 " WHERE s.index_name IS NULL" +
