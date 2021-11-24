@@ -1,30 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using FirebirdSql.Data.FirebirdClient;
 
 using ExandasOracle.Domain;
 
 namespace ExandasOracle.Dao.Firebird
 {
-	/// <summary>
-	/// 
-	/// </summary>
     public class ComparisonSetDaoFirebird : AbstractDaoFirebird, IComparisonSetDao
     {
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="connectionString"></param>
         public ComparisonSetDaoFirebird(string connectionString) : base(connectionString)
         {
         }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="criteria"></param>
-		/// <returns></returns>
 		protected override FbCommand CreateCommand(Criteria criteria)
 		{
 			string sql;
@@ -54,11 +41,6 @@ namespace ExandasOracle.Dao.Firebird
 			return cmd;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="uid"></param>
-		/// <returns></returns>
 		public ComparisonSet Get(Guid uid)
 		{
 			const string sql = "SELECT * FROM comparison_set WHERE uid = @uid";
@@ -87,10 +69,6 @@ namespace ExandasOracle.Dao.Firebird
 			return cs;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="cs"></param>
 		public void Add(ComparisonSet cs)
 		{
 			const string sql = "INSERT INTO comparison_set(uid, name, connection1_uid, connection2_uid, schema1, schema2)" +
@@ -113,10 +91,6 @@ namespace ExandasOracle.Dao.Firebird
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="cs"></param>
 		public void Save(ComparisonSet cs)
 		{
 			const string sql = "UPDATE comparison_set SET name = @name, connection1_uid = @connection1_uid, connection2_uid = @connection2_uid," +
@@ -139,10 +113,6 @@ namespace ExandasOracle.Dao.Firebird
 			}
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="cs"></param>
 		public void Delete(ComparisonSet cs)
 		{
 			const string sql = "DELETE FROM comparison_set WHERE uid = @uid";
@@ -156,6 +126,37 @@ namespace ExandasOracle.Dao.Firebird
 					cmd.ExecuteNonQuery();
 				}
 			}
+		}
+
+		public List<ComparisonSet> GetList()
+		{
+			var list = new List<ComparisonSet>();
+
+			const string sql = "SELECT * FROM comparison_set ORDER BY name";
+
+			using (FbConnection conn = GetFirebirdConnection())
+			{
+				conn.Open();
+				var cmd = new FbCommand(sql, conn);
+				using (FbDataReader dr = cmd.ExecuteReader())
+				{
+					while (dr.Read())
+					{
+						var cs = new ComparisonSet();
+
+						cs.Uid = Guid.Parse((string)dr["uid"]);
+						cs.Name = (string)dr["name"];
+						cs.Connection1Uid = Guid.Parse((string)dr["connection1_uid"]);
+						cs.Connection2Uid = Guid.Parse((string)dr["connection2_uid"]);
+						cs.Schema1 = (string)dr["schema1"];
+						cs.Schema2 = (string)dr["schema2"];
+						cs.LastReportTime = dr["last_report_time"] is DBNull ? null : (DateTime?)dr["last_report_time"];
+
+						list.Add(cs);
+					}
+				}
+			}
+			return list;
 		}
 
 	}

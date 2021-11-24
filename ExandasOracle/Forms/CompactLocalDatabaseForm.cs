@@ -44,7 +44,7 @@ namespace ExandasOracle.Forms
             topPanel.Height = 48;
             titlePanel.titleLabel.Text = Strings.CompactLocalDatabase;
             
-            this.localDatabaseTextBox.Text = DaoFactory.Instance.LocalDatabasePath;
+            this.localDatabaseTextBox.Text = DaoFactory.Instance.LocalDatabaseFullPath;
         }
 
         private void BackupLocalDatabase()

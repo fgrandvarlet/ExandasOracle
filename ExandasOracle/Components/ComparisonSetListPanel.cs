@@ -87,7 +87,8 @@ namespace ExandasOracle.Components
             using (var frm = new ComparisonSetForm(null))
             {
                 DialogResult dr = frm.ShowDialog(this);
-                if (dr == DialogResult.OK) RunLookup();
+                //if (dr == DialogResult.OK) RunLookup();
+                RunLookup();
             }
         }
 
@@ -102,7 +103,8 @@ namespace ExandasOracle.Components
                 using (var frm = new ComparisonSetForm(cs))
                 {
                     DialogResult dr = frm.ShowDialog(this);
-                    if (dr == DialogResult.OK) RunLookup();
+                    //if (dr == DialogResult.OK) RunLookup();
+                    RunLookup();
                 }
             }
         }

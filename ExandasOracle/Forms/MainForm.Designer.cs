@@ -36,6 +36,10 @@ namespace ExandasOracle.Forms
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.localDatabaseSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compactLocalDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.connectionsComparisonSetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
@@ -46,7 +50,8 @@ namespace ExandasOracle.Forms
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.connectionsLinkLabel = new System.Windows.Forms.LinkLabel();
             this.comparisonSetsLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.importOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.mainMenuStrip.SuspendLayout();
             this.fillPanel.SuspendLayout();
             this.leftPanel.SuspendLayout();
@@ -76,7 +81,7 @@ namespace ExandasOracle.Forms
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.quitToolStripMenuItem.Text = "&Quitter";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
             // 
@@ -84,8 +89,9 @@ namespace ExandasOracle.Forms
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.localDatabaseSizeToolStripMenuItem,
+            this.compactLocalDatabaseToolStripMenuItem,
             this.toolStripSeparator1,
-            this.compactLocalDatabaseToolStripMenuItem});
+            this.connectionsComparisonSetsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.toolsToolStripMenuItem.Text = "&Outils";
@@ -104,6 +110,34 @@ namespace ExandasOracle.Forms
             this.compactLocalDatabaseToolStripMenuItem.Text = "&Compacter la base de données locale";
             this.compactLocalDatabaseToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
+            // 
+            // connectionsComparisonSetsToolStripMenuItem
+            // 
+            this.connectionsComparisonSetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToolStripMenuItem,
+            this.importToolStripMenuItem});
+            this.connectionsComparisonSetsToolStripMenuItem.Name = "connectionsComparisonSetsToolStripMenuItem";
+            this.connectionsComparisonSetsToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
+            this.connectionsComparisonSetsToolStripMenuItem.Text = "C&onnexions et jeux de comparaison";
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.exportToolStripMenuItem.Text = "&Exporter";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.importToolStripMenuItem.Text = "&Importer";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -115,7 +149,7 @@ namespace ExandasOracle.Forms
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.aboutToolStripMenuItem.Text = "&A propos...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
             // 
@@ -201,11 +235,6 @@ namespace ExandasOracle.Forms
             this.comparisonSetsLinkLabel.Text = "Jeux de comparaison";
             this.comparisonSetsLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -251,5 +280,10 @@ namespace ExandasOracle.Forms
         private System.Windows.Forms.ToolStripMenuItem localDatabaseSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compactLocalDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem connectionsComparisonSetsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog exportSaveFileDialog;
+        private System.Windows.Forms.OpenFileDialog importOpenFileDialog;
     }
 }

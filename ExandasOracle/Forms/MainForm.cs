@@ -24,6 +24,8 @@ namespace ExandasOracle.Forms
         const int _ID_CLOSE = 11;
         const int _ID_LOCAL_DATABASE_SIZE = 21;
         const int _ID_COMPACT_LOCAL_DATABASE = 22;
+        const int _ID_EXPORT = 231;
+        const int _ID_IMPORT = 232;
         const int _ID_ABOUT = 31;
         const int _ID_CONNECTION_LIST = 101;
         const int _ID_COMPARISON_SET_LIST = 102;
@@ -39,6 +41,8 @@ namespace ExandasOracle.Forms
             quitToolStripMenuItem.Tag = _ID_CLOSE;
             localDatabaseSizeToolStripMenuItem.Tag = _ID_LOCAL_DATABASE_SIZE;
             compactLocalDatabaseToolStripMenuItem.Tag = _ID_COMPACT_LOCAL_DATABASE;
+            exportToolStripMenuItem.Tag = _ID_EXPORT;
+            importToolStripMenuItem.Tag = _ID_IMPORT;
             aboutToolStripMenuItem.Tag = _ID_ABOUT;
             connectionsLinkLabel.Tag = _ID_CONNECTION_LIST;
             comparisonSetsLinkLabel.Tag = _ID_COMPARISON_SET_LIST;
@@ -104,6 +108,8 @@ namespace ExandasOracle.Forms
             dict.Add(_ID_CLOSE, new Action(DoActionClose));
             dict.Add(_ID_LOCAL_DATABASE_SIZE, new Action(DoActionLocalDatabaseSize));
             dict.Add(_ID_COMPACT_LOCAL_DATABASE, new Action(DoActionCompactLocalDatabase));
+            dict.Add(_ID_EXPORT, new Action(DoActionExport));
+            dict.Add(_ID_IMPORT, new Action(DoActionImport));
             dict.Add(_ID_ABOUT, new Action(DoActionAbout));
             dict.Add(_ID_CONNECTION_LIST, new Action(DoActionConnectionList));
             dict.Add(_ID_COMPARISON_SET_LIST, new Action(DoActionComparisonSetList));
@@ -152,15 +158,58 @@ namespace ExandasOracle.Forms
         void DoActionLocalDatabaseSize()
         {
             var message = Strings.LocalDatabaseColon + Environment.NewLine +
-                Path.GetFullPath(DaoFactory.Instance.LocalDatabasePath) + Environment.NewLine + Environment.NewLine +
+                DaoFactory.Instance.LocalDatabaseFullPath + Environment.NewLine + Environment.NewLine +
                 Strings.FileSizeColon + DaoFactory.Instance.LocalDatabaseSize;
-            MessageBox.Show(message, Defs.APPLICATION_TITLE);
+            MessageBox.Show(message, Defs.APPLICATION_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         void DoActionCompactLocalDatabase()
         {
             using (var frm = new CompactLocalDatabaseForm())
             {
                 frm.ShowDialog(this);
+            }
+        }
+        void DoActionExport()
+        {
+            exportSaveFileDialog.Title = "Exporter les connexions et jeux de comparaison";
+            exportSaveFileDialog.Filter = "JSON File|*.json";
+            exportSaveFileDialog.FileName = "ConnectionsComparisonSets";
+            exportSaveFileDialog.InitialDirectory = DaoFactory.Instance.LocalDatabaseDirectoryFullPath;
+
+            if (exportSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    DataHandler.SerializeConnectionsComparisonSets(exportSaveFileDialog.FileName);
+                    var message = "Exportation effectuée dans le fichier :" + Environment.NewLine + Environment.NewLine + exportSaveFileDialog.FileName;
+                    MessageBox.Show(message, Defs.APPLICATION_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Strings.ExandasOracleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        void DoActionImport()
+        {
+            importOpenFileDialog.Title = "Importer des connexions et jeux de comparaison à partir d'un fichier";
+            importOpenFileDialog.Filter = "JSON File|*.json";
+            importOpenFileDialog.FileName = "";
+            importOpenFileDialog.InitialDirectory = DaoFactory.Instance.LocalDatabaseDirectoryFullPath;
+
+            if (importOpenFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    DataHandler.DeserializeConnectionsComparisonSets(importOpenFileDialog.FileName);
+                    //var message = "Exportation effectuée dans le fichier :" + Environment.NewLine + Environment.NewLine + exportSaveFileDialog.FileName;
+                    var message = "IMPORT " + importOpenFileDialog.FileName;
+                    MessageBox.Show(message, Defs.APPLICATION_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Strings.ExandasOracleError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         void DoActionAbout()

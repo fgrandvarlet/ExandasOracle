@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace ExandasOracle.Domain
 {
@@ -7,13 +8,20 @@ namespace ExandasOracle.Domain
         public Guid Uid { get; set; }
         public string Name { get; set; }
         public Guid Connection1Uid { get; set; }
+
+        [JsonIgnore]
         public ConnectionParams Connection1 { get; set; }
         public Guid Connection2Uid { get; set; }
+
+        [JsonIgnore]
         public ConnectionParams Connection2 { get; set; }
         public string Schema1 { get; set; }
         public string Schema2 { get; set; }
+
+        [JsonIgnore]
         public DateTime? LastReportTime { get; set; }
 
+        [JsonIgnore]
         public string ToFileName
         {
             get

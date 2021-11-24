@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Oracle.ManagedDataAccess.Client;
 
 using ExandasOracle.Core;
@@ -12,6 +13,8 @@ namespace ExandasOracle.Domain
         public string Name { get; set; }
         public string User { get; set; }
         public string Password { get; set; }
+        
+        [JsonIgnore]
         public string DecryptedPassword
         {
             get
@@ -23,12 +26,14 @@ namespace ExandasOracle.Domain
                 Password = CryptoUtil.EncryptIdentifier(value, Resources.IDIOMATIC);
             }
         }
+        
         public string Host { get; set; }
         public int Port { get; set; }
         public string SID { get; set; }
         public string Service { get; set; }
         public bool DBAViews { get; set; }
 
+        [JsonIgnore]
         public string ConnectionString
         {
             // cf. https://www.connectionstrings.com/oracle/
@@ -63,6 +68,7 @@ namespace ExandasOracle.Domain
             }
         }
 
+        [JsonIgnore]
         public string FormattedString
         {
             get

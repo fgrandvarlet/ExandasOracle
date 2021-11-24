@@ -211,6 +211,7 @@
     <Compile Include="Core\MetaDataLoader.cs" />
     <Compile Include="Core\MetaDataLoader.Methods.cs" />
     <Compile Include="Dao\DaoFactory.cs" />
+    <Compile Include="Dao\DataHandler.cs" />
     <Compile Include="Dao\Firebird\AbstractDaoFirebird.cs" />
     <Compile Include="Dao\Firebird\ComparisonSetDaoFirebird.cs" />
     <Compile Include="Dao\Firebird\ConnectionParamsDaoFirebird.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Dao\IRemoteDao.cs" />
     <Compile Include="Dao\Oracle\AbstractDaoOracle.cs" />
     <Compile Include="Dao\Oracle\RemoteDaoOracle.cs" />
+    <Compile Include="Dao\ParameterData.cs" />
     <Compile Include="Domain\ClusterColumnMapping.cs" />
     <Compile Include="Domain\Column.cs" />
     <Compile Include="Domain\AbstractConstraint.cs" />

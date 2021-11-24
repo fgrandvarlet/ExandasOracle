@@ -86,11 +86,27 @@ namespace ExandasOracle.Dao
             }
         }
 
+        public string LocalDatabaseDirectoryFullPath
+        {
+            get
+            {
+                return Path.GetFullPath(_localDatabaseDirectory);
+            }
+        }
+
         public string LocalDatabasePath
         {
             get
             {
                 return Path.Combine(_localDatabaseDirectory, _LOCAL_DATABASE_FILE_NAME);
+            }
+        }
+
+        public string LocalDatabaseFullPath
+        {
+            get
+            {
+                return Path.GetFullPath(LocalDatabasePath);
             }
         }
 

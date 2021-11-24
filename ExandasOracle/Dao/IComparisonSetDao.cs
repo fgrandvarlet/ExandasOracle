@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 
 using ExandasOracle.Domain;
@@ -16,5 +17,7 @@ namespace ExandasOracle.Dao
         void Save(ComparisonSet cs);
 
         void Delete(ComparisonSet cs);
+
+        List<ComparisonSet> GetList();
     }
 }

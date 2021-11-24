@@ -263,15 +263,7 @@ namespace ExandasOracle.Forms
                         {
                             comparisonSetUserControl1.serviceRadioButton.Checked = true;
                         }
-                        comparisonSetUserControl1.DBAViewsCheckBox.ThreeState = false;
-                        if (cp.DBAViews)
-                        {
-                            comparisonSetUserControl1.DBAViewsCheckBox.CheckState = CheckState.Checked;
-                        }
-                        else
-                        {
-                            comparisonSetUserControl1.DBAViewsCheckBox.CheckState = CheckState.Unchecked;
-                        }
+                        comparisonSetUserControl1.DBAViewsCheckBox.Checked = cp.DBAViews;
                     }
                 }
             }
@@ -307,15 +299,7 @@ namespace ExandasOracle.Forms
                         {
                             comparisonSetUserControl2.serviceRadioButton.Checked = true;
                         }
-                        comparisonSetUserControl2.DBAViewsCheckBox.ThreeState = false;
-                        if (cp.DBAViews)
-                        {
-                            comparisonSetUserControl2.DBAViewsCheckBox.CheckState = CheckState.Checked;
-                        }
-                        else
-                        {
-                            comparisonSetUserControl2.DBAViewsCheckBox.CheckState = CheckState.Unchecked;
-                        }
+                        comparisonSetUserControl2.DBAViewsCheckBox.Checked = cp.DBAViews;
                     }
                 }
             }
