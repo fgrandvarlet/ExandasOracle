@@ -217,10 +217,12 @@
     <Compile Include="Dao\Firebird\ConnectionParamsDaoFirebird.cs" />
     <Compile Include="Dao\Firebird\DeltaReportDaoFirebird.cs" />
     <Compile Include="Dao\Firebird\LocalDaoFirebird.cs" />
+    <Compile Include="Dao\Firebird\ParameterDataDaoFirebird.cs" />
     <Compile Include="Dao\IComparisonSetDao.cs" />
     <Compile Include="Dao\IConnectionParamsDao.cs" />
     <Compile Include="Dao\IDeltaReportDao.cs" />
     <Compile Include="Dao\ILocalDao.cs" />
+    <Compile Include="Dao\IParameterDataDao.cs" />
     <Compile Include="Dao\IRemoteDao.cs" />
     <Compile Include="Dao\Oracle\AbstractDaoOracle.cs" />
     <Compile Include="Dao\Oracle\RemoteDaoOracle.cs" />

@@ -1,8 +1,6 @@
 ﻿using System.IO;
 using System.Text.Json;
 
-using ExandasOracle.Domain;
-
 namespace ExandasOracle.Dao
 {
     public static class DataHandler
@@ -20,18 +18,6 @@ namespace ExandasOracle.Dao
             return parameterData;
         }
 
-        private static void LoadParameterData(ParameterData parameterData)
-        {
-            // commencer une transaction Firebird
-
-            var connectionParamsDao = DaoFactory.Instance.GetConnectionParamsDao();
-
-            foreach (ConnectionParams cp in parameterData.ConnectionParamsList)
-            {
-
-            }
-        }
-
         public static void SerializeConnectionsComparisonSets(string fileName)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
@@ -43,7 +29,8 @@ namespace ExandasOracle.Dao
         {
             string jsonString = File.ReadAllText(fileName);
             ParameterData parameterData = JsonSerializer.Deserialize<ParameterData>(jsonString);
-            // TODO SUPPRIMER System.Windows.Forms.MessageBox.Show("nombre = " + parameterData.ConnectionParamsList.Count);
+            var parameterDataDao = DaoFactory.Instance.GetParameterDataDao();
+            parameterDataDao.Load(parameterData);
         }
 
     }

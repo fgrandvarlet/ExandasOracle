@@ -88,6 +88,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à The application will be restarted to be taken into account..
+        /// </summary>
+        internal static string ApplicationRestarted {
+            get {
+                return ResourceManager.GetString("ApplicationRestarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à &amp;Apply.
         /// </summary>
         internal static string Apply {
@@ -340,6 +349,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à C&amp;onnections and comparison sets.
+        /// </summary>
+        internal static string ConnectionsComparisonSets {
+            get {
+                return ResourceManager.GetString("ConnectionsComparisonSets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à constraint columns.
         /// </summary>
         internal static string ConstraintColumns {
@@ -430,11 +448,38 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Export connections and comparison sets.
+        /// </summary>
+        internal static string ExportConnectionsComparisonSets {
+            get {
+                return ResourceManager.GetString("ExportConnectionsComparisonSets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Export in Excel format.
         /// </summary>
         internal static string ExportExcel {
             get {
                 return ResourceManager.GetString("ExportExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à &amp;Export.
+        /// </summary>
+        internal static string ExportMenu {
+            get {
+                return ResourceManager.GetString("ExportMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Export performed in the file :.
+        /// </summary>
+        internal static string ExportPerformed {
+            get {
+                return ResourceManager.GetString("ExportPerformed", resourceCulture);
             }
         }
         
@@ -543,6 +588,33 @@ namespace ExandasOracle.Properties {
         internal static string IdentityColumns {
             get {
                 return ResourceManager.GetString("IdentityColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Import connections and comparison sets from a file.
+        /// </summary>
+        internal static string ImportConnectionsComparisonSets {
+            get {
+                return ResourceManager.GetString("ImportConnectionsComparisonSets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à &amp;Import.
+        /// </summary>
+        internal static string ImportMenu {
+            get {
+                return ResourceManager.GetString("ImportMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Import of connections and comparison sets performed..
+        /// </summary>
+        internal static string ImportPerformed {
+            get {
+                return ResourceManager.GetString("ImportPerformed", resourceCulture);
             }
         }
         

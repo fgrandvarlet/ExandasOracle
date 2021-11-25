@@ -53,6 +53,9 @@ namespace ExandasOracle.Forms
             toolsToolStripMenuItem.Text = Strings.Tools;
             localDatabaseSizeToolStripMenuItem.Text = Strings.LocalDatabaseSize;
             compactLocalDatabaseToolStripMenuItem.Text = Strings.CompactLocalDatabaseMenu;
+            connectionsComparisonSetsToolStripMenuItem.Text = Strings.ConnectionsComparisonSets;
+            exportToolStripMenuItem.Text = Strings.ExportMenu;
+            importToolStripMenuItem.Text = Strings.ImportMenu;
             helpToolStripMenuItem.Text = Strings.Help;
             aboutToolStripMenuItem.Text = Strings.AboutMenu;
             connectionsLinkLabel.Text = Strings.ServerConnections;
@@ -171,7 +174,7 @@ namespace ExandasOracle.Forms
         }
         void DoActionExport()
         {
-            exportSaveFileDialog.Title = "Exporter les connexions et jeux de comparaison";
+            exportSaveFileDialog.Title = Strings.ExportConnectionsComparisonSets;
             exportSaveFileDialog.Filter = "JSON File|*.json";
             exportSaveFileDialog.FileName = "ConnectionsComparisonSets";
             exportSaveFileDialog.InitialDirectory = DaoFactory.Instance.LocalDatabaseDirectoryFullPath;
@@ -181,7 +184,7 @@ namespace ExandasOracle.Forms
                 try
                 {
                     DataHandler.SerializeConnectionsComparisonSets(exportSaveFileDialog.FileName);
-                    var message = "Exportation effectuée dans le fichier :" + Environment.NewLine + Environment.NewLine + exportSaveFileDialog.FileName;
+                    var message = Strings.ExportPerformed + Environment.NewLine + Environment.NewLine + exportSaveFileDialog.FileName;
                     MessageBox.Show(message, Defs.APPLICATION_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -192,7 +195,7 @@ namespace ExandasOracle.Forms
         }
         void DoActionImport()
         {
-            importOpenFileDialog.Title = "Importer des connexions et jeux de comparaison à partir d'un fichier";
+            importOpenFileDialog.Title = Strings.ImportConnectionsComparisonSets;
             importOpenFileDialog.Filter = "JSON File|*.json";
             importOpenFileDialog.FileName = "";
             importOpenFileDialog.InitialDirectory = DaoFactory.Instance.LocalDatabaseDirectoryFullPath;
@@ -202,9 +205,10 @@ namespace ExandasOracle.Forms
                 try
                 {
                     DataHandler.DeserializeConnectionsComparisonSets(importOpenFileDialog.FileName);
-                    //var message = "Exportation effectuée dans le fichier :" + Environment.NewLine + Environment.NewLine + exportSaveFileDialog.FileName;
-                    var message = "IMPORT " + importOpenFileDialog.FileName;
+                    var message = Strings.ImportPerformed + Environment.NewLine + Environment.NewLine +
+                        Strings.ApplicationRestarted;
                     MessageBox.Show(message, Defs.APPLICATION_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Restart();
                 }
                 catch (Exception ex)
                 {

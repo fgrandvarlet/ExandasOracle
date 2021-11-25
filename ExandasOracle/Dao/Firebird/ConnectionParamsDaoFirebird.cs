@@ -69,27 +69,42 @@ namespace ExandasOracle.Dao.Firebird
 			return cp;
 		}
 
-		public void Add(ConnectionParams cp)
+		public void Add(FbTransaction tran, ConnectionParams cp)
 		{
 			const string sql = "INSERT INTO connection_params(uid, name, username, password, host, port, sid, service, dbaviews)" +
 				" VALUES(@uid, @name, @username, @password, @host, @port, @sid, @service, @dbaviews)";
 
+			var cmd = new FbCommand(sql, tran.Connection, tran);
+
+			cmd.Parameters.AddWithValue("uid", cp.Uid);
+			cmd.Parameters.AddWithValue("name", cp.Name);
+			cmd.Parameters.AddWithValue("username", cp.User);
+			cmd.Parameters.AddWithValue("password", cp.Password);
+			cmd.Parameters.AddWithValue("host", cp.Host);
+			cmd.Parameters.AddWithValue("port", cp.Port);
+			cmd.Parameters.AddWithValue("sid", cp.SID);
+			cmd.Parameters.AddWithValue("service", cp.Service);
+			cmd.Parameters.AddWithValue("dbaviews", cp.DBAViews);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		public void Add(ConnectionParams cp)
+		{
 			using (FbConnection conn = GetFirebirdConnection())
 			{
 				conn.Open();
-				var cmd = new FbCommand(sql, conn);
-
-				cmd.Parameters.AddWithValue("uid", cp.Uid);
-				cmd.Parameters.AddWithValue("name", cp.Name);
-				cmd.Parameters.AddWithValue("username", cp.User);
-				cmd.Parameters.AddWithValue("password", cp.Password);
-				cmd.Parameters.AddWithValue("host", cp.Host);
-				cmd.Parameters.AddWithValue("port", cp.Port);
-				cmd.Parameters.AddWithValue("sid", cp.SID);
-				cmd.Parameters.AddWithValue("service", cp.Service);
-				cmd.Parameters.AddWithValue("dbaviews", cp.DBAViews);
-
-				cmd.ExecuteNonQuery();
+				FbTransaction tran = conn.BeginTransaction();
+                try
+                {
+					Add(tran, cp);
+					tran.Commit();
+                }
+                catch (Exception)
+                {
+					tran.Rollback();
+                    throw;
+                }
 			}
 		}
 

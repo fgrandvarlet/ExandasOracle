@@ -126,6 +126,9 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="ApplicationRestarted" xml:space="preserve">
+    <value>The application will be restarted to be taken into account.</value>
+  </data>
   <data name="Apply" xml:space="preserve">
     <value>&amp;Apply</value>
   </data>
@@ -210,6 +213,9 @@
   <data name="ConnectionNameRequired" xml:space="preserve">
     <value>Connection name required</value>
   </data>
+  <data name="ConnectionsComparisonSets" xml:space="preserve">
+    <value>C&amp;onnections and comparison sets</value>
+  </data>
   <data name="ConstraintColumns" xml:space="preserve">
     <value>constraint columns</value>
   </data>
@@ -240,8 +246,17 @@
   <data name="ExandasOracleError" xml:space="preserve">
     <value>ExandasOracle Error</value>
   </data>
+  <data name="ExportConnectionsComparisonSets" xml:space="preserve">
+    <value>Export connections and comparison sets</value>
+  </data>
   <data name="ExportExcel" xml:space="preserve">
     <value>Export in Excel format</value>
+  </data>
+  <data name="ExportMenu" xml:space="preserve">
+    <value>&amp;Export</value>
+  </data>
+  <data name="ExportPerformed" xml:space="preserve">
+    <value>Export performed in the file :</value>
   </data>
   <data name="File" xml:space="preserve">
     <value>&amp;File</value>
@@ -278,6 +293,15 @@
   </data>
   <data name="IdentityColumns" xml:space="preserve">
     <value>identity columns</value>
+  </data>
+  <data name="ImportConnectionsComparisonSets" xml:space="preserve">
+    <value>Import connections and comparison sets from a file</value>
+  </data>
+  <data name="ImportMenu" xml:space="preserve">
+    <value>&amp;Import</value>
+  </data>
+  <data name="ImportPerformed" xml:space="preserve">
+    <value>Import of connections and comparison sets performed.</value>
   </data>
   <data name="IndexColumns" xml:space="preserve">
     <value>index columns</value>

@@ -69,25 +69,39 @@ namespace ExandasOracle.Dao.Firebird
 			return cs;
 		}
 
-		public void Add(ComparisonSet cs)
+		public void Add(FbTransaction tran, ComparisonSet cs)
 		{
 			const string sql = "INSERT INTO comparison_set(uid, name, connection1_uid, connection2_uid, schema1, schema2)" +
 				" VALUES(@uid, @name, @connection1_uid, @connection2_uid, @schema1, @schema2)";
 
+			var cmd = new FbCommand(sql, tran.Connection, tran);
+
+			cmd.Parameters.AddWithValue("uid", cs.Uid);
+			cmd.Parameters.AddWithValue("name", cs.Name);
+			cmd.Parameters.AddWithValue("connection1_uid", cs.Connection1Uid);
+			cmd.Parameters.AddWithValue("connection2_uid", cs.Connection2Uid);
+			cmd.Parameters.AddWithValue("schema1", cs.Schema1);
+			cmd.Parameters.AddWithValue("schema2", cs.Schema2);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		public void Add(ComparisonSet cs)
+		{
 			using (FbConnection conn = GetFirebirdConnection())
 			{
 				conn.Open();
-				using (var cmd = new FbCommand(sql, conn))
-				{
-					cmd.Parameters.AddWithValue("uid", cs.Uid);
-					cmd.Parameters.AddWithValue("name", cs.Name);
-					cmd.Parameters.AddWithValue("connection1_uid", cs.Connection1Uid);
-					cmd.Parameters.AddWithValue("connection2_uid", cs.Connection2Uid);
-					cmd.Parameters.AddWithValue("schema1", cs.Schema1);
-					cmd.Parameters.AddWithValue("schema2", cs.Schema2);
-
-					cmd.ExecuteNonQuery();
+				FbTransaction tran = conn.BeginTransaction();
+                try
+                {
+					Add(tran, cs);
+					tran.Commit();
 				}
+                catch (Exception)
+                {
+					tran.Rollback();
+					throw;
+                }
 			}
 		}
 

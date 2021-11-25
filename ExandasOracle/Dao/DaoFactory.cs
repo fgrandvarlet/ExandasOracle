@@ -190,5 +190,10 @@ namespace ExandasOracle.Dao
             return new DeltaReportDaoFirebird(LocalConnectionString);
         }
 
+        public IParameterDataDao GetParameterDataDao()
+        {
+            return new ParameterDataDaoFirebird(LocalConnectionString);
+        }
+
     }
 }

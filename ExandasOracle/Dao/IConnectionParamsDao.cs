@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using FirebirdSql.Data.FirebirdClient;
 
 using ExandasOracle.Domain;
 
@@ -11,6 +12,8 @@ namespace ExandasOracle.Dao
         DataTable GetDataTable(Criteria criteria);
 
         ConnectionParams Get(Guid uid);
+
+        void Add(FbTransaction tran, ConnectionParams cp);
 
         void Add(ConnectionParams cp);
 
