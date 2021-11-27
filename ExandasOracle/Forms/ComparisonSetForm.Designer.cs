@@ -43,6 +43,7 @@ namespace ExandasOracle.Forms
             this.deltaReportButton = new System.Windows.Forms.Button();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.filteringButton = new System.Windows.Forms.Button();
             this.fillPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.innerBottomPanel.SuspendLayout();
@@ -54,7 +55,7 @@ namespace ExandasOracle.Forms
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(885, 52);
+            this.topPanel.Size = new System.Drawing.Size(949, 52);
             this.topPanel.TabIndex = 0;
             // 
             // bottomPanel
@@ -62,7 +63,7 @@ namespace ExandasOracle.Forms
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomPanel.Location = new System.Drawing.Point(0, 570);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(885, 48);
+            this.bottomPanel.Size = new System.Drawing.Size(949, 48);
             this.bottomPanel.TabIndex = 1;
             // 
             // fillPanel
@@ -74,7 +75,7 @@ namespace ExandasOracle.Forms
             this.fillPanel.Location = new System.Drawing.Point(0, 52);
             this.fillPanel.Name = "fillPanel";
             this.fillPanel.Padding = new System.Windows.Forms.Padding(8, 24, 16, 0);
-            this.fillPanel.Size = new System.Drawing.Size(885, 518);
+            this.fillPanel.Size = new System.Drawing.Size(949, 518);
             this.fillPanel.TabIndex = 2;
             this.fillPanel.TabStop = true;
             // 
@@ -90,7 +91,7 @@ namespace ExandasOracle.Forms
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 324);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(925, 324);
             this.tableLayoutPanel1.TabIndex = 4;
             this.tableLayoutPanel1.TabStop = true;
             // 
@@ -102,7 +103,7 @@ namespace ExandasOracle.Forms
             this.comparisonSetUserControl1.Location = new System.Drawing.Point(3, 3);
             this.comparisonSetUserControl1.Name = "comparisonSetUserControl1";
             this.comparisonSetUserControl1.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
-            this.comparisonSetUserControl1.Size = new System.Drawing.Size(424, 318);
+            this.comparisonSetUserControl1.Size = new System.Drawing.Size(456, 318);
             this.comparisonSetUserControl1.TabIndex = 2;
             // 
             // comparisonSetUserControl2
@@ -110,10 +111,10 @@ namespace ExandasOracle.Forms
             this.comparisonSetUserControl2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.comparisonSetUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comparisonSetUserControl2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comparisonSetUserControl2.Location = new System.Drawing.Point(433, 3);
+            this.comparisonSetUserControl2.Location = new System.Drawing.Point(465, 3);
             this.comparisonSetUserControl2.Name = "comparisonSetUserControl2";
             this.comparisonSetUserControl2.Padding = new System.Windows.Forms.Padding(8, 16, 8, 0);
-            this.comparisonSetUserControl2.Size = new System.Drawing.Size(425, 318);
+            this.comparisonSetUserControl2.Size = new System.Drawing.Size(457, 318);
             this.comparisonSetUserControl2.TabIndex = 3;
             // 
             // innerBottomPanel
@@ -122,7 +123,7 @@ namespace ExandasOracle.Forms
             this.innerBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.innerBottomPanel.Location = new System.Drawing.Point(8, 428);
             this.innerBottomPanel.Name = "innerBottomPanel";
-            this.innerBottomPanel.Size = new System.Drawing.Size(861, 90);
+            this.innerBottomPanel.Size = new System.Drawing.Size(925, 90);
             this.innerBottomPanel.TabIndex = 1;
             // 
             // generateReportButton
@@ -134,7 +135,7 @@ namespace ExandasOracle.Forms
             this.generateReportButton.Location = new System.Drawing.Point(3, 23);
             this.generateReportButton.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.generateReportButton.Name = "generateReportButton";
-            this.generateReportButton.Size = new System.Drawing.Size(855, 42);
+            this.generateReportButton.Size = new System.Drawing.Size(919, 42);
             this.generateReportButton.TabIndex = 10;
             this.generateReportButton.Text = "Générer le rapport de comparaison";
             this.generateReportButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -143,6 +144,7 @@ namespace ExandasOracle.Forms
             // 
             // innerTopPanel
             // 
+            this.innerTopPanel.Controls.Add(this.filteringButton);
             this.innerTopPanel.Controls.Add(this.lastReportTimeTextBox);
             this.innerTopPanel.Controls.Add(this.lastReportTimeLabel);
             this.innerTopPanel.Controls.Add(this.deltaReportButton);
@@ -151,7 +153,7 @@ namespace ExandasOracle.Forms
             this.innerTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.innerTopPanel.Location = new System.Drawing.Point(8, 24);
             this.innerTopPanel.Name = "innerTopPanel";
-            this.innerTopPanel.Size = new System.Drawing.Size(861, 80);
+            this.innerTopPanel.Size = new System.Drawing.Size(925, 80);
             this.innerTopPanel.TabIndex = 0;
             // 
             // lastReportTimeTextBox
@@ -177,10 +179,10 @@ namespace ExandasOracle.Forms
             // 
             this.deltaReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deltaReportButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.deltaReportButton.Location = new System.Drawing.Point(617, 37);
+            this.deltaReportButton.Location = new System.Drawing.Point(701, 37);
             this.deltaReportButton.Name = "deltaReportButton";
-            this.deltaReportButton.Size = new System.Drawing.Size(240, 23);
-            this.deltaReportButton.TabIndex = 3;
+            this.deltaReportButton.Size = new System.Drawing.Size(220, 23);
+            this.deltaReportButton.TabIndex = 4;
             this.deltaReportButton.Text = "Consulter le rapport de comparaison";
             this.deltaReportButton.UseVisualStyleBackColor = true;
             this.deltaReportButton.Click += new System.EventHandler(this.DeltaReportButton_Click);
@@ -192,7 +194,7 @@ namespace ExandasOracle.Forms
             this.nameTextBox.Location = new System.Drawing.Point(185, 0);
             this.nameTextBox.MaxLength = 64;
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(672, 23);
+            this.nameTextBox.Size = new System.Drawing.Size(736, 23);
             this.nameTextBox.TabIndex = 1;
             // 
             // nameLabel
@@ -203,11 +205,23 @@ namespace ExandasOracle.Forms
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Nom du jeu de comparaison";
             // 
+            // filteringButton
+            // 
+            this.filteringButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filteringButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filteringButton.Location = new System.Drawing.Point(475, 37);
+            this.filteringButton.Name = "filteringButton";
+            this.filteringButton.Size = new System.Drawing.Size(220, 23);
+            this.filteringButton.TabIndex = 3;
+            this.filteringButton.Text = "Paramètres de filtrage";
+            this.filteringButton.UseVisualStyleBackColor = true;
+            this.filteringButton.Click += new System.EventHandler(this.FilteringButton_Click);
+            // 
             // ComparisonSetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 618);
+            this.ClientSize = new System.Drawing.Size(949, 618);
             this.Controls.Add(this.fillPanel);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topPanel);
@@ -240,5 +254,6 @@ namespace ExandasOracle.Forms
         private System.Windows.Forms.Button deltaReportButton;
         private System.Windows.Forms.TextBox lastReportTimeTextBox;
         private System.Windows.Forms.Label lastReportTimeLabel;
+        private System.Windows.Forms.Button filteringButton;
     }
 }

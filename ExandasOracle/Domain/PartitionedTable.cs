@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -29,43 +29,43 @@ namespace ExandasOracle.Domain
             if (this.Status != target.Status)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.TableName, null, Strings.PropertyDifference, "STATUS", this.Status, target.Status
+                    comparisonSetUid, ENTITY, this.TableName, null, LabelId.PropertyDifference, "STATUS", this.Status, target.Status
                     ));
             }
             if (this.DefCompression != target.DefCompression)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.TableName, null, Strings.PropertyDifference, "DEF_COMPRESSION", this.DefCompression, target.DefCompression
+                    comparisonSetUid, ENTITY, this.TableName, null, LabelId.PropertyDifference, "DEF_COMPRESSION", this.DefCompression, target.DefCompression
                     ));
             }
             if (this.DefCompressFor != target.DefCompressFor)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.TableName, null, Strings.PropertyDifference, "DEF_COMPRESS_FOR", this.DefCompressFor, target.DefCompressFor
+                    comparisonSetUid, ENTITY, this.TableName, null, LabelId.PropertyDifference, "DEF_COMPRESS_FOR", this.DefCompressFor, target.DefCompressFor
                     ));
             }
             if (this.RefPtnConstraintName != target.RefPtnConstraintName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.TableName, null, Strings.PropertyDifference, "REF_PTN_CONSTRAINT_NAME", this.RefPtnConstraintName, target.RefPtnConstraintName
+                    comparisonSetUid, ENTITY, this.TableName, null, LabelId.PropertyDifference, "REF_PTN_CONSTRAINT_NAME", this.RefPtnConstraintName, target.RefPtnConstraintName
                     ));
             }
             if (this.IsNested != target.IsNested)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.TableName, null, Strings.PropertyDifference, "IS_NESTED", this.IsNested, target.IsNested
+                    comparisonSetUid, ENTITY, this.TableName, null, LabelId.PropertyDifference, "IS_NESTED", this.IsNested, target.IsNested
                     ));
             }
             if (this.DefIndexing != target.DefIndexing)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.TableName, null, Strings.PropertyDifference, "DEF_INDEXING", this.DefIndexing, target.DefIndexing
+                    comparisonSetUid, ENTITY, this.TableName, null, LabelId.PropertyDifference, "DEF_INDEXING", this.DefIndexing, target.DefIndexing
                     ));
             }
             if (this.DefReadOnly != target.DefReadOnly)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.TableName, null, Strings.PropertyDifference, "DEF_READ_ONLY", this.DefReadOnly, target.DefReadOnly
+                    comparisonSetUid, ENTITY, this.TableName, null, LabelId.PropertyDifference, "DEF_READ_ONLY", this.DefReadOnly, target.DefReadOnly
                     ));
             }
         }

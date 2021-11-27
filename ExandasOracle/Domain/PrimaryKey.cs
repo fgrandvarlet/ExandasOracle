@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -24,19 +24,19 @@ namespace ExandasOracle.Domain
             if (this.Rely != target.Rely)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "RELY", this.Rely, target.Rely
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, LabelId.PropertyDifference, "RELY", this.Rely, target.Rely
                     ));
             }
             if (this.IndexOwner != target.IndexOwner && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "INDEX_OWNER", this.IndexOwner, target.IndexOwner
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, LabelId.PropertyDifference, "INDEX_OWNER", this.IndexOwner, target.IndexOwner
                     ));
             }
             if (this.IndexName != target.IndexName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "INDEX_NAME", this.IndexName, target.IndexName
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, LabelId.PropertyDifference, "INDEX_NAME", this.IndexName, target.IndexName
                     ));
             }
         }

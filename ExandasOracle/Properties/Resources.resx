@@ -165,6 +165,14 @@ u8smDPVLgWWsV3N8c0HsKSGU72sG9iU6eoho7DxcIRnQCSvkL68lmSFzDIQy9MamJN43i3erxTLVD2Yt
 sEn0demVzvp3yoOUEYKHn3vRMOUN4bTJeNPqu0MLaMl7FdQxb15mPe7vonT0dr1tnG32cheuCXGqWMHn
 5yAH4xoPtBKIlpdHDP8GvPC0NbP6Zkpd0gxlQLWcjX4nQA1texeARMT4QdBnPEo9H3Io412FDSbqCEg6</value>
   </data>
+  <data name="REFERENCES" xml:space="preserve">
+    <value>TABLE;ITEM1
+TABLE;ITEM2
+TABLE;ITEM3
+TABLE COMMENT;SOMETHING
+TABLE COMMENT;OTHER
+TABLE COMMENT;LA_SUITE</value>
+  </data>
   <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

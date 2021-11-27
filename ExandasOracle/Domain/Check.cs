@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using ExandasOracle.Core;
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -25,13 +25,13 @@ namespace ExandasOracle.Domain
             if (this.SearchCondition != target.SearchCondition)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "SEARCH_CONDITION", Defs.TruncateTooLong(this.SearchCondition), Defs.TruncateTooLong(target.SearchCondition)
+                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, LabelId.PropertyDifference, "SEARCH_CONDITION", Defs.TruncateTooLong(this.SearchCondition), Defs.TruncateTooLong(target.SearchCondition)
                     ));
             }
             else if (this.SearchConditionVC != target.SearchConditionVC)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "SEARCH_CONDITION_VC", this.SearchConditionVC, target.SearchConditionVC
+                    comparisonSetUid, ENTITY, this.ConstraintName, this.TableName, LabelId.PropertyDifference, "SEARCH_CONDITION_VC", this.SearchConditionVC, target.SearchConditionVC
                     ));
             }
         }

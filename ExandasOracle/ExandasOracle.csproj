@@ -156,6 +156,12 @@
     <Compile Include="Components\DeltaReportListPanel.designer.cs">
       <DependentUpon>DeltaReportListPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\FilterSettingListPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\FilterSettingListPanel.Designer.cs">
+      <DependentUpon>FilterSettingListPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\ListPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -216,13 +222,17 @@
     <Compile Include="Dao\Firebird\ComparisonSetDaoFirebird.cs" />
     <Compile Include="Dao\Firebird\ConnectionParamsDaoFirebird.cs" />
     <Compile Include="Dao\Firebird\DeltaReportDaoFirebird.cs" />
+    <Compile Include="Dao\Firebird\FilterSettingDaoFirebird.cs" />
     <Compile Include="Dao\Firebird\LocalDaoFirebird.cs" />
     <Compile Include="Dao\Firebird\ParameterDataDaoFirebird.cs" />
+    <Compile Include="Dao\Firebird\ReferenceDaoFirebird.cs" />
     <Compile Include="Dao\IComparisonSetDao.cs" />
     <Compile Include="Dao\IConnectionParamsDao.cs" />
     <Compile Include="Dao\IDeltaReportDao.cs" />
+    <Compile Include="Dao\IFilterSettingDao.cs" />
     <Compile Include="Dao\ILocalDao.cs" />
     <Compile Include="Dao\IParameterDataDao.cs" />
+    <Compile Include="Dao\IReferenceDao.cs" />
     <Compile Include="Dao\IRemoteDao.cs" />
     <Compile Include="Dao\Oracle\AbstractDaoOracle.cs" />
     <Compile Include="Dao\Oracle\RemoteDaoOracle.cs" />
@@ -243,6 +253,8 @@
     <Compile Include="Domain\Criteria.cs" />
     <Compile Include="Domain\DatabaseLink.cs" />
     <Compile Include="Domain\DeltaReport.cs" />
+    <Compile Include="Domain\EntityReference.cs" />
+    <Compile Include="Domain\FilterSetting.cs" />
     <Compile Include="Domain\ForeignKey.cs" />
     <Compile Include="Domain\IdentityColumn.cs" />
     <Compile Include="Domain\Index.cs" />
@@ -258,6 +270,7 @@
     <Compile Include="Domain\PartitionedIndex.cs" />
     <Compile Include="Domain\PartitionedTable.cs" />
     <Compile Include="Domain\PrimaryKey.cs" />
+    <Compile Include="Domain\PropertyReference.cs" />
     <Compile Include="Domain\Sequence.cs" />
     <Compile Include="Domain\Source.cs" />
     <Compile Include="Domain\SourceSynthesis.cs" />
@@ -305,6 +318,12 @@
     <Compile Include="Forms\DeltaReportListForm.designer.cs">
       <DependentUpon>DeltaReportListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FilterSettingListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FilterSettingListForm.Designer.cs">
+      <DependentUpon>FilterSettingListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\IDataFormManager.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -350,6 +369,9 @@
     <EmbeddedResource Include="Components\DeltaReportListPanel.resx">
       <DependentUpon>DeltaReportListPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\FilterSettingListPanel.resx">
+      <DependentUpon>FilterSettingListPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\ListPanel.resx">
       <DependentUpon>ListPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeltaReportListForm.resx">
       <DependentUpon>DeltaReportListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FilterSettingListForm.resx">
+      <DependentUpon>FilterSettingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

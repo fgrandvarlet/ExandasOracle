@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 using ExandasOracle.Dao;
@@ -11,7 +12,13 @@ namespace ExandasOracle.Core
     {
 		internal const string APPLICATION_TITLE = "Exandas - Oracle";
 
+		// TODO PEUT-ETRE INUTILE REMPLACE PAR ENUM
+		internal const short OBJECT_IN_SOURCE_NOT_IN_TARGET = 1;
+		internal const short OBJECT_IN_TARGET_NOT_IN_SOURCE = 2;
+		internal const short PROPERTY_DIFFERENCE = 3;
+
 		internal static readonly Guid EMPTY_ITEM_GUID = Guid.Empty;
+		internal static readonly string EMPTY_ITEM_STRING = string.Empty;
 		internal static readonly string EMPTY_ITEM_LABEL = Strings.NotSpecified;
 
 		internal const string REPORTS_DIRECTORY = "reports";
@@ -38,6 +45,50 @@ namespace ExandasOracle.Core
 			else
 			{
 				return str;
+			}
+		}
+
+		public static string QuoteValue(string str)
+        {
+			string result = str.Replace("'", "''");
+			result = "'" + result + "'";
+			return result;
+        }
+
+		public static string GetLabel(LabelId labelId)
+        {
+            switch (labelId)
+            {
+                case LabelId.ObjectInSourceNotInTarget:
+					return Strings.ObjectInSource;
+                case LabelId.ObjectInTargetNotInSource:
+					return Strings.ObjectInTarget;
+                case LabelId.PropertyDifference:
+					return Strings.PropertyDifference;
+                default:
+					throw new ArgumentOutOfRangeException();
+            }
+        }
+
+		/// <summary>
+		/// cf. https://stackoverflow.com/questions/1547476/easiest-way-to-split-a-string-on-newlines-in-net
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		public static IEnumerable<string> SplitToLines(this string input)
+		{
+			if (input == null)
+			{
+				yield break;
+			}
+
+			using (StringReader reader = new StringReader(input))
+			{
+				string line;
+				while ((line = reader.ReadLine()) != null)
+				{
+					yield return line;
+				}
 			}
 		}
 
@@ -93,6 +144,18 @@ namespace ExandasOracle.Core
 			foreach (var cp in DaoFactory.Instance.GetConnectionParamsDao().GetList())
 			{
 				list.Add(new KeyValuePair<Guid, string>(cp.Uid, cp.FormattedString));
+			}
+			return list;
+		}
+
+		public static List<KeyValuePair<string, string>> GetEntityReferenceList()
+		{
+			var list = new List<KeyValuePair<string, string>>();
+			list.Add(new KeyValuePair<string, string>(EMPTY_ITEM_STRING, EMPTY_ITEM_LABEL));
+
+			foreach (var er in DaoFactory.Instance.GetReferenceDao().GetEntityReferenceList())
+			{
+				list.Add(new KeyValuePair<string, string>(er.Entity, er.Entity));
 			}
 			return list;
 		}

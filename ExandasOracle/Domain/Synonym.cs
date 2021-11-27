@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -27,19 +27,19 @@ namespace ExandasOracle.Domain
             if (this.TableOwner != target.TableOwner && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.SynonymName, parentObject, Strings.PropertyDifference, "TABLE_OWNER", this.TableOwner, target.TableOwner
+                    comparisonSet.Uid, ENTITY, this.SynonymName, parentObject, LabelId.PropertyDifference, "TABLE_OWNER", this.TableOwner, target.TableOwner
                     ));
             }
             if (this.TableName != target.TableName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.SynonymName, parentObject, Strings.PropertyDifference, "TABLE_NAME", this.TableName, target.TableName
+                    comparisonSet.Uid, ENTITY, this.SynonymName, parentObject, LabelId.PropertyDifference, "TABLE_NAME", this.TableName, target.TableName
                     ));
             }
             if (this.DbLink != target.DbLink)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.SynonymName, parentObject, Strings.PropertyDifference, "DB_LINK", this.DbLink, target.DbLink
+                    comparisonSet.Uid, ENTITY, this.SynonymName, parentObject, LabelId.PropertyDifference, "DB_LINK", this.DbLink, target.DbLink
                     ));
             }
         }

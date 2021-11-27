@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -25,7 +25,7 @@ namespace ExandasOracle.Domain
             {
                 var objectValue = string.Format("{0}->{1}", this.CluColumnName, this.TableName);
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, objectValue, this.ClusterName, Strings.PropertyDifference, "TAB_COLUMN_NAME", this.TabColumnName, target.TabColumnName
+                    comparisonSetUid, ENTITY, objectValue, this.ClusterName, LabelId.PropertyDifference, "TAB_COLUMN_NAME", this.TabColumnName, target.TabColumnName
                     ));
             }
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -29,49 +29,49 @@ namespace ExandasOracle.Domain
             if (this.TablespaceName != target.TablespaceName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ClusterName, null, Strings.PropertyDifference, "TABLESPACE_NAME", this.TablespaceName, target.TablespaceName
+                    comparisonSetUid, ENTITY, this.ClusterName, null, LabelId.PropertyDifference, "TABLESPACE_NAME", this.TablespaceName, target.TablespaceName
                     ));
             }
             if (this.ClusterType != target.ClusterType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ClusterName, null, Strings.PropertyDifference, "CLUSTER_TYPE", this.ClusterType, target.ClusterType
+                    comparisonSetUid, ENTITY, this.ClusterName, null, LabelId.PropertyDifference, "CLUSTER_TYPE", this.ClusterType, target.ClusterType
                     ));
             }
             if (this.Function != target.Function)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ClusterName, null, Strings.PropertyDifference, "FUNCTION", this.Function, target.Function
+                    comparisonSetUid, ENTITY, this.ClusterName, null, LabelId.PropertyDifference, "FUNCTION", this.Function, target.Function
                     ));
             }
             if (this.Hashkeys != target.Hashkeys)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ClusterName, null, Strings.PropertyDifference, "HASHKEYS", this.Hashkeys.ToString(), target.Hashkeys.ToString()
+                    comparisonSetUid, ENTITY, this.ClusterName, null, LabelId.PropertyDifference, "HASHKEYS", this.Hashkeys.ToString(), target.Hashkeys.ToString()
                     ));
             }
             if (this.Degree != target.Degree)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ClusterName, null, Strings.PropertyDifference, "DEGREE", this.Degree, target.Degree
+                    comparisonSetUid, ENTITY, this.ClusterName, null, LabelId.PropertyDifference, "DEGREE", this.Degree, target.Degree
                     ));
             }
             if (this.Cache != target.Cache)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ClusterName, null, Strings.PropertyDifference, "CACHE", this.Cache, target.Cache
+                    comparisonSetUid, ENTITY, this.ClusterName, null, LabelId.PropertyDifference, "CACHE", this.Cache, target.Cache
                     ));
             }
             if (this.SingleTable != target.SingleTable)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ClusterName, null, Strings.PropertyDifference, "SINGLE_TABLE", this.SingleTable, target.SingleTable
+                    comparisonSetUid, ENTITY, this.ClusterName, null, LabelId.PropertyDifference, "SINGLE_TABLE", this.SingleTable, target.SingleTable
                     ));
             }
             if (this.Dependencies != target.Dependencies)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ClusterName, null, Strings.PropertyDifference, "DEPENDENCIES", this.Dependencies, target.Dependencies
+                    comparisonSetUid, ENTITY, this.ClusterName, null, LabelId.PropertyDifference, "DEPENDENCIES", this.Dependencies, target.Dependencies
                     ));
             }
         }

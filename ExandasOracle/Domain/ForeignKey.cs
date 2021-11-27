@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -25,19 +24,19 @@ namespace ExandasOracle.Domain
             if (this.ROwner != target.ROwner && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "R_OWNER", this.ROwner, target.ROwner
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, LabelId.PropertyDifference, "R_OWNER", this.ROwner, target.ROwner
                     ));
             }
             if (this.RConstraintName != target.RConstraintName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "R_CONSTRAINT_NAME", this.RConstraintName, target.RConstraintName
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, LabelId.PropertyDifference, "R_CONSTRAINT_NAME", this.RConstraintName, target.RConstraintName
                     ));
             }
             if (this.DeleteRule != target.DeleteRule)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, Strings.PropertyDifference, "DELETE_RULE", this.DeleteRule, target.DeleteRule
+                    comparisonSet.Uid, ENTITY, this.ConstraintName, this.TableName, LabelId.PropertyDifference, "DELETE_RULE", this.DeleteRule, target.DeleteRule
                     ));
             }
         }

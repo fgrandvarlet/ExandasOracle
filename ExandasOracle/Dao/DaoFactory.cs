@@ -21,6 +21,13 @@ namespace ExandasOracle.Dao
         Target
     }
 
+    public enum LabelId : short
+    {
+        ObjectInSourceNotInTarget = 1,
+        ObjectInTargetNotInSource = 2,
+        PropertyDifference = 3
+    }
+
     public sealed class DaoFactory
     {
         static readonly DaoFactory instance = new DaoFactory();
@@ -53,6 +60,11 @@ namespace ExandasOracle.Dao
         public void Initialization()
         {
             ReadConfiguration();
+            var referenceDao = GetReferenceDao();
+            if (referenceDao.NeedInitialization())
+            {
+                referenceDao.InitializeReferences();
+            }
             InitializeReportDirectory();
         }
 
@@ -193,6 +205,16 @@ namespace ExandasOracle.Dao
         public IParameterDataDao GetParameterDataDao()
         {
             return new ParameterDataDaoFirebird(LocalConnectionString);
+        }
+
+        public IReferenceDao GetReferenceDao()
+        {
+            return new ReferenceDaoFirebird(LocalConnectionString);
+        }
+
+        public IFilterSettingDao GetFilterSettingDao()
+        {
+            return new FilterSettingDaoFirebird(LocalConnectionString);
         }
 
     }

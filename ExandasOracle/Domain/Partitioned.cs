@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -35,73 +35,73 @@ namespace ExandasOracle.Domain
             if (this.PartitioningType != target.PartitioningType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "PARTITIONING_TYPE", this.PartitioningType, target.PartitioningType
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "PARTITIONING_TYPE", this.PartitioningType, target.PartitioningType
                     ));
             }
             if (this.SubpartitioningType != target.SubpartitioningType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "SUBPARTITIONING_TYPE", this.SubpartitioningType, target.SubpartitioningType
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "SUBPARTITIONING_TYPE", this.SubpartitioningType, target.SubpartitioningType
                     ));
             }
             if (this.PartitionCount != target.PartitionCount)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "PARTITION_COUNT", this.PartitionCount.ToString(), target.PartitionCount.ToString()
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "PARTITION_COUNT", this.PartitionCount.ToString(), target.PartitionCount.ToString()
                     ));
             }
             if (this.DefSubpartitionCount != target.DefSubpartitionCount)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "DEF_SUBPARTITION_COUNT", this.DefSubpartitionCount.ToString(), target.DefSubpartitionCount.ToString()
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "DEF_SUBPARTITION_COUNT", this.DefSubpartitionCount.ToString(), target.DefSubpartitionCount.ToString()
                     ));
             }
             if (this.PartitioningKeyCount != target.PartitioningKeyCount)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "PARTITIONING_KEY_COUNT", this.PartitioningKeyCount.ToString(), target.PartitioningKeyCount.ToString()
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "PARTITIONING_KEY_COUNT", this.PartitioningKeyCount.ToString(), target.PartitioningKeyCount.ToString()
                     ));
             }
             if (this.SubpartitioningKeyCount != target.SubpartitioningKeyCount)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "SUBPARTITIONING_KEY_COUNT", this.SubpartitioningKeyCount.ToString(), target.SubpartitioningKeyCount.ToString()
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "SUBPARTITIONING_KEY_COUNT", this.SubpartitioningKeyCount.ToString(), target.SubpartitioningKeyCount.ToString()
                     ));
             }
             if (this.DefTablespaceName != target.DefTablespaceName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "DEF_TABLESPACE_NAME", this.DefTablespaceName, target.DefTablespaceName
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "DEF_TABLESPACE_NAME", this.DefTablespaceName, target.DefTablespaceName
                     ));
             }
             if (this.DefLogging != target.DefLogging)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "DEF_LOGGING", this.DefLogging, target.DefLogging
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "DEF_LOGGING", this.DefLogging, target.DefLogging
                     ));
             }
             if (this.Interval != target.Interval)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "INTERVAL", this.Interval, target.Interval
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "INTERVAL", this.Interval, target.Interval
                     ));
             }
             if (this.Autolist != target.Autolist)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "AUTOLIST", this.Autolist, target.Autolist
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "AUTOLIST", this.Autolist, target.Autolist
                     ));
             }
             if (this.IntervalSubpartition != target.IntervalSubpartition)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "INTERVAL_SUBPARTITION", this.IntervalSubpartition, target.IntervalSubpartition
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "INTERVAL_SUBPARTITION", this.IntervalSubpartition, target.IntervalSubpartition
                     ));
             }
             if (this.AutolistSubpartition != target.AutolistSubpartition)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "AUTOLIST_SUBPARTITION", this.AutolistSubpartition, target.AutolistSubpartition
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "AUTOLIST_SUBPARTITION", this.AutolistSubpartition, target.AutolistSubpartition
                     ));
             }
         }

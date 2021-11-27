@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -29,19 +29,19 @@ namespace ExandasOracle.Domain
             if (this.CompressFor != target.CompressFor)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SubpartitionName, parentObject, Strings.PropertyDifference, "COMPRESS_FOR", this.CompressFor, target.CompressFor
+                    comparisonSetUid, ENTITY, this.SubpartitionName, parentObject, LabelId.PropertyDifference, "COMPRESS_FOR", this.CompressFor, target.CompressFor
                     ));
             }
             if (this.Indexing != target.Indexing)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SubpartitionName, parentObject, Strings.PropertyDifference, "INDEXING", this.Indexing, target.Indexing
+                    comparisonSetUid, ENTITY, this.SubpartitionName, parentObject, LabelId.PropertyDifference, "INDEXING", this.Indexing, target.Indexing
                     ));
             }
             if (this.ReadOnly != target.ReadOnly)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SubpartitionName, parentObject, Strings.PropertyDifference, "READ_ONLY", this.ReadOnly, target.ReadOnly
+                    comparisonSetUid, ENTITY, this.SubpartitionName, parentObject, LabelId.PropertyDifference, "READ_ONLY", this.ReadOnly, target.ReadOnly
                     ));
             }
         }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -32,73 +32,73 @@ namespace ExandasOracle.Domain
             if (this.Typecode != target.Typecode)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "TYPECODE", this.Typecode, target.Typecode
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "TYPECODE", this.Typecode, target.Typecode
                     ));
             }
             if (this.Attributes != target.Attributes)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "ATTRIBUTES", this.Attributes.ToString(), target.Attributes.ToString()
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "ATTRIBUTES", this.Attributes.ToString(), target.Attributes.ToString()
                     ));
             }
             if (this.Methods != target.Methods)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "METHODS", this.Methods.ToString(), target.Methods.ToString()
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "METHODS", this.Methods.ToString(), target.Methods.ToString()
                     ));
             }
             if (this.Predefined != target.Predefined)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "PREDEFINED", this.Predefined, target.Predefined
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "PREDEFINED", this.Predefined, target.Predefined
                     ));
             }
             if (this.Incomplete != target.Incomplete)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "INCOMPLETE", this.Incomplete, target.Incomplete
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "INCOMPLETE", this.Incomplete, target.Incomplete
                     ));
             }
             if (this.Final != target.Final)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "FINAL", this.Final, target.Final
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "FINAL", this.Final, target.Final
                     ));
             }
             if (this.Instantiable != target.Instantiable)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "INSTANTIABLE", this.Instantiable, target.Instantiable
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "INSTANTIABLE", this.Instantiable, target.Instantiable
                     ));
             }
             if (this.Persistable != target.Persistable)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "PERSISTABLE", this.Persistable, target.Persistable
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "PERSISTABLE", this.Persistable, target.Persistable
                     ));
             }
             if (this.SupertypeOwner != target.SupertypeOwner && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "SUPERTYPE_OWNER", this.SupertypeOwner, target.SupertypeOwner
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "SUPERTYPE_OWNER", this.SupertypeOwner, target.SupertypeOwner
                     ));
             }
             if (this.SupertypeName != target.SupertypeName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "SUPERTYPE_NAME", this.SupertypeName, target.SupertypeName
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "SUPERTYPE_NAME", this.SupertypeName, target.SupertypeName
                     ));
             }
              if (this.LocalAttributes != target.LocalAttributes)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "LOCAL_ATTRIBUTES", this.LocalAttributes.ToString(), target.LocalAttributes.ToString()
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "LOCAL_ATTRIBUTES", this.LocalAttributes.ToString(), target.LocalAttributes.ToString()
                     ));
             }
             if (this.LocalMethods != target.LocalMethods)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TypeName, null, Strings.PropertyDifference, "LOCAL_METHODS", this.LocalMethods.ToString(), target.LocalMethods.ToString()
+                    comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "LOCAL_METHODS", this.LocalMethods.ToString(), target.LocalMethods.ToString()
                     ));
             }
         }

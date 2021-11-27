@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -25,19 +24,19 @@ namespace ExandasOracle.Domain
             if (this.GenerationType != target.GenerationType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ColumnName, this.TableName, Strings.PropertyDifference, "GENERATION_TYPE", this.GenerationType, target.GenerationType
+                    comparisonSet.Uid, ENTITY, this.ColumnName, this.TableName, LabelId.PropertyDifference, "GENERATION_TYPE", this.GenerationType, target.GenerationType
                     ));
             }
             if (this.SequenceName != target.SequenceName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ColumnName, this.TableName, Strings.PropertyDifference, "SEQUENCE_NAME", this.SequenceName, target.SequenceName
+                    comparisonSet.Uid, ENTITY, this.ColumnName, this.TableName, LabelId.PropertyDifference, "SEQUENCE_NAME", this.SequenceName, target.SequenceName
                     ));
             }
             if (this.IdentityOptions != target.IdentityOptions)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.ColumnName, this.TableName, Strings.PropertyDifference, "IDENTITY_OPTIONS", this.IdentityOptions, target.IdentityOptions
+                    comparisonSet.Uid, ENTITY, this.ColumnName, this.TableName, LabelId.PropertyDifference, "IDENTITY_OPTIONS", this.IdentityOptions, target.IdentityOptions
                     ));
             }
         }

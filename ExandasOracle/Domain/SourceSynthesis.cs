@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using ExandasOracle.Core;
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -24,7 +24,7 @@ namespace ExandasOracle.Domain
             if (this.Text.TrimEnd() != target.Text.TrimEnd())
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.Name, this.Type, Strings.PropertyDifference, "TEXT", Defs.TruncateTooLong(this.Text), Defs.TruncateTooLong(target.Text)
+                    comparisonSetUid, ENTITY, this.Name, this.Type, LabelId.PropertyDifference, "TEXT", Defs.TruncateTooLong(this.Text), Defs.TruncateTooLong(target.Text)
                     ));
             }
         }

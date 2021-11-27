@@ -42,6 +42,8 @@ namespace ExandasOracle.Forms
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.debug1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.fillPanel = new System.Windows.Forms.Panel();
@@ -52,6 +54,7 @@ namespace ExandasOracle.Forms
             this.comparisonSetsLinkLabel = new System.Windows.Forms.LinkLabel();
             this.exportSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.importOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.debug2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.fillPanel.SuspendLayout();
             this.leftPanel.SuspendLayout();
@@ -63,7 +66,8 @@ namespace ExandasOracle.Forms
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.debugToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(800, 24);
@@ -153,6 +157,22 @@ namespace ExandasOracle.Forms
             this.aboutToolStripMenuItem.Text = "&A propos...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.MenuAction_Click);
             // 
+            // debugToolStripMenuItem
+            // 
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.debug1ToolStripMenuItem,
+            this.debug2ToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.debugToolStripMenuItem.Text = "Debug";
+            // 
+            // debug1ToolStripMenuItem
+            // 
+            this.debug1ToolStripMenuItem.Name = "debug1ToolStripMenuItem";
+            this.debug1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.debug1ToolStripMenuItem.Text = "Debug1";
+            this.debug1ToolStripMenuItem.Click += new System.EventHandler(this.Debug1ToolStripMenuItem_Click);
+            // 
             // mainToolStrip
             // 
             this.mainToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -235,6 +255,13 @@ namespace ExandasOracle.Forms
             this.comparisonSetsLinkLabel.Text = "Jeux de comparaison";
             this.comparisonSetsLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
             // 
+            // debug2ToolStripMenuItem
+            // 
+            this.debug2ToolStripMenuItem.Name = "debug2ToolStripMenuItem";
+            this.debug2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.debug2ToolStripMenuItem.Text = "Debug2";
+            this.debug2ToolStripMenuItem.Click += new System.EventHandler(this.Debug2ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -285,5 +312,8 @@ namespace ExandasOracle.Forms
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog exportSaveFileDialog;
         private System.Windows.Forms.OpenFileDialog importOpenFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem debug1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem debug2ToolStripMenuItem;
     }
 }

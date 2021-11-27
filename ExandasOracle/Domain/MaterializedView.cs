@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using ExandasOracle.Core;
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -37,91 +37,91 @@ namespace ExandasOracle.Domain
             if (this.ContainerName != target.ContainerName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "CONTAINER_NAME", this.ContainerName, target.ContainerName
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "CONTAINER_NAME", this.ContainerName, target.ContainerName
                     ));
             }
             if (this.Query != target.Query)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "QUERY", Defs.TruncateTooLong(this.Query), Defs.TruncateTooLong(target.Query)
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "QUERY", Defs.TruncateTooLong(this.Query), Defs.TruncateTooLong(target.Query)
                     ));
             }
             if (this.QueryLen != target.QueryLen)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "QUERY_LEN", this.QueryLen.ToString(), target.QueryLen.ToString()
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "QUERY_LEN", this.QueryLen.ToString(), target.QueryLen.ToString()
                     ));
             }
             if (this.Updatable != target.Updatable)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "UPDATABLE", this.Updatable, target.Updatable
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "UPDATABLE", this.Updatable, target.Updatable
                     ));
             }
             if (this.UpdateLog != target.UpdateLog)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "UPDATE_LOG", this.UpdateLog, target.UpdateLog
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "UPDATE_LOG", this.UpdateLog, target.UpdateLog
                     ));
             }
             if (this.MasterRollbackSeg != target.MasterRollbackSeg)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "MASTER_ROLLBACK_SEG", this.MasterRollbackSeg, target.MasterRollbackSeg
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "MASTER_ROLLBACK_SEG", this.MasterRollbackSeg, target.MasterRollbackSeg
                     ));
             }
             if (this.MasterLink != target.MasterLink)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "MASTER_LINK", this.MasterLink, target.MasterLink
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "MASTER_LINK", this.MasterLink, target.MasterLink
                     ));
             }
             if (this.RewriteEnabled != target.RewriteEnabled)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "REWRITE_ENABLED", this.RewriteEnabled, target.RewriteEnabled
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "REWRITE_ENABLED", this.RewriteEnabled, target.RewriteEnabled
                     ));
             }
             if (this.RewriteCapability != target.RewriteCapability)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "REWRITE_CAPABILITY", this.RewriteCapability, target.RewriteCapability
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "REWRITE_CAPABILITY", this.RewriteCapability, target.RewriteCapability
                     ));
             }
             if (this.RefreshMode != target.RefreshMode)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "REFRESH_MODE", this.RefreshMode, target.RefreshMode
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "REFRESH_MODE", this.RefreshMode, target.RefreshMode
                     ));
             }
             if (this.RefreshMethod != target.RefreshMethod)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "REFRESH_METHOD", this.RefreshMethod, target.RefreshMethod
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "REFRESH_METHOD", this.RefreshMethod, target.RefreshMethod
                     ));
             }
             if (this.BuildMode != target.BuildMode)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "BUILD_MODE", this.BuildMode, target.BuildMode
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "BUILD_MODE", this.BuildMode, target.BuildMode
                     ));
             }
             if (this.FastRefreshable != target.FastRefreshable)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "FAST_REFRESHABLE", this.FastRefreshable, target.FastRefreshable
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "FAST_REFRESHABLE", this.FastRefreshable, target.FastRefreshable
                     ));
             }
             if (this.UseNoIndex != target.UseNoIndex)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "USE_NO_INDEX", this.UseNoIndex, target.UseNoIndex
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "USE_NO_INDEX", this.UseNoIndex, target.UseNoIndex
                     ));
             }
             if (this.DefaultCollation != target.DefaultCollation)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.MViewName, null, Strings.PropertyDifference, "DEFAULT_COLLATION", this.DefaultCollation, target.DefaultCollation
+                    comparisonSetUid, ENTITY, this.MViewName, null, LabelId.PropertyDifference, "DEFAULT_COLLATION", this.DefaultCollation, target.DefaultCollation
                     ));
             }
         }

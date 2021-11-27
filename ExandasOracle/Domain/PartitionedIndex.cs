@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -26,21 +26,21 @@ namespace ExandasOracle.Domain
             if (this.Locality != target.Locality)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.IndexName, this.TableName, Strings.PropertyDifference, "LOCALITY", this.Locality, target.Locality
+                    comparisonSetUid, ENTITY, this.IndexName, this.TableName, LabelId.PropertyDifference, "LOCALITY", this.Locality, target.Locality
                     ));
             }
 
             if (this.Alignment != target.Alignment)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.IndexName, this.TableName, Strings.PropertyDifference, "ALIGNMENT", this.Alignment, target.Alignment
+                    comparisonSetUid, ENTITY, this.IndexName, this.TableName, LabelId.PropertyDifference, "ALIGNMENT", this.Alignment, target.Alignment
                     ));
             }
 
             if (this.DefParameters != target.DefParameters)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.IndexName, this.TableName, Strings.PropertyDifference, "DEF_PARAMETERS", this.DefParameters, target.DefParameters
+                    comparisonSetUid, ENTITY, this.IndexName, this.TableName, LabelId.PropertyDifference, "DEF_PARAMETERS", this.DefParameters, target.DefParameters
                     ));
             }
         }

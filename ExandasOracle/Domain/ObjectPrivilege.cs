@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -31,31 +30,31 @@ namespace ExandasOracle.Domain
             if (this.TableSchema != target.TableSchema && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "TABLE_SCHEMA", this.TableSchema, target.TableSchema
+                    comparisonSet.Uid, ENTITY, objectValue, null, LabelId.PropertyDifference, "TABLE_SCHEMA", this.TableSchema, target.TableSchema
                     ));
             }
             if (this.Grantable != target.Grantable)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "GRANTABLE", this.Grantable, target.Grantable
+                    comparisonSet.Uid, ENTITY, objectValue, null, LabelId.PropertyDifference, "GRANTABLE", this.Grantable, target.Grantable
                     ));
             }
             if (this.Hierarchy != target.Hierarchy)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "HIERARCHY", this.Hierarchy, target.Hierarchy
+                    comparisonSet.Uid, ENTITY, objectValue, null, LabelId.PropertyDifference, "HIERARCHY", this.Hierarchy, target.Hierarchy
                     ));
             }
             if (this.Common != target.Common)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "COMMON", this.Common, target.Common
+                    comparisonSet.Uid, ENTITY, objectValue, null, LabelId.PropertyDifference, "COMMON", this.Common, target.Common
                     ));
             }
             if (this.Type != target.Type)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, objectValue, null, Strings.PropertyDifference, "TYPE", this.Type, target.Type
+                    comparisonSet.Uid, ENTITY, objectValue, null, LabelId.PropertyDifference, "TYPE", this.Type, target.Type
                     ));
             }
         }

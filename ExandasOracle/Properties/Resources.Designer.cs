@@ -126,6 +126,20 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à TABLE;ITEM1
+        ///TABLE;ITEM2
+        ///TABLE;ITEM3
+        ///TABLE COMMENT;SOMETHING
+        ///TABLE COMMENT;OTHER
+        ///TABLE COMMENT;LA_SUITE.
+        /// </summary>
+        internal static string REFERENCES {
+            get {
+                return ResourceManager.GetString("REFERENCES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap refresh {

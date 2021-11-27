@@ -8,6 +8,7 @@ CREATE TABLE delta_report
     entity varchar(30) not null,
     object varchar(128) not null,
     parent_object varchar(128),
+    label_id smallint not null,
     label varchar(64) not null,
     property varchar(128),
     source BLOB SUB_TYPE TEXT,

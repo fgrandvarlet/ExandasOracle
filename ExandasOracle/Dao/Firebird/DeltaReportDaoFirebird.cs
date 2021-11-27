@@ -15,6 +15,8 @@ namespace ExandasOracle.Dao.Firebird
         protected override FbCommand CreateCommand(Criteria criteria)
         {
             var comparisonSet = (ComparisonSet)criteria.Entity;
+            var filterStatements = DaoFactory.Instance.GetFilterSettingDao().GetFilteringWhereClause(comparisonSet.Uid);
+            // TODO A FINALISER
 
             string sql;
             const string ROOT_SELECT = "SELECT id, entity, object, parent_object, label, property, source, target" +
@@ -25,6 +27,7 @@ namespace ExandasOracle.Dao.Firebird
 
             if (criteria.HasText)
             {
+                // TODO QUID NECESSITE DE PARENTHESES ?
                 const string WHERE_CLAUSE = "AND upper(entity) LIKE @pattern OR upper(object) LIKE @pattern OR upper(parent_object) LIKE @pattern OR upper(label) LIKE @pattern" +
                     " OR upper(property) LIKE @pattern";
 
@@ -41,7 +44,6 @@ namespace ExandasOracle.Dao.Firebird
             }
 
             return cmd;
-
         }
 
         public void LoadDeltaReportList(FbConnection conn, Guid comparisonSetUid, List<DeltaReport> list)
@@ -58,8 +60,8 @@ namespace ExandasOracle.Dao.Firebird
                 cmd.ExecuteNonQuery();
 
                 // phase 2 : ajout des enregistrements de la liste
-                const string sqlInsert = "INSERT INTO delta_report(comparison_set_uid, entity, object, parent_object, label, property, source, target)" +
-                    "VALUES(@comparison_set_uid, @entity, @object, @parent_object, @label, @property, @source, @target)";
+                const string sqlInsert = "INSERT INTO delta_report(comparison_set_uid, entity, object, parent_object, label_id, label, property, source, target)" +
+                    "VALUES(@comparison_set_uid, @entity, @object, @parent_object, @label_id, @label, @property, @source, @target)";
                 var cmdInsert = new FbCommand(sqlInsert, conn, tran);
                 cmdInsert.Prepare();
 
@@ -70,6 +72,7 @@ namespace ExandasOracle.Dao.Firebird
                     cmdInsert.Parameters.AddWithValue("entity", dr.Entity);
                     cmdInsert.Parameters.AddWithValue("object", dr.ObjectValue);
                     cmdInsert.Parameters.AddWithValue("parent_object", dr.ParentObject);
+                    cmdInsert.Parameters.AddWithValue("label_id", dr.LabelId);
                     cmdInsert.Parameters.AddWithValue("label", dr.Label);
                     cmdInsert.Parameters.AddWithValue("property", dr.Property);
                     cmdInsert.Parameters.AddWithValue("source", dr.Source);

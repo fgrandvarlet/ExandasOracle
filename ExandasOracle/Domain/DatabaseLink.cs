@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -25,25 +25,25 @@ namespace ExandasOracle.Domain
             if (this.Username != target.Username)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.DbLink, null, Strings.PropertyDifference, "USERNAME", this.Username, target.Username
+                    comparisonSetUid, ENTITY, this.DbLink, null, LabelId.PropertyDifference, "USERNAME", this.Username, target.Username
                     ));
             }
             if (this.Host != target.Host)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.DbLink, null, Strings.PropertyDifference, "HOST", this.Host, target.Host
+                    comparisonSetUid, ENTITY, this.DbLink, null, LabelId.PropertyDifference, "HOST", this.Host, target.Host
                     ));
             }
             if (this.ShardInternal != target.ShardInternal)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.DbLink, null, Strings.PropertyDifference, "SHARD_INTERNAL", this.ShardInternal, target.ShardInternal
+                    comparisonSetUid, ENTITY, this.DbLink, null, LabelId.PropertyDifference, "SHARD_INTERNAL", this.ShardInternal, target.ShardInternal
                     ));
             }
             if (this.Valid != target.Valid)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.DbLink, null, Strings.PropertyDifference, "VALID", this.Valid, target.Valid
+                    comparisonSetUid, ENTITY, this.DbLink, null, LabelId.PropertyDifference, "VALID", this.Valid, target.Valid
                     ));
             }
         }

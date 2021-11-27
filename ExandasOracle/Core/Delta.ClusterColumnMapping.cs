@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using FirebirdSql.Data.FirebirdClient;
 
 using ExandasOracle.Domain;
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Core
 {
@@ -33,7 +33,7 @@ namespace ExandasOracle.Core
 				while (dr.Read())
 				{
 					var objectValue = string.Format("{0}->{1}", (string)dr["clu_column_name"], (string)dr["table_name"]);
-					var report = new DeltaReport(this._comparisonSet.Uid, ENTITY, objectValue, (string)dr["cluster_name"], Strings.ObjectInSource);
+					var report = new DeltaReport(this._comparisonSet.Uid, ENTITY, objectValue, (string)dr["cluster_name"], LabelId.ObjectInSourceNotInTarget);
 					list.Add(report);
 				}
 			}
@@ -51,7 +51,7 @@ namespace ExandasOracle.Core
 				while (dr.Read())
 				{
 					var objectValue = string.Format("{0}->{1}", (string)dr["clu_column_name"], (string)dr["table_name"]);
-					var report = new DeltaReport(this._comparisonSet.Uid, ENTITY, objectValue, (string)dr["cluster_name"], Strings.ObjectInTarget);
+					var report = new DeltaReport(this._comparisonSet.Uid, ENTITY, objectValue, (string)dr["cluster_name"], LabelId.ObjectInTargetNotInSource);
 					list.Add(report);
 				}
 			}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using ExandasOracle.Core;
+using ExandasOracle.Dao;
 using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
@@ -33,67 +34,67 @@ namespace ExandasOracle.Domain
             if (this.TextLength != target.TextLength)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT_LENGTH", this.TextLength.ToString(), target.TextLength.ToString()
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "TEXT_LENGTH", this.TextLength.ToString(), target.TextLength.ToString()
                     ));
             }
             if (this.TextVC != target.TextVC)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT_VC", this.TextVC, target.TextVC
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "TEXT_VC", this.TextVC, target.TextVC
                     ));
             }
             else if (this.Text != target.Text)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TEXT", Defs.TruncateTooLong(this.Text), Defs.TruncateTooLong(target.Text)
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "TEXT", Defs.TruncateTooLong(this.Text), Defs.TruncateTooLong(target.Text)
                     ));
             }
             if (this.TypeText != target.TypeText)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "TYPE_TEXT", this.TypeText, target.TypeText
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "TYPE_TEXT", this.TypeText, target.TypeText
                     ));
             }
             if (this.OidText != target.OidText)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "OID_TEXT", this.OidText, target.OidText
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "OID_TEXT", this.OidText, target.OidText
                     ));
             }
             if (this.ViewTypeOwner != target.ViewTypeOwner)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "VIEW_TYPE_OWNER", this.ViewTypeOwner, target.ViewTypeOwner
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "VIEW_TYPE_OWNER", this.ViewTypeOwner, target.ViewTypeOwner
                     ));
             }
             if (this.ViewType != target.ViewType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "VIEW_TYPE", this.ViewType, target.ViewType
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "VIEW_TYPE", this.ViewType, target.ViewType
                     ));
             }
             if (this.SuperviewName != target.SuperviewName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "SUPERVIEW_NAME", this.SuperviewName, target.SuperviewName
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "SUPERVIEW_NAME", this.SuperviewName, target.SuperviewName
                     ));
             }
             if (this.ReadOnly != target.ReadOnly)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "READ_ONLY", this.ReadOnly, target.ReadOnly
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "READ_ONLY", this.ReadOnly, target.ReadOnly
                     ));
             }
             if (this.Bequeath != target.Bequeath)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "BEQUEATH", this.Bequeath, target.Bequeath
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "BEQUEATH", this.Bequeath, target.Bequeath
                     ));
             }
             if (this.DefaultCollation != target.DefaultCollation)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "DEFAULT_COLLATION", this.DefaultCollation, target.DefaultCollation
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "DEFAULT_COLLATION", this.DefaultCollation, target.DefaultCollation
                     ));
             }
         }

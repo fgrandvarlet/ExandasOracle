@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -32,61 +32,61 @@ namespace ExandasOracle.Domain
             if (this.MinValue != target.MinValue)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "MIN_VALUE", this.MinValue.ToString(), target.MinValue.ToString()
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "MIN_VALUE", this.MinValue.ToString(), target.MinValue.ToString()
                     ));
             }
             if (this.MaxValue != target.MaxValue)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "MAX_VALUE", this.MaxValue.ToString(), target.MaxValue.ToString()
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "MAX_VALUE", this.MaxValue.ToString(), target.MaxValue.ToString()
                     ));
             }
             if (this.IncrementBy != target.IncrementBy)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "INCREMENT_BY", this.IncrementBy.ToString(), target.IncrementBy.ToString()
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "INCREMENT_BY", this.IncrementBy.ToString(), target.IncrementBy.ToString()
                     ));
             }
             if (this.CycleFlag != target.CycleFlag)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "CYCLE_FLAG", this.CycleFlag, target.CycleFlag
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "CYCLE_FLAG", this.CycleFlag, target.CycleFlag
                     ));
             }
             if (this.CacheSize != target.CacheSize)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "CACHE_SIZE", this.CacheSize.ToString(), target.CacheSize.ToString()
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "CACHE_SIZE", this.CacheSize.ToString(), target.CacheSize.ToString()
                     ));
             }
             if (this.ScaleFlag != target.ScaleFlag)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "SCALE_FLAG", this.ScaleFlag, target.ScaleFlag
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "SCALE_FLAG", this.ScaleFlag, target.ScaleFlag
                     ));
             }
             if (this.ExtendFlag != target.ExtendFlag)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "EXTEND_FLAG", this.ExtendFlag, target.ExtendFlag
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "EXTEND_FLAG", this.ExtendFlag, target.ExtendFlag
                     ));
             }
             if (this.ShardedFlag != target.ShardedFlag)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "SHARDED_FLAG", this.ShardedFlag, target.ShardedFlag
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "SHARDED_FLAG", this.ShardedFlag, target.ShardedFlag
                     ));
             }
             if (this.SessionFlag != target.SessionFlag)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "SESSION_FLAG", this.SessionFlag, target.SessionFlag
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "SESSION_FLAG", this.SessionFlag, target.SessionFlag
                     ));
             }
             if (this.KeepValue != target.KeepValue)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.SequenceName, null, Strings.PropertyDifference, "KEEP_VALUE", this.KeepValue, target.KeepValue
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "KEEP_VALUE", this.KeepValue, target.KeepValue
                     ));
             }
         }

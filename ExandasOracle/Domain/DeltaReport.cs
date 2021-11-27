@@ -1,5 +1,8 @@
 ﻿using System;
 
+using ExandasOracle.Core;
+using ExandasOracle.Dao;
+
 namespace ExandasOracle.Domain
 {
     public class DeltaReport
@@ -11,7 +14,7 @@ namespace ExandasOracle.Domain
         /// <param name="entity"></param>
         /// <param name="objectValue"></param>
         /// <param name="parentObject"></param>
-        /// <param name="label"></param>
+        /// <param name="labelId"></param>
         /// <param name="property"></param>
         /// <param name="source"></param>
         /// <param name="target"></param>
@@ -20,7 +23,7 @@ namespace ExandasOracle.Domain
             string entity,
             string objectValue,
             string parentObject,
-            string label,
+            LabelId labelId,
             string property,
             string source,
             string target
@@ -30,7 +33,8 @@ namespace ExandasOracle.Domain
             Entity = entity;
             ObjectValue = objectValue;
             ParentObject = parentObject;
-            Label = label;
+            LabelId = (short)labelId;
+            Label = Defs.GetLabel(labelId);
             Property = property;
             Source = source;
             Target = target;
@@ -43,20 +47,21 @@ namespace ExandasOracle.Domain
         /// <param name="entity"></param>
         /// <param name="objectValue"></param>
         /// <param name="parentObject"></param>
-        /// <param name="label"></param>
+        /// <param name="labelId"></param>
         public DeltaReport(
             Guid comparisonSetUid,
             string entity,
             string objectValue,
             string parentObject,
-            string label
+            LabelId labelId
             )
         {
             ComparisonSetUid = comparisonSetUid;
             Entity = entity;
             ObjectValue = objectValue;
             ParentObject = parentObject;
-            Label = label;
+            LabelId = (short)labelId;
+            Label = Defs.GetLabel(labelId);
         }
 
         /// <summary>
@@ -65,18 +70,19 @@ namespace ExandasOracle.Domain
         /// <param name="comparisonSetUid"></param>
         /// <param name="entity"></param>
         /// <param name="objectValue"></param>
-        /// <param name="label"></param>
+        /// <param name="labelId"></param>
         public DeltaReport(
             Guid comparisonSetUid,
             string entity,
             string objectValue,
-            string label
+            LabelId labelId
             )
         {
             ComparisonSetUid = comparisonSetUid;
             Entity = entity;
             ObjectValue = objectValue;
-            Label = label;
+            LabelId = (short)labelId;
+            Label = Defs.GetLabel(labelId);
         }
 
         public long Id { get; set; }
@@ -84,9 +90,11 @@ namespace ExandasOracle.Domain
         public string Entity { get; set; }
         public string ObjectValue { get; set; }
         public string ParentObject { get; set; }
+        public short LabelId { get; set; }
         public string Label { get; set; }
         public string Property { get; set; }
         public string Source { get; set; }
         public string Target { get; set; }
+
     }
 }

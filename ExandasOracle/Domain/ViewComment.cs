@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -22,7 +22,7 @@ namespace ExandasOracle.Domain
             if (this.Comments != target.Comments)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ViewName, null, Strings.PropertyDifference, "COMMENTS", this.Comments, target.Comments
+                    comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "COMMENTS", this.Comments, target.Comments
                     ));
             }
         }

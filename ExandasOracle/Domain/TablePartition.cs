@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -29,31 +29,31 @@ namespace ExandasOracle.Domain
             if (this.CompressFor != target.CompressFor)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, Strings.PropertyDifference, "COMPRESS_FOR", this.CompressFor, target.CompressFor
+                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, LabelId.PropertyDifference, "COMPRESS_FOR", this.CompressFor, target.CompressFor
                     ));
             }
             if (this.IsNested != target.IsNested)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, Strings.PropertyDifference, "IS_NESTED", this.IsNested, target.IsNested
+                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, LabelId.PropertyDifference, "IS_NESTED", this.IsNested, target.IsNested
                     ));
             }
             if (this.ParentTablePartition != target.ParentTablePartition)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, Strings.PropertyDifference, "PARENT_TABLE_PARTITION", this.ParentTablePartition, target.ParentTablePartition
+                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, LabelId.PropertyDifference, "PARENT_TABLE_PARTITION", this.ParentTablePartition, target.ParentTablePartition
                     ));
             }
             if (this.Indexing != target.Indexing)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, Strings.PropertyDifference, "INDEXING", this.Indexing, target.Indexing
+                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, LabelId.PropertyDifference, "INDEXING", this.Indexing, target.Indexing
                     ));
             }
             if (this.ReadOnly != target.ReadOnly)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, Strings.PropertyDifference, "READ_ONLY", this.ReadOnly, target.ReadOnly
+                    comparisonSetUid, ENTITY, this.PartitionName, this.TableName, LabelId.PropertyDifference, "READ_ONLY", this.ReadOnly, target.ReadOnly
                     ));
             }
         }

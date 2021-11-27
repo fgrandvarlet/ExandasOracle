@@ -344,5 +344,12 @@ namespace ExandasOracle.Forms
             }
         }
 
+        private void FilteringButton_Click(object sender, EventArgs e)
+        {
+            using (var frm = new FilterSettingListForm(this._comparisonSet))
+            {
+                frm.ShowDialog(this);
+            }
+        }
     }
 }

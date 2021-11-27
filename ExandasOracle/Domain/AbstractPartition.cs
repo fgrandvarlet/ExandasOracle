@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using ExandasOracle.Core;
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -31,43 +31,43 @@ namespace ExandasOracle.Domain
             if (this.HighValue != target.HighValue)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "HIGH_VALUE", Defs.TruncateTooLong(this.HighValue), Defs.TruncateTooLong(target.HighValue)
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "HIGH_VALUE", Defs.TruncateTooLong(this.HighValue), Defs.TruncateTooLong(target.HighValue)
                     ));
             }
             if (this.HighValueLength != target.HighValueLength)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "HIGH_VALUE_LENGTH", this.HighValueLength.ToString(), target.HighValueLength.ToString()
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "HIGH_VALUE_LENGTH", this.HighValueLength.ToString(), target.HighValueLength.ToString()
                     ));
             }
             if (this.PartitionPosition != target.PartitionPosition)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "PARTITION_POSITION", this.PartitionPosition.ToString(), target.PartitionPosition.ToString()
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "PARTITION_POSITION", this.PartitionPosition.ToString(), target.PartitionPosition.ToString()
                     ));
             }
             if (this.TablespaceName != target.TablespaceName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "TABLESPACE_NAME", this.TablespaceName, target.TablespaceName
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "TABLESPACE_NAME", this.TablespaceName, target.TablespaceName
                     ));
             }
             if (this.Logging != target.Logging)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "LOGGING", this.Logging, target.Logging
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "LOGGING", this.Logging, target.Logging
                     ));
             }
             if (this.Compression != target.Compression)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "COMPRESSION", this.Compression, target.Compression
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "COMPRESSION", this.Compression, target.Compression
                     ));
             }
             if (this.Interval != target.Interval)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, objectValue, parentObject, Strings.PropertyDifference, "INTERVAL", this.Interval, target.Interval
+                    comparisonSetUid, entity, objectValue, parentObject, LabelId.PropertyDifference, "INTERVAL", this.Interval, target.Interval
                     ));
             }
         }

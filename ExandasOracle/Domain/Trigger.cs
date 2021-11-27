@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -40,115 +40,115 @@ namespace ExandasOracle.Domain
             if (this.TriggerType != target.TriggerType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "TRIGGER_TYPE", this.TriggerType, target.TriggerType
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "TRIGGER_TYPE", this.TriggerType, target.TriggerType
                     ));
             }
             if (this.TriggeringEvent != target.TriggeringEvent)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "TRIGGERING_EVENT", this.TriggeringEvent, target.TriggeringEvent
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "TRIGGERING_EVENT", this.TriggeringEvent, target.TriggeringEvent
                     ));
             }
             if (this.TableOwner != target.TableOwner && comparisonSet.Schema1 == comparisonSet.Schema2)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "TABLE_OWNER", this.TableOwner, target.TableOwner
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "TABLE_OWNER", this.TableOwner, target.TableOwner
                     ));
             }
             if (this.BaseObjectType != target.BaseObjectType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "BASE_OBJECT_TYPE", this.BaseObjectType, target.BaseObjectType
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "BASE_OBJECT_TYPE", this.BaseObjectType, target.BaseObjectType
                     ));
             }
             if (this.TableName != target.TableName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "TABLE_NAME", this.TableName, target.TableName
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "TABLE_NAME", this.TableName, target.TableName
                     ));
             }
             if (this.ColumnName != target.ColumnName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "COLUMN_NAME", this.ColumnName, target.ColumnName
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "COLUMN_NAME", this.ColumnName, target.ColumnName
                     ));
             }
             if (this.ReferencingNames != target.ReferencingNames)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "REFERENCING_NAMES", this.ReferencingNames, target.ReferencingNames
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "REFERENCING_NAMES", this.ReferencingNames, target.ReferencingNames
                     ));
             }
             if (this.WhenClause != target.WhenClause)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "WHEN_CLAUSE", this.WhenClause, target.WhenClause
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "WHEN_CLAUSE", this.WhenClause, target.WhenClause
                     ));
             }
             if (this.Status != target.Status)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "STATUS", this.Status, target.Status
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "STATUS", this.Status, target.Status
                     ));
             }
             if (this.Description != target.Description)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "DESCRIPTION", this.Description, target.Description
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "DESCRIPTION", this.Description, target.Description
                     ));
             }
             if (this.ActionType != target.ActionType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "ACTION_TYPE", this.ActionType, target.ActionType
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "ACTION_TYPE", this.ActionType, target.ActionType
                     ));
             }
             if (this.TriggerBody != target.TriggerBody)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "TRIGGER_BODY", this.TriggerBody, target.TriggerBody
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "TRIGGER_BODY", this.TriggerBody, target.TriggerBody
                     ));
             }
             if (this.BeforeStatement != target.BeforeStatement)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "BEFORE_STATEMENT", this.BeforeStatement, target.BeforeStatement
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "BEFORE_STATEMENT", this.BeforeStatement, target.BeforeStatement
                     ));
             }
             if (this.BeforeRow != target.BeforeRow)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "BEFORE_ROW", this.BeforeRow, target.BeforeRow
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "BEFORE_ROW", this.BeforeRow, target.BeforeRow
                     ));
             }
             if (this.AfterRow != target.AfterRow)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "AFTER_ROW", this.AfterRow, target.AfterRow
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "AFTER_ROW", this.AfterRow, target.AfterRow
                     ));
             }
             if (this.AfterStatement != target.AfterStatement)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "AFTER_STATEMENT", this.AfterStatement, target.AfterStatement
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "AFTER_STATEMENT", this.AfterStatement, target.AfterStatement
                     ));
             }
             if (this.InsteadOfRow != target.InsteadOfRow)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "INSTEAD_OF_ROW", this.InsteadOfRow, target.InsteadOfRow
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "INSTEAD_OF_ROW", this.InsteadOfRow, target.InsteadOfRow
                     ));
             }
             if (this.FireOnce != target.FireOnce)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "FIRE_ONCE", this.FireOnce, target.FireOnce
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "FIRE_ONCE", this.FireOnce, target.FireOnce
                     ));
             }
             if (this.ApplyServerOnly != target.ApplyServerOnly)
             {
                 list.Add(new DeltaReport(
-                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, Strings.PropertyDifference, "APPLY_SERVER_ONLY", this.ApplyServerOnly, target.ApplyServerOnly
+                    comparisonSet.Uid, ENTITY, this.TriggerName, this.TableName, LabelId.PropertyDifference, "APPLY_SERVER_ONLY", this.ApplyServerOnly, target.ApplyServerOnly
                     ));
             }
         }

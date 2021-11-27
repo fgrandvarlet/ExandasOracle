@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -34,79 +34,79 @@ namespace ExandasOracle.Domain
             if (this.IndexType != target.IndexType)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "INDEX_TYPE", this.IndexType, target.IndexType
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "INDEX_TYPE", this.IndexType, target.IndexType
                     ));
             }
             if (this.TableName != target.TableName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "TABLE_NAME", this.TableName, target.TableName
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "TABLE_NAME", this.TableName, target.TableName
                     ));
             }
             if (this.Uniqueness != target.Uniqueness)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "UNIQUENESS", this.Uniqueness, target.Uniqueness
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "UNIQUENESS", this.Uniqueness, target.Uniqueness
                     ));
             }
             if (this.Compression != target.Compression)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "COMPRESSION", this.Compression, target.Compression
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "COMPRESSION", this.Compression, target.Compression
                     ));
             }
             if (this.PrefixLength != target.PrefixLength)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "PREFIX_LENGTH", this.PrefixLength.ToString(), target.PrefixLength.ToString()
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "PREFIX_LENGTH", this.PrefixLength.ToString(), target.PrefixLength.ToString()
                     ));
             }
             if (this.TablespaceName != target.TablespaceName)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "TABLESPACE_NAME", this.TablespaceName, target.TablespaceName
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "TABLESPACE_NAME", this.TablespaceName, target.TablespaceName
                     ));
             }
             if (this.IncludeColumn != target.IncludeColumn)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "INCLUDE_COLUMN", this.IncludeColumn.ToString(), target.IncludeColumn.ToString()
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "INCLUDE_COLUMN", this.IncludeColumn.ToString(), target.IncludeColumn.ToString()
                     ));
             }
             if (this.Logging != target.Logging)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "LOGGING", this.Logging, target.Logging
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "LOGGING", this.Logging, target.Logging
                     ));
             }
             if (this.Status != target.Status)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "STATUS", this.Status, target.Status
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "STATUS", this.Status, target.Status
                     ));
             }
             if (this.Degree != target.Degree)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "DEGREE", this.Degree, target.Degree
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "DEGREE", this.Degree, target.Degree
                     ));
             }
             if (this.Partitioned != target.Partitioned)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "PARTITIONED", this.Partitioned, target.Partitioned
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "PARTITIONED", this.Partitioned, target.Partitioned
                     ));
             }
             if (this.Temporary != target.Temporary)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "TEMPORARY", this.Temporary, target.Temporary
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "TEMPORARY", this.Temporary, target.Temporary
                     ));
             }
             if (this.Duration != target.Duration)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.IndexName, this.TableName, Strings.PropertyDifference, "DURATION", this.Duration, target.Duration
+                    comparisonSetUid, entity, this.IndexName, this.TableName, LabelId.PropertyDifference, "DURATION", this.Duration, target.Duration
                     ));
             }
         }

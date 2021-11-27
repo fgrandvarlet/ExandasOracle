@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -23,13 +23,13 @@ namespace ExandasOracle.Domain
             if (this.Composite != target.Composite)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.PartitionName, parentObject, Strings.PropertyDifference, "COMPOSITE", this.Composite, target.Composite
+                    comparisonSetUid, entity, this.PartitionName, parentObject, LabelId.PropertyDifference, "COMPOSITE", this.Composite, target.Composite
                     ));
             }
             if (this.SubpartitionCount != target.SubpartitionCount)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.PartitionName, parentObject, Strings.PropertyDifference, "SUBPARTITION_COUNT", this.SubpartitionCount.ToString(), target.SubpartitionCount.ToString()
+                    comparisonSetUid, entity, this.PartitionName, parentObject, LabelId.PropertyDifference, "SUBPARTITION_COUNT", this.SubpartitionCount.ToString(), target.SubpartitionCount.ToString()
                     ));
             }
         }

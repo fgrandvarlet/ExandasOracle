@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -23,7 +23,7 @@ namespace ExandasOracle.Domain
             if (this.SubpartitionPosition != target.SubpartitionPosition)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, entity, this.SubpartitionName, parentObject, Strings.PropertyDifference, "SUBPARTITION_POSITION", this.SubpartitionPosition.ToString(), target.SubpartitionPosition.ToString()
+                    comparisonSetUid, entity, this.SubpartitionName, parentObject, LabelId.PropertyDifference, "SUBPARTITION_POSITION", this.SubpartitionPosition.ToString(), target.SubpartitionPosition.ToString()
                     ));
             }
         }

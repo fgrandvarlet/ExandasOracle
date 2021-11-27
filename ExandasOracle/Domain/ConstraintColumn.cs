@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using ExandasOracle.Properties;
+using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -20,7 +20,7 @@ namespace ExandasOracle.Domain
             if (this.Position != target.Position)
             {
                 list.Add(new DeltaReport(
-                    comparisonSetUid, ENTITY, this.ColumnName, parentObject, Strings.PropertyDifference, "POSITION", this.Position.ToString(), target.Position.ToString()
+                    comparisonSetUid, ENTITY, this.ColumnName, parentObject, LabelId.PropertyDifference, "POSITION", this.Position.ToString(), target.Position.ToString()
                     ));
             }
         }
