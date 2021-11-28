@@ -27,9 +27,8 @@ namespace ExandasOracle.Dao.Firebird
 
             if (criteria.HasText)
             {
-                // TODO QUID NECESSITE DE PARENTHESES ?
-                const string WHERE_CLAUSE = "AND upper(entity) LIKE @pattern OR upper(object) LIKE @pattern OR upper(parent_object) LIKE @pattern OR upper(label) LIKE @pattern" +
-                    " OR upper(property) LIKE @pattern";
+                const string WHERE_CLAUSE = "AND (upper(entity) LIKE @pattern OR upper(object) LIKE @pattern OR upper(parent_object) LIKE @pattern OR upper(label) LIKE @pattern" +
+                    " OR upper(property) LIKE @pattern)";
 
                 sql = String.Format(ROOT_SELECT, WHERE_CLAUSE);
                 cmd.CommandText = sql;

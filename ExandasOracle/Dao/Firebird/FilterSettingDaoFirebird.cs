@@ -47,7 +47,7 @@ namespace ExandasOracle.Dao.Firebird
 
 		public FilterSetting Get(int id)
 		{
-			const string sql = "SELECT * FROM filtering_setting WHERE id = @id";
+			const string sql = "SELECT * FROM filter_setting WHERE id = @id";
 			FilterSetting fs = null;
 
 			using (FbConnection conn = GetFirebirdConnection())

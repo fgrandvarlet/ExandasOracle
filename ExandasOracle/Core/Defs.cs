@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 
 using ExandasOracle.Dao;
+using ExandasOracle.Domain;
 using ExandasOracle.Properties;
 
 namespace ExandasOracle.Core
@@ -19,6 +20,7 @@ namespace ExandasOracle.Core
 
 		internal static readonly Guid EMPTY_ITEM_GUID = Guid.Empty;
 		internal static readonly string EMPTY_ITEM_STRING = string.Empty;
+		internal const short EMPTY_ITEM_SHORT = 0;
 		internal static readonly string EMPTY_ITEM_LABEL = Strings.NotSpecified;
 
 		internal const string REPORTS_DIRECTORY = "reports";
@@ -156,6 +158,28 @@ namespace ExandasOracle.Core
 			foreach (var er in DaoFactory.Instance.GetReferenceDao().GetEntityReferenceList())
 			{
 				list.Add(new KeyValuePair<string, string>(er.Entity, er.Entity));
+			}
+			return list;
+		}
+
+		public static List<KeyValuePair<short, string>> GetLabelReferenceList()
+		{
+			var list = new List<KeyValuePair<short, string>>();
+			list.Add(new KeyValuePair<short, string>(EMPTY_ITEM_SHORT, EMPTY_ITEM_LABEL));
+			list.Add(new KeyValuePair<short, string>((short)LabelId.ObjectInSourceNotInTarget, Strings.ObjectInSource));
+			list.Add(new KeyValuePair<short, string>((short)LabelId.ObjectInTargetNotInSource, Strings.ObjectInTarget));
+			list.Add(new KeyValuePair<short, string>((short)LabelId.PropertyDifference, Strings.PropertyDifference));
+			return list;
+		}
+
+		public static List<KeyValuePair<string, string>> GetPropertyReferenceListByEntity(EntityReference er)
+		{
+			var list = new List<KeyValuePair<string, string>>();
+			list.Add(new KeyValuePair<string, string>(EMPTY_ITEM_STRING, EMPTY_ITEM_LABEL));
+
+			foreach (var pr in DaoFactory.Instance.GetReferenceDao().GetPropertyReferenceListByEntity(er))
+			{
+				list.Add(new KeyValuePair<string, string>(pr.Property, pr.Property));
 			}
 			return list;
 		}

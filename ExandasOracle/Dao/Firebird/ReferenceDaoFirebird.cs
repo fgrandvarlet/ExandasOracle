@@ -111,6 +111,10 @@ namespace ExandasOracle.Dao.Firebird
             return hset;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<EntityReference> GetEntityReferenceList()
         {
             var list = new List<EntityReference>();
@@ -130,6 +134,39 @@ namespace ExandasOracle.Dao.Firebird
                         er.Entity = (string)dr["entity"];
 
                         list.Add(er);
+                    }
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="er"></param>
+        /// <returns></returns>
+        public List<PropertyReference> GetPropertyReferenceListByEntity(EntityReference er)
+        {
+            var list = new List<PropertyReference>();
+
+            const string sql = "SELECT entity, property FROM property_reference WHERE entity = @entity ORDER BY property";
+
+            using (FbConnection conn = GetFirebirdConnection())
+            {
+                conn.Open();
+                var cmd = new FbCommand(sql, conn);
+                cmd.Parameters.AddWithValue("entity", er.Entity);
+
+                using (FbDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        var pr = new PropertyReference();
+
+                        pr.Entity = (string)dr["entity"];
+                        pr.Property = (string)dr["property"];
+
+                        list.Add(pr);
                     }
                 }
             }
