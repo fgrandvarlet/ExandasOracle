@@ -126,12 +126,33 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à TABLE;ITEM1
-        ///TABLE;ITEM2
-        ///TABLE;ITEM3
-        ///TABLE COMMENT;SOMETHING
-        ///TABLE COMMENT;OTHER
-        ///TABLE COMMENT;LA_SUITE.
+        ///   Recherche une chaîne localisée semblable à TABLE;TABLESPACE_NAME
+        ///TABLE;CLUSTER_NAME
+        ///TABLE;IOT_NAME
+        ///TABLE;STATUS
+        ///TABLE;LOGGING
+        ///TABLE;DEGREE
+        ///TABLE;PARTITIONED
+        ///TABLE;IOT_TYPE
+        ///TABLE;TEMPORARY
+        ///TABLE;NESTED
+        ///TABLE;DURATION
+        ///TABLE;CLUSTER_OWNER
+        ///TABLE;COMPRESSION
+        ///TABLE;COMPRESS_FOR
+        ///TABLE;DROPPED
+        ///TABLE;READ_ONLY
+        ///TABLE;CLUSTERING
+        ///TABLE;HAS_IDENTITY
+        ///TABLE;CONTAINER_DATA
+        ///TABLE;DEFAULT_COLLATION
+        ///TABLE;EXTERNAL
+        ///TABLE COMMENT;COMMENTS
+        ///TABLE COLUMN;DATA_TYPE
+        ///TABLE COLUMN;DATA_TYPE_MOD
+        ///TABLE COLUMN;DATA_TYPE_OWNER
+        ///TABLE COLUMN;DATA_LENGTH
+        ///TAB [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
         internal static string REFERENCES {
             get {

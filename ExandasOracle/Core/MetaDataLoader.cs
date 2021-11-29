@@ -33,47 +33,36 @@ namespace ExandasOracle.Core
                 { Strings.TableComments, LoadTableComments },
                 { Strings.TableColumns, LoadTableColumns },
                 { Strings.IdentityColumns, LoadIdentityColumns },
-
                 { Strings.ColumnComments, LoadColumnComments },
-
                 { Strings.PrimaryKeys, LoadPrimaryKeys },
                 { Strings.Uniques, LoadUniques },
                 { Strings.ForeignKeys, LoadForeignKeys },
                 { Strings.Checks, LoadChecks },
                 { Strings.Constraints, LoadConstraints },
-
                 { Strings.ConstraintColumns, LoadConstraintColumns },
-
                 { Strings.PartitionedTables, LoadPartitionedTables },
                 { Strings.TablePartitions, LoadTablePartitions },
                 { Strings.TableSubpartitions, LoadTableSubpartitions },
-
                 { Strings.Views, LoadViews },
                 { Strings.ViewComments, LoadViewComments },
                 { Strings.ViewColumns, LoadViewColumns },
                 { Strings.MaterializedViews, LoadMaterializedViews },
                 { Strings.MaterializedViewComments, LoadMaterializedViewComments },
-
                 { Strings.Sequences, LoadSequences },
-                
                 { Strings.TableIndexes, LoadTableIndexes },
                 { Strings.IndexColumns, LoadIndexColumns },
                 { Strings.IndexExpressions, LoadIndexExpressions },
-
                 { Strings.PartitionedIndexes, LoadPartitionedIndexes },
                 { Strings.IndexPartitions, LoadIndexPartitions },
                 { Strings.IndexSubpartitions, LoadIndexSubpartitions },
-
                 { Strings.Sources, LoadSources },
                 { Strings.Triggers, LoadTriggers },
                 { Strings.Clusters, LoadClusters },
                 { Strings.ClusterColumns, LoadClusterColumns },
                 { Strings.ClusterColumnMappings, LoadClusterColumnMappings },
                 { Strings.ClusterIndexes, LoadClusterIndexes },
-
                 { Strings.Types, LoadOracleTypes },
                 { Strings.DatabaseLinks, LoadDatabaseLinks },
-
                 { Strings.ObjectPrivileges, LoadObjectPrivileges },
                 { Strings.Synonyms, LoadSynonyms },
             };

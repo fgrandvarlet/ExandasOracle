@@ -2,7 +2,6 @@
 using System.Text.Json.Serialization;
 
 using ExandasOracle.Core;
-using ExandasOracle.Dao;
 
 namespace ExandasOracle.Domain
 {
@@ -20,7 +19,7 @@ namespace ExandasOracle.Domain
             LabelId = labelId;
             if (labelId.HasValue)
             {
-                Label = Defs.GetLabel((LabelId)labelId.Value);
+                Label = Defs.GetLabel((Dao.LabelId)labelId.Value);
             }
             Property = property;
         }
@@ -43,7 +42,7 @@ namespace ExandasOracle.Domain
             {
                 string result;
 
-                if (this.LabelId == Defs.PROPERTY_DIFFERENCE)
+                if (this.LabelId == (short)Dao.LabelId.PropertyDifference)
                 {
                     result = string.Format(
                         "NOT(entity = {0} AND label_id = {1} AND property = {2})",
@@ -52,7 +51,7 @@ namespace ExandasOracle.Domain
                         Defs.QuoteValue(this.Property)
                         );
                 }
-                else if (this.LabelId == Defs.OBJECT_IN_SOURCE_NOT_IN_TARGET || this.LabelId == Defs.OBJECT_IN_TARGET_NOT_IN_SOURCE)
+                else if (this.LabelId == (short)Dao.LabelId.ObjectInSourceNotInTarget || this.LabelId == (short)Dao.LabelId.ObjectInTargetNotInSource)
                 {
                     result = string.Format(
                         "NOT(entity = {0} AND label_id = {1})",

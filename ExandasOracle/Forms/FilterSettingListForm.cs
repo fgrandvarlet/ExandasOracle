@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ExandasOracle.Components;
 using ExandasOracle.Core;
 using ExandasOracle.Domain;
+using ExandasOracle.Properties;
 
 namespace ExandasOracle.Forms
 {
@@ -45,7 +40,7 @@ namespace ExandasOracle.Forms
             titlePanel.Parent = topPanel;
             titlePanel.Dock = DockStyle.Fill;
             topPanel.Height = 48;
-            titlePanel.titleLabel.Text = "Paramètres de filtrage"; // Strings.ComparisonReport;
+            titlePanel.titleLabel.Text = Strings.FilterSettings;
 
             filterSettingListPanel = new FilterSettingListPanel(this._comparisonSet);
             fillPanel.Controls.Add(filterSettingListPanel);

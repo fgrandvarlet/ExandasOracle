@@ -32,6 +32,7 @@ namespace ExandasOracle.Components
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.filteringButton = new System.Windows.Forms.Button();
             this.exportExcelButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.fillPanel = new System.Windows.Forms.Panel();
@@ -52,6 +53,7 @@ namespace ExandasOracle.Components
             // 
             // topPanel
             // 
+            this.topPanel.Controls.Add(this.filteringButton);
             this.topPanel.Controls.Add(this.exportExcelButton);
             this.topPanel.Controls.Add(this.titleLabel);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -60,6 +62,18 @@ namespace ExandasOracle.Components
             this.topPanel.Size = new System.Drawing.Size(559, 60);
             this.topPanel.TabIndex = 1;
             // 
+            // filteringButton
+            // 
+            this.filteringButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filteringButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filteringButton.Location = new System.Drawing.Point(190, 26);
+            this.filteringButton.Name = "filteringButton";
+            this.filteringButton.Size = new System.Drawing.Size(180, 23);
+            this.filteringButton.TabIndex = 1;
+            this.filteringButton.Text = "Paramètres de filtrage";
+            this.filteringButton.UseVisualStyleBackColor = true;
+            this.filteringButton.Click += new System.EventHandler(this.FilteringButton_Click);
+            // 
             // exportExcelButton
             // 
             this.exportExcelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -67,7 +81,7 @@ namespace ExandasOracle.Components
             this.exportExcelButton.Location = new System.Drawing.Point(376, 26);
             this.exportExcelButton.Name = "exportExcelButton";
             this.exportExcelButton.Size = new System.Drawing.Size(180, 23);
-            this.exportExcelButton.TabIndex = 1;
+            this.exportExcelButton.TabIndex = 2;
             this.exportExcelButton.Text = "Exporter au format Excel";
             this.exportExcelButton.UseVisualStyleBackColor = true;
             this.exportExcelButton.Click += new System.EventHandler(this.ExportExcelButton_Click);
@@ -233,5 +247,6 @@ namespace ExandasOracle.Components
         private System.Windows.Forms.Timer lookupTimer;
         private System.Windows.Forms.Button exportExcelButton;
         public System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Button filteringButton;
     }
 }

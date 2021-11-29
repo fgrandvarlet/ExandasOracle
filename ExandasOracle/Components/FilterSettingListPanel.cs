@@ -38,6 +38,10 @@ namespace ExandasOracle.Components
             this.labelLabel.Text = Strings.Label;
             this.propertyLabel.Text = Strings.Property;
             this.addButton.Text = Strings.Add;
+            this.addToolStripButton.ToolTipText = Strings.Add;
+            this.modifyToolStripButton.ToolTipText = Strings.Modify;
+            this.deleteToolStripButton.ToolTipText = Strings.Delete;
+            this.refreshToolStripButton.ToolTipText = Strings.Refresh;
         }
 
         private void InitMainDataGridView()
@@ -156,7 +160,7 @@ namespace ExandasOracle.Components
             if ((short)labelComboBox.SelectedValue == (short)LabelId.PropertyDifference && (string)propertyComboBox.SelectedValue == Defs.EMPTY_ITEM_STRING)
             {
                 result = false;
-                message += "- " + "Nom de propriété obligatoire dans ce contexte" + Environment.NewLine;
+                message += "- " + Strings.PropertyNameRequired + Environment.NewLine;
             }
 
             if (!result)
@@ -246,6 +250,43 @@ namespace ExandasOracle.Components
                 criteria.Text = current;
             }
             LoadData(criteria);
+        }
+
+        private void LookupToolStripComboBox_TextChanged(object sender, EventArgs e)
+        {
+            lookupTimer.Enabled = false;
+            lookupTimer.Enabled = true;
+        }
+
+        private void LookupToolStripComboBox_Leave(object sender, EventArgs e)
+        {
+            string current = lookupToolStripComboBox.Text.Trim();
+            if (current.Length > 0)
+            {
+                if (!lookupToolStripComboBox.Items.Contains(current))
+                {
+                    lookupToolStripComboBox.Items.Insert(0, current);
+                }
+            }
+        }
+
+        private void LookupTimer_Tick(object sender, EventArgs e)
+        {
+            lookupTimer.Enabled = false;
+            RunLookup();
+        }
+
+        private void RefreshToolStripButton_Click(object sender, EventArgs e)
+        {
+            string current = lookupToolStripComboBox.Text.Trim();
+            if (current.Length > 0)
+            {
+                if (!lookupToolStripComboBox.Items.Contains(current))
+                {
+                    lookupToolStripComboBox.Items.Insert(0, current);
+                }
+            }
+            lookupToolStripComboBox.Text = null;
         }
 
     }

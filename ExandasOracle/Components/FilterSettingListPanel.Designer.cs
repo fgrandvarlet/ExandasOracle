@@ -53,6 +53,7 @@ namespace ExandasOracle.Components
             this.lookupToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lookupTimer = new System.Windows.Forms.Timer(this.components);
             this.topPanel.SuspendLayout();
             this.fillPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).BeginInit();
@@ -283,6 +284,8 @@ namespace ExandasOracle.Components
             // 
             this.lookupToolStripComboBox.Name = "lookupToolStripComboBox";
             this.lookupToolStripComboBox.Size = new System.Drawing.Size(180, 25);
+            this.lookupToolStripComboBox.Leave += new System.EventHandler(this.LookupToolStripComboBox_Leave);
+            this.lookupToolStripComboBox.TextChanged += new System.EventHandler(this.LookupToolStripComboBox_TextChanged);
             // 
             // refreshToolStripButton
             // 
@@ -294,6 +297,12 @@ namespace ExandasOracle.Components
             this.refreshToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.refreshToolStripButton.Text = "refreshToolStripButton";
             this.refreshToolStripButton.ToolTipText = "Rafraîchir";
+            this.refreshToolStripButton.Click += new System.EventHandler(this.RefreshToolStripButton_Click);
+            // 
+            // lookupTimer
+            // 
+            this.lookupTimer.Interval = 200;
+            this.lookupTimer.Tick += new System.EventHandler(this.LookupTimer_Tick);
             // 
             // FilterSettingListPanel
             // 
@@ -339,5 +348,6 @@ namespace ExandasOracle.Components
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label explanationPanel;
         private System.Windows.Forms.Panel innerTopPanel;
+        private System.Windows.Forms.Timer lookupTimer;
     }
 }

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
 using ExandasOracle.Components;
 using ExandasOracle.Core;
 using ExandasOracle.Dao;
-using ExandasOracle.Domain;
 using ExandasOracle.Native;
 using ExandasOracle.Properties;
 
@@ -248,41 +246,6 @@ namespace ExandasOracle.Forms
                     action();
                 }
             }
-        }
-
-        private void Debug1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO TEMP SUPPRIMER
-            FilterSetting filterSetting = new FilterSetting();
-            filterSetting.Entity = "TABLE";
-            filterSetting.Property = "COLUMN'ID";
-            filterSetting.LabelId = null;
-            try
-            {
-                MessageBox.Show(filterSetting.Predicate);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void Debug2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO TEMP SUPPRIMER
-            LabelId labelId = LabelId.ObjectInTargetNotInSource;
-
-            try
-            {
-                var result = Defs.GetLabel(labelId);
-                MessageBox.Show(result);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            //short v = ((short)labelId);
         }
 
     }

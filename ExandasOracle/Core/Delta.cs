@@ -30,47 +30,36 @@ namespace ExandasOracle.Core
                 { Strings.TableComments, DeltaTableComment },
                 { Strings.TableColumns, DeltaTableColumn },
                 { Strings.IdentityColumns, DeltaIdentityColumn },
-
                 { Strings.ColumnComments, DeltaColumnComment },
-
                 { Strings.PrimaryKeys, DeltaPrimaryKey },
                 { Strings.Uniques, DeltaUnique },
                 { Strings.ForeignKeys, DeltaForeignKey },
                 { Strings.Checks, DeltaCheck },
                 { Strings.Constraints, DeltaConstraint },
-
                 { Strings.ConstraintColumns, DeltaConstraintColumn },
-
                 { Strings.PartitionedTables, DeltaPartitionedTable },
                 { Strings.TablePartitions, DeltaTablePartition },
                 { Strings.TableSubpartitions, DeltaTableSubpartition },
-
                 { Strings.Views, DeltaView },
                 { Strings.ViewComments, DeltaViewComment },
                 { Strings.ViewColumns, DeltaViewColumn },
                 { Strings.MaterializedViews, DeltaMaterializedView },
                 { Strings.MaterializedViewComments, DeltaMaterializedViewComment },
-
                 { Strings.Sequences, DeltaSequence },
                 { Strings.TableIndexes, DeltaTableIndex },
                 { Strings.IndexColumns, DeltaIndexColumn },
                 { Strings.IndexExpressions, DeltaIndexExpression },
-
                 { Strings.PartitionedIndexes, DeltaPartitionedIndex },
                 { Strings.IndexPartitions, DeltaIndexPartition },
                 { Strings.IndexSubpartitions, DeltaIndexSubpartition },
-
                 { Strings.Sources, DeltaSourceSynthesis },
                 { Strings.Triggers, DeltaTrigger },
-
                 { Strings.Clusters, DeltaCluster },
                 { Strings.ClusterColumns, DeltaClusterColumn },
                 { Strings.ClusterColumnMappings, DeltaClusterColumnMapping },
                 { Strings.ClusterIndexes, DeltaClusterIndex },
-
                 { Strings.Types, DeltaOracleType },
                 { Strings.DatabaseLinks, DeltaDatabaseLink },
-
                 { Strings.ObjectPrivileges, DeltaObjectPrivilege },
                 { Strings.Synonyms, DeltaSynonym },
             };

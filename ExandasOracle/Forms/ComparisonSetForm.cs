@@ -329,6 +329,7 @@ namespace ExandasOracle.Forms
                         var cs = DaoFactory.Instance.GetComparisonSetDao().Get(this._comparisonSet.Uid);
                         lastReportTimeTextBox.Text = cs.LastReportTime.Value.ToString("f");
                         this._comparisonSet.LastReportTime = cs.LastReportTime;
+                        deltaReportButton.Enabled = _comparisonSet.LastReportTime != null;
 
                         using (var frmResult = new DeltaReportListForm(this._comparisonSet))
                         {

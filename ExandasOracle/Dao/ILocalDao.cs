@@ -86,6 +86,7 @@ namespace ExandasOracle.Dao
         void PurgeMetaDataTables();
 
         void PurgeDeltaReport();
+
     }
 
 }

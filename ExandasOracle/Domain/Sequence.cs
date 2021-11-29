@@ -53,6 +53,12 @@ namespace ExandasOracle.Domain
                     comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "CYCLE_FLAG", this.CycleFlag, target.CycleFlag
                     ));
             }
+            if (this.OrderFlag != target.OrderFlag)
+            {
+                list.Add(new DeltaReport(
+                    comparisonSetUid, ENTITY, this.SequenceName, null, LabelId.PropertyDifference, "ORDER_FLAG", this.OrderFlag, target.OrderFlag
+                    ));
+            }
             if (this.CacheSize != target.CacheSize)
             {
                 list.Add(new DeltaReport(

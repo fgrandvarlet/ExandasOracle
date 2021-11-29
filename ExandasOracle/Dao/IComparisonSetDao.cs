@@ -22,5 +22,6 @@ namespace ExandasOracle.Dao
         void Delete(ComparisonSet cs);
 
         List<ComparisonSet> GetList();
+
     }
 }

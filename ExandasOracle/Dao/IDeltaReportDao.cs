@@ -14,5 +14,6 @@ namespace ExandasOracle.Dao
         DataTable GetDataTable(Criteria criteria);
 
         void LoadDeltaReportList(FbConnection conn, Guid comparisonSetUid, List<DeltaReport> list);
+
     }
 }

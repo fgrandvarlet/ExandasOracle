@@ -13,5 +13,6 @@ namespace ExandasOracle.Dao
         List<EntityReference> GetEntityReferenceList();
 
         List<PropertyReference> GetPropertyReferenceListByEntity(EntityReference er);
+
     }
 }

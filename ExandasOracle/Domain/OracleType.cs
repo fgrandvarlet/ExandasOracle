@@ -89,7 +89,7 @@ namespace ExandasOracle.Domain
                     comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "SUPERTYPE_NAME", this.SupertypeName, target.SupertypeName
                     ));
             }
-             if (this.LocalAttributes != target.LocalAttributes)
+            if (this.LocalAttributes != target.LocalAttributes)
             {
                 list.Add(new DeltaReport(
                     comparisonSet.Uid, ENTITY, this.TypeName, null, LabelId.PropertyDifference, "LOCAL_ATTRIBUTES", this.LocalAttributes.ToString(), target.LocalAttributes.ToString()

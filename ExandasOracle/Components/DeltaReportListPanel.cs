@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 using ExandasOracle.Dao;
 using ExandasOracle.Domain;
+using ExandasOracle.Forms;
 using ExandasOracle.Properties;
 using ExandasOracle.Reporting;
 
@@ -31,6 +32,7 @@ namespace ExandasOracle.Components
             this.deleteToolStripButton.Visible = false;
 
             // localization
+            this.filteringButton.Text = Strings.FilterSettings;
             this.exportExcelButton.Text = Strings.ExportExcel;
         }
 
@@ -157,7 +159,6 @@ namespace ExandasOracle.Components
             RunLookup();
         }
 
-
         private void ModifyToolStripButton_Click(object sender, EventArgs e)
         {
         }
@@ -179,5 +180,15 @@ namespace ExandasOracle.Components
         {
             ReportUtils.ExportToExcel(this._comparisonSet);
         }
+
+        private void FilteringButton_Click(object sender, EventArgs e)
+        {
+            using (FilterSettingListForm frm = new FilterSettingListForm(this._comparisonSet))
+            {
+                frm.ShowDialog(this);
+                RunLookup();
+            }
+        }
+
     }
 }

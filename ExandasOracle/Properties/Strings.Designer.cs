@@ -943,6 +943,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Property name required in this context.
+        /// </summary>
+        internal static string PropertyNameRequired {
+            get {
+                return ResourceManager.GetString("PropertyNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Purge comparison reports.
         /// </summary>
         internal static string PurgeComparisonReports {

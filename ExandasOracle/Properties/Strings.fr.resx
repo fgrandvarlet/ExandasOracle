@@ -411,6 +411,9 @@
   <data name="PropertyDifference" xml:space="preserve">
     <value>Différence de propriété</value>
   </data>
+  <data name="PropertyNameRequired" xml:space="preserve">
+    <value>Nom de propriété obligatoire dans ce contexte</value>
+  </data>
   <data name="PurgeComparisonReports" xml:space="preserve">
     <value>Purger les rapports de comparaison</value>
   </data>

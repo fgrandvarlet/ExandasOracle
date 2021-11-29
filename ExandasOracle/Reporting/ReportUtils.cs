@@ -20,11 +20,14 @@ namespace ExandasOracle.Reporting
             var connectionString = DaoFactory.Instance.LocalConnectionString;
             try
             {
+                var filterStatements = DaoFactory.Instance.GetFilterSettingDao().GetFilteringWhereClause(comparisonSet.Uid);
+
                 using (var conn = new FbConnection(connectionString))
                 {
                     conn.Open();
-                    const string sql = "SELECT id, entity, object, parent_object, label, property, source, target" +
-                        " FROM delta_report WHERE comparison_set_uid = @comparison_set_uid ORDER BY id";
+                    const string ROOT_SELECT = "SELECT id, entity, object, parent_object, label, property, source, target" +
+                        " FROM delta_report WHERE comparison_set_uid = @comparison_set_uid {0} ORDER BY id";
+                    var sql = String.Format(ROOT_SELECT, filterStatements);
                     var cmd = new FbCommand(sql, conn);
                     cmd.Parameters.AddWithValue("comparison_set_uid", comparisonSet.Uid);
 

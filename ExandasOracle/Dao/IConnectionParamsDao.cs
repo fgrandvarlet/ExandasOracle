@@ -24,5 +24,6 @@ namespace ExandasOracle.Dao
         List<ConnectionParams> GetList();
 
         int GetDependencyCount(ConnectionParams cp);
+
     }
 }

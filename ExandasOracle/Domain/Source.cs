@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ExandasOracle.Domain
+﻿namespace ExandasOracle.Domain
 {
     public class Source
     {
@@ -10,5 +6,6 @@ namespace ExandasOracle.Domain
         public string Type { get; set; }
         public decimal Line { get; set; }
         public string Text { get; set; }
+
     }
 }

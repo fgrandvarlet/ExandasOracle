@@ -4,7 +4,6 @@ using FirebirdSql.Data.FirebirdClient;
 
 using ExandasOracle.Dao;
 using ExandasOracle.Domain;
-using ExandasOracle.Properties;
 
 namespace ExandasOracle.Core
 {

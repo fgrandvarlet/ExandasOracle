@@ -16,9 +16,6 @@ namespace ExandasOracle.Dao.Firebird
         {
             var comparisonSet = (ComparisonSet)criteria.Entity;
             var filterStatements = DaoFactory.Instance.GetFilterSettingDao().GetFilteringWhereClause(comparisonSet.Uid);
-            // TODO A FINALISER
-
-            System.Windows.Forms.MessageBox.Show(filterStatements);
 
             string sql;
             const string ROOT_SELECT = "SELECT id, entity, object, parent_object, label, property, source, target" +
