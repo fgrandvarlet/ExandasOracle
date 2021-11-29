@@ -14,6 +14,7 @@ CREATE TABLE filter_setting
 );
 
 CREATE INDEX filter_setting_idx1 ON filter_setting(comparison_set_uid);
+CREATE UNIQUE INDEX filter_setting_idu1 ON filter_setting(comparison_set_uid, entity, label_id, property);
 
 
 SET TERM ^ ;

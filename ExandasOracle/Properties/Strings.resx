@@ -123,6 +123,9 @@
   <data name="AboutMenu" xml:space="preserve">
     <value>&amp;About...</value>
   </data>
+  <data name="ActivateAddition" xml:space="preserve">
+    <value>Activate the addition of a record</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -263,6 +266,9 @@
   </data>
   <data name="FileSizeColon" xml:space="preserve">
     <value>File size : </value>
+  </data>
+  <data name="FilterSettings" xml:space="preserve">
+    <value>Filter settings</value>
   </data>
   <data name="ForeignKeys" xml:space="preserve">
     <value>foreign keys</value>
@@ -422,6 +428,9 @@
   </data>
   <data name="RestoringLocalDatabase" xml:space="preserve">
     <value>Restoring the local database</value>
+  </data>
+  <data name="SaveTheFilterSettings" xml:space="preserve">
+    <value>Save the filter settings applicable to the comparison set here to exclude matching rows in the comparison report.</value>
   </data>
   <data name="Schema" xml:space="preserve">
     <value>Schema</value>

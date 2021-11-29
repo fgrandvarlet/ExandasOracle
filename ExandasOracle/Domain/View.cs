@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 using ExandasOracle.Core;
 using ExandasOracle.Dao;
-using ExandasOracle.Properties;
 
 namespace ExandasOracle.Domain
 {
@@ -43,6 +42,7 @@ namespace ExandasOracle.Domain
                     comparisonSetUid, ENTITY, this.ViewName, null, LabelId.PropertyDifference, "TEXT_VC", this.TextVC, target.TextVC
                     ));
             }
+            // TODO TESTER CINEMATIQUE
             else if (this.Text != target.Text)
             {
                 list.Add(new DeltaReport(

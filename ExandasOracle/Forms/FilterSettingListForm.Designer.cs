@@ -45,16 +45,16 @@ namespace ExandasOracle.Forms
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(916, 52);
+            this.topPanel.Size = new System.Drawing.Size(803, 52);
             this.topPanel.TabIndex = 1;
             // 
             // bottomPanel
             // 
             this.bottomPanel.Controls.Add(this.bottomFlowLayoutPanel);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomPanel.Location = new System.Drawing.Point(0, 404);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 349);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(916, 73);
+            this.bottomPanel.Size = new System.Drawing.Size(803, 73);
             this.bottomPanel.TabIndex = 2;
             // 
             // bottomFlowLayoutPanel
@@ -66,13 +66,13 @@ namespace ExandasOracle.Forms
             this.bottomFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.bottomFlowLayoutPanel.Name = "bottomFlowLayoutPanel";
             this.bottomFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.bottomFlowLayoutPanel.Size = new System.Drawing.Size(916, 73);
+            this.bottomFlowLayoutPanel.Size = new System.Drawing.Size(803, 73);
             this.bottomFlowLayoutPanel.TabIndex = 0;
             // 
             // doCancelButton
             // 
             this.doCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.doCancelButton.Location = new System.Drawing.Point(825, 3);
+            this.doCancelButton.Location = new System.Drawing.Point(712, 3);
             this.doCancelButton.Name = "doCancelButton";
             this.doCancelButton.Size = new System.Drawing.Size(80, 23);
             this.doCancelButton.TabIndex = 1;
@@ -82,7 +82,7 @@ namespace ExandasOracle.Forms
             // doOkButton
             // 
             this.doOkButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.doOkButton.Location = new System.Drawing.Point(739, 3);
+            this.doOkButton.Location = new System.Drawing.Point(626, 3);
             this.doOkButton.Name = "doOkButton";
             this.doOkButton.Size = new System.Drawing.Size(80, 23);
             this.doOkButton.TabIndex = 0;
@@ -95,14 +95,14 @@ namespace ExandasOracle.Forms
             this.fillPanel.Location = new System.Drawing.Point(0, 52);
             this.fillPanel.Name = "fillPanel";
             this.fillPanel.Padding = new System.Windows.Forms.Padding(8);
-            this.fillPanel.Size = new System.Drawing.Size(916, 352);
+            this.fillPanel.Size = new System.Drawing.Size(803, 297);
             this.fillPanel.TabIndex = 3;
             // 
             // FilterSettingListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 477);
+            this.ClientSize = new System.Drawing.Size(803, 422);
             this.Controls.Add(this.fillPanel);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topPanel);

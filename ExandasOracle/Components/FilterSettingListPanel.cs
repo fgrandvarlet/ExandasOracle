@@ -28,8 +28,16 @@ namespace ExandasOracle.Components
 
             this.addToolStripButton.Visible = false;
             this.modifyToolStripButton.Visible = false;
-
+            
             this._comparisonSet = comparisonSet;
+
+            // localization
+            this.explanationPanel.Text = Strings.SaveTheFilterSettings;
+            this.mainToolTip.SetToolTip(this.enableLineButton, Strings.ActivateAddition);
+            this.entityLabel.Text = Strings.Entity;
+            this.labelLabel.Text = Strings.Label;
+            this.propertyLabel.Text = Strings.Property;
+            this.addButton.Text = Strings.Add;
         }
 
         private void InitMainDataGridView()
@@ -44,13 +52,13 @@ namespace ExandasOracle.Components
             entityColumn.Name = "entity";
             entityColumn.DataPropertyName = "entity";
             entityColumn.HeaderText = Strings.Entity;
-            entityColumn.Width = 223;
+            entityColumn.Width = 226;
 
             labelColumn = new DataGridViewTextBoxColumn();
             labelColumn.Name = "label";
             labelColumn.DataPropertyName = "label";
             labelColumn.HeaderText = Strings.Label;
-            labelColumn.Width = 223;
+            labelColumn.Width = 226;
 
             propertyColumn = new DataGridViewTextBoxColumn();
             propertyColumn.Name = "property";
@@ -109,17 +117,18 @@ namespace ExandasOracle.Components
         {
             if ((string)entityComboBox.SelectedValue != Defs.EMPTY_ITEM_STRING)
             {
-                EntityReference er = new EntityReference { Entity = (string)entityComboBox.SelectedValue };
-                propertyComboBox.DataSource = Defs.GetPropertyReferenceListByEntity(er);
-                propertyComboBox.ValueMember = "Key";
-                propertyComboBox.DisplayMember = "Value";
-
                 this.labelComboBox.Enabled = true;
+
+                EntityReference er = new EntityReference { Entity = (string)entityComboBox.SelectedValue };
+                this.propertyComboBox.DataSource = Defs.GetPropertyReferenceListByEntity(er);
+                this.propertyComboBox.ValueMember = "Key";
+                this.propertyComboBox.DisplayMember = "Value";
+                                
                 this.addButton.Enabled = true;
             }
             else
             {
-                propertyComboBox.DataSource = null;
+                this.propertyComboBox.DataSource = null;
 
                 this.labelComboBox.Enabled = false;
                 this.addButton.Enabled = false;
@@ -168,15 +177,15 @@ namespace ExandasOracle.Components
             short? labelId = null;
             string property = null;
 
-            if ((string)entityComboBox.SelectedValue != Defs.EMPTY_ITEM_STRING)
+            if ((string)this.entityComboBox.SelectedValue != Defs.EMPTY_ITEM_STRING)
             {
-                entity = (string)entityComboBox.SelectedValue;
-                if ((short)labelComboBox.SelectedValue != Defs.EMPTY_ITEM_SHORT)
+                entity = (string)this.entityComboBox.SelectedValue;
+                if ((short)this.labelComboBox.SelectedValue != Defs.EMPTY_ITEM_SHORT)
                 {
-                    labelId = (short)labelComboBox.SelectedValue;
-                    if ((string)propertyComboBox.SelectedValue != Defs.EMPTY_ITEM_STRING)
+                    labelId = (short)this.labelComboBox.SelectedValue;
+                    if ((string)this.propertyComboBox.SelectedValue != Defs.EMPTY_ITEM_STRING)
                     {
-                        property = (string)propertyComboBox.SelectedValue;
+                        property = (string)this.propertyComboBox.SelectedValue;
                     }
 
                 }
@@ -186,10 +195,12 @@ namespace ExandasOracle.Components
             try
             {
                 DaoFactory.Instance.GetFilterSettingDao().Add(fs);
-                entityComboBox.Enabled = false;
-                labelComboBox.Enabled = false;
-                propertyComboBox.Enabled = false;
-                addButton.Enabled = false;
+                this.entityComboBox.SelectedValue = Defs.EMPTY_ITEM_STRING;
+                this.labelComboBox.SelectedValue = Defs.EMPTY_ITEM_SHORT;
+                this.entityComboBox.Enabled = false;
+                this.labelComboBox.Enabled = false;
+                this.propertyComboBox.Enabled = false;
+                this.addButton.Enabled = false;
                 RunLookup();
             }
             catch (Exception ex)
@@ -209,7 +220,7 @@ namespace ExandasOracle.Components
                     int id = (int)row.Cells[idColumn.Name].Value;
                     FilterSetting fs = DaoFactory.Instance.GetFilterSettingDao().Get(id);
 
-                    string record = string.Format("[ {0} ]", fs.Entity);
+                    string record = string.Format("[ {0} ]", fs.ToString());
                     if (Defs.ConfirmDeleteDialog(record))
                     {
                         DaoFactory.Instance.GetFilterSettingDao().Delete(fs);

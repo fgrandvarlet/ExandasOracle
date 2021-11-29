@@ -72,23 +72,38 @@ namespace ExandasOracle.Dao.Firebird
 			return fs;
 		}
 
-		public void Add(FilterSetting fs)
+		public void Add(FbTransaction tran, FilterSetting fs)
 		{
 			const string sql = "INSERT INTO filter_setting(comparison_set_uid, entity, label_id, label, property)" +
 				" VALUES(@comparison_set_uid, @entity, @label_id, @label, @property)";
 
+			var cmd = new FbCommand(sql, tran.Connection, tran);
+
+			cmd.Parameters.AddWithValue("comparison_set_uid", fs.ComparisonSetUid);
+			cmd.Parameters.AddWithValue("entity", fs.Entity);
+			cmd.Parameters.AddWithValue("label_id", fs.LabelId);
+			cmd.Parameters.AddWithValue("label", fs.Label);
+			cmd.Parameters.AddWithValue("property", fs.Property);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		public void Add(FilterSetting fs)
+		{
 			using (FbConnection conn = GetFirebirdConnection())
 			{
 				conn.Open();
-				var cmd = new FbCommand(sql, conn);
-
-				cmd.Parameters.AddWithValue("comparison_set_uid", fs.ComparisonSetUid);
-				cmd.Parameters.AddWithValue("entity", fs.Entity);
-				cmd.Parameters.AddWithValue("label_id", fs.LabelId);
-				cmd.Parameters.AddWithValue("label", fs.Label);
-				cmd.Parameters.AddWithValue("property", fs.Property);
-
-				cmd.ExecuteNonQuery();
+				FbTransaction tran = conn.BeginTransaction();
+				try
+				{
+					Add(tran, fs);
+					tran.Commit();
+				}
+				catch (Exception)
+				{
+					tran.Rollback();
+					throw;
+				}
 			}
 		}
 
@@ -109,14 +124,22 @@ namespace ExandasOracle.Dao.Firebird
         {
 			var statements = new List<string>();
 
-			foreach (FilterSetting fs in GetList(comparisonSetUid))
+			foreach (FilterSetting fs in GetListByComparisonSetUid(comparisonSetUid))
             {
 				statements.Add(fs.Predicate);
             }
-			return string.Join(" AND ", statements);			
+
+			if (statements.Count > 0)
+            {
+				return string.Format(" AND ({0})", string.Join(" AND ", statements));
+            }
+			else
+            {
+				return string.Empty;
+            }
         }
 
-		private List<FilterSetting> GetList(Guid comparisonSetUid)
+		public List<FilterSetting> GetListByComparisonSetUid(Guid comparisonSetUid)
 		{
 			var list = new List<FilterSetting>();
 

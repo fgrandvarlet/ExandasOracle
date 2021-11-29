@@ -37,12 +37,18 @@ namespace ExandasOracle.Dao.Firebird
 
                     // traitement des ComparisonSet
                     var comparisonSetDao = DaoFactory.Instance.GetComparisonSetDao();
+                    var filterSettingDao = DaoFactory.Instance.GetFilterSettingDao();
                     foreach (ComparisonSet comparisonSet in pd.ComparisonSetList)
                     {
                         var cs = comparisonSetDao.Get(comparisonSet.Uid);
                         if (cs == null)
                         {
                             comparisonSetDao.Add(tran, comparisonSet);
+                            // traitement des FilterSetting
+                            foreach (FilterSetting filterSetting in comparisonSet.FilterSettings)
+                            {
+                                filterSettingDao.Add(tran, filterSetting);
+                            }
                         }
                     }
 

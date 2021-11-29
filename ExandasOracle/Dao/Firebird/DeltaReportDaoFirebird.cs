@@ -18,10 +18,12 @@ namespace ExandasOracle.Dao.Firebird
             var filterStatements = DaoFactory.Instance.GetFilterSettingDao().GetFilteringWhereClause(comparisonSet.Uid);
             // TODO A FINALISER
 
+            System.Windows.Forms.MessageBox.Show(filterStatements);
+
             string sql;
             const string ROOT_SELECT = "SELECT id, entity, object, parent_object, label, property, source, target" +
                 " FROM delta_report WHERE comparison_set_uid = @comparison_set_uid" +
-                " {0} ORDER BY id";
+                " {0} {1} ORDER BY id";
 
             var cmd = new FbCommand();
 
@@ -30,14 +32,14 @@ namespace ExandasOracle.Dao.Firebird
                 const string WHERE_CLAUSE = "AND (upper(entity) LIKE @pattern OR upper(object) LIKE @pattern OR upper(parent_object) LIKE @pattern OR upper(label) LIKE @pattern" +
                     " OR upper(property) LIKE @pattern)";
 
-                sql = String.Format(ROOT_SELECT, WHERE_CLAUSE);
+                sql = String.Format(ROOT_SELECT, filterStatements, WHERE_CLAUSE);
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("comparison_set_uid", comparisonSet.Uid);
                 cmd.Parameters.AddWithValue("pattern", criteria.Pattern.ToUpper());
             }
             else
             {
-                sql = String.Format(ROOT_SELECT, string.Empty);
+                sql = String.Format(ROOT_SELECT, filterStatements, string.Empty);
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("comparison_set_uid", comparisonSet.Uid);
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace ExandasOracle.Domain
@@ -36,6 +37,8 @@ namespace ExandasOracle.Domain
                 }
             }
         }
+
+        public List<FilterSetting> FilterSettings { get; set; }
         
     }
 }

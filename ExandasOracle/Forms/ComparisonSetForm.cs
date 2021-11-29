@@ -42,6 +42,7 @@ namespace ExandasOracle.Forms
             // localization
             this.nameLabel.Text = Strings.ComparisonSetName;
             this.lastReportTimeLabel.Text = Strings.LastComparisonReport;
+            this.filteringButton.Text = Strings.FilterSettings;
             this.deltaReportButton.Text = Strings.ViewComparisonReport;
             this.generateReportButton.Text = Strings.GenerateComparisonReport;
         }
@@ -79,6 +80,7 @@ namespace ExandasOracle.Forms
             else
             {
                 deltaReportButton.Enabled = false;
+                filteringButton.Enabled = false;
             }
 
             // gestionnaires d'évènement
@@ -210,6 +212,7 @@ namespace ExandasOracle.Forms
                 _dataFormManager.Updating = false;
                 bottomCommandPanel.doApplyButton.Enabled = false;
                 _dataFormManager.Updated = true;
+                filteringButton.Enabled = true;
                 result = true;
             }
             catch (Exception ex)

@@ -32,6 +32,8 @@ namespace ExandasOracle.Components
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.explanationPanel = new System.Windows.Forms.Label();
+            this.innerTopPanel = new System.Windows.Forms.Panel();
             this.addButton = new System.Windows.Forms.Button();
             this.propertyLabel = new System.Windows.Forms.Label();
             this.propertyComboBox = new System.Windows.Forms.ComboBox();
@@ -59,6 +61,8 @@ namespace ExandasOracle.Components
             // 
             // topPanel
             // 
+            this.topPanel.Controls.Add(this.explanationPanel);
+            this.topPanel.Controls.Add(this.innerTopPanel);
             this.topPanel.Controls.Add(this.addButton);
             this.topPanel.Controls.Add(this.propertyLabel);
             this.topPanel.Controls.Add(this.propertyComboBox);
@@ -71,12 +75,32 @@ namespace ExandasOracle.Components
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(845, 144);
+            this.topPanel.Size = new System.Drawing.Size(818, 167);
             this.topPanel.TabIndex = 2;
+            // 
+            // explanationPanel
+            // 
+            this.explanationPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.explanationPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.explanationPanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.explanationPanel.Location = new System.Drawing.Point(0, 47);
+            this.explanationPanel.Name = "explanationPanel";
+            this.explanationPanel.Size = new System.Drawing.Size(818, 34);
+            this.explanationPanel.TabIndex = 10;
+            this.explanationPanel.Text = "explanationPanel";
+            this.explanationPanel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // innerTopPanel
+            // 
+            this.innerTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.innerTopPanel.Location = new System.Drawing.Point(0, 23);
+            this.innerTopPanel.Name = "innerTopPanel";
+            this.innerTopPanel.Size = new System.Drawing.Size(818, 24);
+            this.innerTopPanel.TabIndex = 9;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(719, 65);
+            this.addButton.Location = new System.Drawing.Point(719, 116);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 5;
@@ -86,7 +110,7 @@ namespace ExandasOracle.Components
             // 
             // propertyLabel
             // 
-            this.propertyLabel.Location = new System.Drawing.Point(490, 48);
+            this.propertyLabel.Location = new System.Drawing.Point(490, 99);
             this.propertyLabel.Name = "propertyLabel";
             this.propertyLabel.Size = new System.Drawing.Size(124, 15);
             this.propertyLabel.TabIndex = 7;
@@ -97,14 +121,14 @@ namespace ExandasOracle.Components
             this.propertyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.propertyComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.propertyComboBox.FormattingEnabled = true;
-            this.propertyComboBox.Location = new System.Drawing.Point(493, 66);
+            this.propertyComboBox.Location = new System.Drawing.Point(493, 117);
             this.propertyComboBox.Name = "propertyComboBox";
             this.propertyComboBox.Size = new System.Drawing.Size(220, 23);
             this.propertyComboBox.TabIndex = 4;
             // 
             // labelLabel
             // 
-            this.labelLabel.Location = new System.Drawing.Point(264, 48);
+            this.labelLabel.Location = new System.Drawing.Point(264, 99);
             this.labelLabel.Name = "labelLabel";
             this.labelLabel.Size = new System.Drawing.Size(124, 15);
             this.labelLabel.TabIndex = 5;
@@ -115,7 +139,7 @@ namespace ExandasOracle.Components
             this.labelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.labelComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.labelComboBox.FormattingEnabled = true;
-            this.labelComboBox.Location = new System.Drawing.Point(267, 66);
+            this.labelComboBox.Location = new System.Drawing.Point(267, 117);
             this.labelComboBox.Name = "labelComboBox";
             this.labelComboBox.Size = new System.Drawing.Size(220, 23);
             this.labelComboBox.TabIndex = 3;
@@ -125,7 +149,7 @@ namespace ExandasOracle.Components
             // 
             this.enableLineButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.enableLineButton.Image = global::ExandasOracle.Properties.Resources.B16x16_Folder_Inbox;
-            this.enableLineButton.Location = new System.Drawing.Point(5, 66);
+            this.enableLineButton.Location = new System.Drawing.Point(5, 117);
             this.enableLineButton.Name = "enableLineButton";
             this.enableLineButton.Size = new System.Drawing.Size(30, 23);
             this.enableLineButton.TabIndex = 1;
@@ -136,7 +160,7 @@ namespace ExandasOracle.Components
             // 
             // entityLabel
             // 
-            this.entityLabel.Location = new System.Drawing.Point(38, 48);
+            this.entityLabel.Location = new System.Drawing.Point(38, 99);
             this.entityLabel.Name = "entityLabel";
             this.entityLabel.Size = new System.Drawing.Size(124, 15);
             this.entityLabel.TabIndex = 2;
@@ -147,7 +171,7 @@ namespace ExandasOracle.Components
             this.entityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.entityComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.entityComboBox.FormattingEnabled = true;
-            this.entityComboBox.Location = new System.Drawing.Point(41, 66);
+            this.entityComboBox.Location = new System.Drawing.Point(41, 117);
             this.entityComboBox.Name = "entityComboBox";
             this.entityComboBox.Size = new System.Drawing.Size(220, 23);
             this.entityComboBox.TabIndex = 2;
@@ -160,7 +184,7 @@ namespace ExandasOracle.Components
             this.titleLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.titleLabel.Location = new System.Drawing.Point(0, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(845, 23);
+            this.titleLabel.Size = new System.Drawing.Size(818, 23);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "titleLabel";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -170,9 +194,9 @@ namespace ExandasOracle.Components
             this.fillPanel.Controls.Add(this.mainDataGridView);
             this.fillPanel.Controls.Add(this.actionToolStrip);
             this.fillPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fillPanel.Location = new System.Drawing.Point(0, 144);
+            this.fillPanel.Location = new System.Drawing.Point(0, 167);
             this.fillPanel.Name = "fillPanel";
-            this.fillPanel.Size = new System.Drawing.Size(845, 295);
+            this.fillPanel.Size = new System.Drawing.Size(818, 272);
             this.fillPanel.TabIndex = 3;
             // 
             // mainDataGridView
@@ -197,7 +221,7 @@ namespace ExandasOracle.Components
             this.mainDataGridView.ReadOnly = true;
             this.mainDataGridView.RowTemplate.Height = 25;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(845, 270);
+            this.mainDataGridView.Size = new System.Drawing.Size(818, 247);
             this.mainDataGridView.TabIndex = 1;
             // 
             // actionToolStrip
@@ -212,7 +236,7 @@ namespace ExandasOracle.Components
             this.refreshToolStripButton});
             this.actionToolStrip.Location = new System.Drawing.Point(0, 0);
             this.actionToolStrip.Name = "actionToolStrip";
-            this.actionToolStrip.Size = new System.Drawing.Size(845, 25);
+            this.actionToolStrip.Size = new System.Drawing.Size(818, 25);
             this.actionToolStrip.TabIndex = 0;
             this.actionToolStrip.Text = "toolStrip1";
             // 
@@ -279,7 +303,7 @@ namespace ExandasOracle.Components
             this.Controls.Add(this.topPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FilterSettingListPanel";
-            this.Size = new System.Drawing.Size(845, 439);
+            this.Size = new System.Drawing.Size(818, 439);
             this.Load += new System.EventHandler(this.FilterSettingListPanel_Load);
             this.topPanel.ResumeLayout(false);
             this.fillPanel.ResumeLayout(false);
@@ -313,5 +337,7 @@ namespace ExandasOracle.Components
         private System.Windows.Forms.Label labelLabel;
         private System.Windows.Forms.ComboBox labelComboBox;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Label explanationPanel;
+        private System.Windows.Forms.Panel innerTopPanel;
     }
 }

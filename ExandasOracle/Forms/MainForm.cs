@@ -252,6 +252,7 @@ namespace ExandasOracle.Forms
 
         private void Debug1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // TODO TEMP SUPPRIMER
             FilterSetting filterSetting = new FilterSetting();
             filterSetting.Entity = "TABLE";
             filterSetting.Property = "COLUMN'ID";
@@ -268,6 +269,7 @@ namespace ExandasOracle.Forms
 
         private void Debug2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // TODO TEMP SUPPRIMER
             LabelId labelId = LabelId.ObjectInTargetNotInSource;
 
             try

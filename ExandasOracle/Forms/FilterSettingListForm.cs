@@ -24,7 +24,7 @@ namespace ExandasOracle.Forms
         {
             InitializeComponent();
 
-            this.Size = new Size(900, 800);
+            this.Size = new Size(870, 782);
 
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;

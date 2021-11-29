@@ -79,6 +79,15 @@ namespace ExandasOracle.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Activate the addition of a record.
+        /// </summary>
+        internal static string ActivateAddition {
+            get {
+                return ResourceManager.GetString("ActivateAddition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Add.
         /// </summary>
         internal static string Add {
@@ -498,6 +507,15 @@ namespace ExandasOracle.Properties {
         internal static string FileSizeColon {
             get {
                 return ResourceManager.GetString("FileSizeColon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Filter settings.
+        /// </summary>
+        internal static string FilterSettings {
+            get {
+                return ResourceManager.GetString("FilterSettings", resourceCulture);
             }
         }
         
@@ -975,6 +993,15 @@ namespace ExandasOracle.Properties {
         internal static string RestoringLocalDatabase {
             get {
                 return ResourceManager.GetString("RestoringLocalDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Save the filter settings applicable to the comparison set here to exclude matching rows in the comparison report..
+        /// </summary>
+        internal static string SaveTheFilterSettings {
+            get {
+                return ResourceManager.GetString("SaveTheFilterSettings", resourceCulture);
             }
         }
         

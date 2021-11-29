@@ -123,6 +123,9 @@
   <data name="AboutMenu" xml:space="preserve">
     <value>&amp;A propos...</value>
   </data>
+  <data name="ActivateAddition" xml:space="preserve">
+    <value>Activer l'ajout d'un enregistrement</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Ajouter</value>
   </data>
@@ -263,6 +266,9 @@
   </data>
   <data name="FileSizeColon" xml:space="preserve">
     <value>Taille du fichier : </value>
+  </data>
+  <data name="FilterSettings" xml:space="preserve">
+    <value>Paramètres de filtrage</value>
   </data>
   <data name="ForeignKeys" xml:space="preserve">
     <value>clés étrangères</value>
@@ -422,6 +428,9 @@
   </data>
   <data name="RestoringLocalDatabase" xml:space="preserve">
     <value>Restauration de la base de données locale</value>
+  </data>
+  <data name="SaveTheFilterSettings" xml:space="preserve">
+    <value>Enregistrez ici les paramètres de filtrage applicables au jeu de comparaison pour exclure les lignes correspondantes dans le rapport de comparaison.</value>
   </data>
   <data name="Schema" xml:space="preserve">
     <value>Schéma</value>

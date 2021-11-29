@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 using ExandasOracle.Core;
 using ExandasOracle.Dao;
@@ -35,13 +36,11 @@ namespace ExandasOracle.Domain
         public string Label { get; set; }
         public string Property { get; set; }
 
+        [JsonIgnore]
         public string Predicate
         {
             get
             {
-                // TODO à utiliser pour concaténer les prédicats
-                // string.Join
-
                 string result;
 
                 if (this.LabelId == Defs.PROPERTY_DIFFERENCE)
@@ -73,6 +72,22 @@ namespace ExandasOracle.Domain
                     throw new InvalidOperationException();
                 }
                 return result;
+            }
+        }
+
+        public override string ToString()
+        {
+            if (Entity != null && Label != null && Property != null)
+            {
+                return string.Format("{0} | {1} | {2}", Entity, Label, Property);
+            }
+            else if (Entity != null && Label != null)
+            {
+                return string.Format("{0} | {1}", Entity, Label);
+            }
+            else
+            {
+                return Entity;
             }
         }
 

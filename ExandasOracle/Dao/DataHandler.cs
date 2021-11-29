@@ -1,5 +1,8 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Text.Json;
+
+using ExandasOracle.Domain;
 
 namespace ExandasOracle.Dao
 {
@@ -13,7 +16,13 @@ namespace ExandasOracle.Dao
             parameterData.ConnectionParamsList = connectionParamsDao.GetList();
 
             var comparisonSetDao = DaoFactory.Instance.GetComparisonSetDao();
-            parameterData.ComparisonSetList = comparisonSetDao.GetList();
+            var filterSettingDao = DaoFactory.Instance.GetFilterSettingDao();
+            List<ComparisonSet> comparisonSets = comparisonSetDao.GetList();
+            foreach (ComparisonSet cs in comparisonSets)
+            {
+                cs.FilterSettings = filterSettingDao.GetListByComparisonSetUid(cs.Uid);
+            }
+            parameterData.ComparisonSetList = comparisonSets;
 
             return parameterData;
         }
